@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "V3Nkg2508zdfFwoW1+1WaCvdBsO3eqk8AUcUWem4Gz6VicBGnJsXnY9RNuXxqh5bt6TGsoxiyKrPJMqD1lA85Q==",
+  "success": true,
+  "projectFilePath": "C:\\Solinneg\\Portal-MovilEsales\\Portal-MovilEsales.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\LVW97Y655\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.18.1\\microsoft.visualstudio.azure.containers.tools.targets.1.18.1.nupkg.sha512"
+  ],
+  "logs": []
+}
