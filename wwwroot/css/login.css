@@ -1,0 +1,60 @@
+﻿body {
+    background-image: url('../assets/images/pier-lake-hallstatt-austria.jpg');
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el fondo */
+    background-position: center; /* Centra la imagen en el fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+
+.login-containers{
+    display: flex;
+    width: 596px;
+    height: 578px;
+    padding: 23px 0px 40px 0px;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.50);
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.40);
+    backdrop-filter: blur(30px);
+}
+
+.subcontainer {
+    display: flex;
+    height: 385px;
+    width: 460px;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    flex-shrink: 0;
+}
+
+.title {
+    color: var(--Bekaert-Orange, #FF602C);
+    /* Headline/Headline Medium */
+    font-family: Bekaert Headline;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 36px; /* 128.571% */
+}
+.input-style {
+    border-radius: 8px;
+    width: 80%;
+    background: #FFF;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.button-layout {
+    display: flex;
+    width: 131px;
+    height: 34px;
+    padding: 10px;
+    justify-content: center;
+  
+    align-items: center;
+}
+.button-style {
+    border-radius: 5px;
+    background: var(--Bekaert-Lake, #69A5BD);
+}

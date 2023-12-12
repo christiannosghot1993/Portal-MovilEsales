@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Solinneg\\Portal-MovilEsales\\Portal-MovilEsales.csproj": {}
+    "C:\\KRUGER\\Portal-MovilEsales\\Portal-MovilEsales.csproj": {}
   },
   "projects": {
-    "C:\\Solinneg\\Portal-MovilEsales\\Portal-MovilEsales.csproj": {
+    "C:\\KRUGER\\Portal-MovilEsales\\Portal-MovilEsales.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Solinneg\\Portal-MovilEsales\\Portal-MovilEsales.csproj",
+        "projectUniqueName": "C:\\KRUGER\\Portal-MovilEsales\\Portal-MovilEsales.csproj",
         "projectName": "Portal-MovilEsales",
-        "projectPath": "C:\\Solinneg\\Portal-MovilEsales\\Portal-MovilEsales.csproj",
+        "projectPath": "C:\\KRUGER\\Portal-MovilEsales\\Portal-MovilEsales.csproj",
         "packagesPath": "C:\\Users\\LVW97Y655\\.nuget\\packages\\",
-        "outputPath": "C:\\Solinneg\\Portal-MovilEsales\\obj\\",
+        "outputPath": "C:\\KRUGER\\Portal-MovilEsales\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -49,6 +49,10 @@
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
               "version": "[1.18.1, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[7.0.11, )"
             }
           },
           "imports": [
