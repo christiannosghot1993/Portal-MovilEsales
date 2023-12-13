@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using Portal_MovilEsales.Models;
 
 namespace Portal_MovilEsales.Controllers
 {
@@ -9,6 +11,44 @@ namespace Portal_MovilEsales.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ProcesarFormulario([FromForm(Name = "g-recaptcha-response")] string gRecaptchaResponse)
+        {
+            if (string.IsNullOrEmpty(gRecaptchaResponse))
+            {
+                // No se proporcionó el token reCAPTCHA
+                return Content("Error: No se proporcionó el token reCAPTCHA.");
+            }
+
+            string recaptchaSecretKey = "6Ld_VzApAAAAAMpEXARtyVwWW5GlgwR27b7ffmfm";
+            string recaptchaUrl = "https://www.google.com/recaptcha/api/siteverify";
+
+            using (var httpClient = new HttpClient())
+            {
+                var postData = new Dictionary<string, string>
+            {
+                { "secret", recaptchaSecretKey },
+                { "response", gRecaptchaResponse }
+            };
+
+                var response = await httpClient.PostAsync(recaptchaUrl, new FormUrlEncodedContent(postData));
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var captchaResponse = JsonConvert.DeserializeObject<CaptchaResponse>(responseContent);
+                
+
+                if (captchaResponse.success)
+                {
+                    // reCAPTCHA válido, puedes procesar el formulario aquí
+                    return Content("reCAPTCHA válido. Procesa el formulario.");
+                }
+                else
+                {
+                    // reCAPTCHA no válido, muestra un mensaje de error
+                    return Content("Error: reCAPTCHA no válido.");
+                }
+            }
         }
 
         // GET: LoginController/Details/5

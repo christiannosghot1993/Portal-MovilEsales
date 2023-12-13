@@ -1,32 +1,30 @@
 ﻿body {
     background-image: url('../assets/images/pier-lake-hallstatt-austria.jpg');
-    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el fondo */
-    background-position: center; /* Centra la imagen en el fondo */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
-.login-containers{
-    display: flex;
-    width: 596px;
-    height: 578px;
-    padding: 23px 0px 40px 0px;
-    flex-direction: column;
-    align-items: center;
-    gap: 50px;
-    flex-shrink: 0;
+
+.login-containers {
     background: rgba(255, 255, 255, 0.50);
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.40);
     backdrop-filter: blur(30px);
+    width: 30%; /* Agrega un ancho a login-containers */
+    margin: auto; /* Centra login-containers */
 }
 
 .subcontainer {
     display: flex;
-    height: 385px;
-    width: 460px;
+    margin: 0px 80px;
     flex-direction: column;
     align-items: center;
     gap: 18px;
-    flex-shrink: 0;
+    
+}
+
+.title-container{
+    align-self:start;
 }
 
 .title {
@@ -40,21 +38,47 @@
 }
 .input-style {
     border-radius: 8px;
-    width: 80%;
+    width: 100%;
     background: #FFF;
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-.button-layout {
-    display: flex;
-    width: 131px;
-    height: 34px;
-    padding: 10px;
-    justify-content: center;
-  
-    align-items: center;
-}
+
 .button-style {
     border-radius: 5px;
     background: var(--Bekaert-Lake, #69A5BD);
+    width:50%;
+    margin-bottom: 10px;
+    align-self:center;
+}
+
+.label-password-forgot {
+    display: flex;
+    align-self: flex-end;
+}
+form {
+   display: flex;
+   flex-direction:column;
+   margin-bottom:50px;
+}
+
+.logo{
+    display:flex;
+    justify-content:center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+/* Consulta de medios para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    .login-containers {
+        width: 90%; /* Cambia el ancho a 90% en pantallas pequeñas */
+    }
+}
+
+/* Consulta de medios para pantallas medianas */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .login-containers {
+        width: 50%; /* Cambia el ancho a 50% en pantallas medianas */
+    }
 }
