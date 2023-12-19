@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\css\\login.css"
     },
     {
+      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\css\\loginB.css",
+      "PackagePath": "staticwebassets\\css\\loginB.css"
+    },
+    {
       "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

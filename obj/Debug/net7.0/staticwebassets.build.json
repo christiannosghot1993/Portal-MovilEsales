@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "fQu9LIYh7GOXjlbVn6B188akG/dJoLVw/+uvUJhpf2I=",
+  "Hash": "8Ktlq26SW26GkrkyQCMS0RkOiZXzMvYoJQ3ZxsDuyek=",
   "Source": "Portal-MovilEsales",
   "BasePath": "_content/Portal-MovilEsales",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\login.css"
+    },
+    {
+      "Identity": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\css\\loginB.css",
+      "SourceId": "Portal-MovilEsales",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\",
+      "BasePath": "_content/Portal-MovilEsales",
+      "RelativePath": "css/loginB.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\loginB.css"
     },
     {
       "Identity": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\css\\site.css",
