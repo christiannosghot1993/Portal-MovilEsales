@@ -5,8 +5,40 @@
       "PackagePath": "staticwebassets\\Portal-MovilEsales.bundle.scp.css"
     },
     {
+      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\images\\Rectangle.png",
+      "PackagePath": "staticwebassets\\assets\\images\\Rectangle.png"
+    },
+    {
+      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\images\\image 1.png",
+      "PackagePath": "staticwebassets\\assets\\images\\image 1.png"
+    },
+    {
+      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\images\\image 2.png",
+      "PackagePath": "staticwebassets\\assets\\images\\image 2.png"
+    },
+    {
+      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\images\\image 3.png",
+      "PackagePath": "staticwebassets\\assets\\images\\image 3.png"
+    },
+    {
+      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\images\\image 4.png",
+      "PackagePath": "staticwebassets\\assets\\images\\image 4.png"
+    },
+    {
+      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\images\\image 5.png",
+      "PackagePath": "staticwebassets\\assets\\images\\image 5.png"
+    },
+    {
       "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\images\\pier-lake-hallstatt-austria.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\pier-lake-hallstatt-austria.jpg"
+    },
+    {
+      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\css\\layout.css",
+      "PackagePath": "staticwebassets\\css\\layout.css"
+    },
+    {
+      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\css\\layoutB.css",
+      "PackagePath": "staticwebassets\\css\\layoutB.css"
     },
     {
       "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\css\\login.css",
@@ -15,6 +47,10 @@
     {
       "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\css\\loginB.css",
       "PackagePath": "staticwebassets\\css\\loginB.css"
+    },
+    {
+      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\css\\loginC.css",
+      "PackagePath": "staticwebassets\\css\\loginC.css"
     },
     {
       "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\css\\site.css",
