@@ -29,8 +29,8 @@
       "PackagePath": "staticwebassets\\assets\\images\\image 5.png"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\images\\pier-lake-hallstatt-austria.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\pier-lake-hallstatt-austria.jpg"
+      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\images\\login-bg.png",
+      "PackagePath": "staticwebassets\\assets\\images\\login-bg.png"
     },
     {
       "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\css\\layout.css",
@@ -43,14 +43,6 @@
     {
       "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\css\\login.css",
       "PackagePath": "staticwebassets\\css\\login.css"
-    },
-    {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\css\\loginB.css",
-      "PackagePath": "staticwebassets\\css\\loginB.css"
-    },
-    {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\css\\loginC.css",
-      "PackagePath": "staticwebassets\\css\\loginC.css"
     },
     {
       "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\css\\site.css",

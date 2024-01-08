@@ -1,5 +1,5 @@
 ﻿body {
-    background-image: url('../assets/images/pier-lake-hallstatt-austria.jpg');
+    background-image: url('../assets/images/login-bg.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -46,15 +46,19 @@
 
 .button-style {
     border-radius: 5px;
-    background: var(--Bekaert-Lake, #69A5BD);
+    border: 0;
+    background-color: #69A5BD;
     width:50%;
     margin-bottom: 10px;
-    align-self:center;
+    align-self: center;
+    color: white;
+    padding: 5px;
 }
 
 .label-password-forgot {
     display: flex;
     align-self: flex-end;
+    
 }
 form {
    display: flex;

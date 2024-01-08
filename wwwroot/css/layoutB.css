@@ -3,10 +3,6 @@
     padding: 0;
 }
 
-.contenedor {
-    display: flex;
-}
-
 .sidebar {
     width: 200px;
     height: 100%; /* Establece la altura del sidebar al 100% de la altura de la ventana */
@@ -21,8 +17,13 @@
 }
 
 .content {
-    padding: 16px;
+    padding: 120px 16px 16px 16px;
     margin-left: 225px;
+}
+
+.header-container{
+    width: 100%;
+    position:fixed;
 }
 
 .bg-header {
@@ -30,10 +31,10 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 150px;
+    height: 200px;
     display: flex;
     justify-content: flex-end;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .logo {
@@ -64,12 +65,7 @@ li {
 }
 
 .close-menu {
-    background-color: transparent;
-    border: none;
-    color: #333; /* Color del texto */
-    font-size: 30px;
-    outline: none;
-    transition: color 0.3s;
+    display: none;
 }
 
 .whatsapp {
@@ -80,7 +76,15 @@ li {
 .toogle{
     display:none;
 }
-
+@media only screen and (min-width:769px){
+    .sidebar {
+        width: 200px !important;
+        margin-left: 20px !important;
+    }
+    .content {
+        margin-left: 225px !important;
+    }
+}
 @media only screen and (max-width:  768px){
     .sidebar {
         width:0;
@@ -93,8 +97,25 @@ li {
         display: none;
     }
 
+    .close-menu {
+        display:inherit;
+        background-color: transparent;
+        border: none;
+        color: #333; /* Color del texto */
+        font-size: larger;
+    }
+
     .toogle{
         display: inherit;
+        margin-top:10px;
+        margin-right:10px;
+    }
+
+    .toogle button{
+        background-color:transparent;
+        border: none;
+        color: white;
+        font-size:25px;
     }
 
     /*.content {

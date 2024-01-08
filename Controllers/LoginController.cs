@@ -13,11 +13,6 @@ namespace Portal_MovilEsales.Controllers
             return View();
         }
 
-        public ActionResult LoginB()
-        {
-            return View();
-        }
-
         [HttpPost]
         public async Task<IActionResult> ProcesarFormulario([FromForm(Name = "g-recaptcha-response")] string gRecaptchaResponse)
         {
@@ -46,7 +41,7 @@ namespace Portal_MovilEsales.Controllers
                 if (captchaResponse.success)
                 {
                     // reCAPTCHA válido, puedes procesar el formulario aquí
-                    return Content("reCAPTCHA válido. Procesa el formulario.");
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {

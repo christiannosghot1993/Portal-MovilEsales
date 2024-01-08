@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "5Jt+nS3ySwq7RlZRR7oE6GdMkIKcA4JQoHUFUrFRJdA=",
+  "Hash": "aXec8L7+UyfyKjRovopFvSmyn+6Y2v3H0bLZAxQPMHM=",
   "Source": "Portal-MovilEsales",
   "BasePath": "_content/Portal-MovilEsales",
   "Mode": "Default",
@@ -136,12 +136,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\image 5.png"
     },
     {
-      "Identity": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\images\\pier-lake-hallstatt-austria.jpg",
+      "Identity": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\images\\login-bg.png",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
-      "RelativePath": "assets/images/pier-lake-hallstatt-austria.jpg",
+      "RelativePath": "assets/images/login-bg.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -150,7 +150,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\images\\pier-lake-hallstatt-austria.jpg"
+      "OriginalItemSpec": "wwwroot\\assets\\images\\login-bg.png"
     },
     {
       "Identity": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\images\\Rectangle.png",
@@ -219,40 +219,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\login.css"
-    },
-    {
-      "Identity": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\css\\loginB.css",
-      "SourceId": "Portal-MovilEsales",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\",
-      "BasePath": "_content/Portal-MovilEsales",
-      "RelativePath": "css/loginB.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\loginB.css"
-    },
-    {
-      "Identity": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\css\\loginC.css",
-      "SourceId": "Portal-MovilEsales",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\",
-      "BasePath": "_content/Portal-MovilEsales",
-      "RelativePath": "css/loginC.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\loginC.css"
     },
     {
       "Identity": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\css\\site.css",
