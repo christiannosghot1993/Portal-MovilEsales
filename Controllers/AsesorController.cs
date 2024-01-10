@@ -8,5 +8,10 @@ namespace Portal_MovilEsales.Controllers
         {
             return View();
         }
+
+        public IActionResult MisClientes()
+        {
+            return View();
+        }
     }
 }

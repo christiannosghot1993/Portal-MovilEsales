@@ -41,6 +41,9 @@
                 <a>INICIO</a>
             </li>
             <li>
+                <a asp-action="MisClientes" asp-controller="Asesor">CLIENTES</a>
+            </li>
+            <li>
                 <a>PEDIDOS</a>
             </li>
             <li>
@@ -128,8 +131,12 @@
     <script>
         function openNav() {
             var sideBar = document.getElementById('mySidebar');
-            sideBar.style.width = '100%';
-            sideBar.style.marginLeft = '0px';
+            sideBar.style.width = '90%';
+            sideBar.style.height='88%';
+            sideBar.style.marginLeft='15px';
+            //sideBar.style.marginRight= '15px';
+            sideBar.style.marginTop = '60px';
+            //sideBar.style.marginBottom = '15px';
         }
 
         function closeNav() {
