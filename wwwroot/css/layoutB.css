@@ -66,6 +66,10 @@ li {
 
 .close-menu {
     display: none;
+    background-color: transparent;
+    border: none;
+    color: white; /* Color del texto */
+    font-size: 25px;
 }
 
 .whatsapp {
@@ -73,10 +77,22 @@ li {
     bottom: 20px;
     left: 20px;
 }
-.toogle{
+
+.toogle {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 25px;
+}
+
+.opcion-salir{
     display:none;
 }
-@media only screen and (min-width:769px){
+
+.mobile-options{
+    display:none;
+}
+@media only screen and (min-width:769px) {
     .sidebar {
         width: 200px !important;
         margin-left: 20px !important;
@@ -88,35 +104,37 @@ li {
     }
 }
 @media only screen and (max-width:  768px){
+    .bg-header{
+        display:inherit;
+        height: 80px;
+    }
+
+    .opcion-salir {
+        display: inherit;
+    }
+
+    .mobile-options {
+        padding: 10px;
+        display: inherit;
+    }
+
+    .logo{
+        display: none;
+    }
+    ul{
+        padding-top:10px;
+    }
+
     .sidebar {
         width:0;
     }
     .content {
+        padding: 58px 16px 16px 16px;
         margin-left: 0;
     }
 
     .informacion-sesion{
         display: none;
     }
-
-    .close-menu {
-        display:inherit;
-        background-color: transparent;
-        border: none;
-        color: #333; /* Color del texto */
-        font-size: larger;
-    }
-
-    .toogle{
-        display: inherit;
-        margin-top:10px;
-        margin-right:10px;
-    }
-
-    .toogle button{
-        background-color:transparent;
-        border: none;
-        color: white;
-        font-size:25px;
-    }
+    
 }
