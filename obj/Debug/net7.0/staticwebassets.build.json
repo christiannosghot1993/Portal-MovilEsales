@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "aXec8L7+UyfyKjRovopFvSmyn+6Y2v3H0bLZAxQPMHM=",
+  "Hash": "xj4ZkhuoBNjYZMqlswXUBgFWJG//3c/vDdp49WgrfCI=",
   "Source": "Portal-MovilEsales",
   "BasePath": "_content/Portal-MovilEsales",
   "Mode": "Default",
@@ -168,6 +168,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\images\\Rectangle.png"
+    },
+    {
+      "Identity": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\css\\CambioContrasenaEmail.css",
+      "SourceId": "Portal-MovilEsales",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\",
+      "BasePath": "_content/Portal-MovilEsales",
+      "RelativePath": "css/CambioContrasenaEmail.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\CambioContrasenaEmail.css"
     },
     {
       "Identity": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\css\\layout.css",

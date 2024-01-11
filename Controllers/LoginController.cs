@@ -13,6 +13,16 @@ namespace Portal_MovilEsales.Controllers
             return View();
         }
 
+        public ActionResult CambioContrasenaEmail()
+        {
+            return View();
+        }
+
+        public ActionResult CambioContrasenaPass()
+        {
+            return View();
+        }
+
         [HttpPost]
         public async Task<IActionResult> ProcesarFormulario([FromForm(Name = "g-recaptcha-response")] string gRecaptchaResponse)
         {

@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets\\assets\\images\\login-bg.png"
     },
     {
+      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\css\\CambioContrasenaEmail.css",
+      "PackagePath": "staticwebassets\\css\\CambioContrasenaEmail.css"
+    },
+    {
       "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\css\\layout.css",
       "PackagePath": "staticwebassets\\css\\layout.css"
     },

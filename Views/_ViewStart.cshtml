@@ -1,6 +1,7 @@
 ﻿@{
-    if (Context.Request.Path != "/") // Ajusta la ruta según tu configuración
+    if (Context.Request.Path != "/" && Context.Request.Path != "/Login/CambioContrasenaEmail" && Context.Request.Path != "/Login/CambioContrasenaPass") // Ajusta la ruta según tu configuración
     {
+        
         Layout = "_LayoutB"; // Desactiva el diseño para la vista de inicio de sesión
     }
 }
