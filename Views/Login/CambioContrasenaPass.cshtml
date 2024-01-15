@@ -6,6 +6,12 @@
     <title>Portal Movil Esales</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/CambioContrasenaEmail.css" />
+    <script>
+        function cancelar() {
+            // Utiliza window.history para volver a la página anterior
+            window.history.back();
+        }
+    </script>
 </head>
 <body>
     <div style="display:flex; justify-content:center; min-height: 100vh;">
@@ -24,31 +30,49 @@
                 </svg>
             </div>
             <div class="subcontainer">
-                <div class="title-container">
-                    <h1 class="title mb-0">¿Olvido su Contraseña?</h1>
-                </div>
-                <div class="text-box">
-                    Ingrese la dirección de correo con la que esta registrada su cuenta para hacer el reseteo de su clave y siga las instrucciones enviadas.
-                </div>
-                <form method="post" asp-controller="Login" asp-action="ProcesarFormulario">
+                
+                <form method="post" asp-controller="Login" asp-action="Index">
+                    <div class="title-container">
+                        <h1 class="title mb-0">Contraseña temporal</h1>
+                    </div>
                     <div class="form-floating input-style mb-3">
-                        <input type="email" class="form-control" id="correo" required>
-                        <label for="correo">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="22" viewBox="0 0 26 22" fill="none">
-                                <path d="M3.4 1.40039H22.6C23.92 1.40039 25 2.48039 25 3.80039V18.2004C25 19.5204 23.92 20.6004 22.6 20.6004H3.4C2.08 20.6004 1 19.5204 1 18.2004V3.80039C1 2.48039 2.08 1.40039 3.4 1.40039Z" stroke="#0F516E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M25 3.80078L13 12.2008L1 3.80078" stroke="#0F516E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <input type="password" class="form-control" id="contrasena-temporal" required>
+                        <label for="cocontrasena-temporalrreo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+                                <path d="M23.7959 1.5459L21.3877 3.9541M21.3877 3.9541L25 7.56639L20.7857 11.7807L17.1734 8.16844M21.3877 3.9541L17.1734 8.16844M12.2245 13.1173C12.8462 13.7307 13.3405 14.4611 13.6788 15.2664C14.0171 16.0716 14.1927 16.9358 14.1957 17.8092C14.1986 18.6826 14.0287 19.548 13.6958 20.3555C13.3629 21.163 12.8736 21.8967 12.256 22.5143C11.6384 23.1319 10.9047 23.6212 10.0972 23.9541C9.28974 24.287 8.42437 24.4568 7.55096 24.4539C6.67754 24.451 5.81334 24.2753 5.00809 23.937C4.20285 23.5987 3.47248 23.1045 2.85903 22.4828C1.65268 21.2337 0.985161 19.5609 1.00025 17.8245C1.01534 16.0881 1.71183 14.427 2.9397 13.1992C4.16757 11.9713 5.82859 11.2748 7.565 11.2597C9.30141 11.2446 10.9743 11.9121 12.2233 13.1185L12.2245 13.1173ZM12.2245 13.1173L17.1734 8.16844" stroke="#0F516E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-                            Correo
+                            Contraseña Temporal
+                        </label>
+                    </div>
+                    <div class="title-container">
+                        <h1 class="title mb-0">Cambie su contraseña</h1>
+                    </div>
+                    <div class="form-floating input-style mb-3">
+                        <input type="password" class="form-control" id="nueva-contrasena" required>
+                        <label for="nueva-contrasena">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+                                <path d="M23.7959 1.5459L21.3877 3.9541M21.3877 3.9541L25 7.56639L20.7857 11.7807L17.1734 8.16844M21.3877 3.9541L17.1734 8.16844M12.2245 13.1173C12.8462 13.7307 13.3405 14.4611 13.6788 15.2664C14.0171 16.0716 14.1927 16.9358 14.1957 17.8092C14.1986 18.6826 14.0287 19.548 13.6958 20.3555C13.3629 21.163 12.8736 21.8967 12.256 22.5143C11.6384 23.1319 10.9047 23.6212 10.0972 23.9541C9.28974 24.287 8.42437 24.4568 7.55096 24.4539C6.67754 24.451 5.81334 24.2753 5.00809 23.937C4.20285 23.5987 3.47248 23.1045 2.85903 22.4828C1.65268 21.2337 0.985161 19.5609 1.00025 17.8245C1.01534 16.0881 1.71183 14.427 2.9397 13.1992C4.16757 11.9713 5.82859 11.2748 7.565 11.2597C9.30141 11.2446 10.9743 11.9121 12.2233 13.1185L12.2245 13.1173ZM12.2245 13.1173L17.1734 8.16844" stroke="#0F516E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            Nueva Contraseña
+                        </label>
+                    </div>
+                    <div class="form-floating input-style mb-3">
+                        <input type="password" class="form-control" id="confirmar-contrasena" required>
+                        <label for="confirmar-contrasena">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+                                <path d="M23.7959 1.5459L21.3877 3.9541M21.3877 3.9541L25 7.56639L20.7857 11.7807L17.1734 8.16844M21.3877 3.9541L17.1734 8.16844M12.2245 13.1173C12.8462 13.7307 13.3405 14.4611 13.6788 15.2664C14.0171 16.0716 14.1927 16.9358 14.1957 17.8092C14.1986 18.6826 14.0287 19.548 13.6958 20.3555C13.3629 21.163 12.8736 21.8967 12.256 22.5143C11.6384 23.1319 10.9047 23.6212 10.0972 23.9541C9.28974 24.287 8.42437 24.4568 7.55096 24.4539C6.67754 24.451 5.81334 24.2753 5.00809 23.937C4.20285 23.5987 3.47248 23.1045 2.85903 22.4828C1.65268 21.2337 0.985161 19.5609 1.00025 17.8245C1.01534 16.0881 1.71183 14.427 2.9397 13.1992C4.16757 11.9713 5.82859 11.2748 7.565 11.2597C9.30141 11.2446 10.9743 11.9121 12.2233 13.1185L12.2245 13.1173ZM12.2245 13.1173L17.1734 8.16844" stroke="#0F516E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            Confirme Contraseña
                         </label>
                     </div>
                     <div class="row">
                         <div class="col-sm-12 col-md-6">
                             <div class="d-flex justify-content-md-end">
-                                <input type="button" value="Cancelar" class="button-style w-sm-100 w-md-50" style="background-color: #69A5BD;" />
+                                <input type="button" value="Cancelar" class="button-style w-sm-100 w-md-50" style="background-color: #69A5BD;" onclick="cancelar()" />
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-6">
-                            <input type="submit" value="Enviar" class="button-style" style="background-color: #0F516E;" />
+                            <input type="submit" value="Modificar" class="button-style" style="background-color: #0F516E;" />
                         </div>
                     </div>
                 </form>
