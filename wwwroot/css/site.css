@@ -20,6 +20,7 @@ html {
 .car-sap-code-container {
     display: flex;
     height: 23px;
+    width: auto;
     padding: 15px;
     align-items: center;
     gap: 11px;
@@ -31,6 +32,7 @@ html {
 
 .card-sap-code-label {
     color: #01ADEF;
+    padding-top: 7px;
     font-size: 11px;
     font-style: normal;
     font-weight: 400;
@@ -48,14 +50,10 @@ html {
 }
 
 .card-informacion-crediticia-container {
-    display: flex;
-    width: 120px;
-    padding: 5px;
-    flex-direction: column;
+    text-align:center;
     gap: 6px;
     border-radius: 5px;
-    border: 1px solid var(--Bekaert-Cyan, #01ADEF);
-    justify-content: center;
+    border: 1px solid #01ADEF;
 }
 
 .card-title {
