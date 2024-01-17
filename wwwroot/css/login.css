@@ -1,4 +1,9 @@
-﻿body {
+﻿@font-face {
+    font-family: 'chris'; 
+    src: url('../assets/fonts/BekaertHeadline-Bold.woff') format('woff');
+}
+
+body {
     background-image: url('../assets/images/login-bg.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -30,11 +35,7 @@
 .title {
     color: var(--Bekaert-Orange, #FF602C);
     /* Headline/Headline Medium */
-    font-family: Bekaert Headline;
-    font-size: 28px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 36px; /* 128.571% */
+    font-family: 'chris';
 }
 .input-style {
     border-radius: 8px;

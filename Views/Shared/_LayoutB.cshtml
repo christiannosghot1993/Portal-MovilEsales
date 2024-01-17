@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿﻿@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@inject IHttpContextAccessor HttpContextAccessor
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -41,7 +44,7 @@
                     <a asp-action="MisClientes" asp-controller="Asesor">CLIENTES</a>
                 </li>
                 <li>
-                    <a>PEDIDOS</a>
+                    <a asp-action="Pedidos" asp-controller="Asesor">PEDIDOS</a>
                 </li>
                 <li>
                     <a>BEKOWEB</a>
@@ -95,7 +98,14 @@
         <div class="header-container">
             <div class="bg-header">
                 <div class="informacion-sesion p-4">
-                    <b style="color:white">Chris</b>
+                        @if (Context.Session.GetString("perfil") != null)
+                        {
+                        <b style="color:white">@Context.Session.GetString("perfil")</b>
+                        }
+                        else
+                        {
+                        <b style="color: white;">Usuario no autenticado</b>
+                        }
                     <svg class="mx-3" width="23" height="30" viewBox="0 0 23 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="01 align center">
                             <path id="Vector" d="M22.8398 30H20.3789V23.6963C20.3779 22.7162 19.9943 21.7767 19.3121 21.0837C18.63 20.3907 17.7051 20.001 16.7404 20H6.79084C5.82615 20.001 4.90125 20.3907 4.21911 21.0837C3.53698 21.7767 3.15332 22.7162 3.15234 23.6963V30H0.691406V23.6963C0.69336 22.0535 1.3366 20.4786 2.48005 19.317C3.62349 18.1554 5.17377 17.502 6.79084 17.5H16.7404C18.3575 17.502 19.9078 18.1554 21.0512 19.317C22.1946 20.4786 22.8379 22.0535 22.8398 23.6963V30Z" fill="white" />

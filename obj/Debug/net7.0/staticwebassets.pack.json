@@ -5,6 +5,62 @@
       "PackagePath": "staticwebassets\\Portal-MovilEsales.bundle.scp.css"
     },
     {
+      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\.DS_Store",
+      "PackagePath": "staticwebassets\\assets\\fonts\\.DS_Store"
+    },
+    {
+      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\._BekaertHeadline-Bold.woff2",
+      "PackagePath": "staticwebassets\\assets\\fonts\\._BekaertHeadline-Bold.woff2"
+    },
+    {
+      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\._BekaertHeadline-Regular.woff2",
+      "PackagePath": "staticwebassets\\assets\\fonts\\._BekaertHeadline-Regular.woff2"
+    },
+    {
+      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\._BekaertText-BoldItalic.woff2",
+      "PackagePath": "staticwebassets\\assets\\fonts\\._BekaertText-BoldItalic.woff2"
+    },
+    {
+      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\._BekaertText-Medium.woff2",
+      "PackagePath": "staticwebassets\\assets\\fonts\\._BekaertText-Medium.woff2"
+    },
+    {
+      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\._BekaertText-Regular.woff2",
+      "PackagePath": "staticwebassets\\assets\\fonts\\._BekaertText-Regular.woff2"
+    },
+    {
+      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertHeadline-Bold.woff",
+      "PackagePath": "staticwebassets\\assets\\fonts\\BekaertHeadline-Bold.woff"
+    },
+    {
+      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertHeadline-Regular.woff",
+      "PackagePath": "staticwebassets\\assets\\fonts\\BekaertHeadline-Regular.woff"
+    },
+    {
+      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertText-Bold.woff",
+      "PackagePath": "staticwebassets\\assets\\fonts\\BekaertText-Bold.woff"
+    },
+    {
+      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertText-BoldItalic.woff",
+      "PackagePath": "staticwebassets\\assets\\fonts\\BekaertText-BoldItalic.woff"
+    },
+    {
+      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertText-Italic.woff",
+      "PackagePath": "staticwebassets\\assets\\fonts\\BekaertText-Italic.woff"
+    },
+    {
+      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertText-Medium.woff",
+      "PackagePath": "staticwebassets\\assets\\fonts\\BekaertText-Medium.woff"
+    },
+    {
+      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertText-MediumItalic.woff",
+      "PackagePath": "staticwebassets\\assets\\fonts\\BekaertText-MediumItalic.woff"
+    },
+    {
+      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertText-Regular.woff",
+      "PackagePath": "staticwebassets\\assets\\fonts\\BekaertText-Regular.woff"
+    },
+    {
       "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\images\\Rectangle.png",
       "PackagePath": "staticwebassets\\assets\\images\\Rectangle.png"
     },

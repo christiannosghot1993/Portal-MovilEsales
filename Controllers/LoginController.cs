@@ -1,12 +1,21 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Portal_MovilEsales.Models;
+using Portal_MovilEsales.Services;
+using System.Security.Claims;
 
 namespace Portal_MovilEsales.Controllers
 {
     public class LoginController : Controller
     {
+        private IService _service;
+        public LoginController(IService service)
+        {
+            _service = service;
+        }
         // GET: LoginController
         public ActionResult Index()
         {
@@ -24,7 +33,8 @@ namespace Portal_MovilEsales.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> ProcesarFormulario([FromForm(Name = "g-recaptcha-response")] string gRecaptchaResponse)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ProcesarFormulario([FromForm(Name = "g-recaptcha-response")] string gRecaptchaResponse, [FromForm(Name = "userInput")] string usuario, [FromForm(Name = "passwordInput")] string password)
         {
             if (string.IsNullOrEmpty(gRecaptchaResponse))
             {
@@ -51,7 +61,44 @@ namespace Portal_MovilEsales.Controllers
                 if (captchaResponse.success)
                 {
                     // reCAPTCHA válido, puedes procesar el formulario aquí
-                    return RedirectToAction("Index", "Home");
+                    var respIniciarSesion = _service.iniciarSesion(new IniciarSesionRequest
+                    {
+                        email=usuario,
+                        password=password,
+                    });
+                    if ((bool)respIniciarSesion.success)
+                    {
+                        string perfil = "";
+                        switch ((int)respIniciarSesion.codigoperfil)
+                        {
+                            case 1:
+                                perfil = "Cliente";
+                                break;
+                            case 2:
+                                perfil = "Asesor";
+                                break;
+                            case 3:
+                                perfil = "Arobador";
+                                break;
+                            case 4:
+                                perfil = "Administrador";
+                                break;
+                        }
+
+                        HttpContext.Session.SetString("perfil", perfil);
+                        CrearClaims((string)respIniciarSesion.result, perfil, usuario);
+                        if (perfil.Equals("Asesor"))
+                        {
+                            return RedirectToAction("Index", "Asesor");
+                        }
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                        TempData["ErrorMessage"] = (string)respIniciarSesion.message;
+                        return RedirectToAction("Index");
+                    }
+                   
                 }
                 else
                 {
@@ -59,6 +106,30 @@ namespace Portal_MovilEsales.Controllers
                     return Content("Error: reCAPTCHA no válido.");
                 }
             }
+        }
+
+        public void CrearClaims(string accessToken, string rol, string correo)
+        {
+            var accessTokenClaim = new Claim("AccessToken", accessToken);
+            /*Claims: son piezas de información de la identidad del usuario en el contexto
+             de authentication y authorization*/
+            var claims=new List<Claim>
+            {
+                accessTokenClaim,
+                new Claim(ClaimTypes.Role, rol),
+                new Claim(ClaimTypes.Email, correo),
+            };
+            var identity= new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            var principal = new ClaimsPrincipal(identity);
+
+            /*HttpContext.SignInAsync sirve para crear la coockie y persistirla en el sistema*/
+            HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
+        }
+
+        public void eliminarClaims()
+        {
+            HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
         }
 
         // GET: LoginController/Details/5

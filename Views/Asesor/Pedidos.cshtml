@@ -1,0 +1,489 @@
+﻿@{
+    ViewData["Title"] = "Asesor- Pedidos";
+}
+
+<div class="row">
+    <div class="col-sm-12 col-md-7">
+        <div class="card card-container">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-9">
+                        <div class="card-title">
+                            <h1>Cliente</h1>
+                        </div>
+                    </div>
+                    <div class="col-3 car-sap-code-container">
+                        <h3 class="card-sap-code-label">CODIGO SAPB.</h3>
+                        <label>2041850000</label>
+                    </div>
+                </div>
+                <h4 class="title my-3">Hugo Ernesto Castillo Miranda </h4>
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <label class="card-subtitle">Dirección de contacto</label>
+                        <p>Obispo Mosquera 6-112 y Bartolomé García</p>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <label class="card-subtitle">Teléfono</label>
+                        <p>+593 998155983</p>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <label class="card-subtitle">Ciudad - Pais</label>
+                        <p>Ibarra - Ecuador</p>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <label class="card-subtitle">Correo Electrónico</label>
+                        <p>ernestocastillo@hotmail.com</p>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <div class="col-4 car-sap-code-container">
+                        <h3 class="card-sap-code-label">Última Actualización</h3>
+                        <label>11/14/2023</label>
+                    </div>
+                </div>
+                <label class="card-subtitle">Información crediticia</label>
+                <div class="row">
+                    <div class="col-sm-12 col-md-3">
+                        <div class="card-informacion-crediticia-container">
+                            <h3 class="card-sap-code-label">T. Facturado</h3>
+                            <label>$ 10’000.000,00</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-3">
+                        <div class="card-informacion-crediticia-container">
+                            <h3 class="card-sap-code-label">T. Vencido</h3>
+                            <label>$ 6’000.000,00</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-3">
+                        <div class="card-informacion-crediticia-container">
+                            <h3 class="card-sap-code-label">C. por Cobrar</h3>
+                            <label>$ 4’000.000,00</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-3">
+                        <div class="card-informacion-crediticia-container">
+                            <h3 class="card-sap-code-label">Crédito Límite</h3>
+                            <label>$ 4’000.000,00</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <label class="card-subtitle">Más Detalles</label>
+                   
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-5">
+        <div class="card card-container">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-7">
+                        <div class="card-title">
+                            <h1>Facturas pendientes</h1>
+                        </div>
+                    </div>
+                    <div class="col-5 car-sap-code-container">
+                        <h3 class="card-sap-code-label">Última Actualización</h3>
+                        <label>11/14/2023</label>
+                    </div>
+                </div>
+                <div class="table-responsive mt-4">
+                    <table class="table">
+                        <thead class="card-table_header">
+                            <tr>
+                                <th scope="col" class="border-radius-left" style="padding:13px;">Factura</th>
+                                <th scope="col" style="padding:13px;">Monto</th>
+                                <th scope="col" style="padding:13px;">Fecha Venc.</th>
+                                <th scope="col" style="padding:13px;">Días Mora</th>
+                                <th scope="col" class="border-radius-right" style="padding:13px;"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-wrapper">0000133490</td>
+                                <td class="text-wrapper-2">5’000.000,00</td>
+                                <td class="text-wrapper-2">20/10/2023</td>
+                                <td class="element">&nbsp;&nbsp; 35</td>
+                                <td class="ver-orden">
+                                    <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g id="fi-rs-notebook" clip-path="url(#clip0_947_6358)">
+                                            <path id="Vector" d="M14.25 2V0.5H12.75V2H11.25V0.5H9.75V2H8.25V0.5H6.75V2H5.25V0.5H3.75V2H2.25V16.25C2.25 16.8467 2.48705 17.419 2.90901 17.841C3.33097 18.2629 3.90326 18.5 4.5 18.5H13.5C14.0967 18.5 14.669 18.2629 15.091 17.841C15.5129 17.419 15.75 16.8467 15.75 16.25V2H14.25ZM14.25 16.25C14.25 16.4489 14.171 16.6397 14.0303 16.7803C13.8897 16.921 13.6989 17 13.5 17H4.5C4.30109 17 4.11032 16.921 3.96967 16.7803C3.82902 16.6397 3.75 16.4489 3.75 16.25V3.5H14.25V16.25ZM12.75 7.25H5.25V5.75H12.75V7.25ZM12.75 10.25H5.25V8.75H12.75V10.25ZM9.75 13.25H5.25V11.75H9.75V13.25Z" fill="#01ADEF" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_947_6358">
+                                                <rect width="18" height="18" fill="white" transform="translate(0 0.5)" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-wrapper">0000133490</td>
+                                <td class="text-wrapper-2">5’000.000,00</td>
+                                <td class="text-wrapper-2">20/10/2023</td>
+                                <td class="element">&nbsp;&nbsp; 35</td>
+                                <td class="ver-orden">
+                                    <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g id="fi-rs-notebook" clip-path="url(#clip0_947_6358)">
+                                            <path id="Vector" d="M14.25 2V0.5H12.75V2H11.25V0.5H9.75V2H8.25V0.5H6.75V2H5.25V0.5H3.75V2H2.25V16.25C2.25 16.8467 2.48705 17.419 2.90901 17.841C3.33097 18.2629 3.90326 18.5 4.5 18.5H13.5C14.0967 18.5 14.669 18.2629 15.091 17.841C15.5129 17.419 15.75 16.8467 15.75 16.25V2H14.25ZM14.25 16.25C14.25 16.4489 14.171 16.6397 14.0303 16.7803C13.8897 16.921 13.6989 17 13.5 17H4.5C4.30109 17 4.11032 16.921 3.96967 16.7803C3.82902 16.6397 3.75 16.4489 3.75 16.25V3.5H14.25V16.25ZM12.75 7.25H5.25V5.75H12.75V7.25ZM12.75 10.25H5.25V8.75H12.75V10.25ZM9.75 13.25H5.25V11.75H9.75V13.25Z" fill="#01ADEF" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_947_6358">
+                                                <rect width="18" height="18" fill="white" transform="translate(0 0.5)" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-wrapper">0000133490</td>
+                                <td class="text-wrapper-2">5’000.000,00</td>
+                                <td class="text-wrapper-2">20/10/2023</td>
+                                <td class="element">&nbsp;&nbsp; 35</td>
+                                <td class="ver-orden">
+                                    <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g id="fi-rs-notebook" clip-path="url(#clip0_947_6358)">
+                                            <path id="Vector" d="M14.25 2V0.5H12.75V2H11.25V0.5H9.75V2H8.25V0.5H6.75V2H5.25V0.5H3.75V2H2.25V16.25C2.25 16.8467 2.48705 17.419 2.90901 17.841C3.33097 18.2629 3.90326 18.5 4.5 18.5H13.5C14.0967 18.5 14.669 18.2629 15.091 17.841C15.5129 17.419 15.75 16.8467 15.75 16.25V2H14.25ZM14.25 16.25C14.25 16.4489 14.171 16.6397 14.0303 16.7803C13.8897 16.921 13.6989 17 13.5 17H4.5C4.30109 17 4.11032 16.921 3.96967 16.7803C3.82902 16.6397 3.75 16.4489 3.75 16.25V3.5H14.25V16.25ZM12.75 7.25H5.25V5.75H12.75V7.25ZM12.75 10.25H5.25V8.75H12.75V10.25ZM9.75 13.25H5.25V11.75H9.75V13.25Z" fill="#01ADEF" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_947_6358">
+                                                <rect width="18" height="18" fill="white" transform="translate(0 0.5)" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-wrapper">0000133490</td>
+                                <td class="text-wrapper-2">5’000.000,00</td>
+                                <td class="text-wrapper-2">20/10/2023</td>
+                                <td class="element">&nbsp;&nbsp; 35</td>
+                                <td class="ver-orden">
+                                    <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g id="fi-rs-notebook" clip-path="url(#clip0_947_6358)">
+                                            <path id="Vector" d="M14.25 2V0.5H12.75V2H11.25V0.5H9.75V2H8.25V0.5H6.75V2H5.25V0.5H3.75V2H2.25V16.25C2.25 16.8467 2.48705 17.419 2.90901 17.841C3.33097 18.2629 3.90326 18.5 4.5 18.5H13.5C14.0967 18.5 14.669 18.2629 15.091 17.841C15.5129 17.419 15.75 16.8467 15.75 16.25V2H14.25ZM14.25 16.25C14.25 16.4489 14.171 16.6397 14.0303 16.7803C13.8897 16.921 13.6989 17 13.5 17H4.5C4.30109 17 4.11032 16.921 3.96967 16.7803C3.82902 16.6397 3.75 16.4489 3.75 16.25V3.5H14.25V16.25ZM12.75 7.25H5.25V5.75H12.75V7.25ZM12.75 10.25H5.25V8.75H12.75V10.25ZM9.75 13.25H5.25V11.75H9.75V13.25Z" fill="#01ADEF" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_947_6358">
+                                                <rect width="18" height="18" fill="white" transform="translate(0 0.5)" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-wrapper">0000133490</td>
+                                <td class="text-wrapper-2">5’000.000,00</td>
+                                <td class="text-wrapper-2">20/10/2023</td>
+                                <td class="element">&nbsp;&nbsp; 35</td>
+                                <td class="ver-orden">
+                                    <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g id="fi-rs-notebook" clip-path="url(#clip0_947_6358)">
+                                            <path id="Vector" d="M14.25 2V0.5H12.75V2H11.25V0.5H9.75V2H8.25V0.5H6.75V2H5.25V0.5H3.75V2H2.25V16.25C2.25 16.8467 2.48705 17.419 2.90901 17.841C3.33097 18.2629 3.90326 18.5 4.5 18.5H13.5C14.0967 18.5 14.669 18.2629 15.091 17.841C15.5129 17.419 15.75 16.8467 15.75 16.25V2H14.25ZM14.25 16.25C14.25 16.4489 14.171 16.6397 14.0303 16.7803C13.8897 16.921 13.6989 17 13.5 17H4.5C4.30109 17 4.11032 16.921 3.96967 16.7803C3.82902 16.6397 3.75 16.4489 3.75 16.25V3.5H14.25V16.25ZM12.75 7.25H5.25V5.75H12.75V7.25ZM12.75 10.25H5.25V8.75H12.75V10.25ZM9.75 13.25H5.25V11.75H9.75V13.25Z" fill="#01ADEF" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_947_6358">
+                                                <rect width="18" height="18" fill="white" transform="translate(0 0.5)" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 mt-3">
+        <div class="card card-container">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-12 col-md-10">
+                        <ul class="nav nav-tabs d-flex" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link custom-nav-link active" id="clientes-tab" data-bs-toggle="tab" data-bs-target="#clientes-tab-pane" type="button" role="tab" aria-controls="clientes-tab-pane" aria-selected="true">Pedidos Ingresados E-Sales</button>
+                            </li>
+                            <li class="nav-item flex-grow-1" role="presentation">
+                                <button class="nav-link custom-nav-link" id="pedidos-tab" data-bs-toggle="tab" data-bs-target="#pedidos-tab-pane" type="button" role="tab" aria-controls="pedidos-tab-pane" aria-selected="false">Ordenes Pendientes de SAP</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-12 col-md-2">
+                        <div style="padding-top: 12px; display:flex;">
+                            <button class="orange-rounded-button">
+                                Nuevo Pedido
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g id="vuesax/linear/message-add">
+                                        <g id="message-add">
+                                            <path id="Vector" d="M16 2H8C4 2 2 4 2 8V21C2 21.55 2.45 22 3 22H16C20 22 22 20 22 16V8C22 4 20 2 16 2Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path id="Vector_2" d="M8.5 12H15.5" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path id="Vector_3" d="M12 15.5V8.5" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                        </g>
+                                    </g>
+                                </svg>
+
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content pt-3" id="myTabContent">
+                    <div class="tab-pane fade show active" id="clientes-tab-pane" role="tabpanel" aria-labelledby="clientes-tab" tabindex="0">
+                        <div class="table-responsive table-container">
+                            <table class="table">
+                                <thead class="card-table_header">
+                                    <tr>
+                                        <th scope="col" class="border-radius-left" style="padding:13px;">Numero de Pedido</th>
+                                        <th scope="col" style="padding:13px;">Estado</th>
+                                        <th scope="col" style="padding:13px;">Observación</th>
+                                        <th scope="col" style="padding:13px;">Responsable Aprobación</th>
+                                        <th scope="col" style="padding:13px;"></th>
+                                        <th scope="col" class="border-radius-right" style="padding:13px;"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>0000133490</td>
+                                        <td>Aprobado</td>
+                                        <td>(Sandra Monal): Despachar Semana del 23 de Enero de 2023 (Jenny Hernandez)</td>
+                                        <td>Jenny Hernadez</td>
+                                        <td>
+                                            <svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g id="01 align center">
+                                                    <path id="Vector" d="M15.5 3.10875L12.4895 0H6.5C5.90326 0 5.33097 0.237053 4.90901 0.65901C4.48705 1.08097 4.25 1.65326 4.25 2.25V3H2.75C2.15326 3 1.58097 3.23705 1.15901 3.65901C0.737053 4.08097 0.5 4.65326 0.5 5.25V18H12.5V14.25H15.5V3.10875ZM11 16.5H2V5.25C2 5.05109 2.07902 4.86032 2.21967 4.71967C2.36032 4.57902 2.55109 4.5 2.75 4.5H4.25V14.25H11V16.5ZM5.75 12.75V2.25C5.75 2.05109 5.82902 1.86032 5.96967 1.71967C6.11032 1.57902 6.30109 1.5 6.5 1.5H11V4.5H14V12.75H5.75Z" fill="#01ADEF" />
+                                                </g>
+                                            </svg>
+                                        </td>
+                                        <td>
+                                            <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g id="&#240;&#159;&#166;&#134; icon &#34;search&#34;">
+                                                    <path id="Vector" d="M7.6667 14.833C11.3486 14.833 14.3334 11.8483 14.3334 8.16652C14.3334 4.4847 11.3486 1.5 7.6667 1.5C3.98478 1.5 1 4.4847 1 8.16652C1 11.8483 3.98478 14.833 7.6667 14.833Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                    <path id="Vector_2" d="M16 16.4999L12.375 12.875" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                </g>
+                                            </svg>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>0000133490</td>
+                                        <td>No Aprobado</td>
+                                        <td>(Sandra Monal): Despachar Semana del 23 de Enero de 2023 (Jenny Hernandez)</td>
+                                        <td>Jenny Hernadez</td>
+                                        <td>
+                                            <svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g id="01 align center">
+                                                    <path id="Vector" d="M15.5 3.10875L12.4895 0H6.5C5.90326 0 5.33097 0.237053 4.90901 0.65901C4.48705 1.08097 4.25 1.65326 4.25 2.25V3H2.75C2.15326 3 1.58097 3.23705 1.15901 3.65901C0.737053 4.08097 0.5 4.65326 0.5 5.25V18H12.5V14.25H15.5V3.10875ZM11 16.5H2V5.25C2 5.05109 2.07902 4.86032 2.21967 4.71967C2.36032 4.57902 2.55109 4.5 2.75 4.5H4.25V14.25H11V16.5ZM5.75 12.75V2.25C5.75 2.05109 5.82902 1.86032 5.96967 1.71967C6.11032 1.57902 6.30109 1.5 6.5 1.5H11V4.5H14V12.75H5.75Z" fill="#01ADEF" />
+                                                </g>
+                                            </svg>
+                                        </td>
+                                        <td>
+                                            <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g id="&#240;&#159;&#166;&#134; icon &#34;search&#34;">
+                                                    <path id="Vector" d="M7.6667 14.833C11.3486 14.833 14.3334 11.8483 14.3334 8.16652C14.3334 4.4847 11.3486 1.5 7.6667 1.5C3.98478 1.5 1 4.4847 1 8.16652C1 11.8483 3.98478 14.833 7.6667 14.833Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                    <path id="Vector_2" d="M16 16.4999L12.375 12.875" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                </g>
+                                            </svg>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>0000133490</td>
+                                        <td>Aprobado</td>
+                                        <td>(Sandra Monal): Despachar Semana del 23 de Enero de 2023 (Jenny Hernandez)</td>
+                                        <td>Jenny Hernadez</td>
+                                        <td>
+                                            <svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g id="01 align center">
+                                                    <path id="Vector" d="M15.5 3.10875L12.4895 0H6.5C5.90326 0 5.33097 0.237053 4.90901 0.65901C4.48705 1.08097 4.25 1.65326 4.25 2.25V3H2.75C2.15326 3 1.58097 3.23705 1.15901 3.65901C0.737053 4.08097 0.5 4.65326 0.5 5.25V18H12.5V14.25H15.5V3.10875ZM11 16.5H2V5.25C2 5.05109 2.07902 4.86032 2.21967 4.71967C2.36032 4.57902 2.55109 4.5 2.75 4.5H4.25V14.25H11V16.5ZM5.75 12.75V2.25C5.75 2.05109 5.82902 1.86032 5.96967 1.71967C6.11032 1.57902 6.30109 1.5 6.5 1.5H11V4.5H14V12.75H5.75Z" fill="#01ADEF" />
+                                                </g>
+                                            </svg>
+                                        </td>
+                                        <td>
+                                            <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g id="&#240;&#159;&#166;&#134; icon &#34;search&#34;">
+                                                    <path id="Vector" d="M7.6667 14.833C11.3486 14.833 14.3334 11.8483 14.3334 8.16652C14.3334 4.4847 11.3486 1.5 7.6667 1.5C3.98478 1.5 1 4.4847 1 8.16652C1 11.8483 3.98478 14.833 7.6667 14.833Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                    <path id="Vector_2" d="M16 16.4999L12.375 12.875" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                </g>
+                                            </svg>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>0000133490</td>
+                                        <td>No Aprobado</td>
+                                        <td>(Sandra Monal): Despachar Semana del 23 de Enero de 2023 (Jenny Hernandez)</td>
+                                        <td>Jenny Hernadez</td>
+                                        <td>
+                                            <svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g id="01 align center">
+                                                    <path id="Vector" d="M15.5 3.10875L12.4895 0H6.5C5.90326 0 5.33097 0.237053 4.90901 0.65901C4.48705 1.08097 4.25 1.65326 4.25 2.25V3H2.75C2.15326 3 1.58097 3.23705 1.15901 3.65901C0.737053 4.08097 0.5 4.65326 0.5 5.25V18H12.5V14.25H15.5V3.10875ZM11 16.5H2V5.25C2 5.05109 2.07902 4.86032 2.21967 4.71967C2.36032 4.57902 2.55109 4.5 2.75 4.5H4.25V14.25H11V16.5ZM5.75 12.75V2.25C5.75 2.05109 5.82902 1.86032 5.96967 1.71967C6.11032 1.57902 6.30109 1.5 6.5 1.5H11V4.5H14V12.75H5.75Z" fill="#01ADEF" />
+                                                </g>
+                                            </svg>
+                                        </td>
+                                        <td>
+                                            <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g id="&#240;&#159;&#166;&#134; icon &#34;search&#34;">
+                                                    <path id="Vector" d="M7.6667 14.833C11.3486 14.833 14.3334 11.8483 14.3334 8.16652C14.3334 4.4847 11.3486 1.5 7.6667 1.5C3.98478 1.5 1 4.4847 1 8.16652C1 11.8483 3.98478 14.833 7.6667 14.833Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                    <path id="Vector_2" d="M16 16.4999L12.375 12.875" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                </g>
+                                            </svg>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pedidos-tab-pane" role="tabpanel" aria-labelledby="pedidos-tab" tabindex="0">
+                        <div class="table-responsive table-container">
+                            <table class="table w-100">
+                                <thead class="card-table_header">
+                                    <tr>
+                                        <th scope="col" class="border-radius-left" style="padding:13px;">Bloqueado</th>
+                                        <th scope="col" style="padding:13px;">N˚ Orden</th>
+                                        <th scope="col" style="padding:13px;">Código</th>
+                                        <th scope="col" style="padding:13px;">Producto</th>
+                                        <th scope="col" style="padding:13px;">Unidad</th>
+                                        <th scope="col" style="padding:13px;">Días retraso</th>
+                                        <th scope="col" style="padding:13px;">Valor</th>
+                                        <th scope="col" style="padding:13px;">F.Pedido</th>
+                                        <th scope="col" style="padding:13px;">F.Entrega</th>
+                                        <th scope="col" style="padding:13px;">Cantidad Ordenada</th>
+                                        <th scope="col" style="padding:13px;">Cantidad Despachada</th>
+                                        <th scope="col" style="padding:13px;">Cantidad Saldo</th>
+                                        <th scope="col" style="padding:13px;">Cantidad Delivery</th>
+                                        <th scope="col" style="padding:13px;">Status</th>
+                                        <th scope="col" class="border-radius-right" style="padding:13px;">Comentario</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex justify-content-center" >
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>0000133490</td>
+                                        <td>0000133490</td>
+                                        <td>AL. RECOCIDO 1,25MM #18 R20KG...</td>
+                                        <td>KG</td>
+                                        <td>400</td>
+                                        <td>$300</td>
+                                        <td>10-24-2023</td>
+                                        <td>10-24-2023</td>
+                                        <td>800</td>
+                                        <td>300</td>
+                                        <td>500</td>
+                                        <td>500</td>
+                                        <td>Parcialmente<br />despachado</td>
+                                        <td>(Sandra Monal): Despachar Semana del 23 de Enero de 2023 (Jenny Hernandez)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex justify-content-center">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>0000133490</td>
+                                        <td>0000133490</td>
+                                        <td>AL. RECOCIDO 1,25MM #18 R20KG...</td>
+                                        <td>KG</td>
+                                        <td>400</td>
+                                        <td>$300</td>
+                                        <td>10-24-2023</td>
+                                        <td>10-24-2023</td>
+                                        <td>800</td>
+                                        <td>300</td>
+                                        <td>500</td>
+                                        <td>500</td>
+                                        <td>Parcialmente<br />despachado</td>
+                                        <td>(Sandra Monal): Despachar Semana del 23 de Enero de 2023 (Jenny Hernandez)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex justify-content-center">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>0000133490</td>
+                                        <td>0000133490</td>
+                                        <td>AL. RECOCIDO 1,25MM #18 R20KG...</td>
+                                        <td>KG</td>
+                                        <td>400</td>
+                                        <td>$300</td>
+                                        <td>10-24-2023</td>
+                                        <td>10-24-2023</td>
+                                        <td>800</td>
+                                        <td>300</td>
+                                        <td>500</td>
+                                        <td>500</td>
+                                        <td>Parcialmente<br />despachado</td>
+                                        <td>(Sandra Monal): Despachar Semana del 23 de Enero de 2023 (Jenny Hernandez)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex justify-content-center">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>0000133490</td>
+                                        <td>0000133490</td>
+                                        <td>AL. RECOCIDO 1,25MM #18 R20KG...</td>
+                                        <td>KG</td>
+                                        <td>400</td>
+                                        <td>$300</td>
+                                        <td>10-24-2023</td>
+                                        <td>10-24-2023</td>
+                                        <td>800</td>
+                                        <td>300</td>
+                                        <td>500</td>
+                                        <td>500</td>
+                                        <td>Parcialmente<br />despachado</td>
+                                        <td>(Sandra Monal): Despachar Semana del 23 de Enero de 2023 (Jenny Hernandez)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex justify-content-center">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>0000133490</td>
+                                        <td>0000133490</td>
+                                        <td>AL. RECOCIDO 1,25MM #18 R20KG...</td>
+                                        <td>KG</td>
+                                        <td>400</td>
+                                        <td>$300</td>
+                                        <td>10-24-2023</td>
+                                        <td>10-24-2023</td>
+                                        <td>800</td>
+                                        <td>300</td>
+                                        <td>500</td>
+                                        <td>500</td>
+                                        <td>Parcialmente<br />despachado</td>
+                                        <td>(Sandra Monal): Despachar Semana del 23 de Enero de 2023 (Jenny Hernandez)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

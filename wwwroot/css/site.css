@@ -20,7 +20,7 @@ html {
 .car-sap-code-container {
     display: flex;
     height: 23px;
-    padding: 10px;
+    padding: 15px;
     align-items: center;
     gap: 11px;
     border-radius: 20px;
@@ -28,15 +28,13 @@ html {
     background: var(--White, #FFF);
 }
 
+
 .card-sap-code-label {
-    color: var(--Bekaert-Cyan, #01ADEF);
-    /* 11pt. - Regular */
-    font-family: Roboto;
+    color: #01ADEF;
     font-size: 11px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    padding-top: 10px;
 }
 
 .card-subtitle {
@@ -78,6 +76,15 @@ html {
     gap: 12px;
 }
 
+table {
+    table-layout: auto;
+}
+
+td, th {
+    white-space: nowrap;
+    overflow: hidden; 
+}
+
 .table-container {
     max-height: 305px; 
     overflow-y: auto;
@@ -107,6 +114,15 @@ html {
 body {
     margin-bottom: 60px;
 }
+
+.orange-rounded-button {
+    color: white;
+    background-color: #FF602C;
+    border: none;
+    border-radius: 20px;
+    padding: 7px 20px;
+}
+
 
 /*nab accordion*/
 
