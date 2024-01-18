@@ -11,6 +11,11 @@ namespace Portal_MovilEsales.Controllers
             return View();
         }
 
+        public IActionResult EstadoCuentaAsesor()
+        {
+            return View();
+        }
+
         public IActionResult MisClientes()
         {
             return View();

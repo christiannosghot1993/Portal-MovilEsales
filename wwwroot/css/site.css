@@ -12,6 +12,30 @@ html {
     box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
+.label-datepicker {
+    color: #01ADEF;
+}
+.form-control::before {
+    color: red !important; /* Puedes ajustar el color según tus preferencias */
+}
+.datepicker {
+    border: 2px solid #01ADEF;
+    border-radius: 15px;
+}
+
+.entire-blue-container {
+    background-color: #01ADEF;
+    border-radius: 20px;
+    width: auto !important;
+    display: inline-block;
+    color: white;
+    padding: 10px 30px;
+}
+
+.entire-blue-container p{
+    margin:0;
+
+}
 .card-container {
     background: rgba(255, 255, 255, 0.70);
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.25);
