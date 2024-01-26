@@ -93,6 +93,10 @@
       "PackagePath": "staticwebassets\\css\\CambioContrasenaEmail.css"
     },
     {
+      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\css\\Collapsible.css",
+      "PackagePath": "staticwebassets\\css\\Collapsible.css"
+    },
+    {
       "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\css\\layout.css",
       "PackagePath": "staticwebassets\\css\\layout.css"
     },

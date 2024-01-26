@@ -10,13 +10,21 @@ namespace Portal_MovilEsales.Controllers
         {
             return View();
         }
-
+        public IActionResult PedidoCatalogoProductos()
+        {
+            return View();
+        }
         public IActionResult EstadoCuentaAsesor()
         {
             return View();
         }
 
-        public IActionResult MisClientes()
+        public IActionResult Clientes()
+        {
+            return View();
+        }
+
+        public IActionResult InformacionCliente()
         {
             return View();
         }

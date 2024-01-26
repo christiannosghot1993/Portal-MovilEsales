@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+6pQE1vzkgQrxe19p0UFKfQY7eafqOQFZG9OpP4D9tI=",
+  "Hash": "e4j5/GFcOesZ1kBtShqQkwbnCovyBKwlEGJoRKr11os=",
   "Source": "Portal-MovilEsales",
   "BasePath": "_content/Portal-MovilEsales",
   "Mode": "Default",
@@ -423,6 +423,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\CambioContrasenaEmail.css"
+    },
+    {
+      "Identity": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\css\\Collapsible.css",
+      "SourceId": "Portal-MovilEsales",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\",
+      "BasePath": "_content/Portal-MovilEsales",
+      "RelativePath": "css/Collapsible.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Collapsible.css"
     },
     {
       "Identity": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\css\\layout.css",

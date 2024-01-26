@@ -15,9 +15,11 @@ html {
 .label-datepicker {
     color: #01ADEF;
 }
+
 .form-control::before {
     color: red !important; /* Puedes ajustar el color según tus preferencias */
 }
+
 .datepicker {
     border: 2px solid #01ADEF;
     border-radius: 15px;
@@ -32,10 +34,10 @@ html {
     padding: 10px 30px;
 }
 
-.entire-blue-container p{
-    margin:0;
+    .entire-blue-container p {
+        margin: 0;
+    }
 
-}
 .card-container {
     background: rgba(255, 255, 255, 0.70);
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.25);
@@ -74,7 +76,7 @@ html {
 }
 
 .card-informacion-crediticia-container {
-    text-align:center;
+    text-align: center;
     gap: 6px;
     border-radius: 5px;
     border: 1px solid #01ADEF;
@@ -104,11 +106,11 @@ table {
 
 td, th {
     white-space: nowrap;
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 .table-container {
-    max-height: 305px; 
+    max-height: 305px;
     overflow-y: auto;
 }
 
@@ -143,11 +145,38 @@ body {
     border: none;
     border-radius: 20px;
     padding: 7px 20px;
+    text-decoration: none;
 }
 
+    .orange-rounded-button:hover {
+        text-decoration: none;
+        color: white;
+    }
 
+
+.frame-product-img {
+    display: flex;
+    width: 80px;
+    height: 80px;
+    padding: 33px 6px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    border: 1px solid #D7D2CB;
+    background: #FFF;
+}
+
+.button-up-down {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 20px;
+    border: 1px solid #FF602C;
+}
 /*nab accordion*/
-
 .custom-nav-link {
     color: #FF602C90;
     /* Headline/Headline XSmall */
@@ -174,7 +203,7 @@ body {
 
 .buscador {
     border-radius: 20px;
-    border: 1px solid var(--Bekaert-Cyan, #01ADEF);
+    border: 1px solid #01ADEF;
     background: var(--white, #FFF);
     padding: 8px;
     width: 100%;

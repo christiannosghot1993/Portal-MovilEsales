@@ -1,0 +1,143 @@
+﻿.collapsible-tabs {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    position: relative;
+}
+
+    .collapsible-tabs .label {
+        display: flex;
+        height: 53px;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        align-self: stretch;
+        width: 100%;
+    }
+
+    .collapsible-tabs .label-color-wrapper {
+        position: relative;
+        flex: 1;
+        flex-grow: 1;
+        height: 24px;
+        border-top-width: 1px;
+        border-top-style: solid;
+        border-color: var(--bekaert-gray);
+    }
+
+    .collapsible-tabs .label-color {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 0px 28px;
+        position: relative;
+        top: -12px;
+        left: 16px;
+        background-color: var(--bekaert-gray);
+    }
+
+    .collapsible-tabs .text {
+        position: relative;
+        width: fit-content;
+        margin-top: -1px;
+        font-family: var(--label-label-large-font-family);
+        font-weight: var(--label-label-large-font-weight);
+        color: var(--black);
+        font-size: var(--label-label-large-font-size);
+        letter-spacing: var(--label-label-large-letter-spacing);
+        line-height: var(--label-label-large-line-height);
+        white-space: nowrap;
+        font-style: var(--label-label-large-font-style);
+    }
+
+    .collapsible-tabs .chevron {
+        position: relative;
+        align-self: stretch;
+        width: 53px;
+    }
+
+:root {
+    --bekaert-lake: rgba(105, 165, 189, 1);
+    --bekaert-ocean: rgba(15, 81, 110, 1);
+    --bekaert-deep-water: rgba(10, 52, 79, 1);
+    --bekaert-orange: rgba(255, 96, 44, 1);
+    --bekaert-cyan: rgba(1, 173, 239, 1);
+    --bekaert-gray: rgba(215, 210, 203, 1);
+    --bekaert-gray-75: rgba(235, 233, 229, 1);
+    --bekaert-gray-50: rgba(245, 244, 242, 1);
+    --bekaert-gray-25: rgba(251, 251, 250, 1);
+    --yellow: rgba(244, 186, 6, 1);
+    --green: rgba(168, 186, 136, 1);
+    --red: rgba(188, 75, 81, 1);
+    --black: rgba(0, 0, 0, 1);
+    --white: rgba(255, 255, 255, 1);
+    --colortextwhite: rgba(255, 255, 255, 1);
+    --display-display-small-font-family: "BekaertText-Bold", Helvetica;
+    --display-display-small-font-weight: 700;
+    --display-display-small-font-size: 36px;
+    --display-display-small-letter-spacing: 0px;
+    --display-display-small-line-height: 44px;
+    --display-display-small-font-style: normal;
+    --display-display-medium-font-family: "BekaertText-Bold", Helvetica;
+    --display-display-medium-font-weight: 700;
+    --display-display-medium-font-size: 45px;
+    --display-display-medium-letter-spacing: 0px;
+    --display-display-medium-line-height: 52px;
+    --display-display-medium-font-style: normal;
+    --display-display-large-font-family: "BekaertText-Bold", Helvetica;
+    --display-display-large-font-weight: 700;
+    --display-display-large-font-size: 57px;
+    --display-display-large-letter-spacing: 0px;
+    --display-display-large-line-height: 64px;
+    --display-display-large-font-style: normal;
+    --headline-headline-small-font-family: "BekaertHeadline-Bold", Helvetica;
+    --headline-headline-small-font-weight: 700;
+    --headline-headline-small-font-size: 24px;
+    --headline-headline-small-letter-spacing: 0px;
+    --headline-headline-small-line-height: 32px;
+    --headline-headline-small-font-style: normal;
+    --headline-headline-medium-font-family: "BekaertHeadline-Bold", Helvetica;
+    --headline-headline-medium-font-weight: 700;
+    --headline-headline-medium-font-size: 28px;
+    --headline-headline-medium-letter-spacing: 0px;
+    --headline-headline-medium-line-height: 36px;
+    --headline-headline-medium-font-style: normal;
+    --headline-headline-large-font-family: "BekaertHeadline-Bold", Helvetica;
+    --headline-headline-large-font-weight: 700;
+    --headline-headline-large-font-size: 32px;
+    --headline-headline-large-letter-spacing: 0px;
+    --headline-headline-large-line-height: normal;
+    --headline-headline-large-font-style: normal;
+    --headline-headline-xsmall-font-family: "BekaertHeadline-Bold", Helvetica;
+    --headline-headline-xsmall-font-weight: 700;
+    --headline-headline-xsmall-font-size: 16px;
+    --headline-headline-xsmall-letter-spacing: 0px;
+    --headline-headline-xsmall-line-height: 22px;
+    --headline-headline-xsmall-font-style: normal;
+    --title-title-small-font-family: "BekaertText-Bold", Helvetica;
+    --title-title-small-font-weight: 700;
+    --title-title-small-font-size: 14px;
+    --title-title-small-letter-spacing: 0px;
+    --title-title-small-line-height: 20px;
+    --title-title-small-font-style: normal;
+    --title-title-medium-font-family: "BekaertText-Bold", Helvetica;
+    --title-title-medium-font-weight: 700;
+    --title-title-medium-font-size: 16px;
+    --title-title-medium-letter-spacing: 0px;
+    --title-title-medium-line-height: 24px;
+    --title-title-medium-font-style: normal;
+    --title-title-large-font-family: "BekaertText-Bold", Helvetica;
+    --title-title-large-font-weight: 700;
+    --title-title-large-font-size: 22px;
+    --title-title-large-letter-spacing: 0px;
+    --title-title-large-line-height: 28px;
+    --title-title-large-font-style: normal;
+    --label-label-small-font-family: "BekaertText-Medium", Helvetica;
+    --label-label-small-font-weight: 500;
+    --label-label-small-font-size: 11px;
+    --label-label-small-letter-spacing: 0px;
+    --label-label-small-line-height: 16px;
+    --label-label-small-font-style: normal;
+}
