@@ -79,7 +79,7 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-end pt-3">
-                    <label class="card-subtitle">Más Detalles</label>
+                    <label class="card-subtitle" data-bs-toggle="modal" data-bs-target="#modalDetalleInformacionCrediticia">Más Detalles</label>
                    
                 </div>
 
@@ -250,6 +250,150 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="modal fade" id="modalPedidoAprobado" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title card-title" id="exampleModalLabel">
+                                    Pedido Aprobado
+                                </h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-3" style="font-weight: bold;">Código Bodega:</div>
+                                    <div class="col-md-9">0000151275</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3" style="font-weight: bold;">Observación:</div>
+                                    <div class="col-md-9">P30612</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3" style="font-weight: bold;">Orden Pedido:</div>
+                                    <div class="col-md-9">3784</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3" style="font-weight: bold;">Fecha:</div>
+                                    <div class="col-md-9">18/10/2023</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3" style="font-weight: bold;">Forma de Pago:</div>
+                                    <div class="col-md-9">(1060) Net, at 60 days of invoice</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3" style="font-weight: bold;">Dirección de Entrega:</div>
+                                    <div class="col-md-9">AV. LOS COLONOS Y JOSÉ DE VILLALOBOS, STO DGO PARROQUIA</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3" style="font-weight: bold;">Peso Total:</div>
+                                    <div class="col-md-9">483.2000</div>
+                                </div>
+                                <div class="table-responsive table-container mt-4">
+                                    <table class="table">
+                                        <thead class="card-table_header">
+                                            <tr>
+                                                <th scope="col" class="border-radius-left" style="padding:13px;">Artículo:</th>
+                                                <th scope="col" style="padding:13px;">Descripción:</th>
+                                                <th scope="col" style="padding:13px;">Cantidad:</th>
+                                                <th scope="col" style="padding:13px;">Unidad:</th>
+                                                <th scope="col" class="border-radius-right" style="padding:13px;">Peso Kg.:</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>213592</td>
+                                                <td>VIGA-COLU 6 650/15X15-9 2G</td>
+                                                <td>10</td>
+                                                <td>PZA</td>
+                                                <td>185.80</td>
+                                            </tr>
+                                            <tr>
+                                                <td>213594</td>
+                                                <td>VIGA-COLU 8 650/15X15-12 2G</td>
+                                                <td>10</td>
+                                                <td>PZA</td>
+                                                <td>297.40</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            @*<div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-primary">Guardar cambios</button>
+                            </div>*@
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="modalDetalleInformacionCrediticia" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-md">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title card-title" id="exampleModalLabel">
+                                    Información Crediticia
+                                </h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="pt-3 me-2 d-flex justify-content-end">
+                                <div class=" car-sap-code-container">
+                                    <h3 class="card-sap-code-label">Última Actualización</h3>
+                                    <label>11/14/2023</label>
+                                </div>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-6" style="font-weight: bold;">Código:</div>
+                                    <div class="col-md-6">0000151275</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6" style="font-weight: bold;">Crédito Limite:</div>
+                                    <div class="col-md-6">80.000,00</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6" style="font-weight: bold;">Objetivo Cobro Actual:</div>
+                                    <div class="col-md-6">4.937,44</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6" style="font-weight: bold;">Total Facturado:</div>
+                                    <div class="col-md-6">9.998,11</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6" style="font-weight: bold;">Total Vencido:</div>
+                                    <div class="col-md-6">2.935,63</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6" style="font-weight: bold;">Cheques Post Fechados:</div>
+                                    <div class="col-md-6">-</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6" style="font-weight: bold;">Anticipo:</div>
+                                    <div class="col-md-6">0,00</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6" style="font-weight: bold;">NC Sin Aplicar:</div>
+                                    <div class="col-md-6">-20,57</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6" style="font-weight: bold;">Cartera por Cobrar:</div>
+                                    <div class="col-md-6">4.937.44</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6" style="font-weight: bold;">Objetivo Cobro Mes:</div>
+                                    <div class="col-md-6">8.870,43</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6" style="font-weight: bold;">Cobranza Actual:</div>
+                                    <div class="col-md-6">0,00</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6" style="font-weight: bold;">Porcentaje Cumplimiento:</div>
+                                    <div class="col-md-6">0%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="tab-content pt-3" id="myTabContent">
                     <div class="tab-pane fade show active" id="clientes-tab-pane" role="tabpanel" aria-labelledby="clientes-tab" tabindex="0">
                         <div class="table-responsive table-container">
@@ -278,7 +422,7 @@
                                             </svg>
                                         </td>
                                         <td>
-                                            <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoAprobado">
                                                 <g id="&#240;&#159;&#166;&#134; icon &#34;search&#34;">
                                                     <path id="Vector" d="M7.6667 14.833C11.3486 14.833 14.3334 11.8483 14.3334 8.16652C14.3334 4.4847 11.3486 1.5 7.6667 1.5C3.98478 1.5 1 4.4847 1 8.16652C1 11.8483 3.98478 14.833 7.6667 14.833Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                                     <path id="Vector_2" d="M16 16.4999L12.375 12.875" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -299,7 +443,7 @@
                                             </svg>
                                         </td>
                                         <td>
-                                            <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoAprobado">
                                                 <g id="&#240;&#159;&#166;&#134; icon &#34;search&#34;">
                                                     <path id="Vector" d="M7.6667 14.833C11.3486 14.833 14.3334 11.8483 14.3334 8.16652C14.3334 4.4847 11.3486 1.5 7.6667 1.5C3.98478 1.5 1 4.4847 1 8.16652C1 11.8483 3.98478 14.833 7.6667 14.833Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                                     <path id="Vector_2" d="M16 16.4999L12.375 12.875" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -320,7 +464,7 @@
                                             </svg>
                                         </td>
                                         <td>
-                                            <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoAprobado">
                                                 <g id="&#240;&#159;&#166;&#134; icon &#34;search&#34;">
                                                     <path id="Vector" d="M7.6667 14.833C11.3486 14.833 14.3334 11.8483 14.3334 8.16652C14.3334 4.4847 11.3486 1.5 7.6667 1.5C3.98478 1.5 1 4.4847 1 8.16652C1 11.8483 3.98478 14.833 7.6667 14.833Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                                     <path id="Vector_2" d="M16 16.4999L12.375 12.875" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -341,7 +485,7 @@
                                             </svg>
                                         </td>
                                         <td>
-                                            <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoAprobado">
                                                 <g id="&#240;&#159;&#166;&#134; icon &#34;search&#34;">
                                                     <path id="Vector" d="M7.6667 14.833C11.3486 14.833 14.3334 11.8483 14.3334 8.16652C14.3334 4.4847 11.3486 1.5 7.6667 1.5C3.98478 1.5 1 4.4847 1 8.16652C1 11.8483 3.98478 14.833 7.6667 14.833Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                                     <path id="Vector_2" d="M16 16.4999L12.375 12.875" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
