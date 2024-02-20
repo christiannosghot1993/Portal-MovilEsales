@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Portal_MovilEsales.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class AsesorController : Controller
     {
         public IActionResult Index()
@@ -15,7 +15,16 @@ namespace Portal_MovilEsales.Controllers
             return View();
         }
 
+        public IActionResult PoliticaComercial()
+        {
+            return View();
+        }
+
         public IActionResult PedidoProductosSeleccionados()
+        {
+            return View();
+        }
+        public IActionResult PedidoProductosSeleccionadosV2()
         {
             return View();
         }

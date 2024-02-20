@@ -79,7 +79,7 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-end pt-3">
-                    <label class="card-subtitle" data-bs-toggle="modal" data-bs-target="#modalDetalleInformacionCrediticia">Más Detalles</label>
+                    <label class="card-subtitle" data-bs-toggle="modal" data-bs-target="#modalDetalleInformacionCrediticia" style="text-decoration: underline;">Más Detalles</label>
                    
                 </div>
 
@@ -102,7 +102,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="table-responsive mt-4">
+                <div class="table-responsive mt-4" style="max-height: 218px;">
                     <table class="table">
                         <thead class="card-table_header">
                             <tr>
@@ -211,9 +211,10 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div class="d-flex justify-content-end pt-3">
-                        <a asp-action="EstadoCuentaAsesor" asp-controller="Asesor" class="card-subtitle">Estado de cuenta</a>
-                    </div>
+                    
+                </div>
+                <div class="d-flex justify-content-end pt-3">
+                    <a asp-action="EstadoCuentaAsesor" asp-controller="Asesor" class="card-subtitle">Estado de cuenta</a>
                 </div>
             </div>
         </div>
@@ -396,7 +397,7 @@
                 </div>
                 <div class="tab-content pt-3" id="myTabContent">
                     <div class="tab-pane fade show active" id="clientes-tab-pane" role="tabpanel" aria-labelledby="clientes-tab" tabindex="0">
-                        <div class="table-responsive table-container">
+                        <div class="table-responsive table-container" style="max-height: 225px;">
                             <table class="table">
                                 <thead class="card-table_header">
                                     <tr>
@@ -496,9 +497,12 @@
                                 </tbody>
                             </table>
                         </div>
+                        <div class="d-flex justify-content-end pt-3">
+                            <a class="card-subtitle">Ver más +</a>
+                        </div>
                     </div>
                     <div class="tab-pane fade" id="pedidos-tab-pane" role="tabpanel" aria-labelledby="pedidos-tab" tabindex="0">
-                        <div class="table-responsive table-container">
+                        <div class="table-responsive table-container" style="max-height: 225px;">
                             <table class="table w-100">
                                 <thead class="card-table_header">
                                     <tr>
@@ -637,6 +641,9 @@
                                     </tr>
                                 </tbody>
                             </table>
+                        </div>
+                        <div class="d-flex justify-content-end pt-3">
+                            <a class="card-subtitle">Ver más +</a>
                         </div>
                     </div>
                 </div>
