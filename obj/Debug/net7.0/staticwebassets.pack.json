@@ -1,351 +1,351 @@
 {
   "Files": [
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\Portal-MovilEsales.bundle.scp.css",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\Portal-MovilEsales.bundle.scp.css",
       "PackagePath": "staticwebassets\\Portal-MovilEsales.bundle.scp.css"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\.DS_Store",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\.DS_Store",
       "PackagePath": "staticwebassets\\assets\\fonts\\.DS_Store"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\._BekaertHeadline-Bold.woff2",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\._BekaertHeadline-Bold.woff2",
       "PackagePath": "staticwebassets\\assets\\fonts\\._BekaertHeadline-Bold.woff2"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\._BekaertHeadline-Regular.woff2",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\._BekaertHeadline-Regular.woff2",
       "PackagePath": "staticwebassets\\assets\\fonts\\._BekaertHeadline-Regular.woff2"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\._BekaertText-BoldItalic.woff2",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\._BekaertText-BoldItalic.woff2",
       "PackagePath": "staticwebassets\\assets\\fonts\\._BekaertText-BoldItalic.woff2"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\._BekaertText-Medium.woff2",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\._BekaertText-Medium.woff2",
       "PackagePath": "staticwebassets\\assets\\fonts\\._BekaertText-Medium.woff2"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\._BekaertText-Regular.woff2",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\._BekaertText-Regular.woff2",
       "PackagePath": "staticwebassets\\assets\\fonts\\._BekaertText-Regular.woff2"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertHeadline-Bold.woff",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertHeadline-Bold.woff",
       "PackagePath": "staticwebassets\\assets\\fonts\\BekaertHeadline-Bold.woff"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertHeadline-Regular.woff",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertHeadline-Regular.woff",
       "PackagePath": "staticwebassets\\assets\\fonts\\BekaertHeadline-Regular.woff"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertText-Bold.woff",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertText-Bold.woff",
       "PackagePath": "staticwebassets\\assets\\fonts\\BekaertText-Bold.woff"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertText-BoldItalic.woff",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertText-BoldItalic.woff",
       "PackagePath": "staticwebassets\\assets\\fonts\\BekaertText-BoldItalic.woff"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertText-Italic.woff",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertText-Italic.woff",
       "PackagePath": "staticwebassets\\assets\\fonts\\BekaertText-Italic.woff"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertText-Medium.woff",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertText-Medium.woff",
       "PackagePath": "staticwebassets\\assets\\fonts\\BekaertText-Medium.woff"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertText-MediumItalic.woff",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertText-MediumItalic.woff",
       "PackagePath": "staticwebassets\\assets\\fonts\\BekaertText-MediumItalic.woff"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertText-Regular.woff",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertText-Regular.woff",
       "PackagePath": "staticwebassets\\assets\\fonts\\BekaertText-Regular.woff"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\images\\Rectangle.png",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\assets\\images\\Rectangle.png",
       "PackagePath": "staticwebassets\\assets\\images\\Rectangle.png"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\images\\image 1.png",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\assets\\images\\image 1.png",
       "PackagePath": "staticwebassets\\assets\\images\\image 1.png"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\images\\image 2.png",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\assets\\images\\image 2.png",
       "PackagePath": "staticwebassets\\assets\\images\\image 2.png"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\images\\image 3.png",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\assets\\images\\image 3.png",
       "PackagePath": "staticwebassets\\assets\\images\\image 3.png"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\images\\image 4.png",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\assets\\images\\image 4.png",
       "PackagePath": "staticwebassets\\assets\\images\\image 4.png"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\images\\image 5.png",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\assets\\images\\image 5.png",
       "PackagePath": "staticwebassets\\assets\\images\\image 5.png"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\images\\login-bg.png",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\assets\\images\\login-bg.png",
       "PackagePath": "staticwebassets\\assets\\images\\login-bg.png"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\css\\CambioContrasenaEmail.css",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\css\\CambioContrasenaEmail.css",
       "PackagePath": "staticwebassets\\css\\CambioContrasenaEmail.css"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\css\\Collapsible.css",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\css\\Collapsible.css",
       "PackagePath": "staticwebassets\\css\\Collapsible.css"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\css\\layout.css",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\css\\layout.css",
       "PackagePath": "staticwebassets\\css\\layout.css"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\css\\layoutB.css",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\css\\layoutB.css",
       "PackagePath": "staticwebassets\\css\\layoutB.css"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\css\\login.css",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\css\\login.css",
       "PackagePath": "staticwebassets\\css\\login.css"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\css\\site.css",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\favicon.ico",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\js\\site.js",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {

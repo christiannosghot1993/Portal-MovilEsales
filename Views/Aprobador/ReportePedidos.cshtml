@@ -1,0 +1,486 @@
+﻿@{
+    ViewData["Title"] = "Aprobador - Reporte pedidos";
+}
+
+<div class="col-12 ">
+    <div class="card card-container">
+
+        <div class="modal fade" id="modalPedidoAprobado" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title card-title" id="exampleModalLabel">
+                            Pedido Aprobado
+                        </h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="row mb-3">
+                            <div class="col-md-2" style="font-weight: bold;">Cliente:</div>
+                            <div class="col-md-3">Castillo Miranda Hugo Ernesto</div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-2" style="font-weight: bold;">Orden:</div>
+                            <div class="col-md-3">02458752</div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-2" style="font-weight: bold;">Forma de Pago:</div>
+                            <div class="col-md-3">Net, at 30 dateof invoice</div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-2" style="font-weight: bold;">Peso total pedido:</div>
+                            <div class="col-md-3">9000.0000(Kg)</div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-2" style="font-weight: bold;">Observación:</div>
+                            <div class="col-md-3">(Sandra Monal):Despachar Semana del 23 de Enero del 2023(Jenny Hernandez)</div>
+                        </div>
+                        @*<div class="col-md-3" style="font-weight: bold;">Orden:</div>
+                        <div class="col-md-3">1/10/2023 3:59:02 PM</div>
+                        <div class="col-md-3" style="font-weight: bold;">Forma de Pago:</div>
+                        <div class="col-md-3">Net, at 30 date of invoice</div>
+                        <div class="col-md-3" style="font-weight: bold;">Numero de Orden:</div>
+                        <div class="col-md-3">23458</div>
+                        <div class="col-md-3" style="font-weight: bold;">Dirección de Entrega:</div>
+                        <div class="col-md-3">000133490. CR 18 28 23 BRR GIRARDOT</div>
+                        <div class="col-md-3" style="font-weight: bold; color: #FF602C;">Aprobado</div>
+                        <div class="col-md-3"></div>
+                        <div class="col-md-3" style="font-weight: bold;">Total Peso Pedido:</div>
+                        <div class="col-md-3">9000.0000 (Kg)</div>
+                        <div class="col-md-3" style="font-weight: bold;">Numero de Orden SAP:</div>
+                        <div class="col-md-3">3901158088</div>
+                        <div class="col-md-3" style="font-weight: bold;">Observación:</div>
+                        <div class="col-md-3">(SandraMonal): Despachar semana del 23 de Enero 2023 (JennyHernandez):</div>
+                        <div class="col-md-3" style="font-weight: bold;">Fecha de Entrega</div>
+                        <div class="col-md-3">2023-01-23</div>
+                        <div class="col-md-3" style="font-weight: bold;">Contacto:</div>
+                        <div class="col-md-9">-</div>
+                        <div class="col-md-3" style="font-weight: bold;">Dirección:</div>
+                        <div class="col-md-9">-</div>*@
+
+                        <a data-bs-toggle="collapse" href="#collapseInformacionPedido" role="button" aria-expanded="true" aria-controls="collapseInformacionPedido">
+                            <div class="collapsible-tabs">
+                                <div class="label">
+                                    <div class="label-color-wrapper">
+                                        <div class="label-color"><div class="text" style="font-weight: bold;">Orden de Compra - 123456</div></div>
+                                    </div>
+                                    <div class="chevron">
+                                        <svg width="23" height="14" viewBox="0 0 23 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g id="&#240;&#159;&#166;&#134; icon &#34;chevron down&#34;">
+                                                <path id="Vector" d="M1.5 2L11.5 12L21.5 2" stroke="#D7D2CB" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                        <div class="collapse show mb-4" id="collapseInformacionPedido">
+
+                            <div class="table-responsive table-container">
+                                <table class="table">
+                                    <thead class="card-table_header">
+                                        <tr>
+                                            <th scope="col" class="border-radius-left" style="padding:13px;">Artículo</th>
+                                            <th scope="col" style="padding:13px;">Descripción</th>
+                                            <th scope="col" style="padding:13px;">PSV</th>
+                                            <th scope="col" style="padding:13px;">Cant.</th>
+                                            <th scope="col" style="padding:13px;">Peso Kg.</th>
+                                            <th scope="col" style="padding:13px;">Desc. Base</th>
+                                            <th scope="col" style="padding:13px;">Desc. Fac</th>
+                                            <th scope="col" style="padding:13px;">Desc. NC</th>
+                                            <th scope="col" style="padding:13px;">%Desc. desde PVS</th>
+                                            <th scope="col" style="padding:13px;">Precio Final</th>
+                                            <th scope="col" style="padding:13px;">Estado</th>
+                                            <th scope="col" style="padding:13px;">Todo el Mes</th>
+                                            <th scope="col" style="padding:13px;">Familia</th>
+                                            <th scope="col" style="padding:13px;">Margen %</th>
+                                            <th scope="col" style="padding:13px;">Margen $</th>
+                                            <th scope="col" class="border-radius-right" style="padding:13px;">CAT.</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>187934</td>
+                                            <td>AL. RECOCIDO 1,25MM #18 R20KG</td>
+                                            <td>160.984,00</td>
+                                            <td>100</td>
+                                            <td>1350</td>
+                                            <td>33,000%</td>
+                                            <td>150.80</td>
+                                            <td>0,000%</td>
+                                            <td>38,36%</td>
+                                            <td>$99.230,54</td>
+                                            <td>Pendiente</td>
+                                            <td>Sí</td>
+                                            <td>Sí</td>
+                                            <td>29,824%</td>
+                                            <td>$2´959.230,01</td>
+                                            <td>A</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-12 col-md-6 d-flex justify-content-center align-items-md-center">
+
+                                    <div class="row">
+                                        <div class="d-flex justify-content-end align-items-end pt-2">
+
+                                            <p>
+                                                El valor de NC (Sin IVA) es de:$34.37 sobre un total
+                                                de $1.085,56 lo que correspondea un porcentaje de: 3.17%
+                                            </p>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+
+                                        <div class="justify-content-end align-items-end pt-2">
+                                            <button class="orange-rounded-button" style="background-color: #01ADEF !important">
+                                                Descargar
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <g id="vuesax/linear/frame">
+                                                        <g id="frame">
+                                                            <path id="Vector" d="M16.44 8.89844C20.04 9.20844 21.51 11.0584 21.51 15.1084V15.2384C21.51 19.7084 19.72 21.4984 15.25 21.4984H8.73998C4.26998 21.4984 2.47998 19.7084 2.47998 15.2384V15.1084C2.47998 11.0884 3.92998 9.23844 7.46998 8.90844" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                            <path id="Vector_2" d="M12 2V14.88" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                            <path id="Vector_3" d="M15.3499 12.6484L11.9999 15.9984L8.6499 12.6484" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </g>
+                                                    </g>
+                                                </svg>
+
+
+                                            </button>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end mt-3">
+
+                                    @* <div class="d-flex justify-content-center justify-content-md-end mt-3">*@
+                                    <div class="subtotales-container">
+                                        <div>
+                                            <div class="subtotal-description">
+                                                <label class="d-flex justify-content-md-end pe-md-5">Importe Bruto</label>
+                                            </div>
+                                            <label class="pe-md-2 ps-md-5">$</label>
+                                            <div class="subtotal-value">
+                                                <label class="d-flex justify-content-end">
+                                                    1.432.24
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="subtotal-description">
+                                                <label class="d-flex justify-content-md-end pe-md-5">Descuento Base</label>
+                                            </div>
+                                            <label class="pe-md-2 ps-md-5">$</label>
+                                            <div class="subtotal-value">
+                                                <label class="d-flex justify-content-end">
+                                                    286,58
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="subtotal-description">
+                                                <label class="d-flex justify-content-md-end pe-md-5">Subtotal 1</label>
+                                            </div>
+                                            <label class="pe-md-2 ps-md-5">$</label>
+                                            <div class="subtotal-value">
+                                                <label class="d-flex justify-content-end">
+                                                    1.145.66
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="subtotal-description">
+                                                <label class="d-flex justify-content-md-end pe-md-5">Descuento Pago</label>
+                                            </div>
+                                            <label class="pe-md-2 ps-md-5">$</label>
+                                            <div class="subtotal-value">
+                                                <label class="d-flex justify-content-end">
+                                                    1.145.66
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="subtotal-description">
+                                                <label class="d-flex justify-content-md-end pe-md-5">Descuento Retiro</label>
+                                            </div>
+                                            <label class="pe-md-2 ps-md-5">$</label>
+                                            <div class="subtotal-value">
+                                                <label class="d-flex justify-content-end">
+                                                    1.145.66
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="subtotal-description">
+                                                <label class="d-flex justify-content-md-end pe-md-5">Descuento Varios</label>
+                                            </div>
+                                            <label class="pe-md-2 ps-md-5">$</label>
+                                            <div class="subtotal-value">
+                                                <label class="d-flex justify-content-end">
+                                                    1.145.66
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="subtotal-description">
+                                                <label class="d-flex justify-content-md-end pe-md-5">Descuento Peso</label>
+                                            </div>
+                                            <label class="pe-md-2 ps-md-5">$</label>
+                                            <div class="subtotal-value">
+                                                <label class="d-flex justify-content-end">
+                                                    1.145.66
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <div class="subtotal-description">
+                                                <label class="d-flex justify-content-md-end pe-md-5">Subtotal 2(Factura)</label>
+                                            </div>
+                                            <label class="pe-md-2 ps-md-5">$</label>
+                                            <div class="subtotal-value">
+                                                <label class="d-flex justify-content-end">
+                                                    1.145.66
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="subtotal-description">
+                                                <label class="d-flex justify-content-md-end pe-md-5">IVA</label>
+                                            </div>
+                                            <label class="pe-md-2 ps-md-5">$</label>
+                                            <div class="subtotal-value">
+                                                <label class="d-flex justify-content-end">
+                                                    966.92
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <div class="subtotal-description">
+                                                <label class="d-flex justify-content-md-end pe-md-5" style="font-size: 19px;">Valor Total</label>
+                                            </div>
+                                            <label class="pe-md-2 ps-md-5">$</label>
+                                            <div class="subtotal-value">
+                                                <label class="d-flex justify-content-end">
+                                                    1.082.95
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <div class="subtotal-description">
+                                                <label class="d-flex justify-content-md-end pe-md-5">Valor N/C (Sin IVA)</label>
+                                            </div>
+                                            <label class="pe-md-2 ps-md-5">$</label>
+                                            <div class="subtotal-value">
+                                                <label class="d-flex justify-content-end">
+                                                    35.87
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <div class="subtotal-description">
+                                                <label class="d-flex justify-content-md-end pe-md-5">Margen Valor</label>
+                                            </div>
+                                            <label class="pe-md-2 ps-md-5">$</label>
+                                            <div class="subtotal-value">
+                                                <label class="d-flex justify-content-end">
+                                                    35.87
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <div class="subtotal-description">
+                                                <label class="d-flex justify-content-md-end pe-md-5">Margen Porcentaje</label>
+                                            </div>
+                                            <label class="pe-md-2 ps-md-5">%</label>
+                                            <div class="subtotal-value">
+                                                <label class="d-flex justify-content-end">
+                                                    35.87
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        @* </div>*@
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    @*<div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Guardar cambios</button>
+                    </div>*@
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+
+            <h1 class="card-title">Reporte pedidos</h1>
+
+            <div class="row">
+
+                <div class="col-12 col-md-2">
+                    <label for="startDate" class="label-datepicker">Fecha Inicio</label>
+                    <input id="startDate" class="form-control  datepicker" type="date" />
+                    <span id="startDateSelected"></span>
+                </div>
+
+                <div class="col-12 col-md-2">
+                    <label class="label-datepicker" for="endDate">Fecha Fin</label>
+                    <input id="endDate" class="form-control datepicker" type="date" />
+                    <span id="endDateSelected"></span>
+                </div>
+
+                <div class="col-12 col-md-2">
+                    <label class="label-datepicker" for="orden">Orden</label>
+                    <input type="text" class="buscador" placeholder="Buscar" style="height: 40px; border: 2px solid #01ADEF;">
+                </div>
+
+                <div class="col-12 col-md-2">
+                    <label class="label-datepicker" for="cliente">Cliente</label>
+                    <input type="text" class="buscador" placeholder="Buscar" style="height: 40px; border: 2px solid #01ADEF;">
+                </div>
+
+                <div class="col-12 col-md-2">
+                    <label class="label-datepicker" for="asesor">Asesor</label>
+                    <input type="text" class="buscador" placeholder="Buscar" style="height: 40px; border: 2px solid #01ADEF;">
+                </div>
+
+                <div class="col-12 col-md-2">
+                    <div class="form-group">
+                        <label class="label-datepicker" for="EstadoSelect">Estado</label>
+                        <select class="form-control datepicker" id="EstadoSelect">
+                            <option value="option1">Aprobado</option>
+                            <option value="option2">Negado</option>
+                        </select>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-10">
+                    <div style="padding-top: 15px; display:flex; justify-content:center; align-content:center">
+
+                        <button class="orange-rounded-button" style="background-color: #01ADEF !important">
+                            Buscar
+                            <svg style="margin:5px;" width="20" height="20" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="&#240;&#159;&#166;&#134; icon &#34;search&#34;">
+                                    <path id="Vector" d="M9.88894 18.7779C14.7982 18.7779 18.7779 14.7982 18.7779 9.88894C18.7779 4.97971 14.7982 1 9.88894 1C4.97971 1 1 4.97971 1 9.88894C1 14.7982 4.97971 18.7779 9.88894 18.7779Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path id="Vector_2" d="M21 21.0013L16.1666 16.168" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                </g>
+                            </svg>
+                        </button>
+
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-2 d-flex justify-content-end align-items-end pt-2">
+                    <button class="orange-rounded-button" style="background-color: #01ADEF !important">
+                        Descargar
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="vuesax/linear/frame">
+                                <g id="frame">
+                                    <path id="Vector" d="M16.44 8.89844C20.04 9.20844 21.51 11.0584 21.51 15.1084V15.2384C21.51 19.7084 19.72 21.4984 15.25 21.4984H8.73998C4.26998 21.4984 2.47998 19.7084 2.47998 15.2384V15.1084C2.47998 11.0884 3.92998 9.23844 7.46998 8.90844" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path id="Vector_2" d="M12 2V14.88" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path id="Vector_3" d="M15.3499 12.6484L11.9999 15.9984L8.6499 12.6484" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                </g>
+                            </g>
+                        </svg>
+
+
+                    </button>
+                </div>
+            </div>
+
+            <div class="table-responsive table-container pt-3">
+                <table class="table" id="tabla-listado-pedidos">
+                    <thead class="card-table_header">
+                        <tr>
+                            <th scope="col" class="border-radius-left" style="padding:13px;">N° Orden E-sales</th>
+                            <th scope="col" style="padding:13px;">N° Orden SAP</th>
+                            <th scope="col" style="padding:13px;">Cliente</th>
+                            <th scope="col" style="padding:13px;">Asesor</th>
+                            <th scope="col" style="padding:13px;">Margen %</th>
+                            <th scope="col" style="padding:13px;">Margen $</th>
+                            <th scope="col" style="padding:13px;">Estado</th>
+                            <th scope="col" style="padding:13px;">Fecha Creación</th>
+                            <th scope="col" class="border-radius-right" style="padding:13px;"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Castillo Miranda Hugo Ernesto</td>
+                            <td>1/10/2023</td>
+                            <td>00245874</td>
+                            <td>514268245</td>
+                            <td>928.641.44</td>
+                            <td>00245874</td>
+                            <td>514268245</td>
+                            <td>928.641.44</td>
+                            <td>
+                                <svg style="margin:5px;" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoAprobado">
+                                    <g id="&#240;&#159;&#166;&#134; icon &#34;search&#34;">
+                                        <path id="Vector" d="M9.88894 18.7779C14.7982 18.7779 18.7779 14.7982 18.7779 9.88894C18.7779 4.97971 14.7982 1 9.88894 1C4.97971 1 1 4.97971 1 9.88894C1 14.7982 4.97971 18.7779 9.88894 18.7779Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path id="Vector_2" d="M21 21.0013L16.1666 16.168" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    </g>
+                                </svg>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    // Inicializar DataTables
+    $(document).ready(function () {
+        new DataTable('#tabla-listado-pedidos', {
+            pagingType: 'simple_numbers', // Establece el tipo de paginación a simple_numbers
+            searching: false,
+            ordering: false,
+            info: false,
+            lengthChange: false,
+            pageLength: 5, // Establecer el número de elementos por página a 5
+            dom: 'lrtip', // Define la disposición de los elementos de la tabla
+            language: {
+                paginate: {
+                    previous: '<',
+                    next: '>'
+                }
+            }
+        });
+    });
+
+
+
+</script>
+
