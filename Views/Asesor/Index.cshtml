@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Portal_MovilEsales.Services.AsesorServices.ViewModels.InicioAsesor
+@{
     ViewData["Title"] = "Asesor";
 }
 
@@ -9,13 +10,13 @@
                 <div class="card-title">
                     <h1>Información personal</h1>
                 </div>
-                <h4 class="title">Pedro Perez</h4>
+                <h4 class="title">@Model.nombreAsesor</h4>
                 <div class="d-flex border-br-orange">
                     <div class="me-auto">
-                        <label class="card-subtitle">Correo Electrónico: <span style="color: black;">pperez@bekaert.com</span></label>
+                        <label class="card-subtitle">Correo Electrónico: <span style="color: black;">@Model.correo</span></label>
                     </div>
                     <div>
-                        <label class="card-subtitle">Ciudad - Pais: <span style="color: black;">Ibarra - Ecuador</span></label>
+                        <label class="card-subtitle">Ciudad - Pais: <span style="color: black;">@Model.ciudad - @Model.pais</span></label>
                     </div>
                 </div>
 
@@ -51,8 +52,8 @@
                 </div>
                 <div class="tab-content pt-3" id="myTabContent">
                     <div class="tab-pane fade show active" id="clientes-tab-pane" role="tabpanel" aria-labelledby="clientes-tab" tabindex="0">
-                        <div class="table-responsive table-container">
-                            <table class="table">
+                        <div class="table-responsive table-container" style="max-height: 305px;">
+                            <table class="table"> 
                                 <thead class="card-table_header">
                                     <tr>
                                         <th scope="col" class="border-radius-left" style="padding:13px;">Nombre del Cliente</th>
@@ -61,47 +62,25 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Castillo Miranda Hugo Ernesto</td>
-                                        <td>576994928938</td>
-                                        <td>Ibarra</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Castillo Miranda Hugo Ernesto</td>
-                                        <td>576994928938</td>
-                                        <td>Ibarra</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Castillo Miranda Hugo Ernesto</td>
-                                        <td>576994928938</td>
-                                        <td>Ibarra</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Pedro Perez</td>
-                                        <td>576994928938</td>
-                                        <td>Cuenca</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Castillo Miranda Hugo Ernesto</td>
-                                        <td>576994928938</td>
-                                        <td>Machala</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Castillo Miranda Hugo Ernesto</td>
-                                        <td>576994928938</td>
-                                        <td>Machala</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Castillo Miranda Hugo Ernesto</td>
-                                        <td>576994928938</td>
-                                        <td>Machala</td>
-                                    </tr>
+                                    @foreach (var item in Model.listadoClientes)
+                                    {
+                                        <tr>
+                                            <td>@item.nombreCliente</td>
+                                            <td>@item.codigoSAP</td>
+                                            <td>@item.ciudad</td>
+                                        </tr>
+                                    }
+                                     
                                 </tbody>
                             </table>
                         </div>
+                        <div class="d-flex justify-content-end pt-3">
+                            <label class="card-subtitle" style="text-decoration: underline;">Ver más +</label>
+
+                        </div>
                     </div>
                     <div class="tab-pane fade" id="pedidos-tab-pane" role="tabpanel" aria-labelledby="pedidos-tab" tabindex="0">
-                        <div class="table-responsive table-container">
+                        <div class="table-responsive table-container" style="max-height: 305px;">
                             <table class="table">
                                 <thead class="card-table_header">
                                     <tr>
@@ -119,74 +98,38 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Castillo Miranda Hugo Ernesto</td>
-                                        <td>1/10/2023</td>
-                                        <td>(Sandra Monal): Despachar ...</td>
-                                        <td>00245874</td>
-                                        <td>514268245</td>
-                                        <td>928.641.44</td>
-                                        <td>65’928.641.44</td>
-                                        <td>0.00</td>
-                                        <td>Jenny Hernadez</td>
-                                        <td>Aprobado</td>
-                                        <td>
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <g id="01 align center">
-                                                    <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                    <path id="Vector_2" d="M7.00012 24C8.10469 24 9.00011 23.1046 9.00011 22C9.00011 20.8954 8.10469 20 7.00012 20C5.89555 20 5.00012 20.8954 5.00012 22C5.00012 23.1046 5.89555 24 7.00012 24Z" fill="#01ADEF" />
-                                                    <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                                </g>
-                                            </svg>
+                                    @foreach (var item in Model.listadoPedidos)
+                                    {
+                                        <tr>
+                                            <td>@item.nombreCliente</td>
+                                            <td>@item.fechaCreacion</td>
+                                            <td>@item.observacion</td>
+                                            <td>@item.numeroOrden</td>
+                                            <td>@item.ordenSAP</td>
+                                            <td>@item.compraKG</td>
+                                            <td>@item.compraValor</td>
+                                            <td>@item.valorNCSinIVA</td>
+                                            <td>@item.aprobadorActual</td>
+                                            <td>@item.estado</td>
+                                            <td>
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <g id="01 align center">
+                                                        <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
+                                                        <path id="Vector_2" d="M7.00012 24C8.10469 24 9.00011 23.1046 9.00011 22C9.00011 20.8954 8.10469 20 7.00012 20C5.89555 20 5.00012 20.8954 5.00012 22C5.00012 23.1046 5.89555 24 7.00012 24Z" fill="#01ADEF" />
+                                                        <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
+                                                    </g>
+                                                </svg>
 
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Pedro Perez</td>
-                                        <td>1/10/2023</td>
-                                        <td>(Sandra Monal): Despachar Semana del 23...</td>
-                                        <td>00245874</td>
-                                        <td>514268245</td>
-                                        <td>928.641.44</td>
-                                        <td>65’928.641.44</td>
-                                        <td>0.00</td>
-                                        <td>Jenny Hernadez</td>
-                                        <td>Aprobado</td>
-                                        <td>
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <g id="01 align center">
-                                                    <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                    <path id="Vector_2" d="M7.00012 24C8.10469 24 9.00011 23.1046 9.00011 22C9.00011 20.8954 8.10469 20 7.00012 20C5.89555 20 5.00012 20.8954 5.00012 22C5.00012 23.1046 5.89555 24 7.00012 24Z" fill="#01ADEF" />
-                                                    <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                                </g>
-                                            </svg>
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Castillo Miranda Hugo Ernesto</td>
-                                        <td>1/10/2023</td>
-                                        <td>(Sandra Monal): Despachar Semana del 23 de Enero de 2023 (Jenny)</td>
-                                        <td>00245874</td>
-                                        <td>514268245</td>
-                                        <td>928.641.44</td>
-                                        <td>65’928.641.44</td>
-                                        <td>0.00</td>
-                                        <td>Jenny Hernadez</td>
-                                        <td>Aprobado</td>
-                                        <td>
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <g id="01 align center">
-                                                    <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                    <path id="Vector_2" d="M7.00012 24C8.10469 24 9.00011 23.1046 9.00011 22C9.00011 20.8954 8.10469 20 7.00012 20C5.89555 20 5.00012 20.8954 5.00012 22C5.00012 23.1046 5.89555 24 7.00012 24Z" fill="#01ADEF" />
-                                                    <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                                </g>
-                                            </svg>
-
-                                        </td>
-                                    </tr>
+                                            </td>
+                                        </tr>
+                                    }
+                                    
                                 </tbody>
                             </table>
+                        </div>
+                        <div class="d-flex justify-content-end pt-3">
+                            <label class="card-subtitle" style="text-decoration: underline;">Ver más +</label>
+
                         </div>
                     </div>
                 </div>
@@ -195,26 +138,11 @@
     </div>
     @*carousel*@
     <div class="responsive">
-        <div>
-            <img src="~/assets/images/image 1.png" alt="Image 1">
-        </div>
-        <div>
-            <img src="~/assets/images/image 2.png" alt="Image 2">
-        </div>
-        <div>
-            <img src="~/assets/images/image 3.png" alt="Image 3">
-        </div>
-        <div>
-            <img src="~/assets/images/image 4.png" alt="Image 4">
-        </div>
-        <div>
-            <img src="~/assets/images/image 5.png" alt="Image 5">
-        </div>
-        <div>
-            <img src="~/assets/images/image 3.png" alt="Image 3">
-        </div>
-        <div>
-            <img src="~/assets/images/image 4.png" alt="Image 4">
-        </div>
-    </div>
+        
+        @foreach (var item in Model.listadoImagenes.OrderBy(x=>x.orden))
+        {
+            <div>
+                <img src="@item.linkImagen" alt="@item.orden">
+            </div>
+        }
 </div>

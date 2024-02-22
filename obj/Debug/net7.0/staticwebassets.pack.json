@@ -89,7 +89,23 @@
       "PackagePath": "staticwebassets\\assets\\images\\login-bg.png"
     },
     {
+<<<<<<< HEAD
       "Id": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\css\\CambioContrasenaEmail.css",
+=======
+      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\templates\\email-template-aprobador.html",
+      "PackagePath": "staticwebassets\\assets\\templates\\email-template-aprobador.html"
+    },
+    {
+      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\templates\\email-template-asesor.html",
+      "PackagePath": "staticwebassets\\assets\\templates\\email-template-asesor.html"
+    },
+    {
+      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\templates\\email-template-cliente.html",
+      "PackagePath": "staticwebassets\\assets\\templates\\email-template-cliente.html"
+    },
+    {
+      "Id": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\css\\CambioContrasenaEmail.css",
+>>>>>>> main
       "PackagePath": "staticwebassets\\css\\CambioContrasenaEmail.css"
     },
     {

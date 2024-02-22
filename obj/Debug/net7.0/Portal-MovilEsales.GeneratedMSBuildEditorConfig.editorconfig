@@ -48,8 +48,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXFBlZGlkb1Byb2R1Y3Rvc1NlbGVjY2lvbmFkb3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Kruger/Proyecto Mario/Portal-MovilEsales/Views/Asesor/PedidoProductosSeleccionadosV2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXFBlZGlkb1Byb2R1Y3Rvc1NlbGVjY2lvbmFkb3NWMi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Kruger/Proyecto Mario/Portal-MovilEsales/Views/Asesor/Pedidos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXFBlZGlkb3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Kruger/Proyecto Mario/Portal-MovilEsales/Views/Asesor/PoliticaComercial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXFBvbGl0aWNhQ29tZXJjaWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Kruger/Proyecto Mario/Portal-MovilEsales/Views/Home/Index.cshtml]

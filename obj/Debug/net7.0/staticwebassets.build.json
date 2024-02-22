@@ -1,6 +1,10 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "Hash": "8FOBXroUSAnsipLkBZq2mvtRyP+XirXV71GJ1Wd6nbA=",
+=======
+  "Hash": "gkjAh2ELWTLiWxze6QRL1J/pC0j8v9pUMLprJCX4rtw=",
+>>>>>>> main
   "Source": "Portal-MovilEsales",
   "BasePath": "_content/Portal-MovilEsales",
   "Mode": "Default",
@@ -408,7 +412,62 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\Rectangle.png"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\css\\CambioContrasenaEmail.css",
+=======
+      "Identity": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\templates\\email-template-aprobador.html",
+      "SourceId": "Portal-MovilEsales",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\",
+      "BasePath": "_content/Portal-MovilEsales",
+      "RelativePath": "assets/templates/email-template-aprobador.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\templates\\email-template-aprobador.html"
+    },
+    {
+      "Identity": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\templates\\email-template-asesor.html",
+      "SourceId": "Portal-MovilEsales",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\",
+      "BasePath": "_content/Portal-MovilEsales",
+      "RelativePath": "assets/templates/email-template-asesor.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\templates\\email-template-asesor.html"
+    },
+    {
+      "Identity": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\assets\\templates\\email-template-cliente.html",
+      "SourceId": "Portal-MovilEsales",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\",
+      "BasePath": "_content/Portal-MovilEsales",
+      "RelativePath": "assets/templates/email-template-cliente.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\templates\\email-template-cliente.html"
+    },
+    {
+      "Identity": "C:\\KRUGER\\Portal-MovilEsales\\wwwroot\\css\\CambioContrasenaEmail.css",
+>>>>>>> main
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\wwwroot\\",

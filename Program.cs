@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Portal_MovilEsales.Services;
+using Portal_MovilEsales.Services.AsesorServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,7 @@ builder.Services.AddSession(options =>
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 #endregion
 builder.Services.AddScoped(typeof(IService), typeof(Service));
+builder.Services.AddScoped(typeof(IAsesorService), typeof(AsesorService));
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
         .AddCookie(options =>

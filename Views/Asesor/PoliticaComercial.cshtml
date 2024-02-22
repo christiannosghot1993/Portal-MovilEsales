@@ -1,0 +1,313 @@
+﻿@{
+    ViewData["Title"] = "Asesor - Pedidos";
+}
+
+<div class="col-12 ">
+    <div class="card card-container">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-12 col-md-10">
+                    <ul class="nav nav-tabs d-flex" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link custom-nav-link active" id="clientes-tab" data-bs-toggle="tab" data-bs-target="#nuevos-requerimientos-tab-pane" type="button" role="tab" aria-controls="nuevos-requerimientos-tab-pane" aria-selected="true">Nuevos Requerimientos</button>
+                        </li>
+                        <li class="nav-item " role="presentation">
+                            <button class="nav-link custom-nav-link" id="pedidos-tab" data-bs-toggle="tab" data-bs-target="#politica-comercial-vigente-tab-pane" type="button" role="tab" aria-controls="politica-comercial-vigente-tab-pane" aria-selected="false">Política Comercial Vigente</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tab-content pt-3" id="myTabContent">
+                <div class="tab-pane fade show active" id="nuevos-requerimientos-tab-pane" role="tabpanel" aria-labelledby="clientes-tab" tabindex="0">
+                    <a data-bs-toggle="collapse" href="#collapseCargaArchivo" role="button" aria-expanded="true" aria-controls="collapseCargaArchivo">
+                        <div class="collapsible-tabs">
+                            <div class="label">
+                                <div class="label-color-wrapper">
+                                    <div class="label-color"><div class="text">Carga Archivo</div></div>
+                                </div>
+                                <div class="chevron">
+                                    <svg width="23" height="14" viewBox="0 0 23 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g id="&#240;&#159;&#166;&#134; icon &#34;chevron down&#34;">
+                                            <path id="Vector" d="M1.5 2L11.5 12L21.5 2" stroke="#D7D2CB" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <div class="collapse show mb-5" id="collapseCargaArchivo">
+                        <div class="archivo ms-4">
+                            <div class="form-group mb-3">
+                                <label class="label-datepicker" for="archivoSelector">Seleccione el Archivo - Formato Excel</label>
+                                <input type="file" id="archivoSelector" class="form-control datepicker" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <a data-bs-toggle="collapse" href="#collapseVistaPreviaCarga" role="button" aria-expanded="true" aria-controls="collapseVistaPreviaCarga">
+                        <div class="collapsible-tabs">
+                            <div class="label">
+                                <div class="label-color-wrapper">
+                                    <div class="label-color"><div class="text">Vista previa a la carga</div></div>
+                                </div>
+                                <div class="chevron">
+                                    <svg width="23" height="14" viewBox="0 0 23 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g id="&#240;&#159;&#166;&#134; icon &#34;chevron down&#34;">
+                                            <path id="Vector" d="M1.5 2L11.5 12L21.5 2" stroke="#D7D2CB" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <div class="collapse show mb-5" id="collapseVistaPreviaCarga">
+                        <div class="table-responsive table-container pt-3">
+                            <table class="table ms-3">
+                                <thead class="card-table_header">
+                                    <tr>
+                                        <th scope="col" class="border-radius-left" style="padding:13px;">Fecha Inicio</th>
+                                        <th scope="col" style="padding:13px;">Fecha Fin</th>
+                                        <th scope="col" style="padding:13px;">Limite Inferior</th>
+                                        <th scope="col" style="padding:13px;">Limite Superior</th>
+                                        <th scope="col" style="padding:13px;">Familia</th>
+                                        <th scope="col" class="border-radius-right" style="padding:13px;">Categoria</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>2023-01-01</td>
+                                        <td>2024-01-01</td>
+                                        <td>0.5</td>
+                                        <td>10</td>
+                                        <td>Alambres</td>
+                                        <td>A</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2023-01-01</td>
+                                        <td>2024-01-01</td>
+                                        <td>0.5</td>
+                                        <td>10</td>
+                                        <td>Alambres de púas</td>
+                                        <td>A</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2023-01-01</td>
+                                        <td>2024-01-01</td>
+                                        <td>0.5</td>
+                                        <td>10</td>
+                                        <td>Alambres</td>
+                                        <td>A</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2023-01-01</td>
+                                        <td>2024-01-01</td>
+                                        <td>0.5</td>
+                                        <td>10</td>
+                                        <td>Armadores</td>
+                                        <td>A</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2023-01-01</td>
+                                        <td>2024-01-01</td>
+                                        <td>0.5</td>
+                                        <td>10</td>
+                                        <td>Armex planchas</td>
+                                        <td>A</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="d-flex justify-content-between mt-4">
+                            <a class="orange-rounded-button" style="background-color: #69A5BD !important">
+                                <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g id="vuesax/linear/arrow-right">
+                                        <g id="arrow-right">
+                                            <path id="Vector" d="M11.8174 3.56141L6.92738 8.45141C6.34988 9.02891 6.34988 9.97391 6.92738 10.5514L11.8174 15.4414" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                        </g>
+                                    </g>
+                                </svg>
+                                Regresar
+                            </a>
+                            <a class="orange-rounded-button">
+                                Continuar
+                                <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g id="vuesax/linear/arrow-right">
+                                        <g id="arrow-right">
+                                            <path id="Vector" d="M7.18262 15.4386L12.0726 10.5486C12.6501 9.97109 12.6501 9.02609 12.0726 8.44859L7.18262 3.55859" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                        </g>
+                                    </g>
+                                </svg>
+
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="tab-pane fade" id="politica-comercial-vigente-tab-pane" role="tabpanel" aria-labelledby="pedidos-tab" tabindex="0">
+                    <a data-bs-toggle="collapse" href="#collapsePorcentajesVigentes" role="button" aria-expanded="true" aria-controls="collapsePorcentajesVigentes">
+                        <div class="collapsible-tabs">
+                            <div class="label">
+                                <div class="label-color-wrapper">
+                                    <div class="label-color"><div class="text">Porcentajes Vigentes</div></div>
+                                </div>
+                                <div class="chevron">
+                                    <svg width="23" height="14" viewBox="0 0 23 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g id="&#240;&#159;&#166;&#134; icon &#34;chevron down&#34;">
+                                            <path id="Vector" d="M1.5 2L11.5 12L21.5 2" stroke="#D7D2CB" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <div class="collapse show mb-5" id="collapsePorcentajesVigentes">
+                        <div class="table-responsive table-container pt-3">
+                            <table class="table" id="tabla-porcentajes-vigentes">
+                                <thead class="card-table_header">
+                                    <tr>
+                                        <th scope="col" class="border-radius-left" style="padding:13px;">Fecha Inicio</th>
+                                        <th scope="col" style="padding:13px;">Fecha Fin</th>
+                                        <th scope="col" style="padding:13px;">Limite Inferior</th>
+                                        <th scope="col" style="padding:13px;">Limite Superior</th>
+                                        <th scope="col" style="padding:13px;">Nivel Aprobación</th>
+                                        <th scope="col" style="padding:13px;">Canal Distribución</th>
+                                        <th scope="col" style="padding:13px;">Familia</th>
+                                        <th scope="col" style="padding:13px;">Categoria</th>
+                                        <th scope="col" class="border-radius-right" style="padding:13px;">Estado</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>2023-01-01</td>
+                                        <td>2024-01-01</td>
+                                        <td>0.5</td>
+                                        <td>10</td>
+                                        <td>1</td>
+                                        <td>01</td>
+                                        <td>Alambres</td>
+                                        <td>A</td>
+                                        <td>Activo</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2023-01-01</td>
+                                        <td>2024-01-01</td>
+                                        <td>0.5</td>
+                                        <td>10</td>
+                                        <td>1</td>
+                                        <td>01</td>
+                                        <td>Alambre de Puas</td>
+                                        <td>A</td>
+                                        <td>Activo</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2023-01-01</td>
+                                        <td>2024-01-01</td>
+                                        <td>0.5</td>
+                                        <td>10</td>
+                                        <td>2</td>
+                                        <td>01</td>
+                                        <td>Armadores</td>
+                                        <td>A</td>
+                                        <td>Activo</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2023-01-01</td>
+                                        <td>2024-01-01</td>
+                                        <td>0.5</td>
+                                        <td>10</td>
+                                        <td>2</td>
+                                        <td>01</td>
+                                        <td>Armadores</td>
+                                        <td>A</td>
+                                        <td>Activo</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2023-01-01</td>
+                                        <td>2024-01-01</td>
+                                        <td>0.5</td>
+                                        <td>10</td>
+                                        <td>2</td>
+                                        <td>01</td>
+                                        <td>Armadores</td>
+                                        <td>A</td>
+                                        <td>Activo</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2023-01-01</td>
+                                        <td>2024-01-01</td>
+                                        <td>0.5</td>
+                                        <td>10</td>
+                                        <td>3</td>
+                                        <td>01</td>
+                                        <td>Armex Planchas</td>
+                                        <td>A</td>
+                                        <td>Activo</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2023-01-01</td>
+                                        <td>2024-01-01</td>
+                                        <td>0.5</td>
+                                        <td>10</td>
+                                        <td>3</td>
+                                        <td>01</td>
+                                        <td>Armex Planchas</td>
+                                        <td>A</td>
+                                        <td>Activo</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2023-01-01</td>
+                                        <td>2024-01-01</td>
+                                        <td>0.5</td>
+                                        <td>10</td>
+                                        <td>1</td>
+                                        <td>01</td>
+                                        <td>Alambres</td>
+                                        <td>A</td>
+                                        <td>Activo</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2023-01-01</td>
+                                        <td>2024-01-01</td>
+                                        <td>0.5</td>
+                                        <td>10</td>
+                                        <td>1</td>
+                                        <td>01</td>
+                                        <td>Alambres</td>
+                                        <td>A</td>
+                                        <td>Activo</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Inicializar DataTables
+    $(document).ready(function () {
+        new DataTable('#tabla-porcentajes-vigentes', {
+            pagingType: 'simple_numbers', // Establece el tipo de paginación a simple_numbers
+            searching: false,
+            ordering: false,
+            info: false,
+            lengthChange: false,
+            pageLength: 10, // Establecer el número de elementos por página a 5
+            dom: 'lrtip', // Define la disposición de los elementos de la tabla
+            language: {
+                paginate: {
+                    previous: '<',
+                    next: '>'
+                }
+            }
+        });
+    });
+</script>

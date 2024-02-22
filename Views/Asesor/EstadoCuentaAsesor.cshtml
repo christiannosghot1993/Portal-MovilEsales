@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 <div class="table-responsive mt-4">
-                    <table class="table">
+                    <table class="table" id="tabla-estado-cuenta">
                         <thead class="card-table_header">
                             <tr>
                                 <th scope="col" class="border-radius-left" style="padding:13px;">Factura</th>
@@ -171,6 +171,84 @@
                                 <td>$ 8.000</td>
                                 <td>20</td>
                             </tr>
+                            <tr>
+                                <td>001-001-000000001</td>
+                                <td>10-24-2023</td>
+                                <td>$ 20.000</td>
+                                <td>10-24-2023</td>
+                                <td>133490</td>
+                                <td>$ 800</td>
+                                <td>$ 12.000</td>
+                                <td>$ 500</td>
+                                <td>11-24-2023</td>
+                                <td>$ 8.000</td>
+                                <td>20</td>
+                            </tr>
+                            <tr>
+                                <td>001-001-000000001</td>
+                                <td>10-24-2023</td>
+                                <td>$ 20.000</td>
+                                <td>10-24-2023</td>
+                                <td>133490</td>
+                                <td>$ 800</td>
+                                <td>$ 12.000</td>
+                                <td>$ 500</td>
+                                <td>11-24-2023</td>
+                                <td>$ 8.000</td>
+                                <td>20</td>
+                            </tr>
+                            <tr>
+                                <td>001-001-000000001</td>
+                                <td>10-24-2023</td>
+                                <td>$ 20.000</td>
+                                <td>10-24-2023</td>
+                                <td>133490</td>
+                                <td>$ 800</td>
+                                <td>$ 12.000</td>
+                                <td>$ 500</td>
+                                <td>11-24-2023</td>
+                                <td>$ 8.000</td>
+                                <td>20</td>
+                            </tr>
+                            <tr>
+                                <td>001-001-000000001</td>
+                                <td>10-24-2023</td>
+                                <td>$ 20.000</td>
+                                <td>10-24-2023</td>
+                                <td>133490</td>
+                                <td>$ 800</td>
+                                <td>$ 12.000</td>
+                                <td>$ 500</td>
+                                <td>11-24-2023</td>
+                                <td>$ 8.000</td>
+                                <td>20</td>
+                            </tr>
+                            <tr>
+                                <td>001-001-000000001</td>
+                                <td>10-24-2023</td>
+                                <td>$ 20.000</td>
+                                <td>10-24-2023</td>
+                                <td>133490</td>
+                                <td>$ 800</td>
+                                <td>$ 12.000</td>
+                                <td>$ 500</td>
+                                <td>11-24-2023</td>
+                                <td>$ 8.000</td>
+                                <td>20</td>
+                            </tr>
+                            <tr>
+                                <td>001-001-000000001</td>
+                                <td>10-24-2023</td>
+                                <td>$ 20.000</td>
+                                <td>10-24-2023</td>
+                                <td>133490</td>
+                                <td>$ 800</td>
+                                <td>$ 12.000</td>
+                                <td>$ 500</td>
+                                <td>11-24-2023</td>
+                                <td>$ 8.000</td>
+                                <td>20</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -178,3 +256,24 @@
         </div>
     </div>
 </div>
+<script>
+    // Inicializar DataTables
+    $(document).ready(function () {
+        new DataTable('#tabla-estado-cuenta', {
+            pagingType: 'simple_numbers', // Establece el tipo de paginación a simple_numbers
+            searching: false,
+            ordering: false,
+            info: false,
+            lengthChange: false,
+            pageLength: 8, // Establecer el número de elementos por página a 5
+            dom: 'lrtip', // Define la disposición de los elementos de la tabla
+            language: {
+                paginate: {
+                    previous: '<',
+                    next: '>'
+                }
+            }
+        });
+    });
+
+</script>
