@@ -9,93 +9,101 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Portal_MovilEsales
 build_property.RootNamespace = Portal_MovilEsales
-build_property.ProjectDir = C:\KRUGER\Portal-MovilEsales\
+build_property.ProjectDir = D:\Kruger\Proyecto Mario\Portal-MovilEsales\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\KRUGER\Portal-MovilEsales
+build_property.MSBuildProjectDirectory = D:\Kruger\Proyecto Mario\Portal-MovilEsales
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/KRUGER/Portal-MovilEsales/Views/Asesor/Clientes.cshtml]
+[D:/Kruger/Proyecto Mario/Portal-MovilEsales/Views/Aprobador/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXByb2JhZG9yXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Kruger/Proyecto Mario/Portal-MovilEsales/Views/Aprobador/ReportePedidos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXByb2JhZG9yXFJlcG9ydGVQZWRpZG9zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Kruger/Proyecto Mario/Portal-MovilEsales/Views/Asesor/Clientes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXENsaWVudGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/KRUGER/Portal-MovilEsales/Views/Asesor/EstadoCuentaAsesor.cshtml]
+[D:/Kruger/Proyecto Mario/Portal-MovilEsales/Views/Asesor/EstadoCuentaAsesor.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXEVzdGFkb0N1ZW50YUFzZXNvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/KRUGER/Portal-MovilEsales/Views/Asesor/Index.cshtml]
+[D:/Kruger/Proyecto Mario/Portal-MovilEsales/Views/Asesor/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/KRUGER/Portal-MovilEsales/Views/Asesor/InformacionCliente.cshtml]
+[D:/Kruger/Proyecto Mario/Portal-MovilEsales/Views/Asesor/InformacionCliente.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXEluZm9ybWFjaW9uQ2xpZW50ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/KRUGER/Portal-MovilEsales/Views/Asesor/PedidoCatalogoProductos.cshtml]
+[D:/Kruger/Proyecto Mario/Portal-MovilEsales/Views/Asesor/PedidoCatalogoProductos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXFBlZGlkb0NhdGFsb2dvUHJvZHVjdG9zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/KRUGER/Portal-MovilEsales/Views/Asesor/PedidoProductosSeleccionados.cshtml]
+[D:/Kruger/Proyecto Mario/Portal-MovilEsales/Views/Asesor/PedidoProductosSeleccionados.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXFBlZGlkb1Byb2R1Y3Rvc1NlbGVjY2lvbmFkb3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/KRUGER/Portal-MovilEsales/Views/Asesor/PedidoProductosSeleccionadosV2.cshtml]
+[D:/Kruger/Proyecto Mario/Portal-MovilEsales/Views/Asesor/PedidoProductosSeleccionadosV2.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXFBlZGlkb1Byb2R1Y3Rvc1NlbGVjY2lvbmFkb3NWMi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/KRUGER/Portal-MovilEsales/Views/Asesor/Pedidos.cshtml]
+[D:/Kruger/Proyecto Mario/Portal-MovilEsales/Views/Asesor/Pedidos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXFBlZGlkb3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/KRUGER/Portal-MovilEsales/Views/Asesor/PoliticaComercial.cshtml]
+[D:/Kruger/Proyecto Mario/Portal-MovilEsales/Views/Asesor/PoliticaComercial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXFBvbGl0aWNhQ29tZXJjaWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/KRUGER/Portal-MovilEsales/Views/Home/Index.cshtml]
+[D:/Kruger/Proyecto Mario/Portal-MovilEsales/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/KRUGER/Portal-MovilEsales/Views/Home/Privacy.cshtml]
+[D:/Kruger/Proyecto Mario/Portal-MovilEsales/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/KRUGER/Portal-MovilEsales/Views/Login/CambioContrasenaEmail.cshtml]
+[D:/Kruger/Proyecto Mario/Portal-MovilEsales/Views/Login/CambioContrasenaEmail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cQ2FtYmlvQ29udHJhc2VuYUVtYWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/KRUGER/Portal-MovilEsales/Views/Login/CambioContrasenaPass.cshtml]
+[D:/Kruger/Proyecto Mario/Portal-MovilEsales/Views/Login/CambioContrasenaPass.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cQ2FtYmlvQ29udHJhc2VuYVBhc3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/KRUGER/Portal-MovilEsales/Views/Login/Index.cshtml]
+[D:/Kruger/Proyecto Mario/Portal-MovilEsales/Views/Login/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/KRUGER/Portal-MovilEsales/Views/Shared/Error.cshtml]
+[D:/Kruger/Proyecto Mario/Portal-MovilEsales/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/KRUGER/Portal-MovilEsales/Views/Shared/_LayoutB.cshtml]
+[D:/Kruger/Proyecto Mario/Portal-MovilEsales/Views/Shared/_LayoutB.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRCLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/KRUGER/Portal-MovilEsales/Views/Shared/_LayoutC.cshtml]
+[D:/Kruger/Proyecto Mario/Portal-MovilEsales/Views/Shared/_LayoutC.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRDLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/KRUGER/Portal-MovilEsales/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Kruger/Proyecto Mario/Portal-MovilEsales/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/KRUGER/Portal-MovilEsales/Views/_ViewImports.cshtml]
+[D:/Kruger/Proyecto Mario/Portal-MovilEsales/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/KRUGER/Portal-MovilEsales/Views/_ViewStart.cshtml]
+[D:/Kruger/Proyecto Mario/Portal-MovilEsales/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/KRUGER/Portal-MovilEsales/Views/Shared/_Layout.cshtml]
+[D:/Kruger/Proyecto Mario/Portal-MovilEsales/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-bsy1lpr36d
