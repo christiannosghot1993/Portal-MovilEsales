@@ -4,6 +4,6 @@ namespace Portal_MovilEsales.Services.AsesorServices
 {
     public interface IAsesorService
     {
-        public InicioAsesor getInfoInicioAsesor(string token); 
+        public InicioAsesor getInfoInicioAsesor(string token);
     }
 }
