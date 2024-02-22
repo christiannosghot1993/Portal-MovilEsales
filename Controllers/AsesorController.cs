@@ -1,14 +1,23 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Portal_MovilEsales.Services.AsesorServices;
 
 namespace Portal_MovilEsales.Controllers
 {
     [Authorize]
     public class AsesorController : Controller
     {
+        private IAsesorService _asesorService;
+        public AsesorController(IAsesorService asesorService)
+        {
+            _asesorService = asesorService;
+        }
         public IActionResult Index()
         {
-            return View();
+            var token=HttpContext.Session.GetString("token");
+            var respInicioAsesor = _asesorService.getInfoInicioAsesor(token);
+            HttpContext.Session.SetString("contactoWhatsApp", "https://wa.me/" + respInicioAsesor.contactoWhatsApp);
+            return View(respInicioAsesor);
         }
         public IActionResult PedidoCatalogoProductos()
         {

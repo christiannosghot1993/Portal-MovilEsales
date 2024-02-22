@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Portal_MovilEsales.Models;
 using Portal_MovilEsales.Services;
+using Portal_MovilEsales.Services.AsesorServices;
 using System.Security.Claims;
 
 namespace Portal_MovilEsales.Controllers
@@ -84,8 +85,9 @@ namespace Portal_MovilEsales.Controllers
                                 perfil = "Administrador";
                                 break;
                         }
-
+                        perfil = "Asesor";//comentar
                         HttpContext.Session.SetString("perfil", perfil);
+                        HttpContext.Session.SetString("token", (string)respIniciarSesion.result);
                         CrearClaims((string)respIniciarSesion.result, perfil, usuario);
                         if (perfil.Equals("Asesor"))
                         {
