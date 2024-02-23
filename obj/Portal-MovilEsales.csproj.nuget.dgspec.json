@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\KRUGER\\Portal-MovilEsales\\Portal-MovilEsales.csproj": {}
+    "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\Portal-MovilEsales.csproj": {}
   },
   "projects": {
-    "C:\\KRUGER\\Portal-MovilEsales\\Portal-MovilEsales.csproj": {
+    "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\Portal-MovilEsales.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\KRUGER\\Portal-MovilEsales\\Portal-MovilEsales.csproj",
+        "projectUniqueName": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\Portal-MovilEsales.csproj",
         "projectName": "Portal-MovilEsales",
-        "projectPath": "C:\\KRUGER\\Portal-MovilEsales\\Portal-MovilEsales.csproj",
-        "packagesPath": "C:\\Users\\LVW97Y655\\.nuget\\packages\\",
-        "outputPath": "C:\\KRUGER\\Portal-MovilEsales\\obj\\",
+        "projectPath": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\Portal-MovilEsales.csproj",
+        "packagesPath": "C:\\Users\\juanp\\.nuget\\packages\\",
+        "outputPath": "D:\\Kruger\\Proyecto Mario\\Portal-MovilEsales\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\LVW97Y655\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\juanp\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

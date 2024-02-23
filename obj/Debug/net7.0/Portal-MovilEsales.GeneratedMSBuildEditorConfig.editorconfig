@@ -16,6 +16,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\KRUGER\Portal-MovilEsales
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/KRUGER/Portal-MovilEsales/Views/Aprobador/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXByb2JhZG9yXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KRUGER/Portal-MovilEsales/Views/Aprobador/ReportePedidos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXByb2JhZG9yXFJlcG9ydGVQZWRpZG9zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/KRUGER/Portal-MovilEsales/Views/Asesor/Clientes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXENsaWVudGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
