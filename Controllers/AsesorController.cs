@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Portal_MovilEsales.Services.AsesorServices;
+using Portal_MovilEsales.Services.AsesorServices.ViewModels;
+using Portal_MovilEsales.Services.AsesorServices.ViewModels.DatosCliente;
+using Portal_MovilEsales.Services.AsesorServices.ViewModels.PedidoAprobado;
 
 namespace Portal_MovilEsales.Controllers
 {
@@ -16,6 +19,7 @@ namespace Portal_MovilEsales.Controllers
         {
             var token=HttpContext.Session.GetString("token");
             var respInicioAsesor = _asesorService.getInfoInicioAsesor(token);
+            var respDatosCliente = _asesorService.getDatosCliente(token, "0000090208");
             HttpContext.Session.SetString("contactoWhatsApp", "https://wa.me/" + respInicioAsesor.contactoWhatsApp);
             return View(respInicioAsesor);
         }
@@ -44,12 +48,27 @@ namespace Portal_MovilEsales.Controllers
 
         public IActionResult Clientes()
         {
-            return View();
+            var token = HttpContext.Session.GetString("token");
+            var respInicioAsesor = _asesorService.getInfoInicioAsesor(token);
+            List<ListadoClientes> lc = respInicioAsesor.listadoClientes;
+            return View(lc);
         }
 
-        public IActionResult InformacionCliente()
+        public IActionResult InformacionCliente(string codigoSap)
         {
-            return View();
+            var token = HttpContext.Session.GetString("token");
+            var respDatosCliente = _asesorService.getDatosCliente(token, codigoSap);
+            
+            return View(respDatosCliente);
+        }
+
+        public IActionResult CargarInformacionModalPedidoAprobado(string numeroPedido)
+        {
+            var token = HttpContext.Session.GetString("token");
+            DatosCliente dc=new DatosCliente();
+            var respPedidoAprobado = _asesorService.getPedidoAprobado(token, "10");
+            dc.pedidoAprobado = respPedidoAprobado;
+            return PartialView("_ModalPedidoAprobado", dc);
         }
 
         public IActionResult Pedidos()

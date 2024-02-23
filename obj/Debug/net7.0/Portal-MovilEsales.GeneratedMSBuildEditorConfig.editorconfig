@@ -52,6 +52,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXFBvbGl0aWNhQ29tZXJjaWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/KRUGER/Portal-MovilEsales/Views/Asesor/_ModalPedidoAprobado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXF9Nb2RhbFBlZGlkb0Fwcm9iYWRvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/KRUGER/Portal-MovilEsales/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
