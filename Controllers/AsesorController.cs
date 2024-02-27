@@ -41,9 +41,13 @@ namespace Portal_MovilEsales.Controllers
         {
             return View();
         }
-        public IActionResult EstadoCuentaAsesor()
+        public IActionResult EstadoCuentaAsesor(string codigoSap)
         {
-            return View();
+            var token = HttpContext.Session.GetString("token");
+
+            var respEstadoCuenta = _asesorService.getInfoEstadoCuenta(token, codigoSap);
+
+            return View(respEstadoCuenta);
         }
 
         public IActionResult Clientes()
@@ -69,6 +73,45 @@ namespace Portal_MovilEsales.Controllers
             var respPedidoAprobado = _asesorService.getPedidoAprobado(token, numeroPedido);
             dc.pedidoAprobado = respPedidoAprobado;
             return PartialView("_ModalPedidoAprobado", dc);
+        }
+
+        public IActionResult CargarInformacionModalInformacionCrediticia(string codigoSAP)
+        {
+            var token = HttpContext.Session.GetString("token");
+
+            var datosCliente = new DatosCliente();
+
+            var respinformacionCrediticia = _asesorService.getInformacionCrediticia(token, codigoSAP);
+
+            datosCliente.informacionCrediticia = respinformacionCrediticia;
+
+            return PartialView("_ModalInformacionCrediticia", datosCliente);
+        }
+
+        public IActionResult CargarInformacionModalDetallePedidoEntregado(string numeroOrden)
+        {
+            var token = HttpContext.Session.GetString("token");
+
+            var listadoPedidosBPH = new ListadoPedidosBPH();
+
+            var respDetallePedido = _asesorService.getDetallePedido(token, numeroOrden);
+
+            listadoPedidosBPH.detallePedidoInfo = respDetallePedido;
+
+            return PartialView("_ModalDetallePedidoEntregado", listadoPedidosBPH);
+        }
+
+        public IActionResult CargarInformacionModalDetallePedidoAprobado(string numeroOrden)
+        {
+            var token = HttpContext.Session.GetString("token");
+
+            var listadoPedidosBPH = new ListadoPedidosBPH();
+
+            var respDetallePedido = _asesorService.getDetallePedido(token, numeroOrden);
+
+            listadoPedidosBPH.detallePedidoInfo = respDetallePedido;
+
+            return PartialView("_ModalDetallePedidoAprobado", listadoPedidosBPH);
         }
 
         public IActionResult Pedidos()

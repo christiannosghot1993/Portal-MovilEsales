@@ -17,5 +17,6 @@
         public List<ListadoFacturas> listadoFacturas { get; set; }
         public List<ListadoPedidos> listadoPedidos { get; set; }
         public PedidoAprobado.PedidoAprobado pedidoAprobado { get; set; }
+        public InformacionCrediticia informacionCrediticia { get; set; }
     }
 }

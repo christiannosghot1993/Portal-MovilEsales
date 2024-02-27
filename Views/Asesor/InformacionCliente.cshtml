@@ -80,7 +80,9 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-end pt-3">
-                    <label class="card-subtitle" data-bs-toggle="modal" data-bs-target="#modalDetalleInformacionCrediticia" style="text-decoration: underline;">Más Detalles</label>
+                   @*  <label class="card-subtitle" data-bs-toggle="modal" data-bs-target="#modalDetalleInformacionCrediticia" style="text-decoration: underline;">Más Detalles</label> *@
+                    <label class="card-subtitle" onclick="abrirModalInformacionCrediticia('@Url.Action("CargarInformacionModalInformacionCrediticia", "Asesor", new { codigoSAP = Model.codigoSAP })')" style="text-decoration: underline;">Más Detalles</label>
+
 
                 </div>
 
@@ -142,7 +144,7 @@
 
                 </div>
                 <div class="d-flex justify-content-end pt-3">
-                    <a asp-action="EstadoCuentaAsesor" asp-controller="Asesor" class="card-subtitle">Estado de cuenta</a>
+                    <a asp-action="EstadoCuentaAsesor" asp-controller="Asesor" class="card-subtitle" asp-route-codigoSap="@Model.codigoSAP">Estado de cuenta</a>
                 </div>
             </div>
         </div>
@@ -187,7 +189,13 @@
                     }
                 </div>
                 <div class="modal fade" id="modalDetalleInformacionCrediticia" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-md">
+
+                    @if (Model.informacionCrediticia != null)
+                    {
+                         @Html.Partial("_ModalInformacionCrediticia")
+                    }
+                    
+                    @*  <div class="modal-dialog modal-md">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h1 class="modal-title card-title" id="exampleModalLabel">
@@ -252,7 +260,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> *@
                 </div>
                 <div class="tab-content pt-3" id="myTabContent">
                     <div class="tab-pane fade show active" id="pedidos-ingresados-tab-pane" role="tabpanel" aria-labelledby="clientes-tab" tabindex="0">
@@ -469,6 +477,29 @@
 
                 // Obtener el modal
                 var modalElement = document.getElementById('modalPedidoAprobado');
+                var modal = new bootstrap.Modal(modalElement);
+
+                // Mostrar el modal
+                modal.show();
+            })
+            .catch(error => console.error('Error al cargar información:', error));
+    }
+
+    const abrirModalInformacionCrediticia = (url) => {
+        fetch(url)
+            .then(response => response.text())
+            .then(html => {
+                console.log(html); // Verifica la respuesta en la consola
+
+                // Vaciar el contenido del modal existente
+                document.getElementById('modalDetalleInformacionCrediticia').innerHTML = '';
+
+                // Insertar el HTML recibido en el modal
+                document.getElementById('modalDetalleInformacionCrediticia').innerHTML = html;
+
+                // Obtener el modal
+                var modalElement = document.getElementById('modalDetalleInformacionCrediticia');
+
                 var modal = new bootstrap.Modal(modalElement);
 
                 // Mostrar el modal

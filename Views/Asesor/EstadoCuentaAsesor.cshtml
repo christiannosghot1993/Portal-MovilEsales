@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Portal_MovilEsales.Services.AsesorServices.ViewModels.EstadoCuenta.EstadoCuenta
+@{
     ViewData["Title"] = "Estado de cuenta asesor";
 }
 
@@ -21,29 +22,29 @@
                         <input id="endDate" class="form-control datepicker" type="date" />
                         <span id="endDateSelected"></span>
                     </div>
-                    
+
                 </div>
-                <div class="row mt-3 g-1" >
+                <div class="row mt-3 g-1">
                     <div class="col-12 col-md-6">
                         <div class="entire-blue-container">
                             <p>
                                 <strong>
                                     <span style="display: inline-block; width: 160px !important;">Cliente:</span>
                                 </strong>
-                                Hugo Ernesto Castillo Miranda
+                                @Model.nombreCliente
                             </p>
                             <p>
                                 <strong>
                                     <span style="display: inline-block; width: 160px !important;">Valor Vencido:</span>
-                                </strong> 20.000
+                                </strong> @Model.valorVencido
                             </p>
                             <p>
                                 <strong>
                                     <span style="display: inline-block; width: 160px !important;">Valor por Vencer:</span>
-                                </strong> 30.000
+                                </strong> @Model.valorPorVencer
                             </p>
                         </div>
-                        
+
                     </div>
                     <div class="col-12 col-md-6 d-flex justify-content-end align-items-end">
                         <button class="orange-rounded-button" style="background-color: #01ADEF !important">
@@ -80,175 +81,178 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>001-001-000000001</td>
-                                <td>10-24-2023</td>
-                                <td>$ 20.000</td>
-                                <td>10-24-2023</td>
-                                <td>133490</td>
-                                <td>$ 800</td>
-                                <td>$ 12.000</td>
-                                <td>$ 500</td>
-                                <td>11-24-2023</td>
-                                <td>$ 8.000</td>
-                                <td>20</td>
+                            @foreach (var item in Model.detalleEstadoCuenta)
+                            {
+                                <tr>
+                                    <td>@item.factura</td>
+                                    <td>@item.fecha</td>
+                                    <td>$ @item.valor</td>
+                                    <td>@item.terminoPago</td>
+                                    <td>@item.documentoSAP</td>
+                                    <td>$ @item.retenciones</td>
+                                    <td>$ @item.abonos</td>
+                                    <td>$ @item.notasCredito</td>
+                                    <td>@item.fechaVencimiento</td>
+                                    <td>$ @item.saldoPorCobrar</td>
+                                    <td>@item.diasVencidos</td>
+                                </tr>
+                            }
+                            @*  <tr>
+                            <td>001-001-000000001</td>
+                            <td>10-24-2023</td>
+                            <td>$ 20.000</td>
+                            <td>10-24-2023</td>
+                            <td>133490</td>
+                            <td>$ 800</td>
+                            <td>$ 12.000</td>
+                            <td>$ 500</td>
+                            <td>11-24-2023</td>
+                            <td>$ 8.000</td>
+                            <td>20</td>
                             </tr>
                             <tr>
-                                <td>001-001-000000001</td>
-                                <td>10-24-2023</td>
-                                <td>$ 20.000</td>
-                                <td>10-24-2023</td>
-                                <td>133490</td>
-                                <td>$ 800</td>
-                                <td>$ 12.000</td>
-                                <td>$ 500</td>
-                                <td>11-24-2023</td>
-                                <td>$ 8.000</td>
-                                <td>20</td>
+                            <td>001-001-000000001</td>
+                            <td>10-24-2023</td>
+                            <td>$ 20.000</td>
+                            <td>10-24-2023</td>
+                            <td>133490</td>
+                            <td>$ 800</td>
+                            <td>$ 12.000</td>
+                            <td>$ 500</td>
+                            <td>11-24-2023</td>
+                            <td>$ 8.000</td>
+                            <td>20</td>
                             </tr>
                             <tr>
-                                <td>001-001-000000001</td>
-                                <td>10-24-2023</td>
-                                <td>$ 20.000</td>
-                                <td>10-24-2023</td>
-                                <td>133490</td>
-                                <td>$ 800</td>
-                                <td>$ 12.000</td>
-                                <td>$ 500</td>
-                                <td>11-24-2023</td>
-                                <td>$ 8.000</td>
-                                <td>20</td>
+                            <td>001-001-000000001</td>
+                            <td>10-24-2023</td>
+                            <td>$ 20.000</td>
+                            <td>10-24-2023</td>
+                            <td>133490</td>
+                            <td>$ 800</td>
+                            <td>$ 12.000</td>
+                            <td>$ 500</td>
+                            <td>11-24-2023</td>
+                            <td>$ 8.000</td>
+                            <td>20</td>
                             </tr>
                             <tr>
-                                <td>001-001-000000001</td>
-                                <td>10-24-2023</td>
-                                <td>$ 20.000</td>
-                                <td>10-24-2023</td>
-                                <td>133490</td>
-                                <td>$ 800</td>
-                                <td>$ 12.000</td>
-                                <td>$ 500</td>
-                                <td>11-24-2023</td>
-                                <td>$ 8.000</td>
-                                <td>20</td>
+                            <td>001-001-000000001</td>
+                            <td>10-24-2023</td>
+                            <td>$ 20.000</td>
+                            <td>10-24-2023</td>
+                            <td>133490</td>
+                            <td>$ 800</td>
+                            <td>$ 12.000</td>
+                            <td>$ 500</td>
+                            <td>11-24-2023</td>
+                            <td>$ 8.000</td>
+                            <td>20</td>
                             </tr>
                             <tr>
-                                <td>001-001-000000001</td>
-                                <td>10-24-2023</td>
-                                <td>$ 20.000</td>
-                                <td>10-24-2023</td>
-                                <td>133490</td>
-                                <td>$ 800</td>
-                                <td>$ 12.000</td>
-                                <td>$ 500</td>
-                                <td>11-24-2023</td>
-                                <td>$ 8.000</td>
-                                <td>20</td>
+                            <td>001-001-000000001</td>
+                            <td>10-24-2023</td>
+                            <td>$ 20.000</td>
+                            <td>10-24-2023</td>
+                            <td>133490</td>
+                            <td>$ 800</td>
+                            <td>$ 12.000</td>
+                            <td>$ 500</td>
+                            <td>11-24-2023</td>
+                            <td>$ 8.000</td>
+                            <td>20</td>
                             </tr>
                             <tr>
-                                <td>001-001-000000001</td>
-                                <td>10-24-2023</td>
-                                <td>$ 20.000</td>
-                                <td>10-24-2023</td>
-                                <td>133490</td>
-                                <td>$ 800</td>
-                                <td>$ 12.000</td>
-                                <td>$ 500</td>
-                                <td>11-24-2023</td>
-                                <td>$ 8.000</td>
-                                <td>20</td>
+                            <td>001-001-000000001</td>
+                            <td>10-24-2023</td>
+                            <td>$ 20.000</td>
+                            <td>10-24-2023</td>
+                            <td>133490</td>
+                            <td>$ 800</td>
+                            <td>$ 12.000</td>
+                            <td>$ 500</td>
+                            <td>11-24-2023</td>
+                            <td>$ 8.000</td>
+                            <td>20</td>
                             </tr>
                             <tr>
-                                <td>001-001-000000001</td>
-                                <td>10-24-2023</td>
-                                <td>$ 20.000</td>
-                                <td>10-24-2023</td>
-                                <td>133490</td>
-                                <td>$ 800</td>
-                                <td>$ 12.000</td>
-                                <td>$ 500</td>
-                                <td>11-24-2023</td>
-                                <td>$ 8.000</td>
-                                <td>20</td>
+                            <td>001-001-000000001</td>
+                            <td>10-24-2023</td>
+                            <td>$ 20.000</td>
+                            <td>10-24-2023</td>
+                            <td>133490</td>
+                            <td>$ 800</td>
+                            <td>$ 12.000</td>
+                            <td>$ 500</td>
+                            <td>11-24-2023</td>
+                            <td>$ 8.000</td>
+                            <td>20</td>
                             </tr>
                             <tr>
-                                <td>001-001-000000001</td>
-                                <td>10-24-2023</td>
-                                <td>$ 20.000</td>
-                                <td>10-24-2023</td>
-                                <td>133490</td>
-                                <td>$ 800</td>
-                                <td>$ 12.000</td>
-                                <td>$ 500</td>
-                                <td>11-24-2023</td>
-                                <td>$ 8.000</td>
-                                <td>20</td>
+                            <td>001-001-000000001</td>
+                            <td>10-24-2023</td>
+                            <td>$ 20.000</td>
+                            <td>10-24-2023</td>
+                            <td>133490</td>
+                            <td>$ 800</td>
+                            <td>$ 12.000</td>
+                            <td>$ 500</td>
+                            <td>11-24-2023</td>
+                            <td>$ 8.000</td>
+                            <td>20</td>
                             </tr>
                             <tr>
-                                <td>001-001-000000001</td>
-                                <td>10-24-2023</td>
-                                <td>$ 20.000</td>
-                                <td>10-24-2023</td>
-                                <td>133490</td>
-                                <td>$ 800</td>
-                                <td>$ 12.000</td>
-                                <td>$ 500</td>
-                                <td>11-24-2023</td>
-                                <td>$ 8.000</td>
-                                <td>20</td>
+                            <td>001-001-000000001</td>
+                            <td>10-24-2023</td>
+                            <td>$ 20.000</td>
+                            <td>10-24-2023</td>
+                            <td>133490</td>
+                            <td>$ 800</td>
+                            <td>$ 12.000</td>
+                            <td>$ 500</td>
+                            <td>11-24-2023</td>
+                            <td>$ 8.000</td>
+                            <td>20</td>
                             </tr>
                             <tr>
-                                <td>001-001-000000001</td>
-                                <td>10-24-2023</td>
-                                <td>$ 20.000</td>
-                                <td>10-24-2023</td>
-                                <td>133490</td>
-                                <td>$ 800</td>
-                                <td>$ 12.000</td>
-                                <td>$ 500</td>
-                                <td>11-24-2023</td>
-                                <td>$ 8.000</td>
-                                <td>20</td>
+                            <td>001-001-000000001</td>
+                            <td>10-24-2023</td>
+                            <td>$ 20.000</td>
+                            <td>10-24-2023</td>
+                            <td>133490</td>
+                            <td>$ 800</td>
+                            <td>$ 12.000</td>
+                            <td>$ 500</td>
+                            <td>11-24-2023</td>
+                            <td>$ 8.000</td>
+                            <td>20</td>
                             </tr>
                             <tr>
-                                <td>001-001-000000001</td>
-                                <td>10-24-2023</td>
-                                <td>$ 20.000</td>
-                                <td>10-24-2023</td>
-                                <td>133490</td>
-                                <td>$ 800</td>
-                                <td>$ 12.000</td>
-                                <td>$ 500</td>
-                                <td>11-24-2023</td>
-                                <td>$ 8.000</td>
-                                <td>20</td>
+                            <td>001-001-000000001</td>
+                            <td>10-24-2023</td>
+                            <td>$ 20.000</td>
+                            <td>10-24-2023</td>
+                            <td>133490</td>
+                            <td>$ 800</td>
+                            <td>$ 12.000</td>
+                            <td>$ 500</td>
+                            <td>11-24-2023</td>
+                            <td>$ 8.000</td>
+                            <td>20</td>
                             </tr>
                             <tr>
-                                <td>001-001-000000001</td>
-                                <td>10-24-2023</td>
-                                <td>$ 20.000</td>
-                                <td>10-24-2023</td>
-                                <td>133490</td>
-                                <td>$ 800</td>
-                                <td>$ 12.000</td>
-                                <td>$ 500</td>
-                                <td>11-24-2023</td>
-                                <td>$ 8.000</td>
-                                <td>20</td>
-                            </tr>
-                            <tr>
-                                <td>001-001-000000001</td>
-                                <td>10-24-2023</td>
-                                <td>$ 20.000</td>
-                                <td>10-24-2023</td>
-                                <td>133490</td>
-                                <td>$ 800</td>
-                                <td>$ 12.000</td>
-                                <td>$ 500</td>
-                                <td>11-24-2023</td>
-                                <td>$ 8.000</td>
-                                <td>20</td>
-                            </tr>
+                            <td>001-001-000000001</td>
+                            <td>10-24-2023</td>
+                            <td>$ 20.000</td>
+                            <td>10-24-2023</td>
+                            <td>133490</td>
+                            <td>$ 800</td>
+                            <td>$ 12.000</td>
+                            <td>$ 500</td>
+                            <td>11-24-2023</td>
+                            <td>$ 8.000</td>
+                            <td>20</td>
+                            </tr>*@
                         </tbody>
                     </table>
                 </div>

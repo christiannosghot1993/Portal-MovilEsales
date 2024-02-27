@@ -149,147 +149,111 @@
                         </div>
                     </div>
                     <div class="modal fade" id="modalPedidoAprobado" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-xl">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title card-title" id="exampleModalLabel">
-                                        Pedido Aprobado
-                                    </h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
 
-                                    <div class="row mb-3">
-                                        <div class="col-md-3" style="font-weight: bold;">Cliente:</div>
-                                        <div class="col-md-3">Castillo Miranda Hugo Ernesto</div>
-                                        <div class="col-md-3" style="font-weight: bold;">Fech de Preceso:</div>
-                                        <div class="col-md-3">1/10/2023 3:59:02 PM</div>
-                                        <div class="col-md-3" style="font-weight: bold;">Forma de Pago:</div>
-                                        <div class="col-md-3">Net, at 30 date of invoice</div>
-                                        <div class="col-md-3" style="font-weight: bold;">Numero de Orden:</div>
-                                        <div class="col-md-3">23458</div>
-                                        <div class="col-md-3" style="font-weight: bold;">Dirección de Entrega:</div>
-                                        <div class="col-md-3">000133490. CR 18 28 23 BRR GIRARDOT</div>
-                                        <div class="col-md-3" style="font-weight: bold; color: #FF602C;">Aprobado</div>
-                                        <div class="col-md-3"></div>
-                                        <div class="col-md-3" style="font-weight: bold;">Total Peso Pedido:</div>
-                                        <div class="col-md-3">9000.0000 (Kg)</div>
-                                        <div class="col-md-3" style="font-weight: bold;">Numero de Orden SAP:</div>
-                                        <div class="col-md-3">3901158088</div>
-                                        <div class="col-md-3" style="font-weight: bold;">Observación:</div>
-                                        <div class="col-md-3">(SandraMonal): Despachar semana del 23 de Enero 2023 (JennyHernandez):</div>
-                                        <div class="col-md-3" style="font-weight: bold;">Fecha de Entrega</div>
-                                        <div class="col-md-3">2023-01-23</div>
-                                        <div class="col-md-3" style="font-weight: bold;">Contacto:</div>
-                                        <div class="col-md-9">-</div>
-                                        <div class="col-md-3" style="font-weight: bold;">Dirección:</div>
-                                        <div class="col-md-9">-</div>
-                                    </div>
-                                    <a data-bs-toggle="collapse" href="#collapseInformacionPedido" role="button" aria-expanded="true" aria-controls="collapseInformacionPedido">
-                                        <div class="collapsible-tabs">
-                                            <div class="label">
-                                                <div class="label-color-wrapper">
-                                                    <div class="label-color"><div class="text" style="font-weight: bold;">Orden de Compra - 123456</div></div>
-                                                </div>
-                                                <div class="chevron">
-                                                    <svg width="23" height="14" viewBox="0 0 23 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <g id="&#240;&#159;&#166;&#134; icon &#34;chevron down&#34;">
-                                                            <path id="Vector" d="M1.5 2L11.5 12L21.5 2" stroke="#D7D2CB" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-                                                        </g>
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
+                        @if (Model.detallePedidoInfo != null)
+                        {
 
-                                    <div class="collapse show mb-4" id="collapseInformacionPedido">
-                                        <div class="table-responsive table-container">
-                                            <table class="table">
-                                                <thead class="card-table_header">
-                                                    <tr>
-                                                        <th scope="col" class="border-radius-left" style="padding:13px;">Familia</th>
-                                                        <th scope="col" style="padding:13px;">Código SAP</th>
-                                                        <th scope="col" style="padding:13px;">Producto</th>
-                                                        <th scope="col" style="padding:13px;">Precio</th>
-                                                        <th scope="col" style="padding:13px;">Unidad</th>
-                                                        <th scope="col" style="padding:13px;">Cantidad</th>
-                                                        <th scope="col" style="padding:13px;">Desc. Fac</th>
-                                                        <th scope="col" style="padding:13px;">Desc. NC</th>
-                                                        <th scope="col" style="padding:13px;">Peso</th>
-                                                        <th scope="col" style="padding:13px;">Subtotal</th>
-                                                        <th scope="col" style="padding:13px;">Desc. Base</th>
-                                                        <th scope="col" style="padding:13px;">Precio Final</th>
-                                                        <th scope="col" style="padding:13px;">Subtotal 2</th>
-                                                        <th scope="col" class="border-radius-right" style="padding:13px;">X</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Alambre Galvanizado</td>
-                                                        <td>187934</td>
-                                                        <td>AL. RECOCIDO 1,25MM #18 R20KG</td>
-                                                        <td>0.000</td>
-                                                        <td>KG</td>
-                                                        <td>1.500</td>
-                                                        <td>0.000</td>
-                                                        <td>0.000</td>
-                                                        <td>1500</td>
-                                                        <td>$50.00</td>
-                                                        <td>20%</td>
-                                                        <td>$ 50.00</td>
-                                                        <td>$ 50.00</td>
-                                                        <td>
-                                                            <div class="d-flex justify-content-center">
-                                                                <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                                </div>
-                                                            </div>
-                                                        </td>
+                            @Html.Partial("_ModalDetallePedidoAprobado")
+                        }
 
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Alambre Galvanizado</td>
-                                                        <td>187934</td>
-                                                        <td>AL. RECOCIDO 1,25MM #18 R20KG</td>
-                                                        <td>0.000</td>
-                                                        <td>KG</td>
-                                                        <td>1.500</td>
-                                                        <td>0.000</td>
-                                                        <td>0.000</td>
-                                                        <td>1500</td>
-                                                        <td>$50.00</td>
-                                                        <td>20%</td>
-                                                        <td>$ 50.00</td>
-                                                        <td>$ 50.00</td>
-                                                        <td>
-                                                            <div class="d-flex justify-content-center">
-                                                                <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Alambre Galvanizado</td>
-                                                        <td>187934</td>
-                                                        <td>AL. RECOCIDO 1,25MM #18 R20KG</td>
-                                                        <td>0.000</td>
-                                                        <td>KG</td>
-                                                        <td>1.500</td>
-                                                        <td>0.000</td>
-                                                        <td>0.000</td>
-                                                        <td>1500</td>
-                                                        <td>$50.00</td>
-                                                        <td>20%</td>
-                                                        <td>$ 50.00</td>
-                                                        <td>$ 50.00</td>
-                                                        <td>
-                                                            <div class="d-flex justify-content-center">
-                                                                <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                                </div>
-                                                            </div>
-                                                        </td>
+
+                        @*  <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                        <h1 class="modal-title card-title" id="exampleModalLabel">
+                        Pedido Aprobado
+                        </h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+                        <div class="row mb-3">
+                        <div class="col-md-3" style="font-weight: bold;">Cliente:</div>
+                        <div class="col-md-3">Castillo Miranda Hugo Ernesto</div>
+                        <div class="col-md-3" style="font-weight: bold;">Fech de Preceso:</div>
+                        <div class="col-md-3">1/10/2023 3:59:02 PM</div>
+                        <div class="col-md-3" style="font-weight: bold;">Forma de Pago:</div>
+                        <div class="col-md-3">Net, at 30 date of invoice</div>
+                        <div class="col-md-3" style="font-weight: bold;">Numero de Orden:</div>
+                        <div class="col-md-3">23458</div>
+                        <div class="col-md-3" style="font-weight: bold;">Dirección de Entrega:</div>
+                        <div class="col-md-3">000133490. CR 18 28 23 BRR GIRARDOT</div>
+                        <div class="col-md-3" style="font-weight: bold; color: #FF602C;">Aprobado</div>
+                        <div class="col-md-3"></div>
+                        <div class="col-md-3" style="font-weight: bold;">Total Peso Pedido:</div>
+                        <div class="col-md-3">9000.0000 (Kg)</div>
+                        <div class="col-md-3" style="font-weight: bold;">Numero de Orden SAP:</div>
+                        <div class="col-md-3">3901158088</div>
+                        <div class="col-md-3" style="font-weight: bold;">Observación:</div>
+                        <div class="col-md-3">(SandraMonal): Despachar semana del 23 de Enero 2023 (JennyHernandez):</div>
+                        <div class="col-md-3" style="font-weight: bold;">Fecha de Entrega</div>
+                        <div class="col-md-3">2023-01-23</div>
+                        <div class="col-md-3" style="font-weight: bold;">Contacto:</div>
+                        <div class="col-md-9">-</div>
+                        <div class="col-md-3" style="font-weight: bold;">Dirección:</div>
+                        <div class="col-md-9">-</div>
+                        </div>
+                        <a data-bs-toggle="collapse" href="#collapseInformacionPedido" role="button" aria-expanded="true" aria-controls="collapseInformacionPedido">
+                        <div class="collapsible-tabs">
+                        <div class="label">
+                        <div class="label-color-wrapper">
+                        <div class="label-color"><div class="text" style="font-weight: bold;">Orden de Compra - 123456</div></div>
+                        </div>
+                        <div class="chevron">
+                        <svg width="23" height="14" viewBox="0 0 23 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="&#240;&#159;&#166;&#134; icon &#34;chevron down&#34;">
+                        <path id="Vector" d="M1.5 2L11.5 12L21.5 2" stroke="#D7D2CB" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                        </g>
+                        </svg>
+                        </div>
+                        </div>
+                        </div>
+                        </a>
+
+                        <div class="collapse show mb-4" id="collapseInformacionPedido">
+                        <div class="table-responsive table-container">
+                        <table class="table">
+                        <thead class="card-table_header">
+                        <tr>
+                        <th scope="col" class="border-radius-left" style="padding:13px;">Familia</th>
+                        <th scope="col" style="padding:13px;">Código SAP</th>
+                        <th scope="col" style="padding:13px;">Producto</th>
+                        <th scope="col" style="padding:13px;">Precio</th>
+                        <th scope="col" style="padding:13px;">Unidad</th>
+                        <th scope="col" style="padding:13px;">Cantidad</th>
+                        <th scope="col" style="padding:13px;">Desc. Fac</th>
+                        <th scope="col" style="padding:13px;">Desc. NC</th>
+                        <th scope="col" style="padding:13px;">Peso</th>
+                        <th scope="col" style="padding:13px;">Subtotal</th>
+                        <th scope="col" style="padding:13px;">Desc. Base</th>
+                        <th scope="col" style="padding:13px;">Precio Final</th>
+                        <th scope="col" style="padding:13px;">Subtotal 2</th>
+                        <th scope="col" class="border-radius-right" style="padding:13px;">X</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                        <td>Alambre Galvanizado</td>
+                        <td>187934</td>
+                        <td>AL. RECOCIDO 1,25MM #18 R20KG</td>
+                        <td>0.000</td>
+                        <td>KG</td>
+                        <td>1.500</td>
+                        <td>0.000</td>
+                        <td>0.000</td>
+                        <td>1500</td>
+                        <td>$50.00</td>
+                        <td>20%</td>
+                        <td>$ 50.00</td>
+                        <td>$ 50.00</td>
+                        <td>
+                        <div class="d-flex justify-content-center">
+                        <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        </div>
+                        </div>
+                        </td>
+
                                                     </tr>
                                                     <tr>
                                                         <td>Alambre Galvanizado</td>
@@ -313,7 +277,51 @@
                                                             </div>
                                                         </td>
                                                     </tr>
-
+                                                    <tr>
+                                                        <td>Alambre Galvanizado</td>
+                                                        <td>187934</td>
+                                                        <td>AL. RECOCIDO 1,25MM #18 R20KG</td>
+                                                        <td>0.000</td>
+                                                        <td>KG</td>
+                                                        <td>1.500</td>
+                                                        <td>0.000</td>
+                                                        <td>0.000</td>
+                                                        <td>1500</td>
+                                                        <td>$50.00</td>
+                                                        <td>20%</td>
+                                                        <td>$ 50.00</td>
+                                                        <td>$ 50.00</td>
+                                                        <td>
+                                                            <div class="d-flex justify-content-center">
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Alambre Galvanizado</td>
+                                                        <td>187934</td>
+                                                        <td>AL. RECOCIDO 1,25MM #18 R20KG</td>
+                                                        <td>0.000</td>
+                                                        <td>KG</td>
+                                                        <td>1.500</td>
+                                                        <td>0.000</td>
+                                                        <td>0.000</td>
+                                                        <td>1500</td>
+                                                        <td>$50.00</td>
+                                                        <td>20%</td>
+                                                        <td>$ 50.00</td>
+                                                        <td>$ 50.00</td>
+                                                        <td>
+                                                            <div class="d-flex justify-content-center">
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    </tr>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -396,7 +404,7 @@
                                                         </label>
                                                     </div>
                                                 </div>
-
+                                                
                                                 <div>
                                                     <div class="subtotal-description">
                                                         <label class="d-flex justify-content-md-end pe-md-5">Subtotal 2</label>
@@ -432,7 +440,7 @@
                                                 </div>
                                                 <div>
                                                     <div class="subtotal-description mb-5">
-                                                        <label class="d-flex justify-content-md-end pe-md-5" style="font-size: 17px !important; font-weight: bold;">Valor Total</label>
+                                                        <label class="d-flex justify-content-md-end pe-md-5" style="font-size: 19px;">Valor Total</label>
                                                     </div>
                                                     <label class="pe-md-2 ps-md-5">$</label>
                                                     <div class="subtotal-value">
@@ -441,7 +449,7 @@
                                                         </label>
                                                     </div>
                                                 </div>
-
+                                               
                                                 <div>
                                                     <div class="subtotal-description mb-3">
                                                         <label class="d-flex justify-content-md-end pe-md-5">Valor N/C (Sin IVA)</label>
@@ -467,14 +475,14 @@
                                             </div>
                                         </div>
                                     </div>
-
+                                    
                                 </div>
                                 @*<div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                                 <button type="button" class="btn btn-primary">Guardar cambios</button>
                                 </div>*@
-                            </div>
-                        </div>
+                        
+                       
                     </div>
                     <div class="table-responsive table-container pt-3">
                         @Html.Partial("_TablePedidosActivos")
@@ -532,253 +540,260 @@
                         </div>
                     </div>
                     <div class="modal fade" id="modalPedidoEntregado" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-xl">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title card-title" id="exampleModalLabel">
-                                        Pedido Entregado
-                                    </h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
 
-                                    <div class="row mb-3">
-                                        <div class="col-md-3" style="font-weight: bold;">Cliente:</div>
-                                        <div class="col-md-3">Castillo Miranda Hugo Ernesto</div>
-                                        <div class="col-md-3" style="font-weight: bold;">Fech de Preceso:</div>
-                                        <div class="col-md-3">1/10/2023 3:59:02 PM</div>
-                                        <div class="col-md-3" style="font-weight: bold;">Forma de Pago:</div>
-                                        <div class="col-md-3">Net, at 30 date of invoice</div>
-                                        <div class="col-md-3" style="font-weight: bold;">Numero de Orden:</div>
-                                        <div class="col-md-3">23458</div>
-                                        <div class="col-md-3" style="font-weight: bold;">Dirección de Entrega:</div>
-                                        <div class="col-md-3">000133490. CR 18 28 23 BRR GIRARDOT</div>
-                                        <div class="col-md-3" style="font-weight: bold; color: #FF602C;">Entregado</div>
-                                        <div class="col-md-3"></div>
-                                        <div class="col-md-3" style="font-weight: bold;">Total Peso Pedido:</div>
-                                        <div class="col-md-3">9000.0000 (Kg)</div>
-                                        <div class="col-md-3" style="font-weight: bold;">Numero de Orden SAP:</div>
-                                        <div class="col-md-3">3901158088</div>
-                                        <div class="col-md-3" style="font-weight: bold;">Observación:</div>
-                                        <div class="col-md-3">(SandraMonal): Despachar semana del 23 de Enero 2023 (JennyHernandez):</div>
-                                        <div class="col-md-3" style="font-weight: bold;">Fecha de Entrega</div>
-                                        <div class="col-md-3">2023-01-23</div>
-                                        <div class="col-md-3" style="font-weight: bold;">Contacto:</div>
-                                        <div class="col-md-9">-</div>
-                                        <div class="col-md-3" style="font-weight: bold;">Dirección:</div>
-                                        <div class="col-md-9">-</div>
-                                    </div>
-                                    <a data-bs-toggle="collapse" href="#collapseInformacionPedidoEntregado" role="button" aria-expanded="true" aria-controls="collapseInformacionPedidoEntregado">
-                                        <div class="collapsible-tabs">
-                                            <div class="label">
-                                                <div class="label-color-wrapper">
-                                                    <div class="label-color"><div class="text" style="font-weight: bold;">Orden de Compra - 123456</div></div>
-                                                </div>
-                                                <div class="chevron">
-                                                    <svg width="23" height="14" viewBox="0 0 23 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <g id="&#240;&#159;&#166;&#134; icon &#34;chevron down&#34;">
-                                                            <path id="Vector" d="M1.5 2L11.5 12L21.5 2" stroke="#D7D2CB" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-                                                        </g>
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
+                        @if (Model.detallePedidoInfo != null)
+                        {
+                            @Html.Partial("_ModalDetallePedidoEntregado")
+                        }
 
-                                    <div class="collapse show mb-4" id="collapseInformacionPedidoEntregado">
-                                        <div class="table-responsive table-container">
-                                            <table class="table">
-                                                <thead class="card-table_header">
-                                                    <tr>
-                                                        <th scope="col" class="border-radius-left" style="padding:13px;">Familia</th>
-                                                        <th scope="col" style="padding:13px;">Código SAP</th>
-                                                        <th scope="col" style="padding:13px;">Producto</th>
-                                                        <th scope="col" style="padding:13px;">Precio</th>
-                                                        <th scope="col" style="padding:13px;">Unidad</th>
-                                                        <th scope="col" style="padding:13px;">Cantidad</th>
-                                                        <th scope="col" style="padding:13px;">Desc. Fac</th>
-                                                        <th scope="col" style="padding:13px;">Desc. NC</th>
-                                                        <th scope="col" style="padding:13px;">Peso</th>
-                                                        <th scope="col" style="padding:13px;">Subtotal</th>
-                                                        <th scope="col" style="padding:13px;">Desc. Base</th>
-                                                        <th scope="col" style="padding:13px;">Precio Final</th>
-                                                        <th scope="col" style="padding:13px;">Subtotal 2</th>
-                                                        <th scope="col" class="border-radius-right" style="padding:13px;">X</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Alambre Galvanizado</td>
-                                                        <td>187934</td>
-                                                        <td>AL. RECOCIDO 1,25MM #18 R20KG</td>
-                                                        <td>0.000</td>
-                                                        <td>KG</td>
-                                                        <td>1.500</td>
-                                                        <td>0.000</td>
-                                                        <td>0.000</td>
-                                                        <td>1500</td>
-                                                        <td>$50.00</td>
-                                                        <td>20%</td>
-                                                        <td>$ 50.00</td>
-                                                        <td>$ 50.00</td>
-                                                        <td>
-                                                            <div class="d-flex justify-content-center">
-                                                                <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                                </div>
-                                                            </div>
-                                                        </td>
 
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Alambre Galvanizado</td>
-                                                        <td>187934</td>
-                                                        <td>AL. RECOCIDO 1,25MM #18 R20KG</td>
-                                                        <td>0.000</td>
-                                                        <td>KG</td>
-                                                        <td>1.500</td>
-                                                        <td>0.000</td>
-                                                        <td>0.000</td>
-                                                        <td>1500</td>
-                                                        <td>$50.00</td>
-                                                        <td>20%</td>
-                                                        <td>$ 50.00</td>
-                                                        <td>$ 50.00</td>
-                                                        <td>
-                                                            <div class="d-flex justify-content-center">
-                                                                <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Alambre Galvanizado</td>
-                                                        <td>187934</td>
-                                                        <td>AL. RECOCIDO 1,25MM #18 R20KG</td>
-                                                        <td>0.000</td>
-                                                        <td>KG</td>
-                                                        <td>1.500</td>
-                                                        <td>0.000</td>
-                                                        <td>0.000</td>
-                                                        <td>1500</td>
-                                                        <td>$50.00</td>
-                                                        <td>20%</td>
-                                                        <td>$ 50.00</td>
-                                                        <td>$ 50.00</td>
-                                                        <td>
-                                                            <div class="d-flex justify-content-center">
-                                                                <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Alambre Galvanizado</td>
-                                                        <td>187934</td>
-                                                        <td>AL. RECOCIDO 1,25MM #18 R20KG</td>
-                                                        <td>0.000</td>
-                                                        <td>KG</td>
-                                                        <td>1.500</td>
-                                                        <td>0.000</td>
-                                                        <td>0.000</td>
-                                                        <td>1500</td>
-                                                        <td>$50.00</td>
-                                                        <td>20%</td>
-                                                        <td>$ 50.00</td>
-                                                        <td>$ 50.00</td>
-                                                        <td>
-                                                            <div class="d-flex justify-content-center">
-                                                                <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="d-flex justify-content-center justify-content-md-end mt-3">
-                                            <div class="subtotales-container">
-                                                <div>
-                                                    <div class="subtotal-description">
-                                                        <label class="d-flex justify-content-md-end pe-md-5">Importe Bruto</label>
-                                                    </div>
-                                                    <label class="pe-md-2 ps-md-5">$</label>
-                                                    <div class="subtotal-value">
-                                                        <label class="d-flex justify-content-end">
-                                                            1.432.24
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <div class="subtotal-description">
-                                                        <label class="d-flex justify-content-md-end pe-md-5">Descuento Base</label>
-                                                    </div>
-                                                    <label class="pe-md-2 ps-md-5">$</label>
-                                                    <div class="subtotal-value">
-                                                        <label class="d-flex justify-content-end">
-                                                            286,58
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <div class="subtotal-description">
-                                                        <label class="d-flex justify-content-md-end pe-md-5">Subtotal 1</label>
-                                                    </div>
-                                                    <label class="pe-md-2 ps-md-5">$</label>
-                                                    <div class="subtotal-value">
-                                                        <label class="d-flex justify-content-end">
-                                                            1.145.66
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <div class="subtotal-description">
-                                                        <label class="d-flex justify-content-md-end pe-md-5">Descuento Pago</label>
-                                                    </div>
-                                                    <label class="pe-md-2 ps-md-5">$</label>
-                                                    <div class="subtotal-value">
-                                                        <label class="d-flex justify-content-end">
-                                                            1.145.66
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <div class="subtotal-description">
-                                                        <label class="d-flex justify-content-md-end pe-md-5">Descuento Retiro</label>
-                                                    </div>
-                                                    <label class="pe-md-2 ps-md-5">$</label>
-                                                    <div class="subtotal-value">
-                                                        <label class="d-flex justify-content-end">
-                                                            1.145.66
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <div class="subtotal-description">
-                                                        <label class="d-flex justify-content-md-end pe-md-5">Descuento Varios</label>
-                                                    </div>
-                                                    <label class="pe-md-2 ps-md-5">$</label>
-                                                    <div class="subtotal-value">
-                                                        <label class="d-flex justify-content-end">
-                                                            1.145.66
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <div class="subtotal-description">
-                                                        <label class="d-flex justify-content-md-end pe-md-5">Descuento Peso</label>
-                                                    </div>
-                                                    <label class="pe-md-2 ps-md-5">$</label>
-                                                    <div class="subtotal-value">
-                                                        <label class="d-flex justify-content-end">
-                                                            1.145.66
-                                                        </label>
-                                                    </div>
-                                                </div>
+                        @*  <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                        <h1 class="modal-title card-title" id="exampleModalLabel">
+                        Pedido Entregado
+                        </h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+                        <div class="row mb-3">
+                        <div class="col-md-3" style="font-weight: bold;">Cliente:</div>
+                        <div class="col-md-3">Castillo Miranda Hugo Ernesto</div>
+                        <div class="col-md-3" style="font-weight: bold;">Fech de Preceso:</div>
+                        <div class="col-md-3">1/10/2023 3:59:02 PM</div>
+                        <div class="col-md-3" style="font-weight: bold;">Forma de Pago:</div>
+                        <div class="col-md-3">Net, at 30 date of invoice</div>
+                        <div class="col-md-3" style="font-weight: bold;">Numero de Orden:</div>
+                        <div class="col-md-3">23458</div>
+                        <div class="col-md-3" style="font-weight: bold;">Dirección de Entrega:</div>
+                        <div class="col-md-3">000133490. CR 18 28 23 BRR GIRARDOT</div>
+                        <div class="col-md-3" style="font-weight: bold; color: #FF602C;">Entregado</div>
+                        <div class="col-md-3"></div>
+                        <div class="col-md-3" style="font-weight: bold;">Total Peso Pedido:</div>
+                        <div class="col-md-3">9000.0000 (Kg)</div>
+                        <div class="col-md-3" style="font-weight: bold;">Numero de Orden SAP:</div>
+                        <div class="col-md-3">3901158088</div>
+                        <div class="col-md-3" style="font-weight: bold;">Observación:</div>
+                        <div class="col-md-3">(SandraMonal): Despachar semana del 23 de Enero 2023 (JennyHernandez):</div>
+                        <div class="col-md-3" style="font-weight: bold;">Fecha de Entrega</div>
+                        <div class="col-md-3">2023-01-23</div>
+                        <div class="col-md-3" style="font-weight: bold;">Contacto:</div>
+                        <div class="col-md-9">-</div>
+                        <div class="col-md-3" style="font-weight: bold;">Dirección:</div>
+                        <div class="col-md-9">-</div>
+                        </div>
+                        <a data-bs-toggle="collapse" href="#collapseInformacionPedidoEntregado" role="button" aria-expanded="true" aria-controls="collapseInformacionPedidoEntregado">
+                        <div class="collapsible-tabs">
+                        <div class="label">
+                        <div class="label-color-wrapper">
+                        <div class="label-color"><div class="text" style="font-weight: bold;">Orden de Compra - 123456</div></div>
+                        </div>
+                        <div class="chevron">
+                        <svg width="23" height="14" viewBox="0 0 23 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="&#240;&#159;&#166;&#134; icon &#34;chevron down&#34;">
+                        <path id="Vector" d="M1.5 2L11.5 12L21.5 2" stroke="#D7D2CB" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                        </g>
+                        </svg>
+                        </div>
+                        </div>
+                        </div>
+                        </a>
+
+                        <div class="collapse show mb-4" id="collapseInformacionPedidoEntregado">
+                        <div class="table-responsive table-container">
+                        <table class="table">
+                        <thead class="card-table_header">
+                        <tr>
+                        <th scope="col" class="border-radius-left" style="padding:13px;">Familia</th>
+                        <th scope="col" style="padding:13px;">Código SAP</th>
+                        <th scope="col" style="padding:13px;">Producto</th>
+                        <th scope="col" style="padding:13px;">Precio</th>
+                        <th scope="col" style="padding:13px;">Unidad</th>
+                        <th scope="col" style="padding:13px;">Cantidad</th>
+                        <th scope="col" style="padding:13px;">Desc. Fac</th>
+                        <th scope="col" style="padding:13px;">Desc. NC</th>
+                        <th scope="col" style="padding:13px;">Peso</th>
+                        <th scope="col" style="padding:13px;">Subtotal</th>
+                        <th scope="col" style="padding:13px;">Desc. Base</th>
+                        <th scope="col" style="padding:13px;">Precio Final</th>
+                        <th scope="col" style="padding:13px;">Subtotal 2</th>
+                        <th scope="col" class="border-radius-right" style="padding:13px;">X</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                        <td>Alambre Galvanizado</td>
+                        <td>187934</td>
+                        <td>AL. RECOCIDO 1,25MM #18 R20KG</td>
+                        <td>0.000</td>
+                        <td>KG</td>
+                        <td>1.500</td>
+                        <td>0.000</td>
+                        <td>0.000</td>
+                        <td>1500</td>
+                        <td>$50.00</td>
+                        <td>20%</td>
+                        <td>$ 50.00</td>
+                        <td>$ 50.00</td>
+                        <td>
+                        <div class="d-flex justify-content-center">
+                        <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        </div>
+                        </div>
+                        </td>
+
+                        </tr>
+                        <tr>
+                        <td>Alambre Galvanizado</td>
+                        <td>187934</td>
+                        <td>AL. RECOCIDO 1,25MM #18 R20KG</td>
+                        <td>0.000</td>
+                        <td>KG</td>
+                        <td>1.500</td>
+                        <td>0.000</td>
+                        <td>0.000</td>
+                        <td>1500</td>
+                        <td>$50.00</td>
+                        <td>20%</td>
+                        <td>$ 50.00</td>
+                        <td>$ 50.00</td>
+                        <td>
+                        <div class="d-flex justify-content-center">
+                        <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        </div>
+                        </div>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>Alambre Galvanizado</td>
+                        <td>187934</td>
+                        <td>AL. RECOCIDO 1,25MM #18 R20KG</td>
+                        <td>0.000</td>
+                        <td>KG</td>
+                        <td>1.500</td>
+                        <td>0.000</td>
+                        <td>0.000</td>
+                        <td>1500</td>
+                        <td>$50.00</td>
+                        <td>20%</td>
+                        <td>$ 50.00</td>
+                        <td>$ 50.00</td>
+                        <td>
+                        <div class="d-flex justify-content-center">
+                        <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        </div>
+                        </div>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>Alambre Galvanizado</td>
+                        <td>187934</td>
+                        <td>AL. RECOCIDO 1,25MM #18 R20KG</td>
+                        <td>0.000</td>
+                        <td>KG</td>
+                        <td>1.500</td>
+                        <td>0.000</td>
+                        <td>0.000</td>
+                        <td>1500</td>
+                        <td>$50.00</td>
+                        <td>20%</td>
+                        <td>$ 50.00</td>
+                        <td>$ 50.00</td>
+                        <td>
+                        <div class="d-flex justify-content-center">
+                        <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        </div>
+                        </div>
+                        </td>
+                        </tr>
+                        </tr>
+                        </tbody>
+                        </table>
+                        </div>
+                        <div class="d-flex justify-content-center justify-content-md-end mt-3">
+                        <div class="subtotales-container">
+                        <div>
+                        <div class="subtotal-description">
+                        <label class="d-flex justify-content-md-end pe-md-5">Importe Bruto</label>
+                        </div>
+                        <label class="pe-md-2 ps-md-5">$</label>
+                        <div class="subtotal-value">
+                        <label class="d-flex justify-content-end">
+                        1.432.24
+                        </label>
+                        </div>
+                        </div>
+                        <div>
+                        <div class="subtotal-description">
+                        <label class="d-flex justify-content-md-end pe-md-5">Descuento Base</label>
+                        </div>
+                        <label class="pe-md-2 ps-md-5">$</label>
+                        <div class="subtotal-value">
+                        <label class="d-flex justify-content-end">
+                        286,58
+                        </label>
+                        </div>
+                        </div>
+                        <div>
+                        <div class="subtotal-description">
+                        <label class="d-flex justify-content-md-end pe-md-5">Subtotal 1</label>
+                        </div>
+                        <label class="pe-md-2 ps-md-5">$</label>
+                        <div class="subtotal-value">
+                        <label class="d-flex justify-content-end">
+                        1.145.66
+                        </label>
+                        </div>
+                        </div>
+                        <div>
+                        <div class="subtotal-description">
+                        <label class="d-flex justify-content-md-end pe-md-5">Descuento Pago</label>
+                        </div>
+                        <label class="pe-md-2 ps-md-5">$</label>
+                        <div class="subtotal-value">
+                        <label class="d-flex justify-content-end">
+                        1.145.66
+                        </label>
+                        </div>
+                        </div>
+                        <div>
+                        <div class="subtotal-description">
+                        <label class="d-flex justify-content-md-end pe-md-5">Descuento Retiro</label>
+                        </div>
+                        <label class="pe-md-2 ps-md-5">$</label>
+                        <div class="subtotal-value">
+                        <label class="d-flex justify-content-end">
+                        1.145.66
+                        </label>
+                        </div>
+                        </div>
+                        <div>
+                        <div class="subtotal-description">
+                        <label class="d-flex justify-content-md-end pe-md-5">Descuento Varios</label>
+                        </div>
+                        <label class="pe-md-2 ps-md-5">$</label>
+                        <div class="subtotal-value">
+                        <label class="d-flex justify-content-end">
+                        1.145.66
+                        </label>
+                        </div>
+                        </div>
+                        <div>
+                        <div class="subtotal-description">
+                        <label class="d-flex justify-content-md-end pe-md-5">Descuento Peso</label>
+                        </div>
+                        <label class="pe-md-2 ps-md-5">$</label>
+                        <div class="subtotal-value">
+                        <label class="d-flex justify-content-end">
+                        1.145.66
+                        </label>
+                        </div>
+                        </div>
 
                                                 <div>
                                                     <div class="subtotal-description">
@@ -824,40 +839,84 @@
                                                         </label>
                                                     </div>
                                                 </div>
-
-                                                <div>
-                                                    <div class="subtotal-description mb-3">
-                                                        <label class="d-flex justify-content-md-end pe-md-5">Valor N/C (Sin IVA)</label>
-                                                    </div>
-                                                    <label class="pe-md-2 ps-md-5">$</label>
-                                                    <div class="subtotal-value">
-                                                        <label class="d-flex justify-content-end">
-                                                            35.87
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <div class="subtotal-description">
-                                                        <label class="d-flex justify-content-md-end pe-md-5">IDL%</label>
-                                                    </div>
-                                                    <label class="pe-md-2 ps-md-5"></label>
-                                                    <div class="subtotal-value">
-                                                        <label class="d-flex justify-content-end">
-                                                            5
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                @*<div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-primary">Guardar cambios</button>
-                                </div>*@
-                            </div>
+                        <div>
+                        <div class="subtotal-description">
+                        <label class="d-flex justify-content-md-end pe-md-5">Subtotal 2</label>
                         </div>
+                        <label class="pe-md-2 ps-md-5">$</label>
+                        <div class="subtotal-value">
+                        <label class="d-flex justify-content-end">
+                        1.145.66
+                        </label>
+                        </div>
+                        </div>
+                        <div>
+                        <div class="subtotal-description">
+                        <label class="d-flex justify-content-md-end pe-md-5">IVA</label>
+                        </div>
+                        <label class="pe-md-2 ps-md-5">$</label>
+                        <div class="subtotal-value">
+                        <label class="d-flex justify-content-end">
+                        966.92
+                        </label>
+                        </div>
+                        </div>
+                        <div>
+                        <div class="subtotal-description">
+                        <label class="d-flex justify-content-md-end pe-md-5">Seguro de Transporte</label>
+                        </div>
+                        <label class="pe-md-2 ps-md-5">$</label>
+                        <div class="subtotal-value">
+                        <label class="d-flex justify-content-end">
+                        200.95
+                        </label>
+                        </div>
+                        </div>
+                        <div>
+                        <div class="subtotal-description mb-5">
+                        <label class="d-flex justify-content-md-end pe-md-5" style="font-size: 19px;">Valor Total</label>
+                        </div>
+                        <label class="pe-md-2 ps-md-5">$</label>
+                        <div class="subtotal-value">
+                        <label class="d-flex justify-content-end">
+                        1.082.95
+                        </label>
+                        </div>
+                        </div>
+
+                        <div>
+                        <div class="subtotal-description mb-3">
+                        <label class="d-flex justify-content-md-end pe-md-5">Valor N/C (Sin IVA)</label>
+                        </div>
+                        <label class="pe-md-2 ps-md-5">$</label>
+                        <div class="subtotal-value">
+                        <label class="d-flex justify-content-end">
+                        35.87
+                        </label>
+                        </div>
+                        </div>
+                        <div>
+                        <div class="subtotal-description">
+                        <label class="d-flex justify-content-md-end pe-md-5">IDL%</label>
+                        </div>
+                        <label class="pe-md-2 ps-md-5"></label>
+                        <div class="subtotal-value">
+                        <label class="d-flex justify-content-end">
+                        5
+                        </label>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary">Guardar cambios</button>
+                        </div>
+                        </div>
+                        </div> *@
                     </div>
                     <div class="table-responsive table-container pt-3">
                         @Html.Partial("_TablePedidosHistoricos")
@@ -957,6 +1016,28 @@
         inicializarTablas();
     });
 
+    const abrirModal = (url, idElemento) => {
+        fetch(url)
+            .then(response => response.text())
+            .then(html => {
+                console.log(html); // Verifica la respuesta en la consola
+
+                // Vaciar el contenido del modal existente
+                document.getElementById(idElemento).innerHTML = '';
+
+                // Insertar el HTML recibido en el modal
+                document.getElementById(idElemento).innerHTML = html;
+
+                // Obtener el modal
+                var modalElement = document.getElementById(idElemento);
+
+                var modal = new bootstrap.Modal(modalElement);
+
+                // Mostrar el modal
+                modal.show();
+            })
+            .catch(error => console.error('Error al cargar información:', error));
+    }
 
 
 </script>

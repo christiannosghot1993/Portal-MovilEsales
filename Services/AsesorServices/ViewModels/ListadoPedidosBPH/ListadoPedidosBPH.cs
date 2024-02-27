@@ -6,5 +6,6 @@
         public string resultcode { get; set; }
         public string message { get; set; }
         public List<InfoPedidoBPH> result { get; set; }
+        public DetallePedido.DetallePedidoInfo detallePedidoInfo { get; set; }
     }
 }
