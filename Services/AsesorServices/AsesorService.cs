@@ -55,6 +55,30 @@ namespace Portal_MovilEsales.Services.AsesorServices
             return inicioAsesor;
         }
 
+        public ListadoPedidosBPH getListadoPedidosBPH(string token, string tipoPedido, DateTime fechaInicio, DateTime fechaFin)
+        {
+            var client = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Post, "https://esaleslatam.bekaert.com:9020/esalesapi/api/ListadoPedidos");
+            request.Headers.Add("Authorization", "Bearer "+ token);
+            var content = new StringContent("{\r\n    \"navegadorweb\": \"Microsoft Edge XXX\",\r\n    \"FechaInicio\": \""+fechaInicio.ToString("yyyy-MM-dd")+"\",\r\n    \"FechaFin\": \""+fechaFin.ToString("yyyy-MM-dd")+"\",\r\n    \"estado\": \""+tipoPedido+"\"\r\n}", null, "application/json");
+            request.Content = content;
+            var response = client.Send(request);
+
+            string resultado = response.Content.ReadAsStringAsync().Result;
+            var resDynamic = JsonConvert.DeserializeObject<dynamic>(resultado);
+            ListadoPedidosBPH listadoPedidosBPH;
+            if ((bool)resDynamic.success)
+            {
+                string jsonInfo = JsonConvert.SerializeObject(resDynamic);
+                listadoPedidosBPH = JsonConvert.DeserializeObject<ListadoPedidosBPH>(jsonInfo);
+            }
+            else
+            {
+                listadoPedidosBPH = new ListadoPedidosBPH();
+            }
+            return listadoPedidosBPH;
+        }
+
         public PedidoAprobado getPedidoAprobado(string token, string codigoPedido)
         {
             var client = new HttpClient();
@@ -75,6 +99,7 @@ namespace Portal_MovilEsales.Services.AsesorServices
             else
             {
                 pedidoAprobado = new PedidoAprobado();
+                pedidoAprobado.observacion = "Error "+resDynamic.resultcode+" - "+resDynamic.message;
             }
             return pedidoAprobado;
 

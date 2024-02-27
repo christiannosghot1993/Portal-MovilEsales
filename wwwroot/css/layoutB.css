@@ -1,4 +1,21 @@
-﻿body {
+﻿
+@font-face {
+    font-family: 'bekaert-text-regular';
+    src: url('../assets/fonts/BekaertText-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'bekaert-headline-bold';
+    src: url('../assets/fonts/BekaertHeadline-Bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'bekaert-headline-regular';
+    src: url('../assets/fonts/BekaertHeadline-Regular.woff') format('woff');
+}
+
+
+body {
     margin: 0;
     padding: 0;
 }

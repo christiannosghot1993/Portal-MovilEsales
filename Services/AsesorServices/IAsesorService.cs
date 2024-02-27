@@ -11,5 +11,6 @@ namespace Portal_MovilEsales.Services.AsesorServices
         public InicioAsesor getInfoInicioAsesor(string token);
         public DatosCliente getDatosCliente(string token, string codigoSapCliente);
         public PedidoAprobado getPedidoAprobado(string token, string codigoPedido);
+        public ListadoPedidosBPH getListadoPedidosBPH(string token, string tipoPedido, DateTime fechaInicio, DateTime fechaFin);
     }
 }
