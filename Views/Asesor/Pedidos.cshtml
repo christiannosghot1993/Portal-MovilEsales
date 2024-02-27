@@ -1,22 +1,25 @@
-﻿@{
+﻿@model Portal_MovilEsales.Services.AsesorServices.ViewModels.ListadoPedidosBPH
+@{
     ViewData["Title"] = "Asesor - Pedidos";
 }
 
 <div class="col-12 ">
     <div class="card card-container">
         <div class="card-body">
-            <h1 class="card-title">Mis Pedidos</h1>
+            <div class="card-title">
+                <h1 style="font-size: 17px">Mis Pedidos</h1>
+            </div>
             <div class="row">
                 <div class="col-sm-12 col-md-10">
                     <ul class="nav nav-tabs d-flex" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link custom-nav-link active" id="clientes-tab" data-bs-toggle="tab" data-bs-target="#borradores-tab-pane" type="button" role="tab" aria-controls="borradores-tab-pane" aria-selected="true">Borradores</button>
+                            <button class="nav-link custom-nav-link active" id="clientes-tab" data-bs-toggle="tab" data-bs-target="#borradores-tab-pane" type="button" role="tab" aria-controls="borradores-tab-pane" aria-selected="true" style="font-family: bekaert-headline-regular !important" onclick="cargarInfo('@Url.Action("FillPedidosBorrador", "Asesor")', 0)">Borradores</button>
                         </li>
                         <li class="nav-item " role="presentation">
-                            <button class="nav-link custom-nav-link" id="pedidos-tab" data-bs-toggle="tab" data-bs-target="#pedidos-activos-tab-pane" type="button" role="tab" aria-controls="pedidos-activos-tab-pane" aria-selected="false">Pedidos Activos</button>
+                            <button class="nav-link custom-nav-link" id="pedidos-tab" data-bs-toggle="tab" data-bs-target="#pedidos-activos-tab-pane" type="button" role="tab" aria-controls="pedidos-activos-tab-pane" aria-selected="false" style="font-family: bekaert-headline-regular !important" onclick="cargarInfo('@Url.Action("FillPedidosActivos", "Asesor")', 1)">Pedidos Activos</button>
                         </li>
                         <li class="nav-item flex-grow-1" role="presentation">
-                            <button class="nav-link custom-nav-link" id="historico-tab" data-bs-toggle="tab" data-bs-target="#historico-tab-pane" type="button" role="tab" aria-controls="pedidos-activos-tab-pane" aria-selected="false">Histórico</button>
+                            <button class="nav-link custom-nav-link" id="historico-tab" data-bs-toggle="tab" data-bs-target="#historico-tab-pane" type="button" role="tab" aria-controls="historico-tab-pane" aria-selected="false" style="font-family: bekaert-headline-regular !important" onclick="cargarInfo('@Url.Action("FillPedidosHistoricos", "Asesor")', 2)">Histórico</button>
                         </li>
                     </ul>
                 </div>
@@ -55,8 +58,9 @@
                             <div class="form-group">
                                 <label class="label-datepicker" for="EstadoSelect">Estado</label>
                                 <select class="form-control datepicker" id="EstadoSelect">
-                                    <option value="option1">Aprobado</option>
-                                    <option value="option2">Negado</option>
+                                    <option value="borrador" selected>Borrador</option>
+                                    <option value="pendiente">Aprobado</option>
+                                    <option value="">Entregado</option>
                                 </select>
                             </div>
                         </div>
@@ -90,445 +94,7 @@
                         </div>
                     </div>
                     <div class="table-responsive table-container pt-3">
-                        <table class="table" id="tabla-listado-pedidos-borrador">
-                            <thead class="card-table_header">
-                                <tr>
-                                    <th scope="col" class="border-radius-left" style="padding:13px;">Nombre del Cliente</th>
-                                    <th scope="col" style="padding:13px;">Fecha Creación</th>
-                                    <th scope="col" style="padding:13px;">Número de Orden</th>
-                                    <th scope="col" style="padding:13px;">Orden SAP</th>
-                                    <th scope="col" style="padding:13px;">Compra KG</th>
-                                    <th scope="col" style="padding:13px;">Compra $</th>
-                                    <th scope="col" style="padding:13px;">Valor NC (Sin Iva)</th>
-                                    <th scope="col" style="padding:13px;">Aprobador Actual</th>
-                                    <th scope="col" style="padding:13px;">Estado</th>
-                                    <th scope="col" class="border-radius-right" style="padding:13px;"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>
-                                        <button class="orange-rounded-button" style="background-color: #01ADEF !important">
-                                            Borrador
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M9.94574 3.10938H2.98794C2.46071 3.10938 1.95507 3.31882 1.58225 3.69163C1.20944 4.06444 1 4.57008 1 5.09732V19.0129C1 19.5401 1.20944 20.0458 1.58225 20.4186C1.95507 20.7914 2.46071 21.0008 2.98794 21.0008H16.9035C17.4308 21.0008 17.9364 20.7914 18.3092 20.4186C18.682 20.0458 18.8915 19.5401 18.8915 19.0129V12.0551" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M17.4006 1.61757C17.796 1.22215 18.3323 1 18.8915 1C19.4507 1 19.987 1.22215 20.3825 1.61757C20.7779 2.013 21 2.54931 21 3.10853C21 3.66775 20.7779 4.20406 20.3825 4.59949L10.9397 14.0422L6.96387 15.0362L7.95784 11.0603L17.4006 1.61757Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Pedro Perez</td>
-                                    <td>1/10/2023</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>
-                                        <button class="orange-rounded-button" style="background-color: #01ADEF !important">
-                                            Borrador
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M9.94574 3.10938H2.98794C2.46071 3.10938 1.95507 3.31882 1.58225 3.69163C1.20944 4.06444 1 4.57008 1 5.09732V19.0129C1 19.5401 1.20944 20.0458 1.58225 20.4186C1.95507 20.7914 2.46071 21.0008 2.98794 21.0008H16.9035C17.4308 21.0008 17.9364 20.7914 18.3092 20.4186C18.682 20.0458 18.8915 19.5401 18.8915 19.0129V12.0551" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M17.4006 1.61757C17.796 1.22215 18.3323 1 18.8915 1C19.4507 1 19.987 1.22215 20.3825 1.61757C20.7779 2.013 21 2.54931 21 3.10853C21 3.66775 20.7779 4.20406 20.3825 4.59949L10.9397 14.0422L6.96387 15.0362L7.95784 11.0603L17.4006 1.61757Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>
-                                        <button class="orange-rounded-button" style="background-color: #01ADEF !important">
-                                            Borrador
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M9.94574 3.10938H2.98794C2.46071 3.10938 1.95507 3.31882 1.58225 3.69163C1.20944 4.06444 1 4.57008 1 5.09732V19.0129C1 19.5401 1.20944 20.0458 1.58225 20.4186C1.95507 20.7914 2.46071 21.0008 2.98794 21.0008H16.9035C17.4308 21.0008 17.9364 20.7914 18.3092 20.4186C18.682 20.0458 18.8915 19.5401 18.8915 19.0129V12.0551" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M17.4006 1.61757C17.796 1.22215 18.3323 1 18.8915 1C19.4507 1 19.987 1.22215 20.3825 1.61757C20.7779 2.013 21 2.54931 21 3.10853C21 3.66775 20.7779 4.20406 20.3825 4.59949L10.9397 14.0422L6.96387 15.0362L7.95784 11.0603L17.4006 1.61757Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>
-                                        <button class="orange-rounded-button" style="background-color: #01ADEF !important">
-                                            Borrador
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M9.94574 3.10938H2.98794C2.46071 3.10938 1.95507 3.31882 1.58225 3.69163C1.20944 4.06444 1 4.57008 1 5.09732V19.0129C1 19.5401 1.20944 20.0458 1.58225 20.4186C1.95507 20.7914 2.46071 21.0008 2.98794 21.0008H16.9035C17.4308 21.0008 17.9364 20.7914 18.3092 20.4186C18.682 20.0458 18.8915 19.5401 18.8915 19.0129V12.0551" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M17.4006 1.61757C17.796 1.22215 18.3323 1 18.8915 1C19.4507 1 19.987 1.22215 20.3825 1.61757C20.7779 2.013 21 2.54931 21 3.10853C21 3.66775 20.7779 4.20406 20.3825 4.59949L10.9397 14.0422L6.96387 15.0362L7.95784 11.0603L17.4006 1.61757Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>
-                                        <button class="orange-rounded-button" style="background-color: #01ADEF !important">
-                                            Borrador
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M9.94574 3.10938H2.98794C2.46071 3.10938 1.95507 3.31882 1.58225 3.69163C1.20944 4.06444 1 4.57008 1 5.09732V19.0129C1 19.5401 1.20944 20.0458 1.58225 20.4186C1.95507 20.7914 2.46071 21.0008 2.98794 21.0008H16.9035C17.4308 21.0008 17.9364 20.7914 18.3092 20.4186C18.682 20.0458 18.8915 19.5401 18.8915 19.0129V12.0551" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M17.4006 1.61757C17.796 1.22215 18.3323 1 18.8915 1C19.4507 1 19.987 1.22215 20.3825 1.61757C20.7779 2.013 21 2.54931 21 3.10853C21 3.66775 20.7779 4.20406 20.3825 4.59949L10.9397 14.0422L6.96387 15.0362L7.95784 11.0603L17.4006 1.61757Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Pedro Perez</td>
-                                    <td>1/10/2023</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>
-                                        <button class="orange-rounded-button" style="background-color: #01ADEF !important">
-                                            Borrador
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M9.94574 3.10938H2.98794C2.46071 3.10938 1.95507 3.31882 1.58225 3.69163C1.20944 4.06444 1 4.57008 1 5.09732V19.0129C1 19.5401 1.20944 20.0458 1.58225 20.4186C1.95507 20.7914 2.46071 21.0008 2.98794 21.0008H16.9035C17.4308 21.0008 17.9364 20.7914 18.3092 20.4186C18.682 20.0458 18.8915 19.5401 18.8915 19.0129V12.0551" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M17.4006 1.61757C17.796 1.22215 18.3323 1 18.8915 1C19.4507 1 19.987 1.22215 20.3825 1.61757C20.7779 2.013 21 2.54931 21 3.10853C21 3.66775 20.7779 4.20406 20.3825 4.59949L10.9397 14.0422L6.96387 15.0362L7.95784 11.0603L17.4006 1.61757Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>
-                                        <button class="orange-rounded-button" style="background-color: #01ADEF !important">
-                                            Borrador
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M9.94574 3.10938H2.98794C2.46071 3.10938 1.95507 3.31882 1.58225 3.69163C1.20944 4.06444 1 4.57008 1 5.09732V19.0129C1 19.5401 1.20944 20.0458 1.58225 20.4186C1.95507 20.7914 2.46071 21.0008 2.98794 21.0008H16.9035C17.4308 21.0008 17.9364 20.7914 18.3092 20.4186C18.682 20.0458 18.8915 19.5401 18.8915 19.0129V12.0551" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M17.4006 1.61757C17.796 1.22215 18.3323 1 18.8915 1C19.4507 1 19.987 1.22215 20.3825 1.61757C20.7779 2.013 21 2.54931 21 3.10853C21 3.66775 20.7779 4.20406 20.3825 4.59949L10.9397 14.0422L6.96387 15.0362L7.95784 11.0603L17.4006 1.61757Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>
-                                        <button class="orange-rounded-button" style="background-color: #01ADEF !important">
-                                            Borrador
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M9.94574 3.10938H2.98794C2.46071 3.10938 1.95507 3.31882 1.58225 3.69163C1.20944 4.06444 1 4.57008 1 5.09732V19.0129C1 19.5401 1.20944 20.0458 1.58225 20.4186C1.95507 20.7914 2.46071 21.0008 2.98794 21.0008H16.9035C17.4308 21.0008 17.9364 20.7914 18.3092 20.4186C18.682 20.0458 18.8915 19.5401 18.8915 19.0129V12.0551" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M17.4006 1.61757C17.796 1.22215 18.3323 1 18.8915 1C19.4507 1 19.987 1.22215 20.3825 1.61757C20.7779 2.013 21 2.54931 21 3.10853C21 3.66775 20.7779 4.20406 20.3825 4.59949L10.9397 14.0422L6.96387 15.0362L7.95784 11.0603L17.4006 1.61757Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>
-                                        <button class="orange-rounded-button" style="background-color: #01ADEF !important">
-                                            Borrador
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M9.94574 3.10938H2.98794C2.46071 3.10938 1.95507 3.31882 1.58225 3.69163C1.20944 4.06444 1 4.57008 1 5.09732V19.0129C1 19.5401 1.20944 20.0458 1.58225 20.4186C1.95507 20.7914 2.46071 21.0008 2.98794 21.0008H16.9035C17.4308 21.0008 17.9364 20.7914 18.3092 20.4186C18.682 20.0458 18.8915 19.5401 18.8915 19.0129V12.0551" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M17.4006 1.61757C17.796 1.22215 18.3323 1 18.8915 1C19.4507 1 19.987 1.22215 20.3825 1.61757C20.7779 2.013 21 2.54931 21 3.10853C21 3.66775 20.7779 4.20406 20.3825 4.59949L10.9397 14.0422L6.96387 15.0362L7.95784 11.0603L17.4006 1.61757Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Pedro Perez</td>
-                                    <td>1/10/2023</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>
-                                        <button class="orange-rounded-button" style="background-color: #01ADEF !important">
-                                            Borrador
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M9.94574 3.10938H2.98794C2.46071 3.10938 1.95507 3.31882 1.58225 3.69163C1.20944 4.06444 1 4.57008 1 5.09732V19.0129C1 19.5401 1.20944 20.0458 1.58225 20.4186C1.95507 20.7914 2.46071 21.0008 2.98794 21.0008H16.9035C17.4308 21.0008 17.9364 20.7914 18.3092 20.4186C18.682 20.0458 18.8915 19.5401 18.8915 19.0129V12.0551" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M17.4006 1.61757C17.796 1.22215 18.3323 1 18.8915 1C19.4507 1 19.987 1.22215 20.3825 1.61757C20.7779 2.013 21 2.54931 21 3.10853C21 3.66775 20.7779 4.20406 20.3825 4.59949L10.9397 14.0422L6.96387 15.0362L7.95784 11.0603L17.4006 1.61757Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>
-                                        <button class="orange-rounded-button" style="background-color: #01ADEF !important">
-                                            Borrador
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M9.94574 3.10938H2.98794C2.46071 3.10938 1.95507 3.31882 1.58225 3.69163C1.20944 4.06444 1 4.57008 1 5.09732V19.0129C1 19.5401 1.20944 20.0458 1.58225 20.4186C1.95507 20.7914 2.46071 21.0008 2.98794 21.0008H16.9035C17.4308 21.0008 17.9364 20.7914 18.3092 20.4186C18.682 20.0458 18.8915 19.5401 18.8915 19.0129V12.0551" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M17.4006 1.61757C17.796 1.22215 18.3323 1 18.8915 1C19.4507 1 19.987 1.22215 20.3825 1.61757C20.7779 2.013 21 2.54931 21 3.10853C21 3.66775 20.7779 4.20406 20.3825 4.59949L10.9397 14.0422L6.96387 15.0362L7.95784 11.0603L17.4006 1.61757Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>
-                                        <button class="orange-rounded-button" style="background-color: #01ADEF !important">
-                                            Borrador
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M9.94574 3.10938H2.98794C2.46071 3.10938 1.95507 3.31882 1.58225 3.69163C1.20944 4.06444 1 4.57008 1 5.09732V19.0129C1 19.5401 1.20944 20.0458 1.58225 20.4186C1.95507 20.7914 2.46071 21.0008 2.98794 21.0008H16.9035C17.4308 21.0008 17.9364 20.7914 18.3092 20.4186C18.682 20.0458 18.8915 19.5401 18.8915 19.0129V12.0551" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M17.4006 1.61757C17.796 1.22215 18.3323 1 18.8915 1C19.4507 1 19.987 1.22215 20.3825 1.61757C20.7779 2.013 21 2.54931 21 3.10853C21 3.66775 20.7779 4.20406 20.3825 4.59949L10.9397 14.0422L6.96387 15.0362L7.95784 11.0603L17.4006 1.61757Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>
-                                        <button class="orange-rounded-button" style="background-color: #01ADEF !important">
-                                            Borrador
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M9.94574 3.10938H2.98794C2.46071 3.10938 1.95507 3.31882 1.58225 3.69163C1.20944 4.06444 1 4.57008 1 5.09732V19.0129C1 19.5401 1.20944 20.0458 1.58225 20.4186C1.95507 20.7914 2.46071 21.0008 2.98794 21.0008H16.9035C17.4308 21.0008 17.9364 20.7914 18.3092 20.4186C18.682 20.0458 18.8915 19.5401 18.8915 19.0129V12.0551" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M17.4006 1.61757C17.796 1.22215 18.3323 1 18.8915 1C19.4507 1 19.987 1.22215 20.3825 1.61757C20.7779 2.013 21 2.54931 21 3.10853C21 3.66775 20.7779 4.20406 20.3825 4.59949L10.9397 14.0422L6.96387 15.0362L7.95784 11.0603L17.4006 1.61757Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Pedro Perez</td>
-                                    <td>1/10/2023</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>
-                                        <button class="orange-rounded-button" style="background-color: #01ADEF !important">
-                                            Borrador
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M9.94574 3.10938H2.98794C2.46071 3.10938 1.95507 3.31882 1.58225 3.69163C1.20944 4.06444 1 4.57008 1 5.09732V19.0129C1 19.5401 1.20944 20.0458 1.58225 20.4186C1.95507 20.7914 2.46071 21.0008 2.98794 21.0008H16.9035C17.4308 21.0008 17.9364 20.7914 18.3092 20.4186C18.682 20.0458 18.8915 19.5401 18.8915 19.0129V12.0551" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M17.4006 1.61757C17.796 1.22215 18.3323 1 18.8915 1C19.4507 1 19.987 1.22215 20.3825 1.61757C20.7779 2.013 21 2.54931 21 3.10853C21 3.66775 20.7779 4.20406 20.3825 4.59949L10.9397 14.0422L6.96387 15.0362L7.95784 11.0603L17.4006 1.61757Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>
-                                        <button class="orange-rounded-button" style="background-color: #01ADEF !important">
-                                            Borrador
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M9.94574 3.10938H2.98794C2.46071 3.10938 1.95507 3.31882 1.58225 3.69163C1.20944 4.06444 1 4.57008 1 5.09732V19.0129C1 19.5401 1.20944 20.0458 1.58225 20.4186C1.95507 20.7914 2.46071 21.0008 2.98794 21.0008H16.9035C17.4308 21.0008 17.9364 20.7914 18.3092 20.4186C18.682 20.0458 18.8915 19.5401 18.8915 19.0129V12.0551" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M17.4006 1.61757C17.796 1.22215 18.3323 1 18.8915 1C19.4507 1 19.987 1.22215 20.3825 1.61757C20.7779 2.013 21 2.54931 21 3.10853C21 3.66775 20.7779 4.20406 20.3825 4.59949L10.9397 14.0422L6.96387 15.0362L7.95784 11.0603L17.4006 1.61757Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>
-                                        <button class="orange-rounded-button" style="background-color: #01ADEF !important">
-                                            Borrador
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M9.94574 3.10938H2.98794C2.46071 3.10938 1.95507 3.31882 1.58225 3.69163C1.20944 4.06444 1 4.57008 1 5.09732V19.0129C1 19.5401 1.20944 20.0458 1.58225 20.4186C1.95507 20.7914 2.46071 21.0008 2.98794 21.0008H16.9035C17.4308 21.0008 17.9364 20.7914 18.3092 20.4186C18.682 20.0458 18.8915 19.5401 18.8915 19.0129V12.0551" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M17.4006 1.61757C17.796 1.22215 18.3323 1 18.8915 1C19.4507 1 19.987 1.22215 20.3825 1.61757C20.7779 2.013 21 2.54931 21 3.10853C21 3.66775 20.7779 4.20406 20.3825 4.59949L10.9397 14.0422L6.96387 15.0362L7.95784 11.0603L17.4006 1.61757Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>
-                                        <button class="orange-rounded-button" style="background-color: #01ADEF !important">
-                                            Borrador
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M9.94574 3.10938H2.98794C2.46071 3.10938 1.95507 3.31882 1.58225 3.69163C1.20944 4.06444 1 4.57008 1 5.09732V19.0129C1 19.5401 1.20944 20.0458 1.58225 20.4186C1.95507 20.7914 2.46071 21.0008 2.98794 21.0008H16.9035C17.4308 21.0008 17.9364 20.7914 18.3092 20.4186C18.682 20.0458 18.8915 19.5401 18.8915 19.0129V12.0551" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M17.4006 1.61757C17.796 1.22215 18.3323 1 18.8915 1C19.4507 1 19.987 1.22215 20.3825 1.61757C20.7779 2.013 21 2.54931 21 3.10853C21 3.66775 20.7779 4.20406 20.3825 4.59949L10.9397 14.0422L6.96387 15.0362L7.95784 11.0603L17.4006 1.61757Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Pedro Perez</td>
-                                    <td>1/10/2023</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>
-                                        <button class="orange-rounded-button" style="background-color: #01ADEF !important">
-                                            Borrador
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M9.94574 3.10938H2.98794C2.46071 3.10938 1.95507 3.31882 1.58225 3.69163C1.20944 4.06444 1 4.57008 1 5.09732V19.0129C1 19.5401 1.20944 20.0458 1.58225 20.4186C1.95507 20.7914 2.46071 21.0008 2.98794 21.0008H16.9035C17.4308 21.0008 17.9364 20.7914 18.3092 20.4186C18.682 20.0458 18.8915 19.5401 18.8915 19.0129V12.0551" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M17.4006 1.61757C17.796 1.22215 18.3323 1 18.8915 1C19.4507 1 19.987 1.22215 20.3825 1.61757C20.7779 2.013 21 2.54931 21 3.10853C21 3.66775 20.7779 4.20406 20.3825 4.59949L10.9397 14.0422L6.96387 15.0362L7.95784 11.0603L17.4006 1.61757Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>
-                                        <button class="orange-rounded-button" style="background-color: #01ADEF !important">
-                                            Borrador
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M9.94574 3.10938H2.98794C2.46071 3.10938 1.95507 3.31882 1.58225 3.69163C1.20944 4.06444 1 4.57008 1 5.09732V19.0129C1 19.5401 1.20944 20.0458 1.58225 20.4186C1.95507 20.7914 2.46071 21.0008 2.98794 21.0008H16.9035C17.4308 21.0008 17.9364 20.7914 18.3092 20.4186C18.682 20.0458 18.8915 19.5401 18.8915 19.0129V12.0551" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M17.4006 1.61757C17.796 1.22215 18.3323 1 18.8915 1C19.4507 1 19.987 1.22215 20.3825 1.61757C20.7779 2.013 21 2.54931 21 3.10853C21 3.66775 20.7779 4.20406 20.3825 4.59949L10.9397 14.0422L6.96387 15.0362L7.95784 11.0603L17.4006 1.61757Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>
-                                        <button class="orange-rounded-button" style="background-color: #01ADEF !important">
-                                            Borrador
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M9.94574 3.10938H2.98794C2.46071 3.10938 1.95507 3.31882 1.58225 3.69163C1.20944 4.06444 1 4.57008 1 5.09732V19.0129C1 19.5401 1.20944 20.0458 1.58225 20.4186C1.95507 20.7914 2.46071 21.0008 2.98794 21.0008H16.9035C17.4308 21.0008 17.9364 20.7914 18.3092 20.4186C18.682 20.0458 18.8915 19.5401 18.8915 19.0129V12.0551" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M17.4006 1.61757C17.796 1.22215 18.3323 1 18.8915 1C19.4507 1 19.987 1.22215 20.3825 1.61757C20.7779 2.013 21 2.54931 21 3.10853C21 3.66775 20.7779 4.20406 20.3825 4.59949L10.9397 14.0422L6.96387 15.0362L7.95784 11.0603L17.4006 1.61757Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        @Html.Partial("_TablePedidosBorrador")
                     </div>
                 </div>
                 <div class="tab-pane fade" id="pedidos-activos-tab-pane" role="tabpanel" aria-labelledby="pedidos-tab" tabindex="0">
@@ -547,8 +113,9 @@
                             <div class="form-group">
                                 <label class="label-datepicker" for="EstadoSelect">Estado</label>
                                 <select class="form-control datepicker" id="EstadoSelect">
-                                    <option value="option1">Aprobado</option>
-                                    <option value="option2">Negado</option>
+                                    <option value="borrador">Borrador</option>
+                                    <option value="pendiente" selected>Aprobado</option>
+                                    <option value="">Entregado</option>
                                 </select>
                             </div>
                         </div>
@@ -579,7 +146,7 @@
 
 
                             </button>
-                        </div> 
+                        </div>
                     </div>
                     <div class="modal fade" id="modalPedidoAprobado" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-xl">
@@ -591,7 +158,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    
+
                                     <div class="row mb-3">
                                         <div class="col-md-3" style="font-weight: bold;">Cliente:</div>
                                         <div class="col-md-3">Castillo Miranda Hugo Ernesto</div>
@@ -746,7 +313,7 @@
                                                             </div>
                                                         </td>
                                                     </tr>
-                                                    </tr>
+
                                                 </tbody>
                                             </table>
                                         </div>
@@ -829,7 +396,7 @@
                                                         </label>
                                                     </div>
                                                 </div>
-                                                
+
                                                 <div>
                                                     <div class="subtotal-description">
                                                         <label class="d-flex justify-content-md-end pe-md-5">Subtotal 2</label>
@@ -865,7 +432,7 @@
                                                 </div>
                                                 <div>
                                                     <div class="subtotal-description mb-5">
-                                                        <label class="d-flex justify-content-md-end pe-md-5" style="font-size: 19px;">Valor Total</label>
+                                                        <label class="d-flex justify-content-md-end pe-md-5" style="font-size: 17px !important; font-weight: bold;">Valor Total</label>
                                                     </div>
                                                     <label class="pe-md-2 ps-md-5">$</label>
                                                     <div class="subtotal-value">
@@ -874,7 +441,7 @@
                                                         </label>
                                                     </div>
                                                 </div>
-                                               
+
                                                 <div>
                                                     <div class="subtotal-description mb-3">
                                                         <label class="d-flex justify-content-md-end pe-md-5">Valor N/C (Sin IVA)</label>
@@ -900,7 +467,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                 </div>
                                 @*<div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -909,467 +476,8 @@
                             </div>
                         </div>
                     </div>
-                    
                     <div class="table-responsive table-container pt-3">
-                        <table class="table" id="tabla-listado-pedidos">
-                            <thead class="card-table_header">
-                                <tr>
-                                    <th scope="col" class="border-radius-left" style="padding:13px;">Nombre del Cliente</th>
-                                    <th scope="col" style="padding:13px;">Fecha Creación</th>
-                                    <th scope="col" style="padding:13px;">Observación</th>
-                                    <th scope="col" style="padding:13px;">Número de Orden</th>
-                                    <th scope="col" style="padding:13px;">Orden SAP</th>
-                                    <th scope="col" style="padding:13px;">Compra KG</th>
-                                    <th scope="col" style="padding:13px;">Compra $</th>
-                                    <th scope="col" style="padding:13px;">Valor NC (Sin Iva)</th>
-                                    <th scope="col" style="padding:13px;">Aprobador Actual</th>
-                                    <th scope="col" style="padding:13px;">Estado</th>
-                                    <th scope="col" class="border-radius-right" style="padding:13px;"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar ...</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Aprobado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoAprobado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Pedro Perez</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar Semana del 23...</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Aprobado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoAprobado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar Semana del 23 de Enero de 2023 (Jenny Hernandez)</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Aprobado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoAprobado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar Semana del 23 de Enero de 2023 (Jenny Hernandez)</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Aprobado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoAprobado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar ...</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Aprobado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoAprobado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Pedro Perez</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar Semana del 23...</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Aprobado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoAprobado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar Semana del 23 de Enero de 2023 (Jenny Hernandez)</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Aprobado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoAprobado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar Semana del 23 de Enero de 2023 (Jenny Hernandez)</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Aprobado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoAprobado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar ...</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Aprobado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoAprobado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Pedro Perez</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar Semana del 23...</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Aprobado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoAprobado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar Semana del 23 de Enero de 2023 (Jenny Hernandez)</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Aprobado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoAprobado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar Semana del 23 de Enero de 2023 (Jenny Hernandez)</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Aprobado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoAprobado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar ...</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Aprobado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoAprobado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Pedro Perez</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar Semana del 23...</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Aprobado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoAprobado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar Semana del 23 de Enero de 2023 (Jenny Hernandez)</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Aprobado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoAprobado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar Semana del 23 de Enero de 2023 (Jenny Hernandez)</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Aprobado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoAprobado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar ...</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Aprobado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoAprobado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Pedro Perez</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar Semana del 23...</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Aprobado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoAprobado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar Semana del 23 de Enero de 2023 (Jenny Hernandez)</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Aprobado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoAprobado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar Semana del 23 de Enero de 2023 (Jenny Hernandez)</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Aprobado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoAprobado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        @Html.Partial("_TablePedidosActivos")
                     </div>
                 </div>
                 <div class="tab-pane fade" id="historico-tab-pane" role="tabpanel" aria-labelledby="historico-tab" tabindex="0">
@@ -1388,8 +496,9 @@
                             <div class="form-group">
                                 <label class="label-datepicker" for="EstadoSelect">Estado</label>
                                 <select class="form-control datepicker" id="EstadoSelect">
-                                    <option value="option1">Aprobado</option>
-                                    <option value="option2">Negado</option>
+                                    <option value="borrador">Borrador</option>
+                                    <option value="pendiente">Aprobado</option>
+                                    <option value="" selected>Entregado</option>
                                 </select>
                             </div>
                         </div>
@@ -1706,7 +815,7 @@
                                                 </div>
                                                 <div>
                                                     <div class="subtotal-description mb-5">
-                                                        <label class="d-flex justify-content-md-end pe-md-5" style="font-size: 19px;">Valor Total</label>
+                                                        <label class="d-flex justify-content-md-end pe-md-5" style="font-size: 17px !important; font-weight: bold;">Valor Total</label>
                                                     </div>
                                                     <label class="pe-md-2 ps-md-5">$</label>
                                                     <div class="subtotal-value">
@@ -1751,465 +860,7 @@
                         </div>
                     </div>
                     <div class="table-responsive table-container pt-3">
-                        <table class="table" id="tabla-listado-pedidos-historico">
-                            <thead class="card-table_header">
-                                <tr>
-                                    <th scope="col" class="border-radius-left" style="padding:13px;">Nombre del Cliente</th>
-                                    <th scope="col" style="padding:13px;">Fecha Creación</th>
-                                    <th scope="col" style="padding:13px;">Observación</th>
-                                    <th scope="col" style="padding:13px;">Número de Orden</th>
-                                    <th scope="col" style="padding:13px;">Orden SAP</th>
-                                    <th scope="col" style="padding:13px;">Compra KG</th>
-                                    <th scope="col" style="padding:13px;">Compra $</th>
-                                    <th scope="col" style="padding:13px;">Valor NC (Sin Iva)</th>
-                                    <th scope="col" style="padding:13px;">Aprobador Actual</th>
-                                    <th scope="col" style="padding:13px;">Estado</th>
-                                    <th scope="col" class="border-radius-right" style="padding:13px;"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar ...</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Entregado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoEntregado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Pedro Perez</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar Semana del 23...</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Entregado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"  data-bs-toggle="modal" data-bs-target="#modalPedidoEntregado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar Semana del 23 de Enero de 2023 (Jenny Hernandez)</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Entregado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoEntregado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar Semana del 23 de Enero de 2023 (Jenny Hernandez)</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Entregado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoEntregado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar ...</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Entregado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoEntregado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Pedro Perez</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar Semana del 23...</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Entregado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoEntregado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar Semana del 23 de Enero de 2023 (Jenny Hernandez)</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Entregado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoEntregado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar Semana del 23 de Enero de 2023 (Jenny Hernandez)</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Entregado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoEntregado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar ...</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Entregado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoEntregado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Pedro Perez</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar Semana del 23...</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Entregado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoEntregado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar Semana del 23 de Enero de 2023 (Jenny Hernandez)</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Entregado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoEntregado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar Semana del 23 de Enero de 2023 (Jenny Hernandez)</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Entregado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoEntregado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar ...</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Entregado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoEntregado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Pedro Perez</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar Semana del 23...</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Entregado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoEntregado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar Semana del 23 de Enero de 2023 (Jenny Hernandez)</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Entregado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoEntregado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar Semana del 23 de Enero de 2023 (Jenny Hernandez)</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Entregado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoEntregado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar ...</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Entregado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoEntregado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Pedro Perez</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar Semana del 23...</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Entregado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoEntregado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar Semana del 23 de Enero de 2023 (Jenny Hernandez)</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Entregado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoEntregado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Castillo Miranda Hugo Ernesto</td>
-                                    <td>1/10/2023</td>
-                                    <td>(Sandra Monal): Despachar Semana del 23 de Enero de 2023 (Jenny Hernandez)</td>
-                                    <td>00245874</td>
-                                    <td>514268245</td>
-                                    <td>928.641.44</td>
-                                    <td>65’928.641.44</td>
-                                    <td>0.00</td>
-                                    <td>Jenny Hernadez</td>
-                                    <td>Entregado</td>
-                                    <td>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoEntregado">
-                                            <g id="01 align center">
-                                                <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                <path id="Vector_2" d="M7 24C8.10456 24 8.99999 23.1046 8.99999 22C8.99999 20.8954 8.10456 20 7 20C5.89543 20 5 20.8954 5 22C5 23.1046 5.89543 24 7 24Z" fill="#01ADEF" />
-                                                <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                            </g>
-                                        </svg>
-
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        @Html.Partial("_TablePedidosHistoricos")
                     </div>
                 </div>
             </div>
@@ -2218,8 +869,30 @@
 </div>
 
 <script>
+    function cargarInfo(url, tabSeleccionada) {
+        var tabs = document.querySelectorAll(".table-responsive.table-container.pt-3");
+        tabs[tabSeleccionada].innerHTML = '<h1>Cargando información...</h1>';
+        //console.log(url);
+        fetch(url)
+            .then(response => response.text())
+            .then(html => {
+                //console.log(html); // Verifica la respuesta en la consola
+
+                // Insertar el HTML recibido en la tab
+                tabs[tabSeleccionada].innerHTML = html;
+                if (tabSeleccionada === 0)
+                    inicializarTablaBorrador();
+
+                if (tabSeleccionada === 1)
+                    inicializarTablaPedidosListado();
+
+                if (tabSeleccionada === 2)
+                    inicializarTablaHistoricos();
+            })
+            .catch(error => console.error('Error al cargar información:', error));
+    }
     // Inicializar DataTables
-    $(document).ready(function () {
+    function inicializarTablaPedidosListado() {
         new DataTable('#tabla-listado-pedidos', {
             pagingType: 'simple_numbers', // Establece el tipo de paginación a simple_numbers
             searching: false,
@@ -2235,6 +908,26 @@
                 }
             }
         });
+    }
+    function inicializarTablaHistoricos() {
+        new DataTable('#tabla-listado-pedidos-historico', {
+            pagingType: 'simple_numbers', // Establece el tipo de paginación a simple_numbers
+            searching: false,
+            ordering: false,
+            info: false,
+            lengthChange: false,
+            pageLength: 5, // Establecer el número de elementos por página a 5
+            dom: 'lrtip', // Define la disposición de los elementos de la tabla
+            language: {
+                paginate: {
+                    previous: '<',
+                    next: '>'
+                }
+            }
+        });
+    }
+    function inicializarTablaBorrador() {
+
 
         new DataTable('#tabla-listado-pedidos-borrador', {
             pagingType: 'simple_numbers', // Establece el tipo de paginación a simple_numbers
@@ -2252,21 +945,16 @@
             }
         });
 
-        new DataTable('#tabla-listado-pedidos-historico', {
-            pagingType: 'simple_numbers', // Establece el tipo de paginación a simple_numbers
-            searching: false,
-            ordering: false,
-            info: false,
-            lengthChange: false,
-            pageLength: 5, // Establecer el número de elementos por página a 5
-            dom: 'lrtip', // Define la disposición de los elementos de la tabla
-            language: {
-                paginate: {
-                    previous: '<',
-                    next: '>'
-                }
-            }
-        });
+
+    }
+    function inicializarTablas() {
+        inicializarTablaBorrador();
+        inicializarTablaPedidosListado();
+        inicializarTablaHistoricos();
+    }
+
+    $(document).ready(function () {
+        inicializarTablas();
     });
 
 

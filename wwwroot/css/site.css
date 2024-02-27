@@ -1,3 +1,23 @@
+@font-face {
+    font-family: 'bekaert-text-regular';
+    src: url('../assets/fonts/BekaertText-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'bekaert-text-bold';
+    src: url('../assets/fonts/BekaertText-Bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'bekaert-headline-bold';
+    src: url('../assets/fonts/BekaertHeadline-Bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'bekaert-headline-regular';
+    src: url('../assets/fonts/BekaertHeadline-Regular.woff') format('woff');
+}
+
 html {
     font-size: 14px;
 }
@@ -8,7 +28,44 @@ html {
     }
 
 }
+.fs-text {
+    font-family: bekaert-text-regular;
+}
+.fs-text-b {
+    font-family: bekaert-text-bold;
+}
+.fs-headline {
+    font-family: bekaert-headline-regular;
+}
+.fs-headline-b {
+    font-family: bekaert-headline-bold;
+}
 
+table, th, td {
+    font-family: bekaert-text-regular;
+    font-size: 14px;
+}
+
+p, label, input, button, a.orange-rounded-button, select, div.collapsible-tabs {
+    font-family: bekaert-text-regular !important;
+    font-size: 14px !important;
+}
+
+h1, h4 {
+    font-family: bekaert-text-bold;
+    font-size: 14px;
+}
+
+div.row {
+    font-family: bekaert-text-regular;
+    font-size: 14px;
+}
+
+ul a {
+    font-family: bekaert-text-bold;
+    text-decoration: none;
+    color: #0F516E;
+}
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
     box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
@@ -68,8 +125,7 @@ html {
 
 .card-subtitle {
     color: var(--Bekaert-Cyan, #01ADEF);
-    /* Label/Label Small */
-    font-family: Bekaert Text;
+    font-family: bekaert-text-regular;
     font-size: 11px;
     font-style: normal;
     font-weight: 500;
@@ -84,9 +140,8 @@ html {
 }
 
 .card-title {
-    color: var(--Bekaert-Orange, #FF602C);
-    /* Headline/Headline XSmall */
-    font-family: Bekaert Headline;
+    color: #FF602C;
+    font-family: bekaert-headline-regular;
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
@@ -133,7 +188,7 @@ html {
 .border-br-orange {
     border-right: 1px solid var(--Bekaert-Orange, #FF602C);
     border-bottom: 1px solid var(--Bekaert-Orange, #FF602C);
-    padding: 16px;
+    padding: 0 16px 8px 16px;
 }
 
 body {

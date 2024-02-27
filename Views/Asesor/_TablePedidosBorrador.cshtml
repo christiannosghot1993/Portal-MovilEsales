@@ -1,0 +1,44 @@
+﻿<table class="table" id="tabla-listado-pedidos-borrador">
+    <thead class="card-table_header">
+        <tr>
+            <th scope="col" class="border-radius-left" style="padding:13px;">Nombre del Cliente</th>
+            <th scope="col" style="padding:13px;">Fecha Creación</th>
+            <th scope="col" style="padding:13px;">Número de Orden</th>
+            <th scope="col" style="padding:13px;">Orden SAP</th>
+            <th scope="col" style="padding:13px;">Compra KG</th>
+            <th scope="col" style="padding:13px;">Compra $</th>
+            <th scope="col" style="padding:13px;">Valor NC (Sin Iva)</th>
+            <th scope="col" style="padding:13px;">Aprobador Actual</th>
+            <th scope="col" style="padding:13px;">Estado</th>
+            <th scope="col" class="border-radius-right" style="padding:13px;"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.result)
+        {
+            <tr>
+                <td>@item.nombreCliente</td>
+                <td>@item.fechaCreacion</td>
+                <td>@item.numeroOrden</td>
+                <td>@item.ordenSAP</td>
+                <td>@item.compraKG</td>
+                <td>@item.compraUSD</td>
+                <td>@item.valorNCSinIva</td>
+                <td>@item.aprobadorActual</td>
+                <td>
+                    <button class="orange-rounded-button" style="background-color: #01ADEF !important">
+                        @item.estado
+                    </button>
+                </td>
+                <td>
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.94574 3.10938H2.98794C2.46071 3.10938 1.95507 3.31882 1.58225 3.69163C1.20944 4.06444 1 4.57008 1 5.09732V19.0129C1 19.5401 1.20944 20.0458 1.58225 20.4186C1.95507 20.7914 2.46071 21.0008 2.98794 21.0008H16.9035C17.4308 21.0008 17.9364 20.7914 18.3092 20.4186C18.682 20.0458 18.8915 19.5401 18.8915 19.0129V12.0551" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M17.4006 1.61757C17.796 1.22215 18.3323 1 18.8915 1C19.4507 1 19.987 1.22215 20.3825 1.61757C20.7779 2.013 21 2.54931 21 3.10853C21 3.66775 20.7779 4.20406 20.3825 4.59949L10.9397 14.0422L6.96387 15.0362L7.95784 11.0603L17.4006 1.61757Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
