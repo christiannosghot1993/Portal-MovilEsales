@@ -92,26 +92,26 @@ namespace Portal_MovilEsales.Controllers
         {
             var token = HttpContext.Session.GetString("token");
 
-            //var datosCliente = new DetallePedidoInfo();
+            var listadoPedidosBPH = new ListadoPedidosBPH();
 
             var respDetallePedido = _asesorService.getDetallePedido(token, numeroOrden);
 
-            //datosCliente.detallePedidoInfo = respDetallePedido;
+            listadoPedidosBPH.detallePedidoInfo = respDetallePedido;
 
-            return PartialView("_ModalDetallePedidoEntregado", datosCliente);
+            return PartialView("_ModalDetallePedidoEntregado", listadoPedidosBPH);
         }
 
         public IActionResult CargarInformacionModalDetallePedidoAprobado(string numeroOrden)
         {
             var token = HttpContext.Session.GetString("token");
 
-            //var datosCliente = new DatosCliente();
+            var listadoPedidosBPH = new ListadoPedidosBPH();
 
             var respDetallePedido = _asesorService.getDetallePedido(token, numeroOrden);
 
-            //datosCliente.detallePedidoInfo = respDetallePedido;
+            listadoPedidosBPH.detallePedidoInfo = respDetallePedido;
 
-            return PartialView("_ModalDetallePedidoAprobado", datosCliente);
+            return PartialView("_ModalDetallePedidoAprobado", listadoPedidosBPH);
         }
 
         public IActionResult Pedidos()
