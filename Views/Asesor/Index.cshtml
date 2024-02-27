@@ -8,9 +8,9 @@
         <div class="card card-container">
             <div class="card-body">
                 <div class="card-title">
-                    <h1>Información personal</h1>
+                    <h1 >Información personal</h1>
                 </div>
-                <h4 class="title">@Model.nombreAsesor</h4>
+                <h4 class="title fs-text-b" style="padding-left: 16px;">@Model.nombreAsesor</h4>
                 <div class="d-flex border-br-orange">
                     <div class="me-auto">
                         <label class="card-subtitle">Correo Electrónico: <span style="color: black;">@Model.correo</span></label>
@@ -30,16 +30,16 @@
                     <div class="col-sm-12 col-md-9">
                         <ul class="nav nav-tabs d-flex" id="myTab" role="tablist">
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link custom-nav-link active" id="clientes-tab" data-bs-toggle="tab" data-bs-target="#clientes-tab-pane" type="button" role="tab" aria-controls="clientes-tab-pane" aria-selected="true">Mis Clientes</button>
+                                <button class="nav-link custom-nav-link active" id="clientes-tab" data-bs-toggle="tab" data-bs-target="#clientes-tab-pane" type="button" role="tab" aria-controls="clientes-tab-pane" aria-selected="true" style="font-family: bekaert-headline-regular !important">Mis Clientes</button>
                             </li>
                             <li class="nav-item flex-grow-1" role="presentation">
-                                <button class="nav-link custom-nav-link" id="pedidos-tab" data-bs-toggle="tab" data-bs-target="#pedidos-tab-pane" type="button" role="tab" aria-controls="pedidos-tab-pane" aria-selected="false">Mis Pedidos</button>
+                                <button class="nav-link custom-nav-link" id="pedidos-tab" data-bs-toggle="tab" data-bs-target="#pedidos-tab-pane" type="button" role="tab" aria-controls="pedidos-tab-pane" aria-selected="false" style="font-family: bekaert-headline-regular !important">Mis Pedidos</button>
                             </li>
                         </ul>
                     </div>
                     <div class="col-sm-12 col-md-3">
                         <div style="padding-top: 12px; display:flex;">
-                            <input type="text" class="buscador" placeholder="buscador">
+                            <input type="text" class="buscador fs-text" placeholder="buscador" />
                             <svg style="margin:5px;" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="&#240;&#159;&#166;&#134; icon &#34;search&#34;">
                                     <path id="Vector" d="M9.88894 18.7779C14.7982 18.7779 18.7779 14.7982 18.7779 9.88894C18.7779 4.97971 14.7982 1 9.88894 1C4.97971 1 1 4.97971 1 9.88894C1 14.7982 4.97971 18.7779 9.88894 18.7779Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -80,7 +80,7 @@
                         </div>
                     </div>
                     <div class="tab-pane fade" id="pedidos-tab-pane" role="tabpanel" aria-labelledby="pedidos-tab" tabindex="0">
-                        <div class="table-responsive table-container" style="max-height: 305px;">
+                        <div class="table-responsive table-container" style="max-height: 305px; font-family: bekaert-text-bold !important">
                             <table class="table">
                                 <thead class="card-table_header">
                                     <tr>

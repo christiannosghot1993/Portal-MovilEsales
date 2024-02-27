@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="col-6 ">
                         <div class="card-title">
-                            <h1>Cliente</h1>
+                            <h1 style="font-size: 18px !important">Cliente</h1>
                         </div>
                     </div>
                     <div class="col-6 d-flex justify-content-end">
@@ -95,7 +95,7 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="card-title">
-                            <h1>Facturas pendientes</h1>
+                            <h1 style="font-size: 18px !important">Facturas pendientes</h1>
                         </div>
                     </div>
                     <div class="col-6 d-flex justify-content-end">
@@ -156,10 +156,10 @@
                     <div class="col-sm-12 col-md-10">
                         <ul class="nav nav-tabs d-flex" id="myTab" role="tablist">
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link custom-nav-link active" id="clientes-tab" data-bs-toggle="tab" data-bs-target="#pedidos-ingresados-tab-pane" type="button" role="tab" aria-controls="pedidos-ingresados-tab-pane" aria-selected="true">Pedidos Ingresados E-Sales</button>
+                                <button class="nav-link custom-nav-link active" id="clientes-tab" data-bs-toggle="tab" data-bs-target="#pedidos-ingresados-tab-pane" type="button" role="tab" aria-controls="pedidos-ingresados-tab-pane" aria-selected="true" style="font-family: bekaert-headline-regular !important">Pedidos Ingresados E-Sales</button>
                             </li>
                             <li class="nav-item flex-grow-1" role="presentation">
-                                <button class="nav-link custom-nav-link" id="pedidos-tab" data-bs-toggle="tab" data-bs-target="#ordenes-pendientes-tab-pane" type="button" role="tab" aria-controls="ordenes-pendientes-tab-pane" aria-selected="false">Ordenes Pendientes de SAP</button>
+                                <button class="nav-link custom-nav-link" id="pedidos-tab" data-bs-toggle="tab" data-bs-target="#ordenes-pendientes-tab-pane" type="button" role="tab" aria-controls="ordenes-pendientes-tab-pane" aria-selected="false" style="font-family: bekaert-headline-regular !important">Ordenes Pendientes de SAP</button>
                             </li>
                         </ul>
                     </div>
@@ -467,7 +467,7 @@
         fetch(url)
             .then(response => response.text())
             .then(html => {
-                console.log(html); // Verifica la respuesta en la consola
+                //console.log(html); // Verifica la respuesta en la consola
 
                 // Vaciar el contenido del modal existente
                 document.getElementById('modalPedidoAprobado').innerHTML = '';

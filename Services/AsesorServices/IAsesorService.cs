@@ -13,6 +13,7 @@ namespace Portal_MovilEsales.Services.AsesorServices
         public InicioAsesor getInfoInicioAsesor(string token);
         public DatosCliente getDatosCliente(string token, string codigoSapCliente);
         public PedidoAprobado getPedidoAprobado(string token, string codigoPedido);
+        public ListadoPedidosBPH getListadoPedidosBPH(string token, string tipoPedido, DateTime fechaInicio, DateTime fechaFin);
         public EstadoCuenta getInfoEstadoCuenta(string token, string codigoSAPCliente);
         public InformacionCrediticia getInformacionCrediticia(string token, string codigoSAPCliente);
         public DetallePedidoInfo getDetallePedido(string token, string numeroOrden);

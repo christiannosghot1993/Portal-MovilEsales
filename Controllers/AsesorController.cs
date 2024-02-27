@@ -70,7 +70,7 @@ namespace Portal_MovilEsales.Controllers
         {
             var token = HttpContext.Session.GetString("token");
             DatosCliente dc=new DatosCliente();
-            var respPedidoAprobado = _asesorService.getPedidoAprobado(token, "10");
+            var respPedidoAprobado = _asesorService.getPedidoAprobado(token, numeroPedido);
             dc.pedidoAprobado = respPedidoAprobado;
             return PartialView("_ModalPedidoAprobado", dc);
         }
@@ -116,7 +116,29 @@ namespace Portal_MovilEsales.Controllers
 
         public IActionResult Pedidos()
         {
-            return View();
+            var token = HttpContext.Session.GetString("token");
+            var listadoPedidosBPH = _asesorService.getListadoPedidosBPH(token, "borrador", DateTime.Parse("2020-01-31"), DateTime.Parse("2024-02-28"));
+            return View(listadoPedidosBPH);
+        }
+
+        public IActionResult FillPedidosActivos()
+        {
+            var token = HttpContext.Session.GetString("token");
+            var listadoPedidosBPH = _asesorService.getListadoPedidosBPH(token, "pendiente", DateTime.Parse("2020-01-31"), DateTime.Parse("2024-02-28"));
+            return PartialView("_TablePedidosActivos", listadoPedidosBPH);
+        }
+        public IActionResult FillPedidosBorrador()
+        {
+            var token = HttpContext.Session.GetString("token");
+            var listadoPedidosBPH = _asesorService.getListadoPedidosBPH(token, "borrador", DateTime.Parse("2020-01-31"), DateTime.Parse("2024-02-28"));
+            return PartialView("_TablePedidosBorrador", listadoPedidosBPH);
+        }
+
+        public IActionResult FillPedidosHistoricos()
+        {
+            var token = HttpContext.Session.GetString("token");
+            var listadoPedidosBPH = _asesorService.getListadoPedidosBPH(token, "", DateTime.Parse("2020-01-31"), DateTime.Parse("2024-02-28"));
+            return PartialView("_TablePedidosHistoricos", listadoPedidosBPH);
         }
     }
 }
