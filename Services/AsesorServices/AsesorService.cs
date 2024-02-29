@@ -60,12 +60,13 @@ namespace Portal_MovilEsales.Services.AsesorServices
             return inicioAsesor;
         }
 
-        public ListadoPedidosBPH getListadoPedidosBPH(string token, string tipoPedido, DateTime fechaInicio, DateTime fechaFin)
+        public ListadoPedidosBPH getListadoPedidosBPH(string token, string tipoPedido, DateTime fechaInicio, DateTime fechaFin, string cadena)
         {
             var client = new HttpClient();
             var request = new HttpRequestMessage(HttpMethod.Post, "https://esaleslatam.bekaert.com:9020/esalesapi/api/ListadoPedidos");
             request.Headers.Add("Authorization", "Bearer "+ token);
-            var content = new StringContent("{\r\n    \"navegadorweb\": \"Microsoft Edge XXX\",\r\n    \"FechaInicio\": \""+fechaInicio.ToString("yyyy-MM-dd")+"\",\r\n    \"FechaFin\": \""+fechaFin.ToString("yyyy-MM-dd")+"\",\r\n    \"estado\": \""+tipoPedido+"\"\r\n}", null, "application/json");
+            var content = new StringContent("{\r\n    \"navegadorweb\": \"Microsoft Edge XXX\",\r\n    \"FechaInicio\": \""+fechaInicio.ToString("yyyy-MM-dd")+"\",\r\n    \"FechaFin\": \""+fechaFin.ToString("yyyy-MM-dd")+"\",\r\n    \"estado\": \""+ tipoPedido+"\",\r\n    \"cadena\": \""+cadena+"\"\r\n}", null, "application/json");
+
             request.Content = content;
             var response = client.Send(request);
 

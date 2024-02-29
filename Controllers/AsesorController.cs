@@ -149,27 +149,61 @@ namespace Portal_MovilEsales.Controllers
         public IActionResult Pedidos()
         {
             var token = HttpContext.Session.GetString("token");
-            var listadoPedidosBPH = _asesorService.getListadoPedidosBPH(token, "borrador", DateTime.Parse("2020-01-31"), DateTime.Parse("2024-02-28"));
+            var listadoPedidosBPH = _asesorService.getListadoPedidosBPH(token, "borrador", DateTime.Parse("2020-01-31"), DateTime.Parse("2024-02-28"), "");
             return View(listadoPedidosBPH);
         }
 
         public IActionResult FillPedidosActivos()
         {
             var token = HttpContext.Session.GetString("token");
-            var listadoPedidosBPH = _asesorService.getListadoPedidosBPH(token, "pendiente", DateTime.Parse("2020-01-31"), DateTime.Parse("2024-02-28"));
+            var listadoPedidosBPH = _asesorService.getListadoPedidosBPH(token, "pendiente", DateTime.Parse("2020-01-31"), DateTime.Parse("2024-02-28"), "");
             return PartialView("_TablePedidosActivos", listadoPedidosBPH);
         }
+
+        public IActionResult FillPedidosActivosData(DateTime fechaInicio, DateTime fechaFin, string cadena="")
+        {
+            var token = HttpContext.Session.GetString("token");
+            var listadoPedidosBPH = _asesorService.getListadoPedidosBPH(token, "pendiente",fechaInicio, fechaFin, cadena);
+            if (listadoPedidosBPH.result == null)
+            {
+                listadoPedidosBPH.result = new List<InfoPedidoBPH>();
+            }
+            return PartialView("_TablePedidosActivos", listadoPedidosBPH);
+        }
+
         public IActionResult FillPedidosBorrador()
         {
             var token = HttpContext.Session.GetString("token");
-            var listadoPedidosBPH = _asesorService.getListadoPedidosBPH(token, "borrador", DateTime.Parse("2020-01-31"), DateTime.Parse("2024-02-28"));
+            var listadoPedidosBPH = _asesorService.getListadoPedidosBPH(token, "borrador", DateTime.Parse("2020-01-31"), DateTime.Parse("2024-02-28"), "");
+            return PartialView("_TablePedidosBorrador", listadoPedidosBPH);
+        }
+
+        public IActionResult FillPedidosBorradorData(DateTime fechaInicio, DateTime fechaFin, string cadena="")
+        {
+            var token = HttpContext.Session.GetString("token");
+            var listadoPedidosBPH = _asesorService.getListadoPedidosBPH(token, "borrador", fechaInicio, fechaFin, cadena);
+            if (listadoPedidosBPH.result==null)
+            {
+                listadoPedidosBPH.result = new List<InfoPedidoBPH>();
+            }
             return PartialView("_TablePedidosBorrador", listadoPedidosBPH);
         }
 
         public IActionResult FillPedidosHistoricos()
         {
             var token = HttpContext.Session.GetString("token");
-            var listadoPedidosBPH = _asesorService.getListadoPedidosBPH(token, "", DateTime.Parse("2020-01-31"), DateTime.Parse("2024-02-28"));
+            var listadoPedidosBPH = _asesorService.getListadoPedidosBPH(token, "", DateTime.Parse("2020-01-31"), DateTime.Parse("2024-02-28"), "");
+            return PartialView("_TablePedidosHistoricos", listadoPedidosBPH);
+        }
+
+        public IActionResult FillPedidosHistoricosData(DateTime fechaInicio, DateTime fechaFin, string cadena="", string tipoPedido = "")
+        {
+            var token = HttpContext.Session.GetString("token");
+            var listadoPedidosBPH = _asesorService.getListadoPedidosBPH(token, tipoPedido, fechaInicio, fechaFin, cadena);
+            if (listadoPedidosBPH.result == null)
+            {
+                listadoPedidosBPH.result = new List<InfoPedidoBPH>();
+            }
             return PartialView("_TablePedidosHistoricos", listadoPedidosBPH);
         }
     }
