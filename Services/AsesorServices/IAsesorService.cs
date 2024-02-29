@@ -4,6 +4,8 @@ using Portal_MovilEsales.Services.AsesorServices.ViewModels;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.DatosCliente;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.DetallePedido;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.EstadoCuenta;
+using Portal_MovilEsales.Services.AsesorServices.ViewModels.FamilaProducto;
+using Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.PedidoAprobado;
 
 namespace Portal_MovilEsales.Services.AsesorServices
@@ -17,5 +19,7 @@ namespace Portal_MovilEsales.Services.AsesorServices
         public EstadoCuenta getInfoEstadoCuenta(string token, string codigoSAPCliente);
         public InformacionCrediticia getInformacionCrediticia(string token, string codigoSAPCliente);
         public DetallePedidoInfo getDetallePedido(string token, string numeroOrden);
+        public CargaCabeceraPedido getCargaCabeceraPedido(string token, string codigoSAPCliente);
+        public List<FamiliaProducto> getFamiliaProductos(string token);
     }
 }

@@ -3,6 +3,8 @@ using Portal_MovilEsales.Services.AsesorServices.ViewModels;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.DatosCliente;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.DetallePedido;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.EstadoCuenta;
+using Portal_MovilEsales.Services.AsesorServices.ViewModels.FamilaProducto;
+using Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.PedidoAprobado;
 using System.Text;
 
@@ -226,6 +228,85 @@ namespace Portal_MovilEsales.Services.AsesorServices
             }
 
             return detallePedido;
+        }
+
+        public CargaCabeceraPedido getCargaCabeceraPedido(string token, string codigoSAPCliente)
+        {
+            var client = new HttpClient();
+
+            var request = new HttpRequestMessage(HttpMethod.Post, "https://esaleslatam.bekaert.com:9020/esalesapi/api/CargaCabeceraPedido");
+
+            request.Headers.Add("Authorization", "Bearer " + token);
+
+            var jsonBody = JsonConvert.SerializeObject(new
+            {
+                navegadorweb = "Microsoft Edge XXX",
+                CodigoSAPCliente = codigoSAPCliente
+            });
+
+            var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
+
+            request.Content = content;
+
+            var response = client.Send(request);
+
+            string resultado = response.Content.ReadAsStringAsync().Result;
+
+            var resDynamic = JsonConvert.DeserializeObject<dynamic>(resultado);
+
+            CargaCabeceraPedido cargaCabeceraPedido;
+
+            if ((bool)resDynamic.success)
+            {
+                string jsonInfo = JsonConvert.SerializeObject(resDynamic.result);
+
+                cargaCabeceraPedido = JsonConvert.DeserializeObject<CargaCabeceraPedido>(jsonInfo);
+            }
+            else
+            {
+                cargaCabeceraPedido = new CargaCabeceraPedido();
+            }
+
+            return cargaCabeceraPedido;
+        }
+
+        public List<FamiliaProducto> getFamiliaProductos(string token)
+        {
+            var client = new HttpClient();
+
+            var request = new HttpRequestMessage(HttpMethod.Post, "https://esaleslatam.bekaert.com:9020/esalesapi/api/ListarFamiliaProductos");
+
+            request.Headers.Add("Authorization", "Bearer " + token);
+
+            var jsonBody = JsonConvert.SerializeObject(new
+            {
+                navegadorweb = "Microsoft Edge XXX",
+            });
+
+            var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
+
+            request.Content = content;
+
+            var response = client.Send(request);
+
+            string resultado = response.Content.ReadAsStringAsync().Result;
+
+            var resDynamic = JsonConvert.DeserializeObject<dynamic>(resultado);
+
+            List<FamiliaProducto> listaFamiliaProductos;
+
+            if ((bool)resDynamic.success)
+            {
+                string jsonInfo = JsonConvert.SerializeObject(resDynamic.result);
+
+                listaFamiliaProductos = JsonConvert.DeserializeObject<List<FamiliaProducto>>(jsonInfo);
+            }
+            else
+            {
+                listaFamiliaProductos = new ();
+            }
+
+            return listaFamiliaProductos;
         }
     }
 }
