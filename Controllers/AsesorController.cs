@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using NuGet.Common;
 using Portal_MovilEsales.Services.AsesorServices;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.DatosCliente;
+using Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.PedidoAprobado;
 
 namespace Portal_MovilEsales.Controllers
@@ -23,9 +25,39 @@ namespace Portal_MovilEsales.Controllers
             HttpContext.Session.SetString("contactoWhatsApp", "https://wa.me/" + respInicioAsesor.contactoWhatsApp);
             return View(respInicioAsesor);
         }
-        public IActionResult PedidoCatalogoProductos()
+        
+        public IActionResult PedidoCatalogoProductos(string? codigoSAPCliente = null)
         {
-            return View();
+            var token = HttpContext.Session.GetString("token");
+
+            var nuevoPedido = new NuevoPedido();
+
+            if (codigoSAPCliente is not null)
+            {
+                //var datosCliente = _asesorService.getDatosCliente(token, codigoSAPCliente);
+
+                nuevoPedido.cargaCabeceraPedido = _asesorService.getCargaCabeceraPedido(token, codigoSAPCliente);
+            }
+
+            var respListaFamiliasProductos = _asesorService.getFamiliaProductos(token);
+
+            nuevoPedido.listaFamiliaProductos = respListaFamiliasProductos;
+
+            return View(nuevoPedido);
+        }
+
+
+        public IActionResult FillCabeceraNuevoPedido(string codigoSAPCliente)
+        {
+            var token = HttpContext.Session.GetString("token");
+
+            var nuevoPedido = new NuevoPedido();
+
+            var respCargaCabeceraPedido = _asesorService.getCargaCabeceraPedido(token,codigoSAPCliente);
+
+            nuevoPedido.cargaCabeceraPedido = respCargaCabeceraPedido;
+
+            return PartialView("_FormCabeceraNuevoPedido", nuevoPedido);
         }
 
         public IActionResult PoliticaComercial()

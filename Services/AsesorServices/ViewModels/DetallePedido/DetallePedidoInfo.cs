@@ -24,6 +24,8 @@
 
         public string numeroOrdenSAP { get; set; }
 
+        public string ordenCompra { get; set; }
+
         public string fechaEntrega { get; set; }
 
         public List<ListadoDetallePedido> detallePedido { get; set; }

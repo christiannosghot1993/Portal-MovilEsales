@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido.NuevoPedido
+@{
     ViewData["Title"] = "Nuevo Pedido Catálogo de Productos";
 }
 
@@ -63,54 +64,78 @@
                     </div>
                 </a>
 
-                <div class="collapse show mb-4" id="collapseInformacionPedido">
-                    <div class="row">
-                        <div class="col-12 col-md-6">
-                            <label for="nombres" class="label-datepicker">Nombres</label>
-                            <input id="nombres" class="form-control datepicker" type="text" />
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <label for="codigo-sap" class="label-datepicker">Código SAP</label>
-                            <input id="codigo-sap" class="form-control datepicker" type="text" />
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <div class="form-group">
-                                <label class="label-datepicker" for="EstadoSelect">Tipo de Entrega</label>
-                                <select class="form-control datepicker" id="tipoEntregaSelect">
-                                    <option value="option1">Retiro</option>
-                                    <option value="option2">Retiro</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <div class="form-group">
-                                <label class="label-datepicker" for="EstadoSelect">Tipo de Pago</label>
-                                <select class="form-control datepicker" id="tipoPagoSelect">
-                                    <option value="option1">30 días de Crédito</option>
-                                    <option value="option2">30 días de Crédito</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <div class="form-group">
-                                <label class="label-datepicker" for="EstadoSelect">Dirección de Entrega</label>
-                                <select class="form-control datepicker" id="direccionEntregaSelect">
-                                    <option value="option1">Obispo Mosquera 6-112 y Bartolomé García - Ibarra</option>
-                                    <option value="option2">Obispo Mosquera 6-112 y Bartolomé García - Ibarra</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <div class="form-group">
-                                <label class="label-datepicker" for="EstadoSelect">Canal</label>
-                                <select class="form-control datepicker" id="canalSelect">
-                                    <option value="option1">Online</option>
-                                    <option value="option2">Móvil</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+                @Html.Partial("_FormCabeceraNuevoPedido")
+
+                @*   <div class="collapse show mb-4" id="collapseInformacionPedido">
+                <div class="row">
+                <div class="col-12 col-md-6">
+                <label for="nombres" class="label-datepicker">Nombres</label>
+                <input id="nombres" class="form-control datepicker" type="text" />
                 </div>
+                <div class="col-12 col-md-6">
+                <label for="codigo-sap" class="label-datepicker">Código SAP</label>
+                <input id="codigo-sap" class="form-control datepicker" type="text" />
+
+
+
+
+                <svg style="margin:5px;" width="20" height="20" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="fillCabeceraNuevoPedido('@Url.Action("FillCabeceraNuevoPedido", "Asesor")')">
+                <g id="&#240;&#159;&#166;&#134; icon &#34;search&#34;">
+                <path id="Vector" d="M9.88894 18.7779C14.7982 18.7779 18.7779 14.7982 18.7779 9.88894C18.7779 4.97971 14.7982 1 9.88894 1C4.97971 1 1 4.97971 1 9.88894C1 14.7982 4.97971 18.7779 9.88894 18.7779Z" stroke="blue" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path id="Vector_2" d="M21 21.0013L16.1666 16.168" stroke="blue" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </g>
+                </svg>
+                </div>
+                <div class="col-12 col-md-6">
+                <div class="form-group">
+                <label class="label-datepicker" for="EstadoSelect">Tipo de Entrega</label>
+                <select class="form-control datepicker" id="tipoEntregaSelect">
+                <option value="option1">Retiro</option>
+                <option value="option2">Retiro</option>
+                </select>
+                </div>
+                </div>
+                <div class="col-12 col-md-6">
+                <div class="form-group">
+                <label class="label-datepicker" for="EstadoSelect">Tipo de Pago</label>
+                <select class="form-control datepicker" id="tipoPagoSelect">
+                <option value="option1">30 días de Crédito</option>
+                <option value="option2">30 días de Crédito</option>
+                </select>
+                </div>
+                </div>
+                <div class="col-12 col-md-6">
+                <div class="form-group">
+                <label class="label-datepicker" for="EstadoSelect">Dirección de Entrega</label>
+                <select class="form-control datepicker" id="direccionEntregaSelect">
+                <option value="option1">Obispo Mosquera 6-112 y Bartolomé García - Ibarra</option>
+                <option value="option2">Obispo Mosquera 6-112 y Bartolomé García - Ibarra</option>
+                </select>
+                </div>
+                </div>
+                <div class="col-12 col-md-6">
+                <div class="form-group">
+                <label class="label-datepicker" for="EstadoSelect">Canal</label>
+                <select class="form-control datepicker" id="canalSelect">
+                <option value="option1">Online</option>
+                <option value="option2">Móvil</option>
+                </select>
+                </div>
+                </div>
+                </div>
+                </div> *@
+
+               @*  <form method="post">
+                    <div class="form-group">
+                        <label asp-for="Nombre"></label>
+                        <input asp-for="Nombre" class="form-control" />
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </div>
+
+                    
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form> *@
 
 
                 <a data-bs-toggle="collapse" href="#collapseSeleccionProductos" role="button" aria-expanded="true" aria-controls="collapseSeleccionProductos">
@@ -171,8 +196,12 @@
                                     <div class="form-group mt-3 mb-3">
                                         <label class="label-datepicker" for="EstadoSelect">Familia de productos</label>
                                         <select class="form-control datepicker" id="familiaProductosSelect">
-                                            <option value="option1">Alambres</option>
-                                            <option value="option2">Tornillos</option>
+
+                                            @foreach (var item in Model.listaFamiliaProductos)
+                                            {
+                                                <option value=@item.codigoFamilia>@item.nombreFamilia</option>
+                                            }
+
                                         </select>
                                     </div>
                                 </div>
@@ -409,7 +438,7 @@
                                 </table>
                             </div>
                             <div class="d-flex justify-content-end mt-4">
-                                <a class="orange-rounded-button " >
+                                <a class="orange-rounded-button ">
                                     Continuar
                                     <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <g id="vuesax/linear/arrow-right">
@@ -423,7 +452,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
 
             </div>
@@ -432,6 +461,7 @@
 
 </div>
 <script>
+
     function showContent(contentId) {
         // Oculta todos los contenidos
         document.querySelectorAll('.contenido-radio > div').forEach(div => {
@@ -440,5 +470,25 @@
 
         // Muestra el contenido correspondiente al radio button seleccionado
         document.querySelector(`.${contentId}`).style.display = 'block';
+    }
+
+    const fillCabeceraNuevoPedido = (url) => {
+
+        let codigoSAPCliente = document.getElementById("codigo-sap").value;
+
+        url = `${url}?codigoSAPCliente=${codigoSAPCliente}`
+
+        console.log(url)
+
+        document.getElementById("collapseInformacionPedido").innerHTML = '<h1>Cargando información...</h1>';
+
+        fetch(url)
+            .then(response => response.text())
+            .then(html => {
+
+                document.getElementById("collapseInformacionPedido").innerHTML = html
+
+            })
+            .catch(error => console.error('Error al cargar información:', error));
     }
 </script>
