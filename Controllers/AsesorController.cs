@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using NuGet.Common;
 using Portal_MovilEsales.Services.AsesorServices;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels;
@@ -29,6 +31,8 @@ namespace Portal_MovilEsales.Controllers
         
         public IActionResult PedidoCatalogoProductos(string? codigoSAPCliente = null)
         {
+            var listaProductosSeleccionados=new List<ProductosNuevoPedido>();
+            HttpContext.Session.SetString("SelectedProducts",JsonConvert.SerializeObject(listaProductosSeleccionados));
             var token = HttpContext.Session.GetString("token");
 
             var nuevoPedido = new NuevoPedido();
@@ -90,10 +94,33 @@ namespace Portal_MovilEsales.Controllers
             return View();
         }
 
-        public void BuscarProductoCodigoSap(string codigoSap)
+        public IActionResult BuscarProductoCodigoSap(string codigoSapCliente, string codigoArticulo)
         {
             var token = HttpContext.Session.GetString("token");
-            var resp = _asesorService.getProductoCodigoSap(token, codigoSap);
+            var resp = _asesorService.getProductoCodigoSap(token, codigoArticulo, codigoSapCliente);
+            List<ProductosNuevoPedido> listProductosSeleccionados =JsonConvert.DeserializeObject<List<ProductosNuevoPedido>>(HttpContext.Session.GetString("SelectedProducts"));
+            listProductosSeleccionados.Add(new ProductosNuevoPedido
+            {
+                bloqueado = false,
+                codigo = resp.result.codigoSAPArticulo,
+                descripcion = resp.result.nombre,
+                listadoTipoEntregas = new List<ListadoTipoEntrega>(),
+                unidad = resp.result.unidad,
+                peso = resp.result.peso.ToString(),
+                descFac = "0",
+                descNc = "0",
+                idl = "",
+                subtotal = "",
+                cantidad = "1",
+                aFinMes = true,
+                aFamilia = true
+            });
+            var data = new
+            {
+                listadoProductosSeleccionados = listProductosSeleccionados
+            };
+            HttpContext.Session.SetString("SelectedProducts", JsonConvert.SerializeObject(listProductosSeleccionados));
+            return PartialView("_TableProductosSeleccionadosPedido", data);
         }
 
         public IActionResult PedidoProductosSeleccionados()

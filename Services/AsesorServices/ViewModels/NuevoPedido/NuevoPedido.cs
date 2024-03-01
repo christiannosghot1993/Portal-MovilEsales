@@ -16,5 +16,6 @@ namespace Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido
 
         public List<ProductosNuevoPedido> listadoProductosNuevoPedido { get; set; } = new();
 
+        public List<ProductosNuevoPedido> listadoProductosSeleccionados { get; set; } = new();
     }
 }
