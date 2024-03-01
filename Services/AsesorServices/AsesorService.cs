@@ -324,7 +324,8 @@ namespace Portal_MovilEsales.Services.AsesorServices
             var jsonBody = JsonConvert.SerializeObject(new
             {
                 navegadorweb = "Microsoft Edge XXX",
-                familia = familiaNombre
+                familia = familiaNombre,
+                codigosapcliente = "0000090208"
             });
 
             var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");

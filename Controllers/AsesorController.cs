@@ -76,13 +76,42 @@ namespace Portal_MovilEsales.Controllers
             return PartialView("_DetalleNuevoPedidoPorFamilia", nuevoPedido);
         }
 
-        public SimulacionPedido GetSimulacionPedido(string parametrosPeticion)
+        public IActionResult GetSimulacionPedido()
         {
             var token = HttpContext.Session.GetString("token");
 
+            var jsonListaProductos = HttpContext.Session.GetString("selectedProducts");
+
+            var nuevoPedido = new NuevoPedido();
+
+            var parametrosPeticion = "{\r\n\"\"\"CodigoSAPCliente\"\": \"\"0000091390\"\",\"\r\n\"\"\"CodigoTipoEntrega\"\": \"\"C\"\",\"\r\n\"\"\"CodigoTipoPago\"\": \"\"I010\"\",\"\r\n\"\"\"CodigoSAPDireccionEntrega\"\": \"\"0000091390\"\",\"\r\n\"\"\"Canal\"\": \"\"1\"\",\"\r\n\"\"\"detallePedido\"\": [\"\r\n{\r\n\"\"\"CodigoSAPArticulo\"\": \"\"187940\"\",\"\r\n\"\"\"Cantidad\"\": 10,\"\r\n\"\"\"Unidad\"\": \"\"ST\"\",\"\r\n\"\"\"Bodega\"\": \"\"QU00\"\",\"\r\n\"\"\"DescFactura\"\": 0.00,\"\r\n\"\"\"DescNotaCredito\"\": 0.00\"\r\n},\r\n{\r\n\"\"\"CodigoSAPArticulo\"\": \"\"187947\"\",\"\r\n\"\"\"Cantidad\"\": 10,\"\r\n\"\"\"Unidad\"\": \"\"ST\"\",\"\r\n\"\"\"Bodega\"\": \"\"QU00\"\",\"\r\n\"\"\"DescFactura\"\": 0.00,\"\r\n\"\"\"DescNotaCredito\"\": 0.00\"\r\n},\r\n{\r\n\"\"\"CodigoSAPArticulo\"\": \"\"188156\"\",\"\r\n\"\"\"Cantidad\"\": 20,\"\r\n\"\"\"Unidad\"\": \"\"ST\"\",\"\r\n\"\"\"Bodega\"\": \"\"QU00\"\",\"\r\n\"\"\"DescFactura\"\": 0.00,\"\r\n\"\"\"DescNotaCredito\"\": 0.00\"\r\n},\r\n{\r\n\"\"\"CodigoSAPArticulo\"\": \"\"188168\"\",\"\r\n\"\"\"Cantidad\"\": 1,\"\r\n\"\"\"Unidad\"\": \"\"ST\"\",\"\r\n\"\"\"Bodega\"\": \"\"QU00\"\",\"\r\n\"\"\"DescFactura\"\": 0.00,\"\r\n\"\"\"DescNotaCredito\"\": 0.00\"\r\n},\r\n{\r\n\"\"\"CodigoSAPArticulo\"\": \"\"188449\"\",\"\r\n\"\"\"Cantidad\"\": 1,\"\r\n\"\"\"Unidad\"\": \"\"ST\"\",\"\r\n\"\"\"Bodega\"\": \"\"QU00\"\",\"\r\n\"\"\"DescFactura\"\": 0.00,\"\r\n\"\"\"DescNotaCredito\"\": 0.00\"\r\n},\r\n{\r\n\"\"\"CodigoSAPArticulo\"\": \"\"188462\"\",\"\r\n\"\"\"Cantidad\"\": 5,\"\r\n\"\"\"Unidad\"\": \"\"ST\"\",\"\r\n\"\"\"Bodega\"\": \"\"QU00\"\",\"\r\n\"\"\"DescFactura\"\": 0.00,\"\r\n\"\"\"DescNotaCredito\"\": 0.00\"\r\n},\r\n{\r\n\"\"\"CodigoSAPArticulo\"\": \"\"213591\"\",\"\r\n\"\"\"Cantidad\"\": 10,\"\r\n\"\"\"Unidad\"\": \"\"ST\"\",\"\r\n\"\"\"Bodega\"\": \"\"QU00\"\",\"\r\n\"\"\"DescFactura\"\": 0.00,\"\r\n\"\"\"DescNotaCredito\"\": 0.00\"\r\n},\r\n{\r\n\"\"\"CodigoSAPArticulo\"\": \"\"188388\"\",\"\r\n\"\"\"Cantidad\"\": 1,\"\r\n\"\"\"Unidad\"\": \"\"ST\"\",\"\r\n\"\"\"Bodega\"\": \"\"QU00\"\",\"\r\n\"\"\"DescFactura\"\": 0.00,\"\r\n\"\"\"DescNotaCredito\"\": 0.00\"\r\n},\r\n{\r\n\"\"\"CodigoSAPArticulo\"\": \"\"188394\"\",\"\r\n\"\"\"Cantidad\"\": 1,\"\r\n\"\"\"Unidad\"\": \"\"ST\"\",\"\r\n\"\"\"Bodega\"\": \"\"QU00\"\",\"\r\n\"\"\"DescFactura\"\": 0.00,\"\r\n\"\"\"DescNotaCredito\"\": 0.00\"\r\n},\r\n{\r\n\"\"\"CodigoSAPArticulo\"\": \"\"188398\"\",\"\r\n\"\"\"Cantidad\"\": 1,\"\r\n\"\"\"Unidad\"\": \"\"ST\"\",\"\r\n\"\"\"Bodega\"\": \"\"QU00\"\",\"\r\n\"\"\"DescFactura\"\": 0.00,\"\r\n\"\"\"DescNotaCredito\"\": 0.00\"\r\n}\r\n]\r\n}";
+
             var respSimulacionPedido = _asesorService.getSimulacionPedido(token,parametrosPeticion);
 
-            return respSimulacionPedido;
+            var productosNuevoPedido = new List<ProductosNuevoPedido>();
+
+            var resumenDeatalleProductos = new ResumenDetalleProductos()
+            {
+                descuentoBase = respSimulacionPedido.descuentoBase,
+                descuentoPago = respSimulacionPedido.descuentoPago,
+                descuentoPeso = respSimulacionPedido.descuentoPeso,
+                descuentoRetiro = respSimulacionPedido.descuentoRetiro,
+                descuentoVarios = respSimulacionPedido.descuentoVarios,
+                importeBruto = respSimulacionPedido.importeBruto,
+                iva = respSimulacionPedido.iva,
+                margenPor = respSimulacionPedido.margenPor,
+                seguroTransporte = respSimulacionPedido.seguroTransporte,
+                subTotal1 = respSimulacionPedido.subTotal1,
+                subTotal2 = respSimulacionPedido.subTotal2,
+                valorNcsinIva = respSimulacionPedido.valorNcsinIva,
+                valorTotal = respSimulacionPedido.valorTotal
+            };
+
+            nuevoPedido.listadoProductosNuevoPedido = productosNuevoPedido;
+
+            nuevoPedido.resumenDetalleProductos = resumenDeatalleProductos;
+
+            return PartialView("_TableProductosSeleccionadosPedido", nuevoPedido);
         }
 
         public IActionResult PoliticaComercial()
