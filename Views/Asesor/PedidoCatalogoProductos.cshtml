@@ -170,7 +170,7 @@
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioCodigoSap" onclick="showContent('codigo-sap')">
                             <label class="form-check-label" for="flexRadioCodigoSap">
-                                Código SAP
+                                Código Artículo
                             </label>
                         </div>
 
@@ -253,13 +253,17 @@
                             </div>
                         </div>
                         <div class="codigo-sap" style="display: none;">
-                            @using (Html.BeginForm("BuscarProductoCodigoSap", "Asesor", FormMethod.Post))
+                           @* @using (Html.BeginForm("BuscarProductoCodigoSap", "Asesor", FormMethod.Post))
                             {
+                                
+                            }*@
+
+                            <form onsubmit="handleSubmitCodigoArticulo(event,'@Url.Action("BuscarProductoCodigoSap", "Asesor")')">
                                 <div class="form-group mt-3 mb-3">
-                                    <label class="label-datepicker" for="codigoSapSelector">Ingrese código SAPx</label>
-                                    <input type="text" id="codigoSapSelector" name="codigoSap" class="form-control datepicker" placeholder="0000000000" />
+                                    <label class="label-datepicker" for="codigoSapSelector">Ingrese código de artículo</label>
+                                    <input type="text" id="codigoSapSelector" name="codigoArticulo" class="form-control datepicker" placeholder="0000000000" />
                                 </div>
-                            }
+                            </form>
                             
                         </div>
                         <div class="favoritos" style="display: none;">
@@ -416,7 +420,10 @@
                             </div>
                         </div>
                     </div>
-                    @Html.Partial("_TableProductosSeleccionadosPedido")
+                    <div id="tablaPedidosSeleccinoados">
+                        @Html.Partial("_TableProductosSeleccionadosPedido")
+                    </div>
+                    
 
                     @*<div class="d-flex justify-content-between mt-4">
                         <a class="orange-rounded-button ms-md-5" style="background-color: #69A5BD !important">
@@ -513,7 +520,30 @@
 
 </div>
 <script>
+    function handleSubmitCodigoArticulo(e, url){
+        e.preventDefault();
+        let codigoArticulo=e.target.elements.codigoArticulo.value;
+        let codigoSapCliente=document.getElementById('codigo-sap').value;
+        if (isNullOrEmpty(codigoSapCliente)) {
+            alert('Por favor ingrese el Código SAP del cliente en el apartado "Información del pedido"');
+            return;
+        }
+        var urlCompleta = url + '?codigoSapCliente=' + encodeURIComponent(codigoSapCliente) + '&codigoArticulo=' + encodeURIComponent(codigoArticulo);
+        // Realizar la solicitud AJAX
+        fetch(urlCompleta)
+            .then(response => response.text())
+            .then(html => {
+                console.log(html); // Verifica la respuesta en la consola
 
+                document.getElementById('tablaPedidosSeleccinoados').innerHTML = html;
+
+            })
+            .catch(error => console.error('Error al cargar información:', error));
+        console.log(codigoArticulo, codigoSapCliente)
+    }
+    function isNullOrEmpty(str) {
+        return str == null || str.trim() === '';
+    }
     function showContent(contentId) {
         // Oculta todos los contenidos
         document.querySelectorAll('.contenido-radio > div').forEach(div => {
