@@ -40,8 +40,10 @@ namespace Portal_MovilEsales.Controllers
             }
 
             var respListaFamiliasProductos = _asesorService.getFamiliaProductos(token);
+            var respListaProductosFavoritos = _asesorService.getProductosFavoritos(token, "0000090208");
 
             nuevoPedido.listaFamiliaProductos = respListaFamiliasProductos;
+            nuevoPedido.listadProductosFavoritos=respListaProductosFavoritos;
 
             return View(nuevoPedido);
         }
@@ -76,6 +78,12 @@ namespace Portal_MovilEsales.Controllers
         public IActionResult PoliticaComercial()
         {
             return View();
+        }
+
+        public void BuscarProductoCodigoSap(string codigoSap)
+        {
+            var token = HttpContext.Session.GetString("token");
+            var resp = _asesorService.getProductoCodigoSap(token, codigoSap);
         }
 
         public IActionResult PedidoProductosSeleccionados()
