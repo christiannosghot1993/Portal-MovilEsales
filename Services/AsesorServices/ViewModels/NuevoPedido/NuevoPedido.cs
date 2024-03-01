@@ -11,5 +11,7 @@ namespace Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido
         public List<FamiliaProducto> listaFamiliaProductos { get; set; }
 
         public List<ProductoPorFamilia> listaProductosPorFamilia { get; set; } = new();
+        public ListadoProductosFavoritos listadProductosFavoritos { get; set; }
+
     }
 }
