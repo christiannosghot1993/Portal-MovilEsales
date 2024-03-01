@@ -1,0 +1,61 @@
+﻿<div class="table-responsive table-container pt-3" id="detalleProductosPorFamilia">
+    <table class="table" id="tabla-listado-productos-por-familia">
+        <tbody>
+            @foreach (var item in Model.listaProductosPorFamilia)
+            {
+                <tr>
+                    <td>
+                        <div class="frame-product-img">
+                            P
+                        </div>
+                    </td>
+                    <td>
+                        <h3>@item.codigoSAPArticulo</h3>
+                        <p>@item.nombre</p>
+                    </td>
+                    <td>
+                        <a class="orange-rounded-button" style="display:flex; justify-content: center; align-items:center; background-color: #01ADEF;" asp-action="PedidoCatalogoProductos" asp-controller="Asesor" style="background-color: #01ADEF !important;">
+                            Agregar
+                        </a>
+                        <div class="mt-2 button-up-down">
+                           @*  <a>-</a>
+                            <div>
+                                <strong>20</strong> U
+                            </div>
+                            <a>+</a> *@
+                            <input type="number" step="1" value="0" min="0"/>
+                        </div>
+                    </td>
+
+                </tr>
+            }
+
+            @*  <tr>
+            <td>
+            <div class="frame-product-img">
+            P
+            </div>
+            </td>
+            <td>
+            <h3>Detalles del producto</h3>
+            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et ...</p>
+            </td>
+            <td>
+            <a class="orange-rounded-button" style="display:flex; justify-content: center; align-items:center; background-color: #01ADEF;" asp-action="PedidoCatalogoProductos" asp-controller="Asesor" style="background-color: #01ADEF !important;">
+            Agregar
+            </a>
+            <div class="mt-2 button-up-down">
+            <a>-</a>
+            <div>
+            <strong>20</strong> U
+            </div>
+            <a>+</a>
+            </div>
+            </td>
+            </tr> *@
+
+        </tbody>
+    </table>
+</div>
+
+
