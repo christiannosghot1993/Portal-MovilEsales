@@ -21,6 +21,7 @@ namespace Portal_MovilEsales.Services.AsesorServices
         public DetallePedidoInfo getDetallePedido(string token, string numeroOrden);
         public CargaCabeceraPedido getCargaCabeceraPedido(string token, string codigoSAPCliente);
         public List<FamiliaProducto> getFamiliaProductos(string token);
+        public List<ProductoPorFamilia> getProductosPorFamilia(string token, string familia);
         public ListadoProductosFavoritos getProductosFavoritos(string token, string codigoCliente);
         public ProductoCodigoSap getProductoCodigoSap(string token, string codigoSap);
     }

@@ -9,6 +9,8 @@ namespace Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido
         public CargaCabeceraPedido cargaCabeceraPedido { get; set; } = new ();
 
         public List<FamiliaProducto> listaFamiliaProductos { get; set; }
+
+        public List<ProductoPorFamilia> listaProductosPorFamilia { get; set; } = new();
         public ListadoProductosFavoritos listadProductosFavoritos { get; set; }
 
     }

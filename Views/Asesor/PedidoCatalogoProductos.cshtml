@@ -125,16 +125,16 @@
                 </div>
                 </div> *@
 
-               @*  <form method="post">
-                    <div class="form-group">
-                        <label asp-for="Nombre"></label>
-                        <input asp-for="Nombre" class="form-control" />
-                        <span asp-validation-for="Nombre" class="text-danger"></span>
-                    </div>
+                @*  <form method="post">
+                <div class="form-group">
+                <label asp-for="Nombre"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
 
-                    
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
                 </form> *@
 
 
@@ -195,17 +195,20 @@
                                 <div class="col-12 col-md-5">
                                     <div class="form-group mt-3 mb-3">
                                         <label class="label-datepicker" for="EstadoSelect">Familia de productos</label>
-                                        <select class="form-control datepicker" id="familiaProductosSelect">
+                                        <select class="form-control datepicker" id="familiaProductosSelect" onchange="getProductosByFamilia('@Url.Action("GetProductosPorFamilia", "Asesor")')">
 
                                             @foreach (var item in Model.listaFamiliaProductos)
                                             {
-                                                <option value=@item.codigoFamilia>@item.nombreFamilia</option>
+                                                <option value=@item.nombreFamilia>@item.nombreFamilia</option>
                                             }
 
                                         </select>
                                     </div>
                                 </div>
                             </div>
+
+                            @Html.Partial("_DetalleNuevoPedidoPorFamilia")
+
                             <div class="table-responsive table-container pt-3">
                                 <table class="table">
                                     <tbody>
@@ -354,4 +357,49 @@
             })
             .catch(error => console.error('Error al cargar información:', error));
     }
+
+    const getProductosByFamilia = (url) => {
+
+        let familiaSelect = document.getElementById("familiaProductosSelect");
+
+        let familiaSelectedValue = familiaSelect.options[familiaSelect.selectedIndex].value;
+
+        url = `${url}?familia=${familiaSelectedValue}`
+
+        console.log(url)
+
+        document.getElementById("detalleProductosPorFamilia").innerHTML = '<h1>Cargando información...</h1>';
+
+        fetch(url)
+            .then(response => response.text())
+            .then(html => {
+
+                document.getElementById("detalleProductosPorFamilia").innerHTML = html
+
+            })
+            .catch(error => console.error('Error al cargar información:', error));
+    }
+
+    const inicializarTabla = () => {
+        new DataTable('#tabla-listado-productos', {
+            pagingType: 'simple_numbers', // Establece el tipo de paginación a simple_numbers
+            searching: false,
+            ordering: false,
+            info: false,
+            lengthChange: false,
+            pageLength: 5, // Establecer el número de elementos por página a 5
+            dom: 'lrtip', // Define la disposición de los elementos de la tabla
+            language: {
+                paginate: {
+                    previous: '<',
+                    next: '>'
+                }
+            }
+        });
+    }
+
+    $(document).ready(getProductosByFamilia("/Asesor/GetProductosPorFamilia"));
+
+
+
 </script>

@@ -62,6 +62,19 @@ namespace Portal_MovilEsales.Controllers
             return PartialView("_FormCabeceraNuevoPedido", nuevoPedido);
         }
 
+        public IActionResult GetProductosPorFamilia(string familia)
+        {
+            var token = HttpContext.Session.GetString("token");
+
+            var nuevoPedido = new NuevoPedido();
+
+            var respProductosPorFamilia = _asesorService.getProductosPorFamilia(token, familia);
+
+            nuevoPedido.listaProductosPorFamilia = respProductosPorFamilia;
+
+            return PartialView("_DetalleNuevoPedidoPorFamilia", nuevoPedido);
+        }
+
         public IActionResult PoliticaComercial()
         {
             return View();
