@@ -6,6 +6,9 @@ using Portal_MovilEsales.Services.AsesorServices.ViewModels.DetallePedido;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.EstadoCuenta;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.FamilaProducto;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido;
+using Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido.GuardarPedidoBorrador;
+using Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido.ProcesoFrujoAprobacion;
+using Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido.SimulacionPedido;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.PedidoAprobado;
 
 namespace Portal_MovilEsales.Services.AsesorServices
@@ -24,5 +27,8 @@ namespace Portal_MovilEsales.Services.AsesorServices
         public List<ProductoPorFamilia> getProductosPorFamilia(string token, string familia);
         public ListadoProductosFavoritos getProductosFavoritos(string token, string codigoCliente);
         public ProductoCodigoSap getProductoCodigoSap(string token, string codigoSap);
+        public SimulacionPedido getSimulacionPedido(string token, string parametrosPeticion);
+        public GuardarPedidoBorrador postGuardarPedidoBorrador(string token, string parametrosPeticion);
+        public ProcesoFlujoAprobacion postProcesoFlujoAprobacion(string token, string parametrosPeticion);
     }
 }

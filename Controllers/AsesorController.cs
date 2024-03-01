@@ -5,6 +5,7 @@ using Portal_MovilEsales.Services.AsesorServices;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.DatosCliente;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido;
+using Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido.SimulacionPedido;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.PedidoAprobado;
 
 namespace Portal_MovilEsales.Controllers
@@ -34,15 +35,15 @@ namespace Portal_MovilEsales.Controllers
 
             if (codigoSAPCliente is not null)
             {
-                //var datosCliente = _asesorService.getDatosCliente(token, codigoSAPCliente);
-
                 nuevoPedido.cargaCabeceraPedido = _asesorService.getCargaCabeceraPedido(token, codigoSAPCliente);
             }
 
             var respListaFamiliasProductos = _asesorService.getFamiliaProductos(token);
+
             var respListaProductosFavoritos = _asesorService.getProductosFavoritos(token, "0000090208");
 
             nuevoPedido.listaFamiliaProductos = respListaFamiliasProductos;
+
             nuevoPedido.listadProductosFavoritos=respListaProductosFavoritos;
 
             return View(nuevoPedido);
@@ -73,6 +74,15 @@ namespace Portal_MovilEsales.Controllers
             nuevoPedido.listaProductosPorFamilia = respProductosPorFamilia;
 
             return PartialView("_DetalleNuevoPedidoPorFamilia", nuevoPedido);
+        }
+
+        public SimulacionPedido GetSimulacionPedido(string parametrosPeticion)
+        {
+            var token = HttpContext.Session.GetString("token");
+
+            var respSimulacionPedido = _asesorService.getSimulacionPedido(token,parametrosPeticion);
+
+            return respSimulacionPedido;
         }
 
         public IActionResult PoliticaComercial()
