@@ -5,6 +5,9 @@ using Portal_MovilEsales.Services.AsesorServices.ViewModels.DetallePedido;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.EstadoCuenta;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.FamilaProducto;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido;
+using Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido.GuardarPedidoBorrador;
+using Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido.ProcesoFrujoAprobacion;
+using Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido.SimulacionPedido;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.PedidoAprobado;
 using System.Text;
 
@@ -64,8 +67,8 @@ namespace Portal_MovilEsales.Services.AsesorServices
         {
             var client = new HttpClient();
             var request = new HttpRequestMessage(HttpMethod.Post, "https://esaleslatam.bekaert.com:9020/esalesapi/api/ListadoPedidos");
-            request.Headers.Add("Authorization", "Bearer "+ token);
-            var content = new StringContent("{\r\n    \"navegadorweb\": \"Microsoft Edge XXX\",\r\n    \"FechaInicio\": \""+fechaInicio.ToString("yyyy-MM-dd")+"\",\r\n    \"FechaFin\": \""+fechaFin.ToString("yyyy-MM-dd")+"\",\r\n    \"estado\": \""+ tipoPedido+"\",\r\n    \"cadena\": \""+cadena+"\"\r\n}", null, "application/json");
+            request.Headers.Add("Authorization", "Bearer " + token);
+            var content = new StringContent("{\r\n    \"navegadorweb\": \"Microsoft Edge XXX\",\r\n    \"FechaInicio\": \"" + fechaInicio.ToString("yyyy-MM-dd") + "\",\r\n    \"FechaFin\": \"" + fechaFin.ToString("yyyy-MM-dd") + "\",\r\n    \"estado\": \"" + tipoPedido + "\",\r\n    \"cadena\": \"" + cadena + "\"\r\n}", null, "application/json");
 
             request.Content = content;
             var response = client.Send(request);
@@ -105,7 +108,7 @@ namespace Portal_MovilEsales.Services.AsesorServices
             else
             {
                 pedidoAprobado = new PedidoAprobado();
-                pedidoAprobado.observacion = "Error "+resDynamic.resultcode+" - "+resDynamic.message;
+                pedidoAprobado.observacion = "Error " + resDynamic.resultcode + " - " + resDynamic.message;
             }
             return pedidoAprobado;
 
@@ -304,7 +307,7 @@ namespace Portal_MovilEsales.Services.AsesorServices
             }
             else
             {
-                listaFamiliaProductos = new ();
+                listaFamiliaProductos = new();
             }
 
             return listaFamiliaProductos;
@@ -356,8 +359,8 @@ namespace Portal_MovilEsales.Services.AsesorServices
         {
             var client = new HttpClient();
             var request = new HttpRequestMessage(HttpMethod.Post, "https://esaleslatam.bekaert.com:9020/esalesapi/api/ListaProductosXFavoritos");
-            request.Headers.Add("Authorization", "Bearer "+token);
-            var content = new StringContent("{\r\n    \"navegadorweb\": \"Microsoft Edge XXX\",\r\n    \"codigosapcliente\": \""+ codigoCliente + "\"\r\n}", null, "application/json");
+            request.Headers.Add("Authorization", "Bearer " + token);
+            var content = new StringContent("{\r\n    \"navegadorweb\": \"Microsoft Edge XXX\",\r\n    \"codigosapcliente\": \"" + codigoCliente + "\"\r\n}", null, "application/json");
             request.Content = content;
             var response = client.Send(request);
 
@@ -381,8 +384,8 @@ namespace Portal_MovilEsales.Services.AsesorServices
         {
             var client = new HttpClient();
             var request = new HttpRequestMessage(HttpMethod.Post, "https://esaleslatam.bekaert.com:9020/esalesapi/api/ProductoXCodigoSAP");
-            request.Headers.Add("Authorization", "Bearer "+token);
-            var content = new StringContent("{\r\n    \"navegadorweb\": \"Microsoft Edge XXX\",\r\n    \"codigoarticulo\": \""+codigoSap+"\"\r\n}", null, "application/json");
+            request.Headers.Add("Authorization", "Bearer " + token);
+            var content = new StringContent("{\r\n    \"navegadorweb\": \"Microsoft Edge XXX\",\r\n    \"codigoarticulo\": \"" + codigoSap + "\"\r\n}", null, "application/json");
             request.Content = content;
             var response = client.Send(request);
 
@@ -400,6 +403,105 @@ namespace Portal_MovilEsales.Services.AsesorServices
             }
             return productosCodigoSap;
 
+        }
+
+        public SimulacionPedido getSimulacionPedido(string token, string parametrosPeticion)
+        {
+            var client = new HttpClient();
+
+            var request = new HttpRequestMessage(HttpMethod.Post, "https://esaleslatam.bekaert.com:9020/esalesapi/api/SimulacionPedido");
+
+            request.Headers.Add("Authorization", "Bearer " + token);
+
+            var content = new StringContent(parametrosPeticion, null, "application/json");
+
+            request.Content = content;
+
+            var response = client.Send(request);
+
+            string resultado = response.Content.ReadAsStringAsync().Result;
+
+            var resDynamic = JsonConvert.DeserializeObject<dynamic>(resultado);
+
+            SimulacionPedido simulacionPedido;
+
+            if ((bool)resDynamic.success)
+            {
+                string jsonInfo = JsonConvert.SerializeObject(resDynamic.result);
+
+                simulacionPedido = JsonConvert.DeserializeObject<SimulacionPedido>(jsonInfo);
+            }
+            else
+            {
+                simulacionPedido = new SimulacionPedido();
+            }
+            return simulacionPedido;
+        }
+
+        public GuardarPedidoBorrador postGuardarPedidoBorrador(string token, string parametrosPeticion)
+        {
+            var client = new HttpClient();
+
+            var request = new HttpRequestMessage(HttpMethod.Post, "https://esaleslatam.bekaert.com:9020/esalesapi/api/GuardarPedidoBorrador");
+
+            request.Headers.Add("Authorization", "Bearer " + token);
+
+            var content = new StringContent(parametrosPeticion, null, "application/json");
+
+            request.Content = content;
+
+            var response = client.Send(request);
+
+            string resultado = response.Content.ReadAsStringAsync().Result;
+
+            var resDynamic = JsonConvert.DeserializeObject<dynamic>(resultado);
+
+            GuardarPedidoBorrador pedidoBorrador;
+
+            if ((bool)resDynamic.success)
+            {
+                string jsonInfo = JsonConvert.SerializeObject(resDynamic.result);
+
+                pedidoBorrador = JsonConvert.DeserializeObject<GuardarPedidoBorrador>(jsonInfo);
+            }
+            else
+            {
+                pedidoBorrador = new GuardarPedidoBorrador();
+            }
+            return pedidoBorrador;
+        }
+
+        public ProcesoFlujoAprobacion postProcesoFlujoAprobacion(string token, string parametrosPeticion)
+        {
+            var client = new HttpClient();
+
+            var request = new HttpRequestMessage(HttpMethod.Post, "https://esaleslatam.bekaert.com:9020/esalesapi/api/ProcesaFlujoAprobacion");
+
+            request.Headers.Add("Authorization", "Bearer " + token);
+
+            var content = new StringContent(parametrosPeticion, null, "application/json");
+
+            request.Content = content;
+
+            var response = client.Send(request);
+
+            string resultado = response.Content.ReadAsStringAsync().Result;
+
+            var resDynamic = JsonConvert.DeserializeObject<dynamic>(resultado);
+
+            ProcesoFlujoAprobacion procesoFlujoAprobacion;
+
+            if ((bool)resDynamic.success)
+            {
+                string jsonInfo = JsonConvert.SerializeObject(resDynamic.result);
+
+                procesoFlujoAprobacion = JsonConvert.DeserializeObject<ProcesoFlujoAprobacion>(jsonInfo);
+            }
+            else
+            {
+                procesoFlujoAprobacion = new ProcesoFlujoAprobacion();
+            }
+            return procesoFlujoAprobacion;
         }
     }
 }
