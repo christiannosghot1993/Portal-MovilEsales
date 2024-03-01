@@ -309,5 +309,55 @@ namespace Portal_MovilEsales.Services.AsesorServices
 
             return listaFamiliaProductos;
         }
+
+        public ListadoProductosFavoritos getProductosFavoritos(string token, string codigoCliente)
+        {
+            var client = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Post, "https://esaleslatam.bekaert.com:9020/esalesapi/api/ListaProductosXFavoritos");
+            request.Headers.Add("Authorization", "Bearer "+token);
+            var content = new StringContent("{\r\n    \"navegadorweb\": \"Microsoft Edge XXX\",\r\n    \"codigosapcliente\": \""+ codigoCliente + "\"\r\n}", null, "application/json");
+            request.Content = content;
+            var response = client.Send(request);
+
+
+            string resultado = response.Content.ReadAsStringAsync().Result;
+            var resDynamic = JsonConvert.DeserializeObject<dynamic>(resultado);
+            ListadoProductosFavoritos productosFavoritos;
+            if ((bool)resDynamic.success)
+            {
+                string jsonInfo = JsonConvert.SerializeObject(resDynamic);
+                productosFavoritos = JsonConvert.DeserializeObject<ListadoProductosFavoritos>(jsonInfo);
+            }
+            else
+            {
+                productosFavoritos = new ListadoProductosFavoritos();
+            }
+            return productosFavoritos;
+        }
+
+        public ProductoCodigoSap getProductoCodigoSap(string token, string codigoSap)
+        {
+            var client = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Post, "https://esaleslatam.bekaert.com:9020/esalesapi/api/ProductoXCodigoSAP");
+            request.Headers.Add("Authorization", "Bearer "+token);
+            var content = new StringContent("{\r\n    \"navegadorweb\": \"Microsoft Edge XXX\",\r\n    \"codigoarticulo\": \""+codigoSap+"\"\r\n}", null, "application/json");
+            request.Content = content;
+            var response = client.Send(request);
+
+            string resultado = response.Content.ReadAsStringAsync().Result;
+            var resDynamic = JsonConvert.DeserializeObject<dynamic>(resultado);
+            ProductoCodigoSap productosCodigoSap;
+            if ((bool)resDynamic.success)
+            {
+                string jsonInfo = JsonConvert.SerializeObject(resDynamic);
+                productosCodigoSap = JsonConvert.DeserializeObject<ProductoCodigoSap>(jsonInfo);
+            }
+            else
+            {
+                productosCodigoSap = new ProductoCodigoSap();
+            }
+            return productosCodigoSap;
+
+        }
     }
 }

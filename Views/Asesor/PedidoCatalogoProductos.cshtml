@@ -209,6 +209,7 @@
                             <div class="table-responsive table-container pt-3">
                                 <table class="table">
                                     <tbody>
+                                        
                                         <tr>
                                             <td>
                                                 <div class="frame-product-img">
@@ -233,102 +234,6 @@
                                             </td>
 
                                         </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="frame-product-img">
-                                                    P
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <h3>Detalles del producto</h3>
-                                                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et ...</p>
-                                            </td>
-                                            <td>
-                                                <a class="orange-rounded-button" style="display:flex; justify-content: center; align-items:center; background-color: #01ADEF;" asp-action="PedidoCatalogoProductos" asp-controller="Asesor" style="background-color: #01ADEF !important;">
-                                                    Agregar
-                                                </a>
-                                                <div class="mt-2 button-up-down">
-                                                    <a>-</a>
-                                                    <div>
-                                                        <strong>20</strong> U
-                                                    </div>
-                                                    <a>+</a>
-                                                </div>
-                                            </td>
-
-                                        <tr>
-                                            <td>
-                                                <div class="frame-product-img">
-                                                    P
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <h3>Detalles del producto</h3>
-                                                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et ...</p>
-                                            </td>
-                                            <td>
-                                                <a class="orange-rounded-button" style="display:flex; justify-content: center; align-items:center; background-color: #01ADEF;" asp-action="PedidoCatalogoProductos" asp-controller="Asesor" style="background-color: #01ADEF !important;">
-                                                    Agregar
-                                                </a>
-                                                <div class="mt-2 button-up-down">
-                                                    <a>-</a>
-                                                    <div>
-                                                        <strong>20</strong> U
-                                                    </div>
-                                                    <a>+</a>
-                                                </div>
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="frame-product-img">
-                                                    P
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <h3>Detalles del producto</h3>
-                                                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et ...</p>
-                                            </td>
-                                            <td>
-                                                <a class="orange-rounded-button" style="display:flex; justify-content: center; align-items:center; background-color: #01ADEF;" asp-action="PedidoCatalogoProductos" asp-controller="Asesor" style="background-color: #01ADEF !important;">
-                                                    Agregar
-                                                </a>
-                                                <div class="mt-2 button-up-down">
-                                                    <a>-</a>
-                                                    <div>
-                                                        <strong>20</strong> U
-                                                    </div>
-                                                    <a>+</a>
-                                                </div>
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="frame-product-img">
-                                                    P
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <h3>Detalles del producto</h3>
-                                                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et ...</p>
-                                            </td>
-                                            <td>
-                                                <a class="orange-rounded-button" style="display:flex; justify-content: center; align-items:center; background-color: #01ADEF;" asp-action="PedidoCatalogoProductos" asp-controller="Asesor" style="background-color: #01ADEF !important;">
-                                                    Agregar
-                                                </a>
-                                                <div class="mt-2 button-up-down">
-                                                    <a>-</a>
-                                                    <div>
-                                                        <strong>20</strong> U
-                                                    </div>
-                                                    <a>+</a>
-                                                </div>
-                                            </td>
-
-                                        </tr>
-
                                     </tbody>
                                 </table>
                             </div>
@@ -353,10 +258,14 @@
                             </div>
                         </div>
                         <div class="codigo-sap" style="display: none;">
-                            <div class="form-group mt-3 mb-3">
-                                <label class="label-datepicker" for="codigoSapSelector">Ingrese código SAP</label>
-                                <input type="text" id="codigoSapSelector" class="form-control datepicker" placeholder="0000000000" />
-                            </div>
+                            @using (Html.BeginForm("BuscarProductoCodigoSap", "Asesor", FormMethod.Post))
+                            {
+                                <div class="form-group mt-3 mb-3">
+                                    <label class="label-datepicker" for="codigoSapSelector">Ingrese código SAPx</label>
+                                    <input type="text" id="codigoSapSelector" name="codigoSap" class="form-control datepicker" placeholder="0000000000" />
+                                </div>
+                            }
+                            
                         </div>
                         <div class="favoritos" style="display: none;">
                             <div class="table-responsive table-container pt-3" style="max-height: 305px;">
@@ -369,71 +278,25 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>187934</td>
-                                            <td>AL. RECOCIDO 1,25MM #18 R20KG</td>
-                                            <td>
-                                                <div class="mt-2 button-up-down">
-                                                    <a>-</a>
-                                                    <div>
-                                                        <strong>0</strong> U
+                                        @foreach (var item in Model.listadProductosFavoritos.result)
+                                        {
+                                            <tr>
+                                                <td>@item.codigoSAPArticulo</td>
+                                                <td>@item.nombre</td>
+                                                <td>
+                                                    <div class="mt-2 button-up-down">
+                                                        <a>-</a>
+                                                        <div>
+                                                            <strong>0</strong> U
+                                                        </div>
+                                                        <a>+</a>
                                                     </div>
-                                                    <a>+</a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>187934</td>
-                                            <td>AL. RECOCIDO 1,25MM #18 R20KG</td>
-                                            <td>
-                                                <div class="mt-2 button-up-down">
-                                                    <a>-</a>
-                                                    <div>
-                                                        <strong>0</strong> U
-                                                    </div>
-                                                    <a>+</a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>187934</td>
-                                            <td>AL. RECOCIDO 1,25MM #18 R20KG</td>
-                                            <td>
-                                                <div class="mt-2 button-up-down">
-                                                    <a>-</a>
-                                                    <div>
-                                                        <strong>0</strong> U
-                                                    </div>
-                                                    <a>+</a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>187934</td>
-                                            <td>AL. RECOCIDO 1,25MM #18 R20KG</td>
-                                            <td>
-                                                <div class="mt-2 button-up-down">
-                                                    <a>-</a>
-                                                    <div>
-                                                        <strong>0</strong> U
-                                                    </div>
-                                                    <a>+</a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>187934</td>
-                                            <td>AL. RECOCIDO 1,25MM #18 R20KG</td>
-                                            <td>
-                                                <div class="mt-2 button-up-down">
-                                                    <a>-</a>
-                                                    <div>
-                                                        <strong>0</strong> U
-                                                    </div>
-                                                    <a>+</a>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                                </td>
+                                            </tr>
+
+                                        }
+                                        
+                                        
                                     </tbody>
                                 </table>
                             </div>
