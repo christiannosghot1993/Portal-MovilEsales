@@ -309,5 +309,47 @@ namespace Portal_MovilEsales.Services.AsesorServices
 
             return listaFamiliaProductos;
         }
+
+        public List<ProductoPorFamilia> getProductosPorFamilia(string token, string familiaNombre)
+        {
+            var client = new HttpClient();
+
+            var request = new HttpRequestMessage(HttpMethod.Post, "https://esaleslatam.bekaert.com:9020/esalesapi/api/ListaProductosXFamilia");
+
+            request.Headers.Add("Authorization", "Bearer " + token);
+
+            var jsonBody = JsonConvert.SerializeObject(new
+            {
+                navegadorweb = "Microsoft Edge XXX",
+                familia = familiaNombre
+            });
+
+            var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
+
+            request.Content = content;
+
+            var response = client.Send(request);
+
+            string resultado = response.Content.ReadAsStringAsync().Result;
+
+            resultado = resultado.Replace("base", "baseProducto");
+
+            var resDynamic = JsonConvert.DeserializeObject<dynamic>(resultado);
+
+            List<ProductoPorFamilia> listaProductos;
+
+            if ((bool)resDynamic.success)
+            {
+                string jsonInfo = JsonConvert.SerializeObject(resDynamic.result);
+
+                listaProductos = JsonConvert.DeserializeObject<List<ProductoPorFamilia>>(jsonInfo);
+            }
+            else
+            {
+                listaProductos = new();
+            }
+
+            return listaProductos;
+        }
     }
 }
