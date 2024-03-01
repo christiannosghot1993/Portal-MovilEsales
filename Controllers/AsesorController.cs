@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using NuGet.Common;
 using Portal_MovilEsales.Services.AsesorServices;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels;
@@ -7,6 +8,7 @@ using Portal_MovilEsales.Services.AsesorServices.ViewModels.DatosCliente;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido.SimulacionPedido;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.PedidoAprobado;
+using System.Drawing.Printing;
 
 namespace Portal_MovilEsales.Controllers
 {
@@ -20,13 +22,13 @@ namespace Portal_MovilEsales.Controllers
         }
         public IActionResult Index()
         {
-            var token=HttpContext.Session.GetString("token");
+            var token = HttpContext.Session.GetString("token");
             var respInicioAsesor = _asesorService.getInfoInicioAsesor(token);
             var respDatosCliente = _asesorService.getDatosCliente(token, "0000090208");
             HttpContext.Session.SetString("contactoWhatsApp", "https://wa.me/" + respInicioAsesor.contactoWhatsApp);
             return View(respInicioAsesor);
         }
-        
+
         public IActionResult PedidoCatalogoProductos(string? codigoSAPCliente = null)
         {
             var token = HttpContext.Session.GetString("token");
@@ -44,7 +46,7 @@ namespace Portal_MovilEsales.Controllers
 
             nuevoPedido.listaFamiliaProductos = respListaFamiliasProductos;
 
-            nuevoPedido.listadProductosFavoritos=respListaProductosFavoritos;
+            nuevoPedido.listadProductosFavoritos = respListaProductosFavoritos;
 
             return View(nuevoPedido);
         }
@@ -56,7 +58,7 @@ namespace Portal_MovilEsales.Controllers
 
             var nuevoPedido = new NuevoPedido();
 
-            var respCargaCabeceraPedido = _asesorService.getCargaCabeceraPedido(token,codigoSAPCliente);
+            var respCargaCabeceraPedido = _asesorService.getCargaCabeceraPedido(token, codigoSAPCliente);
 
             nuevoPedido.cargaCabeceraPedido = respCargaCabeceraPedido;
 
@@ -80,15 +82,56 @@ namespace Portal_MovilEsales.Controllers
         {
             var token = HttpContext.Session.GetString("token");
 
-            var jsonListaProductos = HttpContext.Session.GetString("selectedProducts");
+            var jsonListaProductos = HttpContext.Session.GetString("SelectedProducts");
+
+            var listaProductos = JsonConvert.DeserializeObject<List<ProductosNuevoPedido>>(jsonListaProductos);
+
+            var parametrosPeticion = JsonConvert.SerializeObject(new
+            {
+                CodigoSAPCliente = "0000091390",
+                CodigoTipoEntrega = "C",
+                CodigoTipoPago = "I010",
+                CodigoSAPDireccionEntrega = "00091390",
+                Canal = "1",
+                detallePedido = listaProductos.Select((producto) => new
+                {
+                    CodigoSAPArticulo = producto.codigo,
+                    Cantidad = producto.cantidad,
+                    Unidad = producto.unidad,
+                    Bodega = "QU00",
+                    DescFactura = Convert.ToDouble(producto.descFac),
+                    DescNotaCredito = Convert.ToDouble(producto.descNc)
+                })
+
+            });
 
             var nuevoPedido = new NuevoPedido();
 
-            var parametrosPeticion = "{\r\n\"\"\"CodigoSAPCliente\"\": \"\"0000091390\"\",\"\r\n\"\"\"CodigoTipoEntrega\"\": \"\"C\"\",\"\r\n\"\"\"CodigoTipoPago\"\": \"\"I010\"\",\"\r\n\"\"\"CodigoSAPDireccionEntrega\"\": \"\"0000091390\"\",\"\r\n\"\"\"Canal\"\": \"\"1\"\",\"\r\n\"\"\"detallePedido\"\": [\"\r\n{\r\n\"\"\"CodigoSAPArticulo\"\": \"\"187940\"\",\"\r\n\"\"\"Cantidad\"\": 10,\"\r\n\"\"\"Unidad\"\": \"\"ST\"\",\"\r\n\"\"\"Bodega\"\": \"\"QU00\"\",\"\r\n\"\"\"DescFactura\"\": 0.00,\"\r\n\"\"\"DescNotaCredito\"\": 0.00\"\r\n},\r\n{\r\n\"\"\"CodigoSAPArticulo\"\": \"\"187947\"\",\"\r\n\"\"\"Cantidad\"\": 10,\"\r\n\"\"\"Unidad\"\": \"\"ST\"\",\"\r\n\"\"\"Bodega\"\": \"\"QU00\"\",\"\r\n\"\"\"DescFactura\"\": 0.00,\"\r\n\"\"\"DescNotaCredito\"\": 0.00\"\r\n},\r\n{\r\n\"\"\"CodigoSAPArticulo\"\": \"\"188156\"\",\"\r\n\"\"\"Cantidad\"\": 20,\"\r\n\"\"\"Unidad\"\": \"\"ST\"\",\"\r\n\"\"\"Bodega\"\": \"\"QU00\"\",\"\r\n\"\"\"DescFactura\"\": 0.00,\"\r\n\"\"\"DescNotaCredito\"\": 0.00\"\r\n},\r\n{\r\n\"\"\"CodigoSAPArticulo\"\": \"\"188168\"\",\"\r\n\"\"\"Cantidad\"\": 1,\"\r\n\"\"\"Unidad\"\": \"\"ST\"\",\"\r\n\"\"\"Bodega\"\": \"\"QU00\"\",\"\r\n\"\"\"DescFactura\"\": 0.00,\"\r\n\"\"\"DescNotaCredito\"\": 0.00\"\r\n},\r\n{\r\n\"\"\"CodigoSAPArticulo\"\": \"\"188449\"\",\"\r\n\"\"\"Cantidad\"\": 1,\"\r\n\"\"\"Unidad\"\": \"\"ST\"\",\"\r\n\"\"\"Bodega\"\": \"\"QU00\"\",\"\r\n\"\"\"DescFactura\"\": 0.00,\"\r\n\"\"\"DescNotaCredito\"\": 0.00\"\r\n},\r\n{\r\n\"\"\"CodigoSAPArticulo\"\": \"\"188462\"\",\"\r\n\"\"\"Cantidad\"\": 5,\"\r\n\"\"\"Unidad\"\": \"\"ST\"\",\"\r\n\"\"\"Bodega\"\": \"\"QU00\"\",\"\r\n\"\"\"DescFactura\"\": 0.00,\"\r\n\"\"\"DescNotaCredito\"\": 0.00\"\r\n},\r\n{\r\n\"\"\"CodigoSAPArticulo\"\": \"\"213591\"\",\"\r\n\"\"\"Cantidad\"\": 10,\"\r\n\"\"\"Unidad\"\": \"\"ST\"\",\"\r\n\"\"\"Bodega\"\": \"\"QU00\"\",\"\r\n\"\"\"DescFactura\"\": 0.00,\"\r\n\"\"\"DescNotaCredito\"\": 0.00\"\r\n},\r\n{\r\n\"\"\"CodigoSAPArticulo\"\": \"\"188388\"\",\"\r\n\"\"\"Cantidad\"\": 1,\"\r\n\"\"\"Unidad\"\": \"\"ST\"\",\"\r\n\"\"\"Bodega\"\": \"\"QU00\"\",\"\r\n\"\"\"DescFactura\"\": 0.00,\"\r\n\"\"\"DescNotaCredito\"\": 0.00\"\r\n},\r\n{\r\n\"\"\"CodigoSAPArticulo\"\": \"\"188394\"\",\"\r\n\"\"\"Cantidad\"\": 1,\"\r\n\"\"\"Unidad\"\": \"\"ST\"\",\"\r\n\"\"\"Bodega\"\": \"\"QU00\"\",\"\r\n\"\"\"DescFactura\"\": 0.00,\"\r\n\"\"\"DescNotaCredito\"\": 0.00\"\r\n},\r\n{\r\n\"\"\"CodigoSAPArticulo\"\": \"\"188398\"\",\"\r\n\"\"\"Cantidad\"\": 1,\"\r\n\"\"\"Unidad\"\": \"\"ST\"\",\"\r\n\"\"\"Bodega\"\": \"\"QU00\"\",\"\r\n\"\"\"DescFactura\"\": 0.00,\"\r\n\"\"\"DescNotaCredito\"\": 0.00\"\r\n}\r\n]\r\n}";
-
-            var respSimulacionPedido = _asesorService.getSimulacionPedido(token,parametrosPeticion);
-
             var productosNuevoPedido = new List<ProductosNuevoPedido>();
+
+            //var parametrosPeticion = "{\r\n    \"CodigoSAPCliente\": \"0000091390\",\r\n    \"CodigoTipoEntrega\": \"C\",\r\n    \"CodigoTipoPago\": \"I010\",\r\n    \"CodigoSAPDireccionEntrega\": \"00091390\",\r\n    \"Canal\": \"1\",\r\n    \"detallePedido\": [\r\n        {\r\n            \"CodigoSAPArticulo\": \"187940\",\r\n            \"Cantidad\": 10,\r\n            \"Unidad\": \"ST\",\r\n            \"Bodega\": \"QU00\",\r\n            \"DescFactura\": 0.00,\r\n            \"DescNotaCredito\": 0.00\r\n        }\r\n    ]\r\n}";
+
+            var respSimulacionPedido = _asesorService.getSimulacionPedido(token, parametrosPeticion);
+
+            var respCargaCabeceraPedido = _asesorService.getCargaCabeceraPedido(token, "0000091390");
+
+            respSimulacionPedido.detallePedido.ForEach((producto) =>
+            {
+                var productoPorAgregar = new ProductosNuevoPedido()
+                {
+                    codigo = producto.codigoSAP,
+                    descripcion = producto.nombreProducto,
+                    unidad = producto.unidad,
+                    peso = producto.peso,
+                    subtotal = producto.subtotal,
+                    descFac = producto.descFactura,
+                    descNc = producto.descNotaCredito,
+                    cantidad = producto.cantidad,
+                    listadoTipoEntregas = respCargaCabeceraPedido.listadoTipoEntrega
+                };
+
+                productosNuevoPedido.Add(productoPorAgregar);
+            });
 
             var resumenDeatalleProductos = new ResumenDetalleProductos()
             {
@@ -154,14 +197,14 @@ namespace Portal_MovilEsales.Controllers
         {
             var token = HttpContext.Session.GetString("token");
             var respDatosCliente = _asesorService.getDatosCliente(token, codigoSap);
-            
+
             return View(respDatosCliente);
         }
 
         public IActionResult CargarInformacionModalPedidoAprobado(string numeroPedido)
         {
             var token = HttpContext.Session.GetString("token");
-            DatosCliente dc=new DatosCliente();
+            DatosCliente dc = new DatosCliente();
             var respPedidoAprobado = _asesorService.getPedidoAprobado(token, numeroPedido);
             dc.pedidoAprobado = respPedidoAprobado;
             return PartialView("_ModalPedidoAprobado", dc);
@@ -220,10 +263,10 @@ namespace Portal_MovilEsales.Controllers
             return PartialView("_TablePedidosActivos", listadoPedidosBPH);
         }
 
-        public IActionResult FillPedidosActivosData(DateTime fechaInicio, DateTime fechaFin, string cadena="")
+        public IActionResult FillPedidosActivosData(DateTime fechaInicio, DateTime fechaFin, string cadena = "")
         {
             var token = HttpContext.Session.GetString("token");
-            var listadoPedidosBPH = _asesorService.getListadoPedidosBPH(token, "pendiente",fechaInicio, fechaFin, cadena);
+            var listadoPedidosBPH = _asesorService.getListadoPedidosBPH(token, "pendiente", fechaInicio, fechaFin, cadena);
             if (listadoPedidosBPH.result == null)
             {
                 listadoPedidosBPH.result = new List<InfoPedidoBPH>();
@@ -238,11 +281,11 @@ namespace Portal_MovilEsales.Controllers
             return PartialView("_TablePedidosBorrador", listadoPedidosBPH);
         }
 
-        public IActionResult FillPedidosBorradorData(DateTime fechaInicio, DateTime fechaFin, string cadena="")
+        public IActionResult FillPedidosBorradorData(DateTime fechaInicio, DateTime fechaFin, string cadena = "")
         {
             var token = HttpContext.Session.GetString("token");
             var listadoPedidosBPH = _asesorService.getListadoPedidosBPH(token, "borrador", fechaInicio, fechaFin, cadena);
-            if (listadoPedidosBPH.result==null)
+            if (listadoPedidosBPH.result == null)
             {
                 listadoPedidosBPH.result = new List<InfoPedidoBPH>();
             }
@@ -256,7 +299,7 @@ namespace Portal_MovilEsales.Controllers
             return PartialView("_TablePedidosHistoricos", listadoPedidosBPH);
         }
 
-        public IActionResult FillPedidosHistoricosData(DateTime fechaInicio, DateTime fechaFin, string cadena="", string tipoPedido = "")
+        public IActionResult FillPedidosHistoricosData(DateTime fechaInicio, DateTime fechaFin, string cadena = "", string tipoPedido = "")
         {
             var token = HttpContext.Session.GetString("token");
             var listadoPedidosBPH = _asesorService.getListadoPedidosBPH(token, tipoPedido, fechaInicio, fechaFin, cadena);
