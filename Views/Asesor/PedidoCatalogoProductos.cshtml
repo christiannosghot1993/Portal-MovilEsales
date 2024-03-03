@@ -1,4 +1,5 @@
-﻿@model Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido.NuevoPedido
+﻿@using Newtonsoft.Json;
+@model Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido.NuevoPedido
 @{
     ViewData["Title"] = "Nuevo Pedido Catálogo de Productos";
 }
@@ -201,49 +202,49 @@
 
                             @Html.Partial("_DetalleNuevoPedidoPorFamilia")
 
-                           @* <div class="table-responsive table-container pt-3">
-                                <table class="table">
-                                    <tbody>
-                                        
-                                        <tr>
-                                            <td>
-                                                <div class="frame-product-img">
-                                                    P
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <h3>Detalles del producto</h3>
-                                                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et ...</p>
-                                            </td>
-                                            <td>
-                                                <a class="orange-rounded-button" style="display:flex; justify-content: center; align-items:center; background-color: #01ADEF;" asp-action="PedidoCatalogoProductos" asp-controller="Asesor" style="background-color: #01ADEF !important;">
-                                                    Agregar
-                                                </a>
-                                                <div class="mt-2 button-up-down">
-                                                    <a>-</a>
-                                                    <div>
-                                                        <strong>20</strong> U
-                                                    </div>
-                                                    <a>+</a>
-                                                </div>
-                                            </td>
+                            @* <div class="table-responsive table-container pt-3">
+                            <table class="table">
+                            <tbody>
 
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <tr>
+                            <td>
+                            <div class="frame-product-img">
+                            P
+                            </div>
+                            </td>
+                            <td>
+                            <h3>Detalles del producto</h3>
+                            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et ...</p>
+                            </td>
+                            <td>
+                            <a class="orange-rounded-button" style="display:flex; justify-content: center; align-items:center; background-color: #01ADEF;" asp-action="PedidoCatalogoProductos" asp-controller="Asesor" style="background-color: #01ADEF !important;">
+                            Agregar
+                            </a>
+                            <div class="mt-2 button-up-down">
+                            <a>-</a>
+                            <div>
+                            <strong>20</strong> U
+                            </div>
+                            <a>+</a>
+                            </div>
+                            </td>
+
+                            </tr>
+                            </tbody>
+                            </table>
                             </div>*@
-                      @*      <div class="d-flex justify-content-end mt-4">
-                                <a class="orange-rounded-button " asp-action="PedidoProductosSeleccionados" asp-controller="Asesor">
-                                    Continuar
-                                    <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <g id="vuesax/linear/arrow-right">
-                                            <g id="arrow-right">
-                                                <path id="Vector" d="M7.18262 15.4386L12.0726 10.5486C12.6501 9.97109 12.6501 9.02609 12.0726 8.44859L7.18262 3.55859" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                            </g>
-                                        </g>
-                                    </svg>
+                            @*      <div class="d-flex justify-content-end mt-4">
+                            <a class="orange-rounded-button " asp-action="PedidoProductosSeleccionados" asp-controller="Asesor">
+                            Continuar
+                            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="vuesax/linear/arrow-right">
+                            <g id="arrow-right">
+                            <path id="Vector" d="M7.18262 15.4386L12.0726 10.5486C12.6501 9.97109 12.6501 9.02609 12.0726 8.44859L7.18262 3.55859" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                            </g>
+                            </g>
+                            </svg>
 
-                                </a>
+                            </a>
                             </div>*@
                         </div>
                         <div class="archivo" style="display: none;">
@@ -253,9 +254,9 @@
                             </div>
                         </div>
                         <div class="codigo-sap" style="display: none;">
-                           @* @using (Html.BeginForm("BuscarProductoCodigoSap", "Asesor", FormMethod.Post))
+                            @* @using (Html.BeginForm("BuscarProductoCodigoSap", "Asesor", FormMethod.Post))
                             {
-                                
+
                             }*@
 
                             <form onsubmit="handleSubmitCodigoArticulo(event,'@Url.Action("BuscarProductoCodigoSap", "Asesor")')">
@@ -264,7 +265,7 @@
                                     <input type="text" id="codigoSapSelector" name="codigoArticulo" class="form-control datepicker" placeholder="0000000000" />
                                 </div>
                             </form>
-                            
+
                         </div>
                         <div class="favoritos" style="display: none;">
                             <div class="table-responsive table-container pt-3" style="max-height: 305px;">
@@ -273,51 +274,63 @@
                                         <tr>
                                             <th scope="col" class="border-radius-left" style="padding:13px;">Código SAP</th>
                                             <th scope="col" style="padding:13px;">Descripción</th>
-                                            <th scope="col" class="border-radius-right" style="padding:13px;">Cantidad</th>
+                                            <th scope="col" style="padding:13px;">Cantidad</th>
+                                            <th scope="col" class="border-radius-right" style="padding:13px;"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach (var item in Model.listadProductosFavoritos.result)
                                         {
+                                            <form onsubmit="onSubmitAgregraFavorito(event, '@{@JsonConvert.SerializeObject(item);}', '@Url.Action("SeleccionarArticuloFavorito", "Asesor")')">
                                             <tr>
                                                 <td>@item.codigoSAPArticulo</td>
                                                 <td>@item.nombre</td>
                                                 <td>
-                                                    <div class="mt-2 button-up-down">
-                                                        <a>-</a>
-                                                        <div>
-                                                            <strong>0</strong> U
-                                                        </div>
-                                                        <a>+</a>
-                                                    </div>
+                                                        @*<div class="mt-2 button-up-down">
+                                                <a>-</a>
+                                                <div>
+                                                <strong>0</strong> U
+                                                </div>
+                                                <a>+</a>
+                                                </div>*@
+                                                    <input name="cantidadArticulo" type="number" step="1" value="0" min="0" />
+                                                </td>
+                                                <td>
+                                                    <button type="submit" style="background: none; border: none;">
+                                                        <a class="orange-rounded-button" style="display:flex; justify-content: center; align-items:center; background-color: #01ADEF;">
+                                                            Agregar
+                                                        </a>
+                                                    </button>
                                                 </td>
                                             </tr>
+                                            </form>
+
 
                                         }
-                                        
-                                        
+
+
                                     </tbody>
                                 </table>
                             </div>
 
-                     @*       <div class="d-flex justify-content-end mt-4">
-                                <a class="orange-rounded-button ">
-                                    Continuar
-                                    <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <g id="vuesax/linear/arrow-right">
-                                            <g id="arrow-right">
-                                                <path id="Vector" d="M7.18262 15.4386L12.0726 10.5486C12.6501 9.97109 12.6501 9.02609 12.0726 8.44859L7.18262 3.55859" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                            </g>
-                                        </g>
-                                    </svg>
+                            @*       <div class="d-flex justify-content-end mt-4">
+                            <a class="orange-rounded-button ">
+                            Continuar
+                            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="vuesax/linear/arrow-right">
+                            <g id="arrow-right">
+                            <path id="Vector" d="M7.18262 15.4386L12.0726 10.5486C12.6501 9.97109 12.6501 9.02609 12.0726 8.44859L7.18262 3.55859" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                            </g>
+                            </g>
+                            </svg>
 
-                                </a>
+                            </a>
                             </div>*@
                         </div>
                     </div>
 
                 </div>
-  
+
                 <a data-bs-toggle="collapse" href="#collapseInformacionProductos" role="button" aria-expanded="true" aria-controls="collapseInformacionProductos">
                     <div class="collapsible-tabs">
                         <div class="label">
@@ -423,30 +436,30 @@
                     <div id="tablaPedidosSeleccinoados">
                         @Html.Partial("_TableProductosSeleccionadosPedido")
                     </div>
-                    
+
 
                     @*<div class="d-flex justify-content-between mt-4">
-                        <a class="orange-rounded-button ms-md-5" style="background-color: #69A5BD !important">
-                            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g id="vuesax/linear/arrow-right">
-                                    <g id="arrow-right">
-                                        <path id="Vector" d="M11.8174 3.56141L6.92738 8.45141C6.34988 9.02891 6.34988 9.97391 6.92738 10.5514L11.8174 15.4414" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                    </g>
-                                </g>
-                            </svg>
-                            Regresar
-                        </a>
-                        <a class="orange-rounded-button me-md-5">
-                            Continuar
-                            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g id="vuesax/linear/arrow-right">
-                                    <g id="arrow-right">
-                                        <path id="Vector" d="M7.18262 15.4386L12.0726 10.5486C12.6501 9.97109 12.6501 9.02609 12.0726 8.44859L7.18262 3.55859" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                    </g>
-                                </g>
-                            </svg>
+                    <a class="orange-rounded-button ms-md-5" style="background-color: #69A5BD !important">
+                    <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="vuesax/linear/arrow-right">
+                    <g id="arrow-right">
+                    <path id="Vector" d="M11.8174 3.56141L6.92738 8.45141C6.34988 9.02891 6.34988 9.97391 6.92738 10.5514L11.8174 15.4414" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                    </g>
+                    </g>
+                    </svg>
+                    Regresar
+                    </a>
+                    <a class="orange-rounded-button me-md-5">
+                    Continuar
+                    <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="vuesax/linear/arrow-right">
+                    <g id="arrow-right">
+                    <path id="Vector" d="M7.18262 15.4386L12.0726 10.5486C12.6501 9.97109 12.6501 9.02609 12.0726 8.44859L7.18262 3.55859" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                    </g>
+                    </g>
+                    </svg>
 
-                        </a>
+                    </a>
                     </div>*@
 
                 </div>
@@ -520,10 +533,10 @@
 
 </div>
 <script>
-    function handleSubmitCodigoArticulo(e, url){
+    function handleSubmitCodigoArticulo(e, url) {
         e.preventDefault();
-        let codigoArticulo=e.target.elements.codigoArticulo.value;
-        let codigoSapCliente=document.getElementById('codigo-sap').value;
+        let codigoArticulo = e.target.elements.codigoArticulo.value;
+        let codigoSapCliente = document.getElementById('codigo-sap').value;
         if (isNullOrEmpty(codigoSapCliente)) {
             alert('Por favor ingrese el Código SAP del cliente en el apartado "Información del pedido"');
             return;
@@ -616,6 +629,20 @@
 
     $(document).ready(getProductosByFamilia("/Asesor/GetProductosPorFamilia"));
 
+    function onSubmitAgregraFavorito(e, item, url) {
+        e.preventDefault();
+        let cantidad = e.target.elements.cantidadArticulo.value;
+        if(cantidad==='0')
+            return;
+        //console.log(item);
+        let urlCompleta = url + '?cantidadArticulo=' + encodeURIComponent(cantidad) + '&jsonArticulo=' + encodeURIComponent(item);
+        fetch(urlCompleta)
+            .then(response => response.text())
+            .then(html => {
 
+                document.getElementById('tablaPedidosSeleccinoados').innerHTML = html;
+            })
+            .catch(error => console.error('Error al cargar información:', error));
+    }
 
 </script>
