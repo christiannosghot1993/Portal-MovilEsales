@@ -298,6 +298,34 @@ namespace Portal_MovilEsales.Controllers
             return View();
         }
 
+        public IActionResult SeleccionarArticuloFavorito(string cantidadArticulo, string jsonArticulo)
+        {
+            Result res = JsonConvert.DeserializeObject<Result>(jsonArticulo);
+            List<ProductosNuevoPedido> listProductosSeleccionados = JsonConvert.DeserializeObject<List<ProductosNuevoPedido>>(HttpContext.Session.GetString("SelectedProducts"));
+            listProductosSeleccionados.Add(new ProductosNuevoPedido
+            {
+                bloqueado = false,
+                codigo = res.codigoSAPArticulo,
+                descripcion = res.nombre,
+                listadoTipoEntregas = new List<ListadoTipoEntrega>(),
+                unidad = res.unidad,
+                peso = res.peso.ToString(),
+                descFac = "0",
+                descNc = "0",
+                idl = "",
+                subtotal = "",
+                cantidad = cantidadArticulo,
+                aFinMes = true,
+                aFamilia = true
+            });
+            var data = new
+            {
+                listadoProductosSeleccionados = listProductosSeleccionados
+            };
+            HttpContext.Session.SetString("SelectedProducts", JsonConvert.SerializeObject(listProductosSeleccionados));
+            return PartialView("_TableProductosSeleccionadosPedido", data);
+        }
+
         public IActionResult BuscarProductoCodigoSap(string codigoSapCliente, string codigoArticulo)
         {
             var token = HttpContext.Session.GetString("token");

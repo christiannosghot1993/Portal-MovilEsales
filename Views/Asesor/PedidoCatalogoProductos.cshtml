@@ -1,4 +1,5 @@
-﻿@model Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido.NuevoPedido
+﻿@using Newtonsoft.Json;
+@model Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido.NuevoPedido
 @{
     ViewData["Title"] = "Nuevo Pedido Catálogo de Productos";
 }
@@ -275,25 +276,37 @@
                                         <tr>
                                             <th scope="col" class="border-radius-left" style="padding:13px;">Código SAP</th>
                                             <th scope="col" style="padding:13px;">Descripción</th>
-                                            <th scope="col" class="border-radius-right" style="padding:13px;">Cantidad</th>
+                                            <th scope="col" style="padding:13px;">Cantidad</th>
+                                            <th scope="col" class="border-radius-right" style="padding:13px;"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach (var item in Model.listadProductosFavoritos.result)
                                         {
+                                            <form onsubmit="onSubmitAgregraFavorito(event, '@{@JsonConvert.SerializeObject(item);}', '@Url.Action("SeleccionarArticuloFavorito", "Asesor")')">
                                             <tr>
                                                 <td>@item.codigoSAPArticulo</td>
                                                 <td>@item.nombre</td>
                                                 <td>
-                                                    <div class="mt-2 button-up-down">
-                                                        <a>-</a>
-                                                        <div>
-                                                            <strong>0</strong> U
-                                                        </div>
-                                                        <a>+</a>
-                                                    </div>
+                                                        @*<div class="mt-2 button-up-down">
+                                                <a>-</a>
+                                                <div>
+                                                <strong>0</strong> U
+                                                </div>
+                                                <a>+</a>
+                                                </div>*@
+                                                    <input name="cantidadArticulo" type="number" step="1" value="0" min="0" />
+                                                </td>
+                                                <td>
+                                                    <button type="submit" style="background: none; border: none;">
+                                                        <a class="orange-rounded-button" style="display:flex; justify-content: center; align-items:center; background-color: #01ADEF;">
+                                                            Agregar
+                                                        </a>
+                                                    </button>
                                                 </td>
                                             </tr>
+                                            </form>
+
 
                                         }
 
@@ -767,6 +780,20 @@
     }
 
 
+    function onSubmitAgregraFavorito(e, item, url) {
+        e.preventDefault();
+        let cantidad = e.target.elements.cantidadArticulo.value;
+        if(cantidad==='0')
+            return;
+        //console.log(item);
+        let urlCompleta = url + '?cantidadArticulo=' + encodeURIComponent(cantidad) + '&jsonArticulo=' + encodeURIComponent(item);
+        fetch(urlCompleta)
+            .then(response => response.text())
+            .then(html => {
 
+                document.getElementById('tablaPedidosSeleccinoados').innerHTML = html;
+            })
+            .catch(error => console.error('Error al cargar información:', error));
+    }
 
 </script>
