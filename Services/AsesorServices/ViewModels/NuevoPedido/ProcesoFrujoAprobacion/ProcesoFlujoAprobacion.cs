@@ -30,5 +30,37 @@ namespace Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido.Proc
         public string ordenCompra { get; set; }
 
         public List<ListadoProductoProcesoFlujoAprobacion> detallePedido { get; set; }
+
+        public string importeBruto { get; set; }
+
+        public string descuentoBase { get; set; }
+
+        public string subTotal1 { get; set; }
+
+        public string descuentoPago { get; set; }
+
+        public string descuentoRetiro { get; set; }
+
+        public string descuentoVarios { get; set; }
+
+        public string descuentoPeso { get; set; }
+
+        public string subTotal2 { get; set; }
+
+        public string iva { get; set; }
+
+        public string seguroTransporte { get; set; }
+
+        public string valorTotal { get; set; }
+
+        public string valorNcsinIva { get; set; }
+
+        public string margenPor { get; set; }
+
+        public string codigoSiguientePaso { get; set; }
+
+        public string mensajeRespuestaCalculoFlujo { get; set; }
+
+        public string destinatarios { get; set; }
     }
 }

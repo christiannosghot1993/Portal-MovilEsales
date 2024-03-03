@@ -18,5 +18,7 @@ namespace Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido
 
         public ResumenDetalleProductos resumenDetalleProductos { get; set; } = new();
 
+        public string mensajeProceso { get; set; }
+
     }
 }

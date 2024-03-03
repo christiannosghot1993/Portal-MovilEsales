@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using NuGet.Common;
@@ -31,6 +32,8 @@ namespace Portal_MovilEsales.Controllers
 
         public IActionResult PedidoCatalogoProductos(string? codigoSAPCliente = null)
         {
+            var listaProductosSeleccionados = new List<ProductosNuevoPedido>();
+            HttpContext.Session.SetString("SelectedProducts", JsonConvert.SerializeObject(listaProductosSeleccionados));
             var token = HttpContext.Session.GetString("token");
 
             var nuevoPedido = new NuevoPedido();
@@ -78,7 +81,12 @@ namespace Portal_MovilEsales.Controllers
             return PartialView("_DetalleNuevoPedidoPorFamilia", nuevoPedido);
         }
 
-        public IActionResult GetSimulacionPedido()
+        public IActionResult GetSimulacionPedido(
+                string? codigoSAPCliente = null,
+                string? codigoTipoEntrega = null,
+                string? codigoTipoPago = null,
+                string? codigoSAPDireccionEntrega = null,
+                string? canal = null)
         {
             var token = HttpContext.Session.GetString("token");
 
@@ -88,11 +96,11 @@ namespace Portal_MovilEsales.Controllers
 
             var parametrosPeticion = JsonConvert.SerializeObject(new
             {
-                CodigoSAPCliente = "0000091390",
-                CodigoTipoEntrega = "C",
-                CodigoTipoPago = "I010",
-                CodigoSAPDireccionEntrega = "00091390",
-                Canal = "1",
+                CodigoSAPCliente = codigoSAPCliente,
+                CodigoTipoEntrega = codigoTipoEntrega,
+                CodigoTipoPago = codigoTipoPago,
+                CodigoSAPDireccionEntrega = codigoSAPDireccionEntrega,
+                Canal = canal,
                 detallePedido = listaProductos.Select((producto) => new
                 {
                     CodigoSAPArticulo = producto.codigo,
@@ -113,7 +121,7 @@ namespace Portal_MovilEsales.Controllers
 
             var respSimulacionPedido = _asesorService.getSimulacionPedido(token, parametrosPeticion);
 
-            var respCargaCabeceraPedido = _asesorService.getCargaCabeceraPedido(token, "0000091390");
+            var respCargaCabeceraPedido = _asesorService.getCargaCabeceraPedido(token, codigoSAPCliente);
 
             respSimulacionPedido.detallePedido.ForEach((producto) =>
             {
@@ -154,7 +162,135 @@ namespace Portal_MovilEsales.Controllers
 
             nuevoPedido.resumenDetalleProductos = resumenDeatalleProductos;
 
+            nuevoPedido.mensajeProceso = "fwef";
+
+            HttpContext.Session.SetString("SelectedProducts", JsonConvert.SerializeObject(productosNuevoPedido));
+
+            HttpContext.Session.SetString("SummaryProducts", JsonConvert.SerializeObject(resumenDeatalleProductos));
+
             return PartialView("_TableProductosSeleccionadosPedido", nuevoPedido);
+        }
+
+        public IActionResult PostGuardarBorrador(
+                string? codigoSAPCliente = null,
+                string? codigoTipoEntrega = null,
+                string? codigoTipoPago = null,
+                string? codigoSAPDireccionEntrega = null,
+                string? canal = null)
+        {
+            var token = HttpContext.Session.GetString("token");
+
+            var jsonListaProductos = HttpContext.Session.GetString("SelectedProducts");
+
+            var listaProductos = JsonConvert.DeserializeObject<List<ProductosNuevoPedido>>(jsonListaProductos);
+
+            var parametrosPeticion = JsonConvert.SerializeObject(new
+            {
+                CodigoSAPCliente = codigoSAPCliente,
+                CodigoTipoEntrega = codigoTipoEntrega,
+                CodigoTipoPago = codigoTipoPago,
+                CodigoSAPDireccionEntrega = codigoSAPDireccionEntrega,
+                Canal = canal,
+                detallePedido = listaProductos.Select((producto) => new
+                {
+                    CodigoSAPArticulo = producto.codigo,
+                    Cantidad = producto.cantidad,
+                    Unidad = producto.unidad,
+                    Bodega = "QU00",
+                    DescFactura = Convert.ToDouble(producto.descFac),
+                    DescNotaCredito = Convert.ToDouble(producto.descNc)
+                })
+
+            });
+
+            var respGuardarBorrador = _asesorService.postGuardarPedidoBorrador(token, parametrosPeticion);
+
+            var listadoProductosNuevoPedido = JsonConvert.DeserializeObject<List<ProductosNuevoPedido>>(HttpContext.Session.GetString("SelectedProducts"));
+
+            var resumenDetalleProductos = JsonConvert.DeserializeObject<ResumenDetalleProductos>(HttpContext.Session.GetString("SummaryProducts")) ?? new ResumenDetalleProductos();
+
+            var data = new
+            {
+                listadoProductosNuevoPedido,
+
+                resumenDetalleProductos
+            };
+
+            return PartialView("_TableProductosSeleccionadosPedido", data);
+        }
+
+        public IActionResult PostNuevoPedido(
+                string? codigoSAPCliente = null,
+                string? codigoTipoEntrega = null,
+                string? codigoTipoPago = null,
+                string? codigoSAPDireccionEntrega = null,
+                string? canal = null,
+                string? fechaEntrega = null,
+                string? numeroOrdenCompra = null,
+                string? lugarEntrega = null,
+                string? observaciones = null,
+                string? contactoEntrega = null)
+        {
+            var token = HttpContext.Session.GetString("token");
+
+            var jsonListaProductos = HttpContext.Session.GetString("SelectedProducts");
+
+            var listaProductos = JsonConvert.DeserializeObject<List<ProductosNuevoPedido>>(jsonListaProductos);
+
+            var parametrosPeticion = JsonConvert.SerializeObject(new
+            {
+                CodigoSAPCliente = codigoSAPCliente,
+                CodigoTipoEntrega = codigoTipoEntrega,
+                CodigoTipoPago = codigoTipoPago,
+                CodigoSAPDireccionEntrega = codigoSAPDireccionEntrega,
+                Canal = canal,
+                FechaEntrega = fechaEntrega,
+                NumeroOrdenCompra = numeroOrdenCompra,
+                LugarEntrega = lugarEntrega,
+                Observaciones = observaciones,
+                ContactoEntrega = contactoEntrega,
+                detallePedido = listaProductos.Select((producto) => new
+                {
+                    CodigoSAPArticulo = producto.codigo,
+                    Cantidad = producto.cantidad,
+                    Unidad = producto.unidad,
+                    Bodega = "QU00",
+                    DescFactura = Convert.ToDouble(producto.descFac),
+                    DescNotaCredito = Convert.ToDouble(producto.descNc),
+                    AplicaFamilia = "S",
+                    AplicaFinMes = "N"
+                })
+
+            });
+
+            var respCrearNuevoPedido = _asesorService.postProcesoFlujoAprobacion(token, parametrosPeticion);
+
+            var listadoProductosNuevoPedido = JsonConvert.DeserializeObject<List<ProductosNuevoPedido>>(HttpContext.Session.GetString("SelectedProducts"));
+
+            var resumenDetalleProductos = JsonConvert.DeserializeObject<ResumenDetalleProductos>(HttpContext.Session.GetString("SummaryProducts")) ?? new ResumenDetalleProductos();
+
+            //return View("PedidoCatalogoProductos");
+
+            var mensajeProceso = respCrearNuevoPedido.mensajeRespuestaCalculoFlujo;
+
+            ViewBag.MensajeProceso = mensajeProceso;
+
+            var data = new
+            {
+                listadoProductosNuevoPedido,
+
+                resumenDetalleProductos,
+            };
+
+            return PartialView("_TableProductosSeleccionadosPedido", data);
+
+            //var mensajeRespuestaPeticion = respCrearNuevoPedido.mensajeRespuestaCalculoFlujo;
+
+            //var listadoPedidosBPH = _asesorService.getListadoPedidosBPH(token, "borrador", DateTime.Parse("2020-01-31"), DateTime.Parse("2024-02-28"), "");
+
+            //listadoPedidosBPH.procesoRespuesta.mensajeProceso = mensajeRespuestaPeticion;
+
+            //return View("Pedidos", listadoPedidosBPH);
         }
 
         public IActionResult PoliticaComercial()
@@ -162,10 +298,37 @@ namespace Portal_MovilEsales.Controllers
             return View();
         }
 
-        public void BuscarProductoCodigoSap(string codigoSap)
+        public IActionResult BuscarProductoCodigoSap(string codigoSapCliente, string codigoArticulo)
         {
             var token = HttpContext.Session.GetString("token");
-            var resp = _asesorService.getProductoCodigoSap(token, codigoSap);
+            var resp = _asesorService.getProductoCodigoSap(token, codigoArticulo, codigoSapCliente);
+            List<ProductosNuevoPedido> listadoProductosNuevoPedido = JsonConvert.DeserializeObject<List<ProductosNuevoPedido>>(HttpContext.Session.GetString("SelectedProducts"));
+            listadoProductosNuevoPedido.Add(new ProductosNuevoPedido
+            {
+                bloqueado = false,
+                codigo = resp.result.codigoSAPArticulo,
+                descripcion = resp.result.nombre,
+                listadoTipoEntregas = new List<ListadoTipoEntrega>(),
+                unidad = resp.result.unidad,
+                peso = resp.result.peso.ToString(),
+                descFac = "0",
+                descNc = "0",
+                idl = "",
+                subtotal = "",
+                cantidad = "1",
+                aFinMes = true,
+                aFamilia = true
+            });
+            var data = new
+            {
+                listadoProductosNuevoPedido,
+
+                resumenDetalleProductos = new ResumenDetalleProductos(),
+
+                mensajeProceso = string.Empty
+            };
+            HttpContext.Session.SetString("SelectedProducts", JsonConvert.SerializeObject(listadoProductosNuevoPedido));
+            return PartialView("_TableProductosSeleccionadosPedido", data);
         }
 
         public IActionResult PedidoProductosSeleccionados()

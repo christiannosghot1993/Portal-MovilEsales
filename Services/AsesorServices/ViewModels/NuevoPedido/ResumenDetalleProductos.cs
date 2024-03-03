@@ -27,5 +27,7 @@
         public string valorNcsinIva { get; set; }
 
         public string margenPor { get; set; }
+
+        //public ProcesoRespuesta.ProcesoRespuesta procesoRespuesta { get; set; } = new();
     }
 }

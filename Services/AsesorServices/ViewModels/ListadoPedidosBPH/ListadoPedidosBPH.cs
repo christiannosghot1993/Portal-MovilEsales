@@ -7,5 +7,6 @@
         public string message { get; set; }
         public List<InfoPedidoBPH> result { get; set; }
         public DetallePedido.DetallePedidoInfo detallePedidoInfo { get; set; }
+        public ProcesoRespuesta.ProcesoRespuesta procesoRespuesta { get; set; } = new();
     }
 }

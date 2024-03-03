@@ -381,12 +381,12 @@ namespace Portal_MovilEsales.Services.AsesorServices
             return productosFavoritos;
         }
 
-        public ProductoCodigoSap getProductoCodigoSap(string token, string codigoSap)
+        public ProductoCodigoSap getProductoCodigoSap(string token, string codigoArticulo, string codigoSapCliente)
         {
             var client = new HttpClient();
             var request = new HttpRequestMessage(HttpMethod.Post, "https://esaleslatam.bekaert.com:9020/esalesapi/api/ProductoXCodigoSAP");
             request.Headers.Add("Authorization", "Bearer " + token);
-            var content = new StringContent("{\r\n    \"navegadorweb\": \"Microsoft Edge XXX\",\r\n    \"codigoarticulo\": \"" + codigoSap + "\"\r\n}", null, "application/json");
+            var content = new StringContent("{\r\n    \"navegadorweb\": \"Microsoft Edge XXX\",\r\n    \"codigoarticulo\": \""+ codigoArticulo + "\",\r\n    \"codigosapcliente\": \""+ codigoSapCliente + "\"\r\n}", null, "application/json");
             request.Content = content;
             var response = client.Send(request);
 
@@ -443,7 +443,7 @@ namespace Portal_MovilEsales.Services.AsesorServices
         {
             var client = new HttpClient();
 
-            var request = new HttpRequestMessage(HttpMethod.Post, "https://esaleslatam.bekaert.com:9020/esalesapi/api/GuardarPedidoBorrador");
+            var request = new HttpRequestMessage(HttpMethod.Post, "https://esaleslatam.bekaert.com:9020/esalesapi/api/GuardaPedidoBorrador");
 
             request.Headers.Add("Authorization", "Bearer " + token);
 
