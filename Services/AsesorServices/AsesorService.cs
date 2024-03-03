@@ -313,7 +313,7 @@ namespace Portal_MovilEsales.Services.AsesorServices
             return listaFamiliaProductos;
         }
 
-        public List<ProductoPorFamilia> getProductosPorFamilia(string token, string familiaNombre)
+        public ListadoProductosFavoritos getProductosPorFamilia(string token, string familiaNombre)
         {
             var client = new HttpClient();
 
@@ -336,17 +336,17 @@ namespace Portal_MovilEsales.Services.AsesorServices
 
             string resultado = response.Content.ReadAsStringAsync().Result;
 
-            resultado = resultado.Replace("base", "baseProducto");
+            //resultado = resultado.Replace("base", "baseProducto");
 
             var resDynamic = JsonConvert.DeserializeObject<dynamic>(resultado);
 
-            List<ProductoPorFamilia> listaProductos;
+            ListadoProductosFavoritos listaProductos;
 
             if ((bool)resDynamic.success)
             {
-                string jsonInfo = JsonConvert.SerializeObject(resDynamic.result);
+                string jsonInfo = JsonConvert.SerializeObject(resDynamic);
 
-                listaProductos = JsonConvert.DeserializeObject<List<ProductoPorFamilia>>(jsonInfo);
+                listaProductos = JsonConvert.DeserializeObject<ListadoProductosFavoritos>(jsonInfo);
             }
             else
             {

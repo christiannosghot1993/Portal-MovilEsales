@@ -204,6 +204,52 @@
 
                             @Html.Partial("_DetalleNuevoPedidoPorFamilia")
 
+                            @*   <div class="table-responsive table-container pt-3" id="detalleProductosPorFamilia" style="max-height: 418px;">
+                            <table class="table" id="tabla-listado-productos-por-familia">
+
+                            <thead></thead>
+
+                            <tbody>
+                            @foreach (var item in Model.listaProductosPorFamilia.result)
+                            {
+
+                            <tr>
+                            <td>
+                            <div class="frame-product-img">
+                            P
+                            </div>
+                            </td>
+                            <td>
+                            <h3>@item.codigoSAPArticulo</h3>
+                            <p>@item.nombre</p>
+                            </td>
+                            <td>
+
+                            @{
+                            var idInput = $"cantidadArticuloPorFamilia-{item.codigoSAPArticulo}";
+
+                            var funcionBoton = $"agregarProducto({idInput})";
+                            }
+
+                            <input id=@idInput type="number" step="1" value="1" min="1" />
+                            </td>
+                            <td>
+
+
+                            <a onclick="agregarProducto('few')" class="orange-rounded-button" style="display:flex; justify-content: center; align-items:center; background-color: #01ADEF;">
+                            Agregar
+                            </a>
+                            </td>
+                            </tr>
+
+
+
+                            }
+
+                            </tbody>
+                            </table>
+                            </div>
+                            *@
                             @* <div class="table-responsive table-container pt-3">
                             <table class="table">
                             <tbody>
@@ -283,7 +329,11 @@
                                     <tbody>
                                         @foreach (var item in Model.listadProductosFavoritos.result)
                                         {
-                                            <form onsubmit="onSubmitAgregraFavorito(event, '@{@JsonConvert.SerializeObject(item);}', '@Url.Action("SeleccionarArticuloFavorito", "Asesor")')">
+                                            <form onsubmit="onSubmitAgregraFavorito(event, '@{
+
+                                                                @JsonConvert.SerializeObject(item)
+;
+}', '@Url.Action("SeleccionarArticuloFavorito", "Asesor")')">
                                             <tr>
                                                 <td>@item.codigoSAPArticulo</td>
                                                 <td>@item.nombre</td>
@@ -337,7 +387,7 @@
                     <div class="collapsible-tabs">
                         <div class="label">
                             <div class="label-color-wrapper">
-                                <div class="label-color"><div class="text">Información de Productos</div></div>
+                                <div class="label-color"><div class="text">Listado de productos seleccionados</div></div>
                             </div>
                             <div class="chevron">
                                 <svg width="23" height="14" viewBox="0 0 23 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -349,36 +399,10 @@
                         </div>
                     </div>
                 </a>
+
                 <div class="collapse show mb-5" id="collapseInformacionProductos">
-                    <div class="d-md-flex justify-content-md-between">
-                        <p style=" font-size: 14px;
-                       font-style: normal;
-                       font-weight: 500;
-                       line-height: 20px;">Listado de productos seleccionados</p>
-                        <div class="d-flex">
-                            <strong style="margin-right:10px;">Descuento Factura</strong>
-                            <div class=" car-sap-code-container">
-                                <label>20%</label>
-                            </div>
-                        </div>
-                    </div>
+                   
 
-                    <div class="d-flex justify-content-end mt-2">
-                        <a class="orange-rounded-button pe-5 ps-5" style="background-color:#01ADEF   !important;">
-                            Recalcular
-                            @* <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg" > *@
-                            <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="recalcular('@Url.Action("GetSimulacionPedido", "Asesor")')">
-
-                                <g id="vuesax/linear/refresh">
-                                    <g id="refresh">
-                                        <path id="Vector" d="M10.9125 16.7525C14.13 15.905 16.5 12.98 16.5 9.5C16.5 5.36 13.17 2 9 2C3.9975 2 1.5 6.17 1.5 6.17M1.5 6.17V2.75M1.5 6.17H3.0075H4.83" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path id="Vector_2" d="M1.5 9.5C1.5 13.64 4.86 17 9 17" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 3" />
-                                    </g>
-                                </g>
-                            </svg>
-
-                        </a>
-                    </div>
                     <div class="modal fade" id="modalStock" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-xl">
                             <div class="modal-content">
@@ -437,6 +461,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div id="tablaPedidosSeleccinoados">
                         @Html.Partial("_TableProductosSeleccionadosPedido")
                     </div>
@@ -533,11 +558,7 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <dialog id="mensaje-respuesta-dialog">
-        <p>Greetings, one and all!</p>
-    </dialog>
+    </div> 
 
 </div>
 <script>
@@ -721,7 +742,7 @@
 
 
         url = `${url}?codigoSAPCliente=${codigoSAPCliente}&codigoTipoEntrega=${tipoEntregaSelectedValue}&codigoTipoPago=${tipoPagoSelectedValue}&codigoSAPDireccionEntrega=${direccionEntregaSelectedValue}&canal=${canalSelectedValue}
-                                                                   &fechaEntrega=${fechaEntrega}&numeroOrdenCompra=${numeroOrdenCompra}&lugarEntrega=${lugarEntrega}&observaciones=${observaciones}&contactoEntrega=${contactoEntrega}`
+                                                                                           &fechaEntrega=${fechaEntrega}&numeroOrdenCompra=${numeroOrdenCompra}&lugarEntrega=${lugarEntrega}&observaciones=${observaciones}&contactoEntrega=${contactoEntrega}`
 
         console.log(url)
 
@@ -762,32 +783,42 @@
         //return
         getProductosByFamilia("/Asesor/GetProductosPorFamilia");
 
-        let mensajeRespuestaProceso = document.getElementById("mensaje-proceso-hidden").value;
-
-        console.log(mensajeProcesoHidden)
-
-        if (!mensajeRespuestaProceso || mensajeRespuestaProceso.trim() === '') {
-
-            alert(mensajeRespuestaProceso)
-
-        }
 
     });
-
-    const handleOnChange = () =>{
-
-        console.log("cambio")
-    }
 
 
     function onSubmitAgregraFavorito(e, item, url) {
         e.preventDefault();
         let cantidad = e.target.elements.cantidadArticulo.value;
-        if(cantidad==='0')
+        if (cantidad === '0')
             return;
         //console.log(item);
         let urlCompleta = url + '?cantidadArticulo=' + encodeURIComponent(cantidad) + '&jsonArticulo=' + encodeURIComponent(item);
         fetch(urlCompleta)
+            .then(response => response.text())
+            .then(html => {
+
+                document.getElementById('tablaPedidosSeleccinoados').innerHTML = html;
+            })
+            .catch(error => console.error('Error al cargar información:', error));
+    }
+
+    const onSubmitAgregarPorFamilia = (idInputCantidad, codigoSAPArticulo, url, familia) => {
+
+        let cantidad = document.getElementById(idInputCantidad).value;
+
+        let familiaSelect = document.getElementById("familiaProductosSelect");
+
+        let familiaSelectedValue = familiaSelect.options[familiaSelect.selectedIndex].value;
+
+        console.log("entro a por familia con valor" + cantidad);
+
+        url = `${url}?cantidadArticulo=${cantidad}&codigoSAPArticulo=${codigoSAPArticulo}&familia=${familiaSelectedValue}`;
+
+        if (cantidad === '0')
+            return;
+
+        fetch(url)
             .then(response => response.text())
             .then(html => {
 

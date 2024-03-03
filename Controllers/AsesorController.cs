@@ -33,7 +33,13 @@ namespace Portal_MovilEsales.Controllers
         public IActionResult PedidoCatalogoProductos(string? codigoSAPCliente = null)
         {
             var listaProductosSeleccionados = new List<ProductosNuevoPedido>();
+
+            var resumenDetalleProductos = new ResumenDetalleProductos();
+
             HttpContext.Session.SetString("SelectedProducts", JsonConvert.SerializeObject(listaProductosSeleccionados));
+
+            HttpContext.Session.SetString("SummaryProducts", JsonConvert.SerializeObject(resumenDetalleProductos));
+
             var token = HttpContext.Session.GetString("token");
 
             var nuevoPedido = new NuevoPedido();
@@ -79,6 +85,8 @@ namespace Portal_MovilEsales.Controllers
             nuevoPedido.listaProductosPorFamilia = respProductosPorFamilia;
 
             return PartialView("_DetalleNuevoPedidoPorFamilia", nuevoPedido);
+
+            //return View("PedidoCatalogoProductos", nuevoPedido);
         }
 
         public IActionResult GetSimulacionPedido(
@@ -298,6 +306,45 @@ namespace Portal_MovilEsales.Controllers
             return View();
         }
 
+        public IActionResult SeleccionarArticuloPorFamilia(string cantidadArticulo, string codigoSAPArticulo, string familia)
+        {
+            var token = HttpContext.Session.GetString("token");
+
+            var listProductosSeleccionados = JsonConvert.DeserializeObject<List<ProductosNuevoPedido>>(HttpContext.Session.GetString("SelectedProducts"));
+
+            var listadoProductosPorFamilia = _asesorService.getProductosPorFamilia(token, familia);
+
+            var productoPorAgregar = listadoProductosPorFamilia.result.FirstOrDefault(p => p.codigoSAPArticulo == codigoSAPArticulo);
+
+            listProductosSeleccionados.Add(new ProductosNuevoPedido
+            {
+                bloqueado = false,
+                codigo = productoPorAgregar.codigoSAPArticulo,
+                descripcion = productoPorAgregar.nombre,
+                listadoTipoEntregas = new List<ListadoTipoEntrega>(),
+                unidad = productoPorAgregar.unidad,
+                peso = productoPorAgregar.peso.ToString(),
+                descFac = "0",
+                descNc = "0",
+                idl = "",
+                subtotal = "",
+                cantidad = cantidadArticulo,
+                aFinMes = true,
+                aFamilia = true
+            });
+
+            var data = new
+            {
+                listadoProductosNuevoPedido = listProductosSeleccionados,
+
+                resumenDetalleProductos = new ResumenDetalleProductos(),
+            };
+
+            HttpContext.Session.SetString("SelectedProducts", JsonConvert.SerializeObject(listProductosSeleccionados));
+
+            return PartialView("_TableProductosSeleccionadosPedido", data);
+        }
+
         public IActionResult SeleccionarArticuloFavorito(string cantidadArticulo, string jsonArticulo)
         {
             Result res = JsonConvert.DeserializeObject<Result>(jsonArticulo);
@@ -320,7 +367,9 @@ namespace Portal_MovilEsales.Controllers
             });
             var data = new
             {
-                listadoProductosSeleccionados = listProductosSeleccionados
+                listadoProductosNuevoPedido = listProductosSeleccionados,
+
+                resumenDetalleProductos = new ResumenDetalleProductos(),
             };
             HttpContext.Session.SetString("SelectedProducts", JsonConvert.SerializeObject(listProductosSeleccionados));
             return PartialView("_TableProductosSeleccionadosPedido", data);
@@ -352,8 +401,6 @@ namespace Portal_MovilEsales.Controllers
                 listadoProductosNuevoPedido,
 
                 resumenDetalleProductos = new ResumenDetalleProductos(),
-
-                mensajeProceso = string.Empty
             };
             HttpContext.Session.SetString("SelectedProducts", JsonConvert.SerializeObject(listadoProductosNuevoPedido));
             return PartialView("_TableProductosSeleccionadosPedido", data);

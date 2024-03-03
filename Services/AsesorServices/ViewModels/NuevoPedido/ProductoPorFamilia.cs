@@ -12,6 +12,6 @@
 
         public string unidad { get; set; }
 
-        public string baseProducto { get; set; }
+        public string @base { get; set; }
     }
 }
