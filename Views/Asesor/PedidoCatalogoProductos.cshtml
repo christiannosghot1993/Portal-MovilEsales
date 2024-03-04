@@ -17,8 +17,10 @@
                     </div>
                 </div>
 
+                @*  <input type="hidden" value=@Model.procesoRespuesta.mensajeProceso id="mensaje-proceso-hidden"/> *@
+
                 <div class="d-flex justify-content-end pt-3 mb-3">
-                    <a class="orange-rounded-button" asp-action="PedidoCatalogoProductos" asp-controller="Asesor" style="background-color: #69A5BD !important;">
+                    <a class="orange-rounded-button" asp-action="Pedidos" asp-controller="Asesor" style="background-color: #69A5BD !important;">
                         Cancelar
                         <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g id="01 align center">
@@ -28,7 +30,7 @@
                         </svg>
 
                     </a>
-                    <a class="orange-rounded-button ms-1" asp-action="PedidoCatalogoProductos" asp-controller="Asesor" style="background-color:#01ADEF   !important;">
+                    <button class="orange-rounded-button ms-1" onclick="guardarBorrador('@Url.Action("PostGuardarBorrador", "Asesor")')" style="background-color:#01ADEF   !important;">
                         Guardar como Borrador
                         <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g id="01 align center">
@@ -36,7 +38,7 @@
                                 <path id="Vector_2" d="M12 10.8196C11.2089 10.8196 10.4355 11.0542 9.77772 11.4937C9.11993 11.9332 8.60723 12.5579 8.30448 13.2888C8.00173 14.0198 7.92252 14.824 8.07686 15.5999C8.2312 16.3759 8.61216 17.0886 9.17157 17.648C9.73098 18.2074 10.4437 18.5884 11.2196 18.7427C11.9956 18.8971 12.7998 18.8178 13.5307 18.5151C14.2616 18.2123 14.8864 17.6997 15.3259 17.0419C15.7654 16.3841 16 15.6107 16 14.8196C16 13.7587 15.5786 12.7413 14.8284 11.9912C14.0783 11.241 13.0609 10.8196 12 10.8196ZM12 16.8196C11.6044 16.8196 11.2178 16.7023 10.8889 16.4825C10.56 16.2628 10.3036 15.9504 10.1522 15.5849C10.0009 15.2195 9.96126 14.8174 10.0384 14.4294C10.1156 14.0414 10.3061 13.6851 10.5858 13.4054C10.8655 13.1257 11.2219 12.9352 11.6098 12.858C11.9978 12.7808 12.3999 12.8204 12.7654 12.9718C13.1308 13.1232 13.4432 13.3795 13.6629 13.7084C13.8827 14.0373 14 14.424 14 14.8196C14 15.35 13.7893 15.8587 13.4142 16.2338C13.0391 16.6089 12.5304 16.8196 12 16.8196Z" fill="white" />
                             </g>
                         </svg>
-                    </a>
+                    </button>
                 </div>
 
 
@@ -202,6 +204,52 @@
 
                             @Html.Partial("_DetalleNuevoPedidoPorFamilia")
 
+                            @*   <div class="table-responsive table-container pt-3" id="detalleProductosPorFamilia" style="max-height: 418px;">
+                            <table class="table" id="tabla-listado-productos-por-familia">
+
+                            <thead></thead>
+
+                            <tbody>
+                            @foreach (var item in Model.listaProductosPorFamilia.result)
+                            {
+
+                            <tr>
+                            <td>
+                            <div class="frame-product-img">
+                            P
+                            </div>
+                            </td>
+                            <td>
+                            <h3>@item.codigoSAPArticulo</h3>
+                            <p>@item.nombre</p>
+                            </td>
+                            <td>
+
+                            @{
+                            var idInput = $"cantidadArticuloPorFamilia-{item.codigoSAPArticulo}";
+
+                            var funcionBoton = $"agregarProducto({idInput})";
+                            }
+
+                            <input id=@idInput type="number" step="1" value="1" min="1" />
+                            </td>
+                            <td>
+
+
+                            <a onclick="agregarProducto('few')" class="orange-rounded-button" style="display:flex; justify-content: center; align-items:center; background-color: #01ADEF;">
+                            Agregar
+                            </a>
+                            </td>
+                            </tr>
+
+
+
+                            }
+
+                            </tbody>
+                            </table>
+                            </div>
+                            *@
                             @* <div class="table-responsive table-container pt-3">
                             <table class="table">
                             <tbody>
@@ -281,7 +329,11 @@
                                     <tbody>
                                         @foreach (var item in Model.listadProductosFavoritos.result)
                                         {
-                                            <form onsubmit="onSubmitAgregraFavorito(event, '@{@JsonConvert.SerializeObject(item);}', '@Url.Action("SeleccionarArticuloFavorito", "Asesor")')">
+                                            <form onsubmit="onSubmitAgregraFavorito(event, '@{
+
+                                                                @JsonConvert.SerializeObject(item)
+;
+}', '@Url.Action("SeleccionarArticuloFavorito", "Asesor")')">
                                             <tr>
                                                 <td>@item.codigoSAPArticulo</td>
                                                 <td>@item.nombre</td>
@@ -335,7 +387,7 @@
                     <div class="collapsible-tabs">
                         <div class="label">
                             <div class="label-color-wrapper">
-                                <div class="label-color"><div class="text">Información de Productos</div></div>
+                                <div class="label-color"><div class="text">Listado de productos seleccionados</div></div>
                             </div>
                             <div class="chevron">
                                 <svg width="23" height="14" viewBox="0 0 23 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -347,34 +399,10 @@
                         </div>
                     </div>
                 </a>
+
                 <div class="collapse show mb-5" id="collapseInformacionProductos">
-                    <div class="d-md-flex justify-content-md-between">
-                        <p style=" font-size: 14px;
-                       font-style: normal;
-                       font-weight: 500;
-                       line-height: 20px;">Listado de productos seleccionados</p>
-                        <div class="d-flex">
-                            <strong style="margin-right:10px;">Descuento Factura</strong>
-                            <div class=" car-sap-code-container">
-                                <label>20%</label>
-                            </div>
-                        </div>
-                    </div>
+                   
 
-                    <div class="d-flex justify-content-end mt-2">
-                        <a class="orange-rounded-button pe-5 ps-5" style="background-color:#01ADEF   !important;">
-                            Recalcular
-                            <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g id="vuesax/linear/refresh">
-                                    <g id="refresh">
-                                        <path id="Vector" d="M10.9125 16.7525C14.13 15.905 16.5 12.98 16.5 9.5C16.5 5.36 13.17 2 9 2C3.9975 2 1.5 6.17 1.5 6.17M1.5 6.17V2.75M1.5 6.17H3.0075H4.83" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path id="Vector_2" d="M1.5 9.5C1.5 13.64 4.86 17 9 17" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 3" />
-                                    </g>
-                                </g>
-                            </svg>
-
-                        </a>
-                    </div>
                     <div class="modal fade" id="modalStock" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-xl">
                             <div class="modal-content">
@@ -433,6 +461,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div id="tablaPedidosSeleccinoados">
                         @Html.Partial("_TableProductosSeleccionadosPedido")
                     </div>
@@ -518,18 +547,18 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-end pt-3 mb-3">
-                    <a class="orange-rounded-button ms-1" asp-action="PedidoCatalogoProductos" asp-controller="Asesor">
+                    <button class="orange-rounded-button ms-1" onclick="crearNuevoPedido('@Url.Action("PostNuevoPedido", "Asesor")')">
                         Enviar
                         <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g id="01 align center">
                                 <path id="Vector" d="M1.4437 7.48857C1.10885 7.58424 0.804795 7.76569 0.561607 8.01495C0.318419 8.26422 0.144531 8.57266 0.0571494 8.90976C-0.0302325 9.24687 -0.0280796 9.60094 0.063395 9.93696C0.15487 10.273 0.332495 10.5793 0.578696 10.8256L3.9907 14.2336V20.8196H10.5837L14.0187 24.2495C14.2031 24.4355 14.4224 24.5832 14.664 24.6841C14.9056 24.785 15.1648 24.8371 15.4267 24.8375C15.5988 24.8372 15.7702 24.815 15.9367 24.7715C16.2737 24.6867 16.5823 24.5145 16.8316 24.2724C17.0809 24.0304 17.262 23.7269 17.3567 23.3925L23.9907 0.840576L1.4437 7.48857ZM1.9997 9.41157L19.0277 4.39157L5.9927 17.4056V13.4056L1.9997 9.41157ZM15.4397 22.8356L11.4127 18.8196H7.4127L20.4457 5.79757L15.4397 22.8356Z" fill="white" />
                             </g>
                         </svg>
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
-    </div>
+    </div> 
 
 </div>
 <script>
@@ -609,6 +638,127 @@
             .catch(error => console.error('Error al cargar información:', error));
     }
 
+    const recalcular = (url) => {
+
+        let codigoSAPCliente = document.getElementById("codigo-sap").value;
+
+        let tipoEntregaSelect = document.getElementById("tipoEntregaSelect");
+
+        let tipoEntregaSelectedValue = tipoEntregaSelect.options[tipoEntregaSelect.selectedIndex].value;
+
+        let tipoPagoSelect = document.getElementById("tipoPagoSelect");
+
+        let tipoPagoSelectedValue = tipoPagoSelect.options[tipoPagoSelect.selectedIndex].value;
+
+        let direccionEntregaSelect = document.getElementById("direccionEntregaSelect");
+
+        let direccionEntregaSelectedValue = direccionEntregaSelect.options[direccionEntregaSelect.selectedIndex].value;
+
+        let canalSelect = document.getElementById("canalSelect");
+
+        let canalSelectedValue = canalSelect.options[canalSelect.selectedIndex].value;
+
+
+        url = `${url}?codigoSAPCliente=${codigoSAPCliente}&codigoTipoEntrega=${tipoEntregaSelectedValue}&codigoTipoPago=${tipoPagoSelectedValue}&codigoSAPDireccionEntrega=${direccionEntregaSelectedValue}&canal=${canalSelectedValue}`
+
+        document.getElementById("table-productos-seleccionados").innerHTML = '<h1>Cargando información...</h1>';
+
+        fetch(url)
+            .then(response => response.text())
+            .then(html => {
+
+                document.getElementById("table-productos-seleccionados").innerHTML = html
+
+            })
+            .catch(error => console.error('Error al cargar información:', error));
+
+    }
+
+    const guardarBorrador = (url) => {
+
+        let codigoSAPCliente = document.getElementById("codigo-sap").value;
+
+        let tipoEntregaSelect = document.getElementById("tipoEntregaSelect");
+
+        let tipoEntregaSelectedValue = tipoEntregaSelect.options[tipoEntregaSelect.selectedIndex].value;
+
+        let tipoPagoSelect = document.getElementById("tipoPagoSelect");
+
+        let tipoPagoSelectedValue = tipoPagoSelect.options[tipoPagoSelect.selectedIndex].value;
+
+        let direccionEntregaSelect = document.getElementById("direccionEntregaSelect");
+
+        let direccionEntregaSelectedValue = direccionEntregaSelect.options[direccionEntregaSelect.selectedIndex].value;
+
+        let canalSelect = document.getElementById("canalSelect");
+
+        let canalSelectedValue = canalSelect.options[canalSelect.selectedIndex].value;
+
+
+        url = `${url}?codigoSAPCliente=${codigoSAPCliente}&codigoTipoEntrega=${tipoEntregaSelectedValue}&codigoTipoPago=${tipoPagoSelectedValue}&codigoSAPDireccionEntrega=${direccionEntregaSelectedValue}&canal=${canalSelectedValue}`
+
+        document.getElementById("table-productos-seleccionados").innerHTML = '<h1>Cargando información...</h1>';
+
+        fetch(url)
+            .then(response => response.text())
+            .then(html => {
+
+                document.getElementById("table-productos-seleccionados").innerHTML = html
+
+            })
+            .catch(error => console.error('Error al cargar información:', error));
+
+    }
+
+    const crearNuevoPedido = (url) => {
+
+        let codigoSAPCliente = document.getElementById("codigo-sap").value;
+
+        let fechaEntrega = document.getElementById("startDate").value;
+
+        let numeroOrdenCompra = document.getElementById("numero-orden-compra").value;
+
+        let contactoEntrega = document.getElementById("contacto-entrega").value;
+
+        let lugarEntrega = document.getElementById("lugar-entrega").value;
+
+        let observaciones = document.getElementById("observaciones").value;
+
+        let tipoEntregaSelect = document.getElementById("tipoEntregaSelect");
+
+        let tipoEntregaSelectedValue = tipoEntregaSelect.options[tipoEntregaSelect.selectedIndex].value;
+
+        let tipoPagoSelect = document.getElementById("tipoPagoSelect");
+
+        let tipoPagoSelectedValue = tipoPagoSelect.options[tipoPagoSelect.selectedIndex].value;
+
+        let direccionEntregaSelect = document.getElementById("direccionEntregaSelect");
+
+        let direccionEntregaSelectedValue = direccionEntregaSelect.options[direccionEntregaSelect.selectedIndex].value;
+
+        let canalSelect = document.getElementById("canalSelect");
+
+        let canalSelectedValue = canalSelect.options[canalSelect.selectedIndex].value;
+
+
+        url = `${url}?codigoSAPCliente=${codigoSAPCliente}&codigoTipoEntrega=${tipoEntregaSelectedValue}&codigoTipoPago=${tipoPagoSelectedValue}&codigoSAPDireccionEntrega=${direccionEntregaSelectedValue}&canal=${canalSelectedValue}
+                                                                                           &fechaEntrega=${fechaEntrega}&numeroOrdenCompra=${numeroOrdenCompra}&lugarEntrega=${lugarEntrega}&observaciones=${observaciones}&contactoEntrega=${contactoEntrega}`
+
+        console.log(url)
+
+        document.getElementById("table-productos-seleccionados").innerHTML = '<h1>Cargando información...</h1>';
+
+        fetch(url)
+            .then(response => response.text())
+            .then(html => {
+
+                document.getElementById("table-productos-seleccionados").innerHTML = html
+
+            })
+            .catch(error => console.error('Error al cargar información:', error));
+
+    }
+
     const inicializarTabla = () => {
         new DataTable('#tabla-listado-productos', {
             pagingType: 'simple_numbers', // Establece el tipo de paginación a simple_numbers
@@ -627,16 +777,48 @@
         });
     }
 
-    $(document).ready(getProductosByFamilia("/Asesor/GetProductosPorFamilia"));
+
+
+    $(document).ready(() => {
+        //return
+        getProductosByFamilia("/Asesor/GetProductosPorFamilia");
+
+
+    });
+
 
     function onSubmitAgregraFavorito(e, item, url) {
         e.preventDefault();
         let cantidad = e.target.elements.cantidadArticulo.value;
-        if(cantidad==='0')
+        if (cantidad === '0')
             return;
         //console.log(item);
         let urlCompleta = url + '?cantidadArticulo=' + encodeURIComponent(cantidad) + '&jsonArticulo=' + encodeURIComponent(item);
         fetch(urlCompleta)
+            .then(response => response.text())
+            .then(html => {
+
+                document.getElementById('tablaPedidosSeleccinoados').innerHTML = html;
+            })
+            .catch(error => console.error('Error al cargar información:', error));
+    }
+
+    const onSubmitAgregarPorFamilia = (idInputCantidad, codigoSAPArticulo, url, familia) => {
+
+        let cantidad = document.getElementById(idInputCantidad).value;
+
+        let familiaSelect = document.getElementById("familiaProductosSelect");
+
+        let familiaSelectedValue = familiaSelect.options[familiaSelect.selectedIndex].value;
+
+        console.log("entro a por familia con valor" + cantidad);
+
+        url = `${url}?cantidadArticulo=${cantidad}&codigoSAPArticulo=${codigoSAPArticulo}&familia=${familiaSelectedValue}`;
+
+        if (cantidad === '0')
+            return;
+
+        fetch(url)
             .then(response => response.text())
             .then(html => {
 

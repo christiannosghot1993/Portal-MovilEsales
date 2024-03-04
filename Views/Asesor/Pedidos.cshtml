@@ -41,6 +41,9 @@
                     </div>
                 </div>
             </div>
+
+           @*  <input type="hidden" value=@Model.procesoRespuesta.mensajeProceso id="mensaje-proceso-hidden"/> *@
+
             <div class="tab-content pt-3" id="myTabContent">
                 <div class="tab-pane fade show active" id="borradores-tab-pane" role="tabpanel" aria-labelledby="clientes-tab" tabindex="0">
 
@@ -1167,4 +1170,16 @@
             select.selectedIndex = 0; 
         });
     }
+
+    // $(document).ready(() => { 
+    
+    //     let mensajeRespuestaProceso = document.getElementById("mensaje-proceso-hidden").value;
+
+    //     // if(!mensajeRespuestaProceso.isNullOrEmpty){
+
+    //         alert(mensajeRespuestaProceso)
+    //     // }
+
+    // });
+
 </script>

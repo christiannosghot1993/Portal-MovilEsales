@@ -8,6 +8,7 @@
         public string familia { get; set; }
         public string unidad { get; set; }
         public int @base { get; set; }
-
+        public double descFactura { get; set; }
+        public double descNC { get; set; }
     }
 }

@@ -313,7 +313,7 @@ namespace Portal_MovilEsales.Services.AsesorServices
             return listaFamiliaProductos;
         }
 
-        public List<ProductoPorFamilia> getProductosPorFamilia(string token, string familiaNombre)
+        public ListadoProductosFavoritos getProductosPorFamilia(string token, string familiaNombre)
         {
             var client = new HttpClient();
 
@@ -324,7 +324,8 @@ namespace Portal_MovilEsales.Services.AsesorServices
             var jsonBody = JsonConvert.SerializeObject(new
             {
                 navegadorweb = "Microsoft Edge XXX",
-                familia = familiaNombre
+                familia = familiaNombre,
+                codigosapcliente = "0000090208"
             });
 
             var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
@@ -335,17 +336,17 @@ namespace Portal_MovilEsales.Services.AsesorServices
 
             string resultado = response.Content.ReadAsStringAsync().Result;
 
-            resultado = resultado.Replace("base", "baseProducto");
+            //resultado = resultado.Replace("base", "baseProducto");
 
             var resDynamic = JsonConvert.DeserializeObject<dynamic>(resultado);
 
-            List<ProductoPorFamilia> listaProductos;
+            ListadoProductosFavoritos listaProductos;
 
             if ((bool)resDynamic.success)
             {
-                string jsonInfo = JsonConvert.SerializeObject(resDynamic.result);
+                string jsonInfo = JsonConvert.SerializeObject(resDynamic);
 
-                listaProductos = JsonConvert.DeserializeObject<List<ProductoPorFamilia>>(jsonInfo);
+                listaProductos = JsonConvert.DeserializeObject<ListadoProductosFavoritos>(jsonInfo);
             }
             else
             {
@@ -442,7 +443,7 @@ namespace Portal_MovilEsales.Services.AsesorServices
         {
             var client = new HttpClient();
 
-            var request = new HttpRequestMessage(HttpMethod.Post, "https://esaleslatam.bekaert.com:9020/esalesapi/api/GuardarPedidoBorrador");
+            var request = new HttpRequestMessage(HttpMethod.Post, "https://esaleslatam.bekaert.com:9020/esalesapi/api/GuardaPedidoBorrador");
 
             request.Headers.Add("Authorization", "Bearer " + token);
 
