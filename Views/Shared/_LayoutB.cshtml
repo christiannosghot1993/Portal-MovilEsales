@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Portal_MovilEsales</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    @* <link href="~/lib/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet" /> *@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/layoutB.css" />
     <link rel="stylesheet" href="~/css/Collapsible.css" />
@@ -15,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <!-- DataTables CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
     <!-- jQuery (asegúrate de tener la última versión) -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -165,8 +167,13 @@
 
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    @* <script src="~/lib/sweetalert2/dist/sweetalert2.all.min.js"></script> *@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
     <script>

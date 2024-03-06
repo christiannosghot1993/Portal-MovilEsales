@@ -2,6 +2,9 @@
 {
     public class ProductosNuevoPedido
     {
+        
+        public string numeroRegistro {  get; set; }
+
         public bool bloqueado { get; set; } = false;
 
         public string codigo { get; set; }
@@ -24,8 +27,8 @@
 
         public string cantidad {  get; set; }
 
-        public bool aFinMes { get; set; }
-        
-        public bool aFamilia { get; set; }
+        public bool aFinMes { get; set; } = false;
+
+        public bool aFamilia { get; set; } = false;
     }
 }

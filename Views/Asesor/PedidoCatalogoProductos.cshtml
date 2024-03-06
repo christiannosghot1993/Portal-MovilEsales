@@ -306,14 +306,27 @@
                             {
 
                             }*@
+                           @*  <div class="row-cols-2"> *@
+                                <form class="row" onsubmit="handleSubmitCodigoArticulo(event,'@Url.Action("BuscarProductoCodigoSap", "Asesor")')">
+                                   
 
-                            <form onsubmit="handleSubmitCodigoArticulo(event,'@Url.Action("BuscarProductoCodigoSap", "Asesor")')">
-                                <div class="form-group mt-3 mb-3">
-                                    <label class="label-datepicker" for="codigoSapSelector">Ingrese código de artículo</label>
-                                    <input type="text" id="codigoSapSelector" name="codigoArticulo" class="form-control datepicker" placeholder="0000000000" />
-                                </div>
-                            </form>
+                                    <div class="col-12 col-md-6">
+                                        <label class="label-datepicker" for="codigoSapSelector">Código del artículo</label>
+                                        <input type="text" id="codigoSapSelector" name="codigoArticulo" class="form-control datepicker" placeholder="0000000000" />
+                                    </div>
 
+                                    <div class="col-12 col-md-6">
+                                        <label class="label-datepicker" for="codigoSapSelector">Cantidad</label>
+                                    <input type="number" min="1 " step="1" id="codigoSapCantidadSelector" name="codigoArticuloCantidad" class="form-control datepicker" />
+                                    </div>
+
+                                <button type="submit" style="background: none; border: none;">
+                                    <a class="orange-rounded-button" style="display:flex; justify-content: center; align-items:center; background-color: #01ADEF;">
+                                        Agregar
+                                    </a>
+                                </button>
+                                </form>
+                            @* </div> *@
                         </div>
                         <div class="favoritos" style="display: none;">
                             <div class="table-responsive table-container pt-3" style="max-height: 305px;">
@@ -331,7 +344,7 @@
                                         {
                                             <form onsubmit="onSubmitAgregraFavorito(event, '@{
 
-                                                                @JsonConvert.SerializeObject(item)
+                                                                                    @JsonConvert.SerializeObject(item)
 ;
 }', '@Url.Action("SeleccionarArticuloFavorito", "Asesor")')">
                                             <tr>
@@ -401,7 +414,7 @@
                 </a>
 
                 <div class="collapse show mb-5" id="collapseInformacionProductos">
-                   
+
 
                     <div class="modal fade" id="modalStock" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-xl">
@@ -558,19 +571,62 @@
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
+
+    <button onclick="showAlert('dw','fw','dwd')">Show Alert</button>
 
 </div>
 <script>
+
+    // function handleSubmitCodigoArticulo(e, url) {
+    //     e.preventDefault();
+    //     let codigoArticulo = e.target.elements.codigoArticulo.value;
+    //     let cantidadArticulo = "7"
+    //     let codigoSapCliente = document.getElementById('codigo-sap').value;
+    //     console.log("fwef")
+    //     if (isNullOrEmpty(codigoSapCliente)) {
+    //         alert('Por favor ingrese el Código SAP del cliente en el apartado "Información del pedido"');
+    //         return;
+    //     }
+    //     var urlCompleta = url + '?codigoSapCliente=' + encodeURIComponent(codigoSapCliente) + '&codigoArticulo=' + encodeURIComponent(codigoArticulo) + '&cantidadArticulo=' + encodeURIComponent(cantidadArticulo);
+    //     console.log(urlCompleta)
+    //     // Realizar la solicitud AJAX
+    //     fetch(urlCompleta)
+    //         .then(response => response.text())
+    //         .then(html => {
+    //             console.log(html); // Verifica la respuesta en la consola
+
+    //             //document.getElementById('tablaPedidosSeleccinoados').innerHTML = html;
+    //             document.getElementById('table-productos-seleccionados').innerHTML = html;
+                
+
+    //         })
+    //         .catch(error => console.error('Error al cargar información:', error));
+    //     console.log(codigoArticulo, codigoSapCliente,cantidadArticulo)
+    // }
+
     function handleSubmitCodigoArticulo(e, url) {
         e.preventDefault();
         let codigoArticulo = e.target.elements.codigoArticulo.value;
+        let cantidadArticulo = e.target.elements.codigoArticuloCantidad.value;
         let codigoSapCliente = document.getElementById('codigo-sap').value;
+        console.log("fwef")
         if (isNullOrEmpty(codigoSapCliente)) {
             alert('Por favor ingrese el Código SAP del cliente en el apartado "Información del pedido"');
             return;
         }
-        var urlCompleta = url + '?codigoSapCliente=' + encodeURIComponent(codigoSapCliente) + '&codigoArticulo=' + encodeURIComponent(codigoArticulo);
+
+        if (isNullOrEmpty(codigoArticulo)) {
+            alert('Por favor ingrese el código del articulo');
+            return;
+        }
+
+        if (isNullOrEmpty(cantidadArticulo)) {
+            alert('Por favor ingrese una cantidad para el artículo a ingresar');
+            return;
+        }
+        var urlCompleta = url + '?codigoSapCliente=' + encodeURIComponent(codigoSapCliente) + '&codigoArticulo=' + encodeURIComponent(codigoArticulo) + '&cantidadArticulo=' + encodeURIComponent(cantidadArticulo);
+        console.log(urlCompleta)
         // Realizar la solicitud AJAX
         fetch(urlCompleta)
             .then(response => response.text())
@@ -578,14 +634,47 @@
                 console.log(html); // Verifica la respuesta en la consola
 
                 document.getElementById('tablaPedidosSeleccinoados').innerHTML = html;
+                //document.getElementById('table-productos-seleccionados').innerHTML = html;
+
 
             })
             .catch(error => console.error('Error al cargar información:', error));
-        console.log(codigoArticulo, codigoSapCliente)
+        console.log(codigoArticulo, codigoSapCliente, cantidadArticulo)
     }
+
+    // const handleAddArticuloPorCodigo = () =>{
+
+    //     let codigoArticulo = document.getElementById('codigoSapSelector').value;
+
+    //     let cantidadArticulo = document.getElementById('codigoSapCantidadSelector').value;
+
+    //     let codigoSapCliente = document.getElementById('codigo-sap').value;
+
+    //     console.log("fwef")
+
+    //     if (isNullOrEmpty(codigoSapCliente)) {
+    //         alert('Por favor ingrese el Código SAP del cliente en el apartado "Información del pedido"');
+    //         return;
+    //     }
+    //     var urlCompleta = url + '?codigoSapCliente=' + encodeURIComponent(codigoSapCliente) + '&codigoArticulo=' + encodeURIComponent(codigoArticulo) + '&cantidadArticulo=' + encodeURIComponent(cantidadArticulo);
+        
+    //     fetch(urlCompleta)
+    //         .then(response => response.text())
+    //         .then(html => {
+    //             console.log(html); /
+
+    //             document.getElementById('tablaPedidosSeleccinoados').innerHTML = html;
+
+    //         })
+    //         .catch(error => console.error('Error al cargar información:', error));
+
+    //     console.log(codigoArticulo, codigoSapCliente)
+    // }
+
     function isNullOrEmpty(str) {
         return str == null || str.trim() === '';
     }
+
     function showContent(contentId) {
         // Oculta todos los contenidos
         document.querySelectorAll('.contenido-radio > div').forEach(div => {
@@ -705,6 +794,8 @@
 
                 document.getElementById("table-productos-seleccionados").innerHTML = html
 
+                showAlert("Proceso exitoso", "", "success");
+
             })
             .catch(error => console.error('Error al cargar información:', error));
 
@@ -742,7 +833,7 @@
 
 
         url = `${url}?codigoSAPCliente=${codigoSAPCliente}&codigoTipoEntrega=${tipoEntregaSelectedValue}&codigoTipoPago=${tipoPagoSelectedValue}&codigoSAPDireccionEntrega=${direccionEntregaSelectedValue}&canal=${canalSelectedValue}
-                                                                                           &fechaEntrega=${fechaEntrega}&numeroOrdenCompra=${numeroOrdenCompra}&lugarEntrega=${lugarEntrega}&observaciones=${observaciones}&contactoEntrega=${contactoEntrega}`
+                                                                                                           &fechaEntrega=${fechaEntrega}&numeroOrdenCompra=${numeroOrdenCompra}&lugarEntrega=${lugarEntrega}&observaciones=${observaciones}&contactoEntrega=${contactoEntrega}`
 
         console.log(url)
 
@@ -754,38 +845,15 @@
 
                 document.getElementById("table-productos-seleccionados").innerHTML = html
 
+                let mensajeProceso = "@ViewBag.MensajeProceso";
+
+                showAlert("Proceso exitoso", mensajeProceso, "Aceptar");
+
             })
             .catch(error => console.error('Error al cargar información:', error));
-
     }
 
-    const inicializarTabla = () => {
-        new DataTable('#tabla-listado-productos', {
-            pagingType: 'simple_numbers', // Establece el tipo de paginación a simple_numbers
-            searching: false,
-            ordering: false,
-            info: false,
-            lengthChange: false,
-            pageLength: 5, // Establecer el número de elementos por página a 5
-            dom: 'lrtip', // Define la disposición de los elementos de la tabla
-            language: {
-                paginate: {
-                    previous: '<',
-                    next: '>'
-                }
-            }
-        });
-    }
-
-
-
-    $(document).ready(() => {
-        //return
-        getProductosByFamilia("/Asesor/GetProductosPorFamilia");
-
-
-    });
-
+    $(document).ready(() => { getProductosByFamilia("/Asesor/GetProductosPorFamilia"); });
 
     function onSubmitAgregraFavorito(e, item, url) {
         e.preventDefault();
@@ -826,5 +894,51 @@
             })
             .catch(error => console.error('Error al cargar información:', error));
     }
+
+    const onChangeValueControl = (idCbEntrega, idTxtDescFactura, idTxtDescNC, idTxtCantidad, idChbAFamilia, idChbAFinMes, codigoSAPArticulo, numeroRegistro, url) => {
+
+        let entregaSelect = document.getElementById(idCbEntrega);
+
+        let entregaSelectedValue = entregaSelect.options[entregaSelect.selectedIndex].value;
+
+        let descFactura = document.getElementById(idTxtDescFactura).value;
+
+        let descNc = document.getElementById(idTxtDescNC).value;
+
+        let cantidad = document.getElementById(idTxtCantidad).value;
+
+        let aFinMes = document.getElementById(idChbAFinMes).checked ? "S" : "N";
+
+        let aFamilia = document.getElementById(idChbAFamilia).checked ? "S" : "N";
+
+        console.log("entro a inchange" + document.getElementById(idChbAFinMes).checked);
+
+        url = `${url}?codigoSAPArticulo=${codigoSAPArticulo}&numeroRegistro=${numeroRegistro}&entrega=${entregaSelectedValue}&descFactura=${descFactura}&descNc=${descNc}&cantidad=${cantidad}&aFinMes=${aFinMes}&aFamilia=${aFamilia}`;
+
+        console.log(url);
+
+        fetch(url)
+            .then(response => response.text())
+            .then(html => {
+
+                document.getElementById('tablaPedidosSeleccinoados').innerHTML = html;
+            })
+            .catch(error => console.error('Error al cargar información:', error));
+    }
+
+    const showAlert = (title, message, type) => {
+        Swal.fire({
+            title: title,
+            text: message,
+            showDenyButton: false,
+            showCancelButton: false,
+            confirmButtonText: "Aceptar",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                console.log("se presiono")
+            }
+        });
+    }
+
 
 </script>
