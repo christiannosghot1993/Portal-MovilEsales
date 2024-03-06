@@ -42,7 +42,8 @@
                 <thead class="card-table_header">
                     <tr>
                         @*<th scope="col" class="border-radius-left" style="padding:13px;">Bloq.</th>*@
-                        <th scope="col" class="border-radius-left" style="padding:13px;">Código</th>
+                        <th scope="col" class="border-radius-left" style="padding:13px;">N°</th>
+                        <th scope="col" style="padding:13px">Código</th>
                         <th scope="col" style="padding:13px">Descripción</th>
                         <th scope="col" style="padding:13px;">Entrega</th>
                         <th scope="col" style="padding:13px;">Unidad</th>
@@ -68,16 +69,47 @@
                 </div>
                 </div>
                 </td>*@
-
+                            <td>@item.numeroRegistro</td>
                             <td>@item.codigo</td>
                             <td>
                                 <span style="white-space:pre-wrap">@item.descripcion</span>
                             </td>
+
+                            @{
+                                var codigoSAPArticulo = item.codigo;
+
+                                var numeroRegistro = item.numeroRegistro;
+
+                                var idCbEntrega = $"cb-entrega-productos-seleccionados-{codigoSAPArticulo}-{numeroRegistro}";
+
+                                var idTxtDescFactura = $"txt-desc-fac-productos-seleccionados-{codigoSAPArticulo}-{numeroRegistro}";
+
+                                var idTxtDescNC = $"txt-desc-nc-productos-seleccionados-{codigoSAPArticulo}-{numeroRegistro}";
+
+                                var idTxtCantidad = $"txt-cantidad-productos-seleccionados-{codigoSAPArticulo}-{numeroRegistro}";
+
+                                var idChbAFamilia = $"chb-a-familia-productos-seleccionados-{codigoSAPArticulo}-{numeroRegistro}";
+
+                                var idChbAFinMes = $"chb-a-fin-mes-productos-seleccionados-{codigoSAPArticulo}-{numeroRegistro}";
+
+                                var funcionOnChange = $"onChangeValueControl('{idCbEntrega}','{idTxtDescFactura}','{idTxtDescNC}','{idTxtCantidad}','{idChbAFamilia}','{idChbAFinMes}','{codigoSAPArticulo}','{numeroRegistro}','{Url.Action("ActualizarTablaProductosSeleccionados", "Asesor")}')";
+                            }
+
                             <td>
                                 <div class="form-group">
-                                    <select class="form-control datepicker" id="entregaSelect">
-                                        <option value="option1">q01</option>
-                                        <option value="option2">q02</option>
+                                    <select class="form-control datepicker" id=@idCbEntrega onchange=@funcionOnChange>
+                                        @foreach (var tipoEntrega in item.listadoTipoEntregas)
+                                        {
+                                            @if (tipoEntrega.porDefecto is "S")
+                                            {
+                                                <option value=@tipoEntrega.codigoTipoEntrega selected>@tipoEntrega.descripcionTipoEntrega</option>
+                                            }
+                                            else
+                                            {
+                                                <option value=@tipoEntrega.codigoTipoEntrega>@tipoEntrega.descripcionTipoEntrega</option>
+                                            }
+                                        }
+
                                     </select>
                                 </div>
                             </td>
@@ -89,12 +121,18 @@
                             </td>
                             <td>
                                 <div class="form-group">
-                                    <input class="form-control datepicker" id="descFact" type="text" value="20%" />
+                                    <input class="form-control datepicker" id=@idTxtDescFactura type="number" value=@item.descFac onchange=@funcionOnChange />
+                                    <div style="display:flex;">
+                                        %
+                                    </div>
                                 </div>
                             </td>
                             <td>
                                 <div class="form-group">
-                                    <input class="form-control datepicker" id="descNc" type="text" value="2%" />
+                                    <input class="form-control datepicker" id=@idTxtDescNC type="number" value=@item.descNc onchange=@funcionOnChange />
+                                    <div style="display:flex;">
+                                      %
+                                    </div>
                                 </div>
                             </td>
                             <td>
@@ -104,12 +142,13 @@
                                 $ 50.00
                             </td>
                             <td>
-                                <div class="mt-2 button-up-down" style="color: #FF602C;">
-                                    <a>-</a>
-                                    <div>
-                                        <strong>@item.cantidad</strong> U
-                                    </div>
-                                    <a>+</a>
+                                @*<div class="mt-2 button-up-down" style="color: #FF602C">*@
+                                <div class="form-group">
+                                    @*<a>-</a>*@
+                                    @*<div>*@
+                                    <input class="form-control datepicker" value=@item.cantidad type="number" id=@idTxtCantidad onchange=@funcionOnChange /> U
+                                    @*</div>*@
+                                    @*<a>+</a>*@
                                 </div>
                             </td>
                             <td>
@@ -128,14 +167,29 @@
                             <td>
                                 <div class="d-flex justify-content-center">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        @if (item.aFinMes)
+                                        {
+                                            <input checked class="form-check-input" type="checkbox" id=@idChbAFinMes onchange=@funcionOnChange />
+                                        }
+                                        else
+                                        {
+                                            <input class="form-check-input" type="checkbox" id=@idChbAFinMes onchange=@funcionOnChange />
+                                        }
+
                                     </div>
                                 </div>
                             </td>
                             <td>
                                 <div class="d-flex justify-content-center">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        @if (item.aFamilia)
+                                        {
+                                            <input checked class="form-check-input" type="checkbox" id=@idChbAFamilia onchange=@funcionOnChange />
+                                        }
+                                        else
+                                        {
+                                            <input class="form-check-input" type="checkbox" id=@idChbAFamilia onchange=@funcionOnChange />
+                                        }
                                     </div>
                                 </div>
                             </td>
@@ -146,14 +200,8 @@
                 </tbody>
             </table>
 
-            @if (!string.IsNullOrEmpty(ViewBag.MensajeProceso))
-            {
-                <div style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);z-index: 9999;">
-                    <dialog open>
-                        @ViewBag.MensajeProceso
-                    </dialog>
-                </div>
-            }
+
+            <input value=@ViewBag.MensajeProceso type="hidden" id="mesajeProcesoHidden" />
 
             <div class="d-flex justify-content-center justify-content-md-end">
                 <div class="subtotales-container">
