@@ -9,6 +9,7 @@ using Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido.GuardarP
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido.ProcesoFrujoAprobacion;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido.SimulacionPedido;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.PedidoAprobado;
+using Portal_MovilEsales.Services.AsesorServices.ViewModels.ProductoExcel;
 using System.Text;
 
 namespace Portal_MovilEsales.Services.AsesorServices
@@ -503,6 +504,30 @@ namespace Portal_MovilEsales.Services.AsesorServices
                 procesoFlujoAprobacion = new ProcesoFlujoAprobacion();
             }
             return procesoFlujoAprobacion;
+        }
+
+        public ProductoExcel getProductosExcel(string token, ProductoExcelRequest listadoProductos)
+        {
+            var client = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Post, "https://esaleslatam.bekaert.com:9020/esalesapi/api/ValidaExcel");
+            request.Headers.Add("Authorization", "Bearer "+token);
+            var content = new StringContent(JsonConvert.SerializeObject(listadoProductos), null, "application/json");
+            request.Content = content;
+            var response = client.Send(request);
+
+            string resultado = response.Content.ReadAsStringAsync().Result;
+            var resDynamic = JsonConvert.DeserializeObject<dynamic>(resultado);
+            ProductoExcel productosExcel;
+            if ((bool)resDynamic.success)
+            {
+                string jsonInfo = JsonConvert.SerializeObject(resDynamic);
+                productosExcel = JsonConvert.DeserializeObject<ProductoExcel>(jsonInfo);
+            }
+            else
+            {
+                productosExcel = new ProductoExcel();
+            }
+            return productosExcel;
         }
     }
 }

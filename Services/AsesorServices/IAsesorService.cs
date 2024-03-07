@@ -10,6 +10,7 @@ using Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido.GuardarP
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido.ProcesoFrujoAprobacion;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido.SimulacionPedido;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.PedidoAprobado;
+using Portal_MovilEsales.Services.AsesorServices.ViewModels.ProductoExcel;
 
 namespace Portal_MovilEsales.Services.AsesorServices
 {
@@ -31,5 +32,6 @@ namespace Portal_MovilEsales.Services.AsesorServices
         public SimulacionPedido getSimulacionPedido(string token, string parametrosPeticion);
         public GuardarPedidoBorrador postGuardarPedidoBorrador(string token, string parametrosPeticion);
         public ProcesoFlujoAprobacion postProcesoFlujoAprobacion(string token, string parametrosPeticion);
+        public ProductoExcel getProductosExcel(string token, ProductoExcelRequest prod);
     }
 }

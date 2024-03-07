@@ -296,10 +296,17 @@
                             </div>*@
                         </div>
                         <div class="archivo" style="display: none;">
-                            <div class="form-group mt-3 mb-3">
-                                <label class="label-datepicker" for="archivoSelector">Seleccione el Archivo - Formato Excel</label>
-                                <input type="file" id="archivoSelector" class="form-control datepicker" />
-                            </div>
+                            <form class="form-group mt-3 mb-3" method="post" enctype="multipart/form-data" onsubmit="handleSubmitExcel(event, '@Url.Action("SubirExcelProductos", "Asesor")')" >
+                                <div class="row">
+                                    <div class="col-12 col-md-10">
+                                        <label class="label-datepicker" for="archivoSelector">Seleccione el Archivo - Formato Excel</label>
+                                        <input type="file" id="archivoSelector" name="file" class="form-control datepicker" />                                  
+                                    </div>
+                                    <div class="col-12 col-md-2 mt-md-4 mt-2">
+                                        <button type="submit" class="orange-rounded-button ms-1"  style="background-color:#01ADEF   !important;">Subir</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                         <div class="codigo-sap" style="display: none;">
                             @* @using (Html.BeginForm("BuscarProductoCodigoSap", "Asesor", FormMethod.Post))
@@ -604,6 +611,29 @@
     //         .catch(error => console.error('Error al cargar información:', error));
     //     console.log(codigoArticulo, codigoSapCliente,cantidadArticulo)
     // }
+    function handleSubmitExcel(e, url) {
+        e.preventDefault();
+
+        var formData = new FormData(); // Crear un objeto FormData para recopilar los datos del formulario
+        formData.append('file', document.getElementById('archivoSelector').files[0]); // Agregar el archivo seleccionado al FormData
+
+        // Realizar la solicitud AJAX
+        fetch(url, {
+            method: 'POST',
+            body: formData// Pasar el FormData como cuerpo de la solicitud
+        })
+            .then(response => response.text())
+            .then(html => {
+                //console.log(html); // Verifica la respuesta en la consola
+
+                document.getElementById('tablaPedidosSeleccinoados').innerHTML = html;
+                //document.getElementById('table-productos-seleccionados').innerHTML = html;
+
+
+            })
+            .catch(error => console.error('Error al cargar información:', error));
+        console.log(codigoArticulo, codigoSapCliente, cantidadArticulo)
+    }
 
     function handleSubmitCodigoArticulo(e, url) {
         e.preventDefault();
