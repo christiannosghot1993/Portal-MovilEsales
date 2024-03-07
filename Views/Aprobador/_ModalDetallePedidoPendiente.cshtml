@@ -83,27 +83,33 @@
                     <div class="col-12 col-md-7">
                         <div class="row">
                             <div class="col-12 col-md-6">
-                                <div class="row">
-                                    <label class="label-datepicker">Descuentos</label>
-                                    <div>
-                                        <input type="radio" id="descuentoAprobarOpcion" name="descuentos" value="descuentoAprobar" />
-                                        <label class="label-datepicker" for="descuentoAprobarOpcion">Aprobar</label>
-                                        <input type="radio" id="descuentoRechazarOpcion" name="descuentos" value="descuentoRechazar" />
-                                        <label class="label-datepicker" for="descuentoRechazarOpcion">Rechazar</label>
+                                @if (Model.detallePedidoPendiente.muestraDescuentos is "Si")
+                                {
+                                    <div class="row">
+                                        <label class="label-datepicker">Descuentos</label>
+                                        <div>
+                                            <input type="radio" id="descuentoAprobarOpcion" name="descuentos" value="descuentoAprobar" />
+                                            <label class="label-datepicker" for="descuentoAprobarOpcion">Aprobar</label>
+                                            <input type="radio" id="descuentoRechazarOpcion" name="descuentos" value="descuentoRechazar" />
+                                            <label class="label-datepicker" for="descuentoRechazarOpcion">Rechazar</label>
+                                        </div>
                                     </div>
-                                </div>
+                                }
 
                             </div>
                             <div class="col-12 col-md-6">
-                                <div class="row">
-                                    <label class="label-datepicker">C.E.</label>
-                                    <div>
-                                        <input type="radio" id="ceAprobarOpcion" name="ce" value="ceAprobar" />
-                                        <label class="label-datepicker" for="ceAprobarOpcion">Aprobar</label>
-                                        <input type="radio" id="ceRechazarOpcion" name="ce" value="ceRechazar" />
-                                        <label class="label-datepicker" for="ceRechazarOpcion">Rechazar</label>
+                                @if (Model.detallePedidoPendiente.muestraCondicionesEspeciales is "Si")
+                                {
+                                    <div class="row">
+                                        <label class="label-datepicker">C.E.</label>
+                                        <div>
+                                            <input type="radio" id="ceAprobarOpcion" name="ce" value="ceAprobar" />
+                                            <label class="label-datepicker" for="ceAprobarOpcion">Aprobar</label>
+                                            <input type="radio" id="ceRechazarOpcion" name="ce" value="ceRechazar" />
+                                            <label class="label-datepicker" for="ceRechazarOpcion">Rechazar</label>
+                                        </div>
                                     </div>
-                                </div>
+                                }
                             </div>
                         </div>
                     </div>
@@ -194,26 +200,24 @@
                             <div class="d-flex justify-content-end align-items-end pt-2">
 
                                 <p>
-                                    El valor de NC (Sin IVA) es de:$34.37 sobre un total
-                                    de $1.085,56 lo que correspondea un porcentaje de: 3.17%
+                                    @Model.detallePedidoPendiente.mensajeNotaCredito
                                 </p>
 
                             </div>
 
-                            <div class="row">
-                                <label class="label-datepicker">Nota de Crédito</label>
-                                <div>
-                                    <input type="radio" id="notaCreditoAprobarOpcion" name="notaCredito" value="notaCreditoAprobar" />
-                                    <label class="label-datepicker" for="notaCreditoAprobarOpcion">Aprobar</label>
-                                    <input type="radio" id="notaCreditoRechazarOpcion" name="notaCredito" value="notaCreditoRechazar" />
-                                    <label class="label-datepicker" for="notaCreditoRechazarOpcion">Rechazar</label>
+                            @if (Model.detallePedidoPendiente.muestraNotaCredito is "Si")
+                            {
+                                <div class="row">
+                                    <label class="label-datepicker">Nota de Crédito</label>
+                                    <div>
+                                        <input type="radio" id="notaCreditoAprobarOpcion" name="notaCredito" value="notaCreditoAprobar" />
+                                        <label class="label-datepicker" for="notaCreditoAprobarOpcion">Aprobar</label>
+                                        <input type="radio" id="notaCreditoRechazarOpcion" name="notaCredito" value="notaCreditoRechazar" />
+                                        <label class="label-datepicker" for="notaCreditoRechazarOpcion">Rechazar</label>
+                                    </div>
                                 </div>
-                            </div>
-
+                            }
                         </div>
-
-
-
 
                     </div>
 
@@ -352,7 +356,7 @@
                                 <label class="pe-md-2 ps-md-5">$</label>
                                 <div class="subtotal-value">
                                     <label class="d-flex justify-content-end">
-                                        Preguntar por valor
+                                        Sin valor
                                     </label>
                                 </div>
                             </div>
