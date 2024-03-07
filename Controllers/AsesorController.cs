@@ -13,11 +13,13 @@ namespace Portal_MovilEsales.Controllers
     [Authorize]
     public class AsesorController : Controller
     {
-        private IAsesorService _asesorService;
+        private readonly IAsesorService _asesorService;
+
         public AsesorController(IAsesorService asesorService)
         {
             _asesorService = asesorService;
         }
+
         public IActionResult Index()
         {
             var token = HttpContext.Session.GetString("token");
