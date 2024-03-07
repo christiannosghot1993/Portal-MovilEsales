@@ -1,0 +1,384 @@
+﻿
+<div class="modal-dialog modal-xl">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title card-title" id="exampleModalLabel">
+                Pedido Pendiente de Aprobación
+            </h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="row mb-3">
+                <div class="col-md-2" style="font-weight: bold;">Cliente:</div>
+                <div class="col-md-3">@Model.detallePedidoPendiente.nombreCliente</div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-2" style="font-weight: bold;">Orden:</div>
+                <div class="col-md-3">@Model.detallePedidoPendiente.numeroOrden</div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-2" style="font-weight: bold;">Forma de Pago:</div>
+                <div class="col-md-3">@Model.detallePedidoPendiente.formaPago</div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-2" style="font-weight: bold;">Peso total pedido:</div>
+                <div class="col-md-3">@Model.detallePedidoPendiente.totalPeso</div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-2" style="font-weight: bold;">Observación:</div>
+                <div class="col-md-3">@Model.detallePedidoPendiente.observacion</div>
+            </div>
+            @*<div class="col-md-3" style="font-weight: bold;">Orden:</div>
+            <div class="col-md-3">1/10/2023 3:59:02 PM</div>
+            <div class="col-md-3" style="font-weight: bold;">Forma de Pago:</div>
+            <div class="col-md-3">Net, at 30 date of invoice</div>
+            <div class="col-md-3" style="font-weight: bold;">Numero de Orden:</div>
+            <div class="col-md-3">23458</div>
+            <div class="col-md-3" style="font-weight: bold;">Dirección de Entrega:</div>
+            <div class="col-md-3">000133490. CR 18 28 23 BRR GIRARDOT</div>
+            <div class="col-md-3" style="font-weight: bold; color: #FF602C;">Aprobado</div>
+            <div class="col-md-3"></div>
+            <div class="col-md-3" style="font-weight: bold;">Total Peso Pedido:</div>
+            <div class="col-md-3">9000.0000 (Kg)</div>
+            <div class="col-md-3" style="font-weight: bold;">Numero de Orden SAP:</div>
+            <div class="col-md-3">3901158088</div>
+            <div class="col-md-3" style="font-weight: bold;">Observación:</div>
+            <div class="col-md-3">(SandraMonal): Despachar semana del 23 de Enero 2023 (JennyHernandez):</div>
+            <div class="col-md-3" style="font-weight: bold;">Fecha de Entrega</div>
+            <div class="col-md-3">2023-01-23</div>
+            <div class="col-md-3" style="font-weight: bold;">Contacto:</div>
+            <div class="col-md-9">-</div>
+            <div class="col-md-3" style="font-weight: bold;">Dirección:</div>
+            <div class="col-md-9">-</div>*@
+
+            <a data-bs-toggle="collapse" href="#collapseInformacionPedido" role="button" aria-expanded="true" aria-controls="collapseInformacionPedido">
+                <div class="collapsible-tabs">
+                    <div class="label">
+                        <div class="label-color-wrapper">
+                            <div class="label-color"><div class="text" style="font-weight: bold;">Orden de Compra - 123456</div></div>
+                        </div>
+                        <div class="chevron">
+                            <svg width="23" height="14" viewBox="0 0 23 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="&#240;&#159;&#166;&#134; icon &#34;chevron down&#34;">
+                                    <path id="Vector" d="M1.5 2L11.5 12L21.5 2" stroke="#D7D2CB" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <div class="collapse show mb-4" id="collapseInformacionPedido">
+
+                <div class="row">
+
+                    <div class="col-12 col-md-5">
+                    </div>
+
+                    <div class="col-12 col-md-7">
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <div class="row">
+                                    <label class="label-datepicker">Descuentos</label>
+                                    <div>
+                                        <input type="radio" id="descuentoAprobarOpcion" name="descuentos" value="descuentoAprobar" />
+                                        <label class="label-datepicker" for="descuentoAprobarOpcion">Aprobar</label>
+                                        <input type="radio" id="descuentoRechazarOpcion" name="descuentos" value="descuentoRechazar" />
+                                        <label class="label-datepicker" for="descuentoRechazarOpcion">Rechazar</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="row">
+                                    <label class="label-datepicker">C.E.</label>
+                                    <div>
+                                        <input type="radio" id="ceAprobarOpcion" name="ce" value="ceAprobar" />
+                                        <label class="label-datepicker" for="ceAprobarOpcion">Aprobar</label>
+                                        <input type="radio" id="ceRechazarOpcion" name="ce" value="ceRechazar" />
+                                        <label class="label-datepicker" for="ceRechazarOpcion">Rechazar</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-responsive table-container">
+                    <table class="table">
+                        <thead class="card-table_header">
+                            <tr>
+                                <th scope="col" class="border-radius-left" style="padding:13px;">Artículo</th>
+                                <th scope="col" style="padding:13px;">Descripción</th>
+                                <th scope="col" style="padding:13px;">PSV</th>
+                                <th scope="col" style="padding:13px;">Cant.</th>
+                                <th scope="col" style="padding:13px;">Peso Kg.</th>
+                                <th scope="col" style="padding:13px;">Desc. Base</th>
+                                <th scope="col" style="padding:13px;">Desc. Fac</th>
+                                <th scope="col" style="padding:13px;">Desc. NC</th>
+                                <th scope="col" style="padding:13px;">%Desc. desde PVS</th>
+                                <th scope="col" style="padding:13px;">Precio Final</th>
+                                <th scope="col" style="padding:13px;">Estado</th>
+                                <th scope="col" style="padding:13px;">Todo el Mes</th>
+                                <th scope="col" style="padding:13px;">Familia</th>
+                                <th scope="col" style="padding:13px;">Margen %</th>
+                                <th scope="col" style="padding:13px;">Margen $</th>
+                                <th scope="col" class="border-radius-right" style="padding:13px;">CAT.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var producto in Model.detallePedidoPendiente.detallePedido)
+                            {
+                                var colorRow = producto.colorlinea switch
+                                {
+                                    "Verde" => "row-detail-verde",
+                                    "Amarillo" => "row-detail-amarillo",
+                                    "Rojo" => "row-detail-rojo",
+                                    _ => "row-detail-default"
+                                };
+
+                                var classRow = $"{colorRow}";
+
+                                <tr class=@classRow>
+                                    <td>@producto.codigoSAP</td>
+                                    <td>@producto.nombreProducto</td>
+                                    <td>@producto.precioPVS</td>
+                                    <td>@producto.cantidad</td>
+                                    <td>@producto.peso</td>
+                                    <td>@producto.descBase%</td>
+                                    <td>@producto.descFactura</td>
+                                    <td>@producto.descNotaCredito%</td>
+                                    <td>@producto.descDesdePVS%</td>
+                                    <td>$@producto.precioFinal</td>
+                                    <td>@producto.estado</td>
+                                    <td>@producto.aplicaMes</td>
+                                    <td>@producto.aplicaFamilia</td>
+                                    <td>@producto.margenPorcentaje%</td>
+                                    <td>$@producto.margenValor</td>
+                                    <td>@producto.familia</td>
+                                </tr>
+                            }
+                            @*  <tr style="background-color: red;">
+                            <td>187934</td>
+                            <td>AL. RECOCIDO 1,25MM #18 R20KG</td>
+                            <td>160.984,00</td>
+                            <td>100</td>
+                            <td>1350</td>
+                            <td>33,000%</td>
+                            <td>150.80</td>
+                            <td>0,000%</td>
+                            <td>38,36%</td>
+                            <td>$99.230,54</td>
+                            <td>Pendiente</td>
+                            <td>Sí</td>
+                            <td>Sí</td>
+                            <td>29,824%</td>
+                            <td>$2´959.230,01</td>
+                            <td>A</td>
+                            </tr> *@
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-12 col-md-6 d-flex justify-content-center align-items-md-center">
+
+                        <div class="row">
+                            <div class="d-flex justify-content-end align-items-end pt-2">
+
+                                <p>
+                                    El valor de NC (Sin IVA) es de:$34.37 sobre un total
+                                    de $1.085,56 lo que correspondea un porcentaje de: 3.17%
+                                </p>
+
+                            </div>
+
+                            <div class="row">
+                                <label class="label-datepicker">Nota de Crédito</label>
+                                <div>
+                                    <input type="radio" id="notaCreditoAprobarOpcion" name="notaCredito" value="notaCreditoAprobar" />
+                                    <label class="label-datepicker" for="notaCreditoAprobarOpcion">Aprobar</label>
+                                    <input type="radio" id="notaCreditoRechazarOpcion" name="notaCredito" value="notaCreditoRechazar" />
+                                    <label class="label-datepicker" for="notaCreditoRechazarOpcion">Rechazar</label>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+
+                    </div>
+
+                    <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end mt-3">
+
+                        <div class="subtotales-container">
+                            <div>
+                                <div class="subtotal-description">
+                                    <label class="d-flex justify-content-md-end pe-md-5">Importe Bruto</label>
+                                </div>
+                                <label class="pe-md-2 ps-md-5">$</label>
+                                <div class="subtotal-value">
+                                    <label class="d-flex justify-content-end">
+                                        @Model.detallePedidoPendiente.importeBruto
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="subtotal-description">
+                                    <label class="d-flex justify-content-md-end pe-md-5">Descuento Base</label>
+                                </div>
+                                <label class="pe-md-2 ps-md-5">$</label>
+                                <div class="subtotal-value">
+                                    <label class="d-flex justify-content-end">
+                                        @Model.detallePedidoPendiente.descuentoBase
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="subtotal-description">
+                                    <label class="d-flex justify-content-md-end pe-md-5">Subtotal 1</label>
+                                </div>
+                                <label class="pe-md-2 ps-md-5">$</label>
+                                <div class="subtotal-value">
+                                    <label class="d-flex justify-content-end">
+                                        @Model.detallePedidoPendiente.subTotal1
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="subtotal-description">
+                                    <label class="d-flex justify-content-md-end pe-md-5">Descuento Pago</label>
+                                </div>
+                                <label class="pe-md-2 ps-md-5">$</label>
+                                <div class="subtotal-value">
+                                    <label class="d-flex justify-content-end">
+                                        @Model.detallePedidoPendiente.descuentoPago
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="subtotal-description">
+                                    <label class="d-flex justify-content-md-end pe-md-5">Descuento Retiro</label>
+                                </div>
+                                <label class="pe-md-2 ps-md-5">$</label>
+                                <div class="subtotal-value">
+                                    <label class="d-flex justify-content-end">
+                                        @Model.detallePedidoPendiente.descuentoRetiro
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="subtotal-description">
+                                    <label class="d-flex justify-content-md-end pe-md-5">Descuento Varios</label>
+                                </div>
+                                <label class="pe-md-2 ps-md-5">$</label>
+                                <div class="subtotal-value">
+                                    <label class="d-flex justify-content-end">
+                                        @Model.detallePedidoPendiente.descuentoVarios
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="subtotal-description">
+                                    <label class="d-flex justify-content-md-end pe-md-5">Descuento Peso</label>
+                                </div>
+                                <label class="pe-md-2 ps-md-5">$</label>
+                                <div class="subtotal-value">
+                                    <label class="d-flex justify-content-end">
+                                        @Model.detallePedidoPendiente.descuentoPeso
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="subtotal-description">
+                                    <label class="d-flex justify-content-md-end pe-md-5">Subtotal 2(Factura)</label>
+                                </div>
+                                <label class="pe-md-2 ps-md-5">$</label>
+                                <div class="subtotal-value">
+                                    <label class="d-flex justify-content-end">
+                                        @Model.detallePedidoPendiente.subTotal2
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="subtotal-description">
+                                    <label class="d-flex justify-content-md-end pe-md-5">IVA</label>
+                                </div>
+                                <label class="pe-md-2 ps-md-5">$</label>
+                                <div class="subtotal-value">
+                                    <label class="d-flex justify-content-end">
+                                        @Model.detallePedidoPendiente.iva
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="subtotal-description">
+                                    <label class="d-flex justify-content-md-end pe-md-5" style="font-size: 19px;">Valor Total</label>
+                                </div>
+                                <label class="pe-md-2 ps-md-5">$</label>
+                                <div class="subtotal-value">
+                                    <label class="d-flex justify-content-end">
+                                        @Model.detallePedidoPendiente.valorTotal
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="subtotal-description">
+                                    <label class="d-flex justify-content-md-end pe-md-5">Valor N/C (Sin IVA)</label>
+                                </div>
+                                <label class="pe-md-2 ps-md-5">$</label>
+                                <div class="subtotal-value">
+                                    <label class="d-flex justify-content-end">
+                                        @Model.detallePedidoPendiente.valorNcsinIva
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="subtotal-description">
+                                    <label class="d-flex justify-content-md-end pe-md-5">Margen Valor</label>
+                                </div>
+                                <label class="pe-md-2 ps-md-5">$</label>
+                                <div class="subtotal-value">
+                                    <label class="d-flex justify-content-end">
+                                        Preguntar por valor
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="subtotal-description">
+                                    <label class="d-flex justify-content-md-end pe-md-5">Margen Porcentaje</label>
+                                </div>
+                                <label class="pe-md-2 ps-md-5">%</label>
+                                <div class="subtotal-value">
+                                    <label class="d-flex justify-content-end">
+                                        @Model.detallePedidoPendiente.margenPor
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Guardar cambios</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>

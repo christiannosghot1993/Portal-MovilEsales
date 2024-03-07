@@ -83,6 +83,22 @@ ul a {
     border-radius: 15px;
 }
 
+.row-detail-rojo {
+    background-color: #FADBD8;
+}
+
+.row-detail-amarillo {
+    background-color: #FCF3CF;
+}
+
+.row-detail-verde {
+    background-color: #D5F5E3;
+}
+
+.row-detail-default {
+    background-color: white;
+}
+
 .entire-blue-container {
     background-color: #01ADEF;
     border-radius: 20px;

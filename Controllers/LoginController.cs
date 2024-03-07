@@ -55,44 +55,73 @@ namespace Portal_MovilEsales.Controllers
             };
 
                 var response = await httpClient.PostAsync(recaptchaUrl, new FormUrlEncodedContent(postData));
+
                 var responseContent = await response.Content.ReadAsStringAsync();
+
                 var captchaResponse = JsonConvert.DeserializeObject<CaptchaResponse>(responseContent);
-                
 
                 if (captchaResponse.success)
                 {
                     // reCAPTCHA válido, puedes procesar el formulario aquí
                     var respIniciarSesion = _service.iniciarSesion(new IniciarSesionRequest
                     {
-                        email=usuario,
-                        password=password,
+                        email = usuario,
+                        password = password,
                     });
+
                     if ((bool)respIniciarSesion.success)
                     {
-                        string perfil = "";
-                        switch ((int)respIniciarSesion.codigoperfil)
+                        var perfil = (int)respIniciarSesion.codigoperfil switch
                         {
-                            case 1:
-                                perfil = "Cliente";
-                                break;
-                            case 2:
-                                perfil = "Asesor";
-                                break;
-                            case 3:
-                                perfil = "Arobador";
-                                break;
-                            case 4:
-                                perfil = "Administrador";
-                                break;
-                        }
-                        perfil = "Asesor";//comentar
+                            1 => "Cliente",
+                            2 => "Asesor",
+                            3 => "Aprobador",
+                            4 => "Administrador",
+                        };
+
+                        //string perfil = "";
+
+                        //switch ((int)respIniciarSesion.codigoperfil)
+                        //{
+                        //    case 1:
+                        //        perfil = "Cliente";
+                        //        break;
+                        //    case 2:
+                        //        perfil = "Asesor";
+                        //        break;
+                        //    case 3:
+                        //        perfil = "Arobador";
+                        //        break;
+                        //    case 4:
+                        //        perfil = "Administrador";
+                        //        break;
+                        //}
+
+                        /*perfil = "Asesor";*///comentar
+
                         HttpContext.Session.SetString("perfil", perfil);
+
                         HttpContext.Session.SetString("token", (string)respIniciarSesion.result);
+
                         CrearClaims((string)respIniciarSesion.result, perfil, usuario);
-                        if (perfil.Equals("Asesor"))
+
+                        switch (perfil)
                         {
-                            return RedirectToAction("Index", "Asesor");
+                            case "Cliente":
+                                break;
+                            case "Asesor":
+                                return RedirectToAction("Index", "Asesor");
+                            case "Aprobador":
+                                return RedirectToAction("Index", "Aprobador");
+                            case "Administrador":
+                                break;
                         }
+
+                        //if (perfil.Equals("Asesor"))
+                        //{
+                        //    return RedirectToAction("Index", "Asesor");
+                        //}
+
                         return RedirectToAction("Index", "Home");
                     }
                     else
@@ -100,7 +129,7 @@ namespace Portal_MovilEsales.Controllers
                         TempData["ErrorMessage"] = (string)respIniciarSesion.message;
                         return RedirectToAction("Index");
                     }
-                   
+
                 }
                 else
                 {
@@ -115,13 +144,13 @@ namespace Portal_MovilEsales.Controllers
             var accessTokenClaim = new Claim("AccessToken", accessToken);
             /*Claims: son piezas de información de la identidad del usuario en el contexto
              de authentication y authorization*/
-            var claims=new List<Claim>
+            var claims = new List<Claim>
             {
                 accessTokenClaim,
                 new Claim(ClaimTypes.Role, rol),
                 new Claim(ClaimTypes.Email, correo),
             };
-            var identity= new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
             var principal = new ClaimsPrincipal(identity);
 
             /*HttpContext.SignInAsync sirve para crear la coockie y persistirla en el sistema*/
