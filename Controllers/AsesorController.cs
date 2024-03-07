@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using ClosedXML.Excel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Portal_MovilEsales.Services.AsesorServices;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.DatosCliente;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido;
+using Portal_MovilEsales.Services.AsesorServices.ViewModels.ProductoExcel;
 
 namespace Portal_MovilEsales.Controllers
 {
@@ -595,6 +597,105 @@ namespace Portal_MovilEsales.Controllers
                 listadoPedidosBPH.result = new List<InfoPedidoBPH>();
             }
             return PartialView("_TablePedidosHistoricos", listadoPedidosBPH);
+        }
+
+        [HttpPost]
+        public IActionResult SubirExcelProductos(IFormFile file)
+        {
+            var token = HttpContext.Session.GetString("token");
+            List<ProductosNuevoPedido> listadoProductosNuevoPedido = JsonConvert.DeserializeObject<List<ProductosNuevoPedido>>(HttpContext.Session.GetString("SelectedProducts"));
+            if (file != null && file.Length > 0)
+            {
+                // Guardar el archivo en una ubicación temporal
+                var filePath = Path.GetTempPath();
+                var filePathAndName = filePath + file.FileName;
+                using (var stream = new FileStream(filePathAndName, FileMode.Create))
+                {
+                    file.CopyTo(stream);
+                }
+
+                
+                // Procesar el archivo Excel utilizando ClosedXML
+                using (var workbook = new XLWorkbook(filePathAndName))
+                {
+                    // Obtener la primera hoja del libro de trabajo
+                    var worksheet = workbook.Worksheet(1);
+
+                    // Iterar sobre las filas del archivo Excel
+                    List<ProductoExcelModelRequest> listProd=new List<ProductoExcelModelRequest>();
+                    foreach (var row in worksheet.RowsUsed().Skip(1))
+                    {
+                        // Obtener los valores de las celdas en cada fila
+                        var codigoSAP = row.Cell(1).Value.ToString();
+                        var cantidad = row.Cell(2).Value.ToString();
+                        var descFactura = row.Cell(3).Value.ToString();
+                        var descNC = row.Cell(4).Value.ToString();
+                        if (!string.IsNullOrEmpty(codigoSAP))
+                        {
+                            listProd.Add(new ProductoExcelModelRequest
+                            {
+                                CodigoSAP=codigoSAP,
+                                Cantidad=!string.IsNullOrEmpty(cantidad)?int.Parse(cantidad):0,
+                                DescFactura=!string.IsNullOrEmpty(descFactura)?double.Parse(descFactura):0,
+                                DescNC=!string.IsNullOrEmpty(descNC)?double.Parse(descNC):0
+                            });
+                        }
+                    }
+                    if (listProd.Any())
+                    {
+                        ProductoExcel resp = _asesorService.getProductosExcel(token, new ProductoExcelRequest
+                        {
+                            detallePedido = listProd
+                        });
+                        var respCargaCabeceraPedido = _asesorService.getCargaCabeceraPedido(token, "0000090208");
+                        
+                        foreach (var item in resp.result)
+                        {
+                            var numeroContador = JsonConvert.DeserializeObject<int>(HttpContext.Session.GetString("RowCounter"));
+                            listadoProductosNuevoPedido.Add(new ProductosNuevoPedido
+                            {
+                                numeroRegistro= numeroContador.ToString(),
+                                bloqueado=false,
+                                codigo=item.codigoSAPArticulo,
+                                descripcion=item.nombre,
+                                listadoTipoEntregas = respCargaCabeceraPedido.listadoTipoEntrega,
+                                unidad=item.unidad,
+                                peso=item.peso.ToString(),
+                                descFac=item.descFactura.ToString(),
+                                descNc=item.descNC.ToString(),
+                                idl="0",
+                                subtotal="0",
+                                cantidad=item.cantidad.ToString(),
+                                aFinMes=false,
+                                aFamilia=false
+                            });
+                            HttpContext.Session.SetString("RowCounter", (numeroContador + 1).ToString());
+                        }
+
+                    }
+                }
+
+                // Eliminar el archivo temporal después de usarlo
+                System.IO.File.Delete(filePathAndName);
+                var data = new
+                {
+                    listadoProductosNuevoPedido,
+                    resumenDetalleProductos = new ResumenDetalleProductos()
+                };
+                HttpContext.Session.SetString("SelectedProducts", JsonConvert.SerializeObject(listadoProductosNuevoPedido));
+                return PartialView("_TableProductosSeleccionadosPedido", data);
+            }
+            else
+            {
+
+                var data = new
+                {
+                    listadoProductosNuevoPedido,
+                    resumenDetalleProductos = new ResumenDetalleProductos()
+                };
+                return PartialView("_TableProductosSeleccionadosPedido", data);
+            }
+
         }
     }
 }
