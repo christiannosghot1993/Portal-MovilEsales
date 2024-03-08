@@ -23,6 +23,9 @@
             </div>
         </div>
     </div>
+
+    <input type="hidden" id="numeroOrdenHidden"/>
+
     <div class="col-sm-12 mt-3">
         <div class="card card-container">
 
@@ -338,7 +341,7 @@
                                             <td>@item.fechaCreacion</td>
                                             <td>
                                                 @*  <svg style="margin:5px;" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" data-bs-toggle="modal" data-bs-target="#modalPedidoAprobado"> *@
-                                                <svg style="margin:5px;" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="abrirModal('@Url.Action("CargarInformacionModalDetallePedidoPendiente", "Aprobador", new { numeroOrden = item.numeroOrden })','modalPedidoPendiente')">
+                                                <svg style="margin:5px;" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="abrirModal('@Url.Action("CargarInformacionModalDetallePedidoPendiente", "Aprobador", new { numeroOrden = item.numeroOrden })','modalPedidoPendiente','@item.numeroOrden')">
 
                                                     <g id="&#240;&#159;&#166;&#134; icon &#34;search&#34;">
                                                         <path id="Vector" d="M9.88894 18.7779C14.7982 18.7779 18.7779 14.7982 18.7779 9.88894C18.7779 4.97971 14.7982 1 9.88894 1C4.97971 1 1 4.97971 1 9.88894C1 14.7982 4.97971 18.7779 9.88894 18.7779Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -352,7 +355,7 @@
                             </table>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="pedidos-tab-pane" role="tabpanel" aria-labelledby="pedidos-tab" tabindex="0">
+                  @*   <div class="tab-pane fade" id="pedidos-tab-pane" role="tabpanel" aria-labelledby="pedidos-tab" tabindex="0">
                         <div class="table-responsive table-container">
                             <table class="table">
                                 <thead class="card-table_header">
@@ -440,7 +443,7 @@
                                 </tbody>
                             </table>
                         </div>
-                    </div>
+                    </div> *@
                 </div>
             </div>
         </div>
@@ -448,7 +451,7 @@
 
 </div>
 <script>
-    const abrirModal = (url, idElemento) => {
+    const abrirModal = (url, idElemento,numeroOrden) => {
 
         console.log(url)
 
@@ -456,6 +459,12 @@
             .then(response => response.text())
             .then(html => {
                 //console.log(html); // Verifica la respuesta en la consola
+
+                var numeroOrdenPedido = document.getElementById("numeroOrdenHidden");
+
+                numeroOrdenPedido.value = numeroOrden;
+
+                console.log("numeroOrdenSteada"+numeroOrden)
 
                 // Vaciar el contenido del modal existente
                 document.getElementById(idElemento).innerHTML = '';
@@ -473,4 +482,113 @@
             })
             .catch(error => console.error('Error al cargar información:', error));
     }
+
+    const procesarPedido = (url) => {
+
+        var radioButtonsDescuentos = document.getElementsByName("descuentos");
+
+        var radioButtonsCondicionesEspeciales = document.getElementsByName("ce");
+
+        var radioButtonsNotaCredito = document.getElementsByName("notaCredito");
+
+        var selectedValueDescuentos = '';
+
+        var selectedValueCondicionesEspeciales = '';
+
+        var selectedValueNotaCredito = '';
+
+        var selectedValueGeneral = 'No';
+
+        var mensaje = document.getElementById("mensajePedido").value;
+
+        var numeroOrden = document.getElementById("numeroOrdenHidden").value;
+
+        for (var i = 0; i < radioButtonsDescuentos.length; i++) {
+            if (radioButtonsDescuentos[i].checked) {
+
+                if (radioButtonsDescuentos[i].value === 'descuentoAprobar') {
+                    selectedValueDescuentos = 'Si'
+                } else {
+                    selectedValueDescuentos = 'No'
+                }
+
+                console.log("descuentos" + selectedValueDescuentos)
+                break;
+            }
+        }
+
+        for (var i = 0; i < radioButtonsCondicionesEspeciales.length; i++) {
+            if (radioButtonsCondicionesEspeciales[i].checked) {
+
+                if (radioButtonsCondicionesEspeciales[i].value === 'ceAprobar') {
+                    selectedValueCondicionesEspeciales = 'Si'
+                } else {
+                    selectedValueCondicionesEspeciales = 'No'
+                }
+
+                console.log("condicione especiales" + selectedValueCondicionesEspeciales);
+                break;
+            }
+        }
+
+        for (var i = 0; i < radioButtonsNotaCredito.length; i++) {
+            if (radioButtonsNotaCredito[i].checked) {
+
+                if (radioButtonsNotaCredito[i].value === 'notaCreditoAprobar') {
+                    selectedValueNotaCredito = 'Si'
+                } else {
+                    selectedValueNotaCredito = 'No'
+                }
+
+                console.log("nota credito" + selectedValueNotaCredito);
+                break;
+            }
+        }
+
+        if (selectedValueDescuentos !== '' && selectedValueCondicionesEspeciales !== ''
+            && selectedValueNotaCredito !== '') {
+
+            if (selectedValueDescuentos === 'Si' && selectedValueCondicionesEspeciales === 'Si') {
+
+                selectedValueGeneral = "Si"
+            }
+
+            url = `${url}?numeroOrden=${numeroOrden}&aprobacionDescuento=${selectedValueDescuentos}&aprobacionCondicionesEspeciales=${selectedValueCondicionesEspeciales}&aprobacionNotaCredito=${selectedValueNotaCredito}&aprobacionGeneral=${selectedValueGeneral}&mensaje=${mensaje}`
+
+            // //document.getElementById("table-productos-seleccionados").innerHTML = '<h1>Cargando información...</h1>';
+
+            fetch(url)
+                .then(response => response.text())
+                .then(html => {
+
+                    //document.getElementById("table-productos-seleccionados").innerHTML = html
+
+                    showAlert("Proceso exitoso", "", "success");
+
+                })
+                .catch(error => console.error('Error al cargar información:', error));
+
+            console.log("general" + selectedValueGeneral)
+
+        } else {
+
+            alert("Debe escojer una opción en todos lo campos requeridos")
+        }
+
+    }
+
+    const showAlert = (title, message, type) => {
+        Swal.fire({
+            title: title,
+            text: message,
+            showDenyButton: false,
+            showCancelButton: false,
+            confirmButtonText: "Aceptar",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                console.log("se presiono")
+            }
+        });
+    }
+
 </script>
