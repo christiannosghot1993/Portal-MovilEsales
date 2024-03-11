@@ -3,7 +3,7 @@
     <div class="modal-content">
         <div class="modal-header">
             <h1 class="modal-title card-title" id="exampleModalLabel">
-                Pedido Pendiente de Aprobación
+                Pedido @Model.detallePedidoReporte.estado
             </h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
@@ -11,27 +11,27 @@
 
             <div class="row mb-3">
                 <div class="col-md-2" style="font-weight: bold;">Cliente:</div>
-                <div class="col-md-3">@Model.detallePedidoPendiente.nombreCliente</div>
+                <div class="col-md-3">@Model.detallePedidoReporte.nombreCliente</div>
             </div>
 
             <div class="row mb-3">
                 <div class="col-md-2" style="font-weight: bold;">Orden:</div>
-                <div class="col-md-3">@Model.detallePedidoPendiente.numeroOrden</div>
+                <div class="col-md-3">@Model.detallePedidoReporte.numeroOrden</div>
             </div>
 
             <div class="row mb-3">
                 <div class="col-md-2" style="font-weight: bold;">Forma de Pago:</div>
-                <div class="col-md-3">@Model.detallePedidoPendiente.formaPago</div>
+                <div class="col-md-3">@Model.detallePedidoReporte.formaPago</div>
             </div>
 
             <div class="row mb-3">
                 <div class="col-md-2" style="font-weight: bold;">Peso total pedido:</div>
-                <div class="col-md-3">@Model.detallePedidoPendiente.totalPeso</div>
+                <div class="col-md-3">@Model.detallePedidoReporte.totalPeso</div>
             </div>
 
             <div class="row mb-3">
                 <div class="col-md-2" style="font-weight: bold;">Observación:</div>
-                <div class="col-md-3">@Model.detallePedidoPendiente.observacion</div>
+                <div class="col-md-3">@Model.detallePedidoReporte.observacion</div>
             </div>
 
             <a data-bs-toggle="collapse" href="#collapseInformacionPedido" role="button" aria-expanded="true" aria-controls="collapseInformacionPedido">
@@ -51,7 +51,7 @@
                 </div>
             </a>
 
-            <div class="collapse show mb-4" id="collapseInformacionPedido">
+            @* <div class="collapse show mb-4" id="collapseInformacionPedido">
 
                 <div class="table-responsive table-container">
                     <table class="table">
@@ -76,7 +76,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var producto in Model.detallePedidoPendiente.detallePedido)
+                            @foreach (var producto in Model.detallePedidoReporte.detallePedido)
                             {
                                 var colorRow = producto.colorlinea switch
                                 {
@@ -120,7 +120,7 @@
                         <div class="d-flex justify-content-end align-items-end pt-2">
 
                             <p>
-                                @Model.detallePedidoPendiente.mensajeNotaCredito
+                                @Model.detallePedidoReporte.mensajeNotaCredito
                             </p>
 
                         </div>
@@ -140,7 +140,7 @@
                             <label class="pe-md-2 ps-md-5">$</label>
                             <div class="subtotal-value">
                                 <label class="d-flex justify-content-end">
-                                    @Model.detallePedidoPendiente.importeBruto
+                                    @Model.detallePedidoReporte.importeBruto
                                 </label>
                             </div>
                         </div>
@@ -151,7 +151,7 @@
                             <label class="pe-md-2 ps-md-5">$</label>
                             <div class="subtotal-value">
                                 <label class="d-flex justify-content-end">
-                                    @Model.detallePedidoPendiente.descuentoBase
+                                    @Model.detallePedidoReporte.descuentoBase
                                 </label>
                             </div>
                         </div>
@@ -162,7 +162,7 @@
                             <label class="pe-md-2 ps-md-5">$</label>
                             <div class="subtotal-value">
                                 <label class="d-flex justify-content-end">
-                                    @Model.detallePedidoPendiente.subTotal1
+                                    @Model.detallePedidoReporte.subTotal1
                                 </label>
                             </div>
                         </div>
@@ -173,7 +173,7 @@
                             <label class="pe-md-2 ps-md-5">$</label>
                             <div class="subtotal-value">
                                 <label class="d-flex justify-content-end">
-                                    @Model.detallePedidoPendiente.descuentoPago
+                                    @Model.detallePedidoReporte.descuentoPago
                                 </label>
                             </div>
                         </div>
@@ -184,7 +184,7 @@
                             <label class="pe-md-2 ps-md-5">$</label>
                             <div class="subtotal-value">
                                 <label class="d-flex justify-content-end">
-                                    @Model.detallePedidoPendiente.descuentoRetiro
+                                    @Model.detallePedidoReporte.descuentoRetiro
                                 </label>
                             </div>
                         </div>
@@ -195,7 +195,7 @@
                             <label class="pe-md-2 ps-md-5">$</label>
                             <div class="subtotal-value">
                                 <label class="d-flex justify-content-end">
-                                    @Model.detallePedidoPendiente.descuentoVarios
+                                    @Model.detallePedidoReporte.descuentoVarios
                                 </label>
                             </div>
                         </div>
@@ -206,7 +206,7 @@
                             <label class="pe-md-2 ps-md-5">$</label>
                             <div class="subtotal-value">
                                 <label class="d-flex justify-content-end">
-                                    @Model.detallePedidoPendiente.descuentoPeso
+                                    @Model.detallePedidoReporte.descuentoPeso
                                 </label>
                             </div>
                         </div>
@@ -218,7 +218,7 @@
                             <label class="pe-md-2 ps-md-5">$</label>
                             <div class="subtotal-value">
                                 <label class="d-flex justify-content-end">
-                                    @Model.detallePedidoPendiente.subTotal2
+                                    @Model.detallePedidoReporte.subTotal2
                                 </label>
                             </div>
                         </div>
@@ -229,7 +229,7 @@
                             <label class="pe-md-2 ps-md-5">$</label>
                             <div class="subtotal-value">
                                 <label class="d-flex justify-content-end">
-                                    @Model.detallePedidoPendiente.iva
+                                    @Model.detallePedidoReporte.iva
                                 </label>
                             </div>
                         </div>
@@ -241,7 +241,7 @@
                             <label class="pe-md-2 ps-md-5">$</label>
                             <div class="subtotal-value">
                                 <label class="d-flex justify-content-end">
-                                    @Model.detallePedidoPendiente.valorTotal
+                                    @Model.detallePedidoReporte.valorTotal
                                 </label>
                             </div>
                         </div>
@@ -253,7 +253,7 @@
                             <label class="pe-md-2 ps-md-5">$</label>
                             <div class="subtotal-value">
                                 <label class="d-flex justify-content-end">
-                                    @Model.detallePedidoPendiente.valorNcsinIva
+                                    @Model.detallePedidoReporte.valorNcsinIva
                                 </label>
                             </div>
                         </div>
@@ -277,9 +277,264 @@
                             <label class="pe-md-2 ps-md-5">%</label>
                             <div class="subtotal-value">
                                 <label class="d-flex justify-content-end">
-                                    @Model.detallePedidoPendiente.margenPor
+                                    @Model.detallePedidoReporte.margenPor
                                 </label>
                             </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div> *@
+
+            <div class="collapse show mb-4" id="collapseInformacionPedido">
+
+                <div class="table-responsive table-container">
+                    <table class="table">
+                        <thead class="card-table_header">
+                            <tr>
+                                <th scope="col" class="border-radius-left" style="padding:13px;">Artículo</th>
+                                <th scope="col" style="padding:13px;">Descripción</th>
+                                <th scope="col" style="padding:13px;">PSV</th>
+                                <th scope="col" style="padding:13px;">Cant.</th>
+                                <th scope="col" style="padding:13px;">Peso Kg.</th>
+                                <th scope="col" style="padding:13px;">Desc. Base</th>
+                                <th scope="col" style="padding:13px;">Desc. Fac</th>
+                                <th scope="col" style="padding:13px;">Desc. NC</th>
+                                <th scope="col" style="padding:13px;">%Desc. desde PVS</th>
+                                <th scope="col" style="padding:13px;">Precio Final</th>
+                                <th scope="col" style="padding:13px;">Estado</th>
+                                <th scope="col" style="padding:13px;">Todo el Mes</th>
+                                <th scope="col" style="padding:13px;">Familia</th>
+                                <th scope="col" style="padding:13px;">Margen %</th>
+                                <th scope="col" style="padding:13px;">Margen $</th>
+                                <th scope="col" class="border-radius-right" style="padding:13px;">CAT.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var producto in Model.detallePedidoReporte.detallePedido)
+                            {
+                                var colorRow = producto.colorlinea switch
+                                {
+                                    "Verde" => "row-detail-verde",
+                                    "Amarillo" => "row-detail-amarillo",
+                                    "Rojo" => "row-detail-rojo",
+                                    _ => "row-detail-default"
+                                };
+
+                                var classRow = $"{colorRow}";
+
+                                <tr class=@classRow>
+                                    <td>@producto.codigoSAP</td>
+                                    <td>@producto.nombreProducto</td>
+                                    <td>@producto.precioPVS</td>
+                                    <td>@producto.cantidad</td>
+                                    <td>@producto.peso</td>
+                                    <td>@producto.descBase%</td>
+                                    <td>@producto.descFactura</td>
+                                    <td>@producto.descNotaCredito%</td>
+                                    <td>@producto.descDesdePVS%</td>
+                                    <td>$@producto.precioFinal</td>
+                                    <td>@producto.estado</td>
+                                    <td>@producto.aplicaMes</td>
+                                    <td>@producto.aplicaFamilia</td>
+                                    <td>@producto.margenPorcentaje%</td>
+                                    <td>$@producto.margenValor</td>
+                                    <td>@producto.familia</td>
+                                </tr>
+                            }
+                            @*  <tr style="background-color: red;">
+                            <td>187934</td>
+                            <td>AL. RECOCIDO 1,25MM #18 R20KG</td>
+                            <td>160.984,00</td>
+                            <td>100</td>
+                            <td>1350</td>
+                            <td>33,000%</td>
+                            <td>150.80</td>
+                            <td>0,000%</td>
+                            <td>38,36%</td>
+                            <td>$99.230,54</td>
+                            <td>Pendiente</td>
+                            <td>Sí</td>
+                            <td>Sí</td>
+                            <td>29,824%</td>
+                            <td>$2´959.230,01</td>
+                            <td>A</td>
+                            </tr> *@
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-12 col-md-6 d-flex justify-content-center align-items-md-center">
+
+                        <div class="row">
+                            <div class="d-flex justify-content-end align-items-end pt-2">
+
+                                <p>
+                                    @Model.detallePedidoReporte.mensajeNotaCredito
+                                </p>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end mt-3">
+
+                        <div class="subtotales-container">
+                            <div>
+                                <div class="subtotal-description">
+                                    <label class="d-flex justify-content-md-end pe-md-5">Importe Bruto</label>
+                                </div>
+                                <label class="pe-md-2 ps-md-5">$</label>
+                                <div class="subtotal-value">
+                                    <label class="d-flex justify-content-end">
+                                        @Model.detallePedidoReporte.importeBruto
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="subtotal-description">
+                                    <label class="d-flex justify-content-md-end pe-md-5">Descuento Base</label>
+                                </div>
+                                <label class="pe-md-2 ps-md-5">$</label>
+                                <div class="subtotal-value">
+                                    <label class="d-flex justify-content-end">
+                                        @Model.detallePedidoReporte.descuentoBase
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="subtotal-description">
+                                    <label class="d-flex justify-content-md-end pe-md-5">Subtotal 1</label>
+                                </div>
+                                <label class="pe-md-2 ps-md-5">$</label>
+                                <div class="subtotal-value">
+                                    <label class="d-flex justify-content-end">
+                                        @Model.detallePedidoReporte.subTotal1
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="subtotal-description">
+                                    <label class="d-flex justify-content-md-end pe-md-5">Descuento Pago</label>
+                                </div>
+                                <label class="pe-md-2 ps-md-5">$</label>
+                                <div class="subtotal-value">
+                                    <label class="d-flex justify-content-end">
+                                        @Model.detallePedidoReporte.descuentoPago
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="subtotal-description">
+                                    <label class="d-flex justify-content-md-end pe-md-5">Descuento Retiro</label>
+                                </div>
+                                <label class="pe-md-2 ps-md-5">$</label>
+                                <div class="subtotal-value">
+                                    <label class="d-flex justify-content-end">
+                                        @Model.detallePedidoReporte.descuentoRetiro
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="subtotal-description">
+                                    <label class="d-flex justify-content-md-end pe-md-5">Descuento Varios</label>
+                                </div>
+                                <label class="pe-md-2 ps-md-5">$</label>
+                                <div class="subtotal-value">
+                                    <label class="d-flex justify-content-end">
+                                        @Model.detallePedidoReporte.descuentoVarios
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="subtotal-description">
+                                    <label class="d-flex justify-content-md-end pe-md-5">Descuento Peso</label>
+                                </div>
+                                <label class="pe-md-2 ps-md-5">$</label>
+                                <div class="subtotal-value">
+                                    <label class="d-flex justify-content-end">
+                                        @Model.detallePedidoReporte.descuentoPeso
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="subtotal-description">
+                                    <label class="d-flex justify-content-md-end pe-md-5">Subtotal 2(Factura)</label>
+                                </div>
+                                <label class="pe-md-2 ps-md-5">$</label>
+                                <div class="subtotal-value">
+                                    <label class="d-flex justify-content-end">
+                                        @Model.detallePedidoReporte.subTotal2
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="subtotal-description">
+                                    <label class="d-flex justify-content-md-end pe-md-5">IVA</label>
+                                </div>
+                                <label class="pe-md-2 ps-md-5">$</label>
+                                <div class="subtotal-value">
+                                    <label class="d-flex justify-content-end">
+                                        @Model.detallePedidoReporte.iva
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="subtotal-description">
+                                    <label class="d-flex justify-content-md-end pe-md-5" style="font-size: 19px;">Valor Total</label>
+                                </div>
+                                <label class="pe-md-2 ps-md-5">$</label>
+                                <div class="subtotal-value">
+                                    <label class="d-flex justify-content-end">
+                                        @Model.detallePedidoReporte.valorTotal
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="subtotal-description">
+                                    <label class="d-flex justify-content-md-end pe-md-5">Valor N/C (Sin IVA)</label>
+                                </div>
+                                <label class="pe-md-2 ps-md-5">$</label>
+                                <div class="subtotal-value">
+                                    <label class="d-flex justify-content-end">
+                                        @Model.detallePedidoReporte.valorNcsinIva
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="subtotal-description">
+                                    <label class="d-flex justify-content-md-end pe-md-5">Margen Valor</label>
+                                </div>
+                                <label class="pe-md-2 ps-md-5">$</label>
+                                <div class="subtotal-value">
+                                    <label class="d-flex justify-content-end">
+                                        Sin valor
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="subtotal-description">
+                                    <label class="d-flex justify-content-md-end pe-md-5">Margen Porcentaje</label>
+                                </div>
+                                <label class="pe-md-2 ps-md-5">%</label>
+                                <div class="subtotal-value">
+                                    <label class="d-flex justify-content-end">
+                                        @Model.detallePedidoReporte.margenPor
+                                    </label>
+                                </div>
+                            </div>
+
                         </div>
 
                     </div>

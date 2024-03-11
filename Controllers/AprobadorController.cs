@@ -40,18 +40,17 @@ namespace Portal_MovilEsales.Controllers
             return PartialView("_ModalDetallePedidoPendiente", inicioAprobador);
         }
 
-
         public IActionResult CargarInformacionModalDetallePedidoReporte(string numeroOrden)
         {
             var token = HttpContext.Session.GetString("token");
 
-            var inicioAprobador = new InicioAprobador();
+            var pedidosReporte = new ReportePedido();
 
             var respDetallePedido = _aprobadorService.getDetallePedidoAprobador(token, numeroOrden);
 
-            inicioAprobador.detallePedidoPendiente = respDetallePedido;
+            pedidosReporte.detallePedidoReporte = respDetallePedido;
 
-            return PartialView("_ModalDetallePedidoReporte", inicioAprobador);
+            return PartialView("_ModalDetallePedidoReporte", pedidosReporte);
         }
 
         public IActionResult ProcesarPedido(string numeroOrden, string aprobacionDescuento, string aprobacionCondicionesEspeciales,

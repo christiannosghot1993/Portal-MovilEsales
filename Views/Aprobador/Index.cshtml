@@ -24,7 +24,7 @@
         </div>
     </div>
 
-    <input type="hidden" id="numeroOrdenHidden"/>
+    <input type="hidden" id="numeroOrdenHidden" />
 
     <div class="col-sm-12 mt-3">
         <div class="card card-container">
@@ -35,264 +35,6 @@
                 {
                     @Html.Partial("_ModalDetallePedidoPendiente")
                 }
-
-                @*   <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                <div class="modal-header">
-                <h1 class="modal-title card-title" id="exampleModalLabel">
-                Pedido Pendiente de Aprobación
-                </h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                <div class="row mb-3">
-                <div class="col-md-2" style="font-weight: bold;">Cliente:</div>
-                <div class="col-md-3">Castillo Miranda Hugo Ernesto</div>
-                </div>
-
-                <div class="row mb-3">
-                <div class="col-md-2" style="font-weight: bold;">Orden:</div>
-                <div class="col-md-3">02458752</div>
-                </div>
-
-                <div class="row mb-3">
-                <div class="col-md-2" style="font-weight: bold;">Forma de Pago:</div>
-                <div class="col-md-3">Net, at 30 dateof invoice</div>
-                </div>
-
-                <div class="row mb-3">
-                <div class="col-md-2" style="font-weight: bold;">Peso total pedido:</div>
-                <div class="col-md-3">9000.0000(Kg)</div>
-                </div>
-
-                <div class="row mb-3">
-                <div class="col-md-2" style="font-weight: bold;">Observación:</div>
-                <div class="col-md-3">(Sandra Monal):Despachar Semana del 23 de Enero del 2023(Jenny Hernandez)</div>
-                </div>
-
-                <a data-bs-toggle="collapse" href="#collapseInformacionPedido" role="button" aria-expanded="true" aria-controls="collapseInformacionPedido">
-                <div class="collapsible-tabs">
-                <div class="label">
-                <div class="label-color-wrapper">
-                <div class="label-color"><div class="text" style="font-weight: bold;">Orden de Compra - 123456</div></div>
-                </div>
-                <div class="chevron">
-                <svg width="23" height="14" viewBox="0 0 23 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g id="&#240;&#159;&#166;&#134; icon &#34;chevron down&#34;">
-                <path id="Vector" d="M1.5 2L11.5 12L21.5 2" stroke="#D7D2CB" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-                </g>
-                </svg>
-                </div>
-                </div>
-                </div>
-                </a>
-
-                <div class="collapse show mb-4" id="collapseInformacionPedido">
-                <div class="table-responsive table-container">
-                <table class="table">
-                <thead class="card-table_header">
-                <tr>
-                <th scope="col" class="border-radius-left" style="padding:13px;">Artículo</th>
-                <th scope="col" style="padding:13px;">Descripción</th>
-                <th scope="col" style="padding:13px;">PSV</th>
-                <th scope="col" style="padding:13px;">Cant.</th>
-                <th scope="col" style="padding:13px;">Peso Kg.</th>
-                <th scope="col" style="padding:13px;">Desc. Base</th>
-                <th scope="col" style="padding:13px;">Desc. Fac</th>
-                <th scope="col" style="padding:13px;">Desc. NC</th>
-                <th scope="col" style="padding:13px;">%Desc. desde PVS</th>
-                <th scope="col" style="padding:13px;">Precio Final</th>
-                <th scope="col" style="padding:13px;">Estado</th>
-                <th scope="col" style="padding:13px;">Todo el Mes</th>
-                <th scope="col" style="padding:13px;">Familia</th>
-                <th scope="col" style="padding:13px;">Margen %</th>
-                <th scope="col" style="padding:13px;">Margen $</th>
-                <th scope="col" class="border-radius-right" style="padding:13px;">CAT.</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                <td>187934</td>
-                <td>AL. RECOCIDO 1,25MM #18 R20KG</td>
-                <td>160.984,00</td>
-                <td>100</td>
-                <td>1350</td>
-                <td>33,000%</td>
-                <td>150.80</td>
-                <td>0,000%</td>
-                <td>38,36%</td>
-                <td>$99.230,54</td>
-                <td>Pendiente</td>
-                <td>Sí</td>
-                <td>Sí</td>
-                <td>29,824%</td>
-                <td>$2´959.230,01</td>
-                <td>A</td>
-                </tr>
-
-                </tbody>
-                </table>
-                </div>
-                <div class="d-flex justify-content-center justify-content-md-end mt-3">
-                <div class="subtotales-container">
-                <div>
-                <div class="subtotal-description">
-                <label class="d-flex justify-content-md-end pe-md-5">Importe Bruto</label>
-                </div>
-                <label class="pe-md-2 ps-md-5">$</label>
-                <div class="subtotal-value">
-                <label class="d-flex justify-content-end">
-                1.432.24
-                </label>
-                </div>
-                </div>
-                <div>
-                <div class="subtotal-description">
-                <label class="d-flex justify-content-md-end pe-md-5">Descuento Base</label>
-                </div>
-                <label class="pe-md-2 ps-md-5">$</label>
-                <div class="subtotal-value">
-                <label class="d-flex justify-content-end">
-                286,58
-                </label>
-                </div>
-                </div>
-                <div>
-                <div class="subtotal-description">
-                <label class="d-flex justify-content-md-end pe-md-5">Subtotal 1</label>
-                </div>
-                <label class="pe-md-2 ps-md-5">$</label>
-                <div class="subtotal-value">
-                <label class="d-flex justify-content-end">
-                1.145.66
-                </label>
-                </div>
-                </div>
-                <div>
-                <div class="subtotal-description">
-                <label class="d-flex justify-content-md-end pe-md-5">Descuento Pago</label>
-                </div>
-                <label class="pe-md-2 ps-md-5">$</label>
-                <div class="subtotal-value">
-                <label class="d-flex justify-content-end">
-                1.145.66
-                </label>
-                </div>
-                </div>
-                <div>
-                <div class="subtotal-description">
-                <label class="d-flex justify-content-md-end pe-md-5">Descuento Retiro</label>
-                </div>
-                <label class="pe-md-2 ps-md-5">$</label>
-                <div class="subtotal-value">
-                <label class="d-flex justify-content-end">
-                1.145.66
-                </label>
-                </div>
-                </div>
-                <div>
-                <div class="subtotal-description">
-                <label class="d-flex justify-content-md-end pe-md-5">Descuento Varios</label>
-                </div>
-                <label class="pe-md-2 ps-md-5">$</label>
-                <div class="subtotal-value">
-                <label class="d-flex justify-content-end">
-                1.145.66
-                </label>
-                </div>
-                </div>
-                <div>
-                <div class="subtotal-description">
-                <label class="d-flex justify-content-md-end pe-md-5">Descuento Peso</label>
-                </div>
-                <label class="pe-md-2 ps-md-5">$</label>
-                <div class="subtotal-value">
-                <label class="d-flex justify-content-end">
-                1.145.66
-                </label>
-                </div>
-                </div>
-
-                <div>
-                <div class="subtotal-description">
-                <label class="d-flex justify-content-md-end pe-md-5">Subtotal 2(Factura)</label>
-                </div>
-                <label class="pe-md-2 ps-md-5">$</label>
-                <div class="subtotal-value">
-                <label class="d-flex justify-content-end">
-                1.145.66
-                </label>
-                </div>
-                </div>
-                <div>
-                <div class="subtotal-description">
-                <label class="d-flex justify-content-md-end pe-md-5">IVA</label>
-                </div>
-                <label class="pe-md-2 ps-md-5">$</label>
-                <div class="subtotal-value">
-                <label class="d-flex justify-content-end">
-                966.92
-                </label>
-                </div>
-                </div>
-
-                <div>
-                <div class="subtotal-description">
-                <label class="d-flex justify-content-md-end pe-md-5" style="font-size: 19px;">Valor Total</label>
-                </div>
-                <label class="pe-md-2 ps-md-5">$</label>
-                <div class="subtotal-value">
-                <label class="d-flex justify-content-end">
-                1.082.95
-                </label>
-                </div>
-                </div>
-
-                <div>
-                <div class="subtotal-description">
-                <label class="d-flex justify-content-md-end pe-md-5">Valor N/C (Sin IVA)</label>
-                </div>
-                <label class="pe-md-2 ps-md-5">$</label>
-                <div class="subtotal-value">
-                <label class="d-flex justify-content-end">
-                35.87
-                </label>
-                </div>
-                </div>
-
-                <div>
-                <div class="subtotal-description">
-                <label class="d-flex justify-content-md-end pe-md-5">Margen Valor</label>
-                </div>
-                <label class="pe-md-2 ps-md-5">$</label>
-                <div class="subtotal-value">
-                <label class="d-flex justify-content-end">
-                35.87
-                </label>
-                </div>
-                </div>
-
-                <div>
-                <div class="subtotal-description">
-                <label class="d-flex justify-content-md-end pe-md-5">Margen Porcentaje</label>
-                </div>
-                <label class="pe-md-2 ps-md-5">%</label>
-                <div class="subtotal-value">
-                <label class="d-flex justify-content-end">
-                35.87
-                </label>
-                </div>
-                </div>
-
-                </div>
-                </div>
-                </div>
-
-                </div>
-
-                </div>
-                </div>*@
             </div>
 
             <div class="card-body">
@@ -355,95 +97,6 @@
                             </table>
                         </div>
                     </div>
-                  @*   <div class="tab-pane fade" id="pedidos-tab-pane" role="tabpanel" aria-labelledby="pedidos-tab" tabindex="0">
-                        <div class="table-responsive table-container">
-                            <table class="table">
-                                <thead class="card-table_header">
-                                    <tr>
-                                        <th scope="col" class="border-radius-left" style="padding:13px;">Nombre del Cliente</th>
-                                        <th scope="col" style="padding:13px;">Fecha Creación</th>
-                                        <th scope="col" style="padding:13px;">Observación</th>
-                                        <th scope="col" style="padding:13px;">Número de Orden</th>
-                                        <th scope="col" style="padding:13px;">Orden SAP</th>
-                                        <th scope="col" style="padding:13px;">Compra KG</th>
-                                        <th scope="col" style="padding:13px;">Compra $</th>
-                                        <th scope="col" style="padding:13px;">Valor NC (Sin Iva)</th>
-                                        <th scope="col" style="padding:13px;">Aprobador Actual</th>
-                                        <th scope="col" style="padding:13px;">Estado</th>
-                                        <th scope="col" class="border-radius-right" style="padding:13px;"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Castillo Miranda Hugo Ernesto</td>
-                                        <td>1/10/2023</td>
-                                        <td>(Sandra Monal): Despachar ...</td>
-                                        <td>00245874</td>
-                                        <td>514268245</td>
-                                        <td>928.641.44</td>
-                                        <td>65’928.641.44</td>
-                                        <td>0.00</td>
-                                        <td>Jenny Hernadez</td>
-                                        <td>Aprobado</td>
-                                        <td>
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <g id="01 align center">
-                                                    <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                    <path id="Vector_2" d="M7.00012 24C8.10469 24 9.00011 23.1046 9.00011 22C9.00011 20.8954 8.10469 20 7.00012 20C5.89555 20 5.00012 20.8954 5.00012 22C5.00012 23.1046 5.89555 24 7.00012 24Z" fill="#01ADEF" />
-                                                    <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                                </g>
-                                            </svg>
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Pedro Perez</td>
-                                        <td>1/10/2023</td>
-                                        <td>(Sandra Monal): Despachar Semana del 23...</td>
-                                        <td>00245874</td>
-                                        <td>514268245</td>
-                                        <td>928.641.44</td>
-                                        <td>65’928.641.44</td>
-                                        <td>0.00</td>
-                                        <td>Jenny Hernadez</td>
-                                        <td>Aprobado</td>
-                                        <td>
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <g id="01 align center">
-                                                    <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                    <path id="Vector_2" d="M7.00012 24C8.10469 24 9.00011 23.1046 9.00011 22C9.00011 20.8954 8.10469 20 7.00012 20C5.89555 20 5.00012 20.8954 5.00012 22C5.00012 23.1046 5.89555 24 7.00012 24Z" fill="#01ADEF" />
-                                                    <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                                </g>
-                                            </svg>
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Castillo Miranda Hugo Ernesto</td>
-                                        <td>1/10/2023</td>
-                                        <td>(Sandra Monal): Despachar Semana del 23 de Enero de 2023 (Jenny)</td>
-                                        <td>00245874</td>
-                                        <td>514268245</td>
-                                        <td>928.641.44</td>
-                                        <td>65’928.641.44</td>
-                                        <td>0.00</td>
-                                        <td>Jenny Hernadez</td>
-                                        <td>Aprobado</td>
-                                        <td>
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <g id="01 align center">
-                                                    <path id="Vector" d="M24 3H4.242L4.2 2.649C4.11405 1.91942 3.76338 1.24673 3.21449 0.758478C2.6656 0.270223 1.95663 0.000341793 1.222 0L0 0V2H1.222C1.46693 2.00003 1.70334 2.08996 1.88637 2.25272C2.06941 2.41547 2.18634 2.63975 2.215 2.883L3.8 16.351C3.88595 17.0806 4.23662 17.7533 4.78551 18.2415C5.3344 18.7298 6.04337 18.9997 6.778 19H20V17H6.778C6.53291 16.9999 6.29638 16.9099 6.11333 16.7469C5.93027 16.5839 5.81343 16.3594 5.785 16.116L5.654 15H21.836L24 3ZM20.164 13H5.419L4.478 5H21.607L20.164 13Z" fill="#01ADEF" />
-                                                    <path id="Vector_2" d="M7.00012 24C8.10469 24 9.00011 23.1046 9.00011 22C9.00011 20.8954 8.10469 20 7.00012 20C5.89555 20 5.00012 20.8954 5.00012 22C5.00012 23.1046 5.89555 24 7.00012 24Z" fill="#01ADEF" />
-                                                    <path id="Vector_3" d="M17 24C18.1046 24 19 23.1046 19 22C19 20.8954 18.1046 20 17 20C15.8954 20 15 20.8954 15 22C15 23.1046 15.8954 24 17 24Z" fill="#01ADEF" />
-                                                </g>
-                                            </svg>
-
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div> *@
                 </div>
             </div>
         </div>
@@ -451,7 +104,7 @@
 
 </div>
 <script>
-    const abrirModal = (url, idElemento,numeroOrden) => {
+    const abrirModal = (url, idElemento, numeroOrden) => {
 
         console.log(url)
 
@@ -464,7 +117,7 @@
 
                 numeroOrdenPedido.value = numeroOrden;
 
-                console.log("numeroOrdenSteada"+numeroOrden)
+                console.log("numeroOrdenSteada" + numeroOrden)
 
                 // Vaciar el contenido del modal existente
                 document.getElementById(idElemento).innerHTML = '';
@@ -484,6 +137,30 @@
     }
 
     const procesarPedido = (url) => {
+        fetch(url)
+            .then(response => response.text())
+            .then(html => {
+
+                showAlert("Proceso exitoso", "", "success");
+            })
+            .catch(error => console.error('Error al cargar información:', error));
+    }
+
+    const showAlert = (title, message, type) => {
+        Swal.fire({
+            title: title,
+            text: message,
+            showDenyButton: false,
+            showCancelButton: false,
+            confirmButtonText: "Aceptar",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.reload();
+            }
+        });
+    }
+
+    const showComfirmModal = () => {
 
         var radioButtonsDescuentos = document.getElementsByName("descuentos");
 
@@ -548,47 +225,38 @@
         if (selectedValueDescuentos !== '' && selectedValueCondicionesEspeciales !== ''
             && selectedValueNotaCredito !== '') {
 
-            if (selectedValueDescuentos === 'Si' && selectedValueCondicionesEspeciales === 'Si') {
+            if (selectedValueDescuentos === 'Si' && selectedValueNotaCredito === 'Si') {
 
                 selectedValueGeneral = "Si"
             }
 
-            url = `${url}?numeroOrden=${numeroOrden}&aprobacionDescuento=${selectedValueDescuentos}&aprobacionCondicionesEspeciales=${selectedValueCondicionesEspeciales}&aprobacionNotaCredito=${selectedValueNotaCredito}&aprobacionGeneral=${selectedValueGeneral}&mensaje=${mensaje}`
+            console.log('general'+selectedValueGeneral)
 
-            // //document.getElementById("table-productos-seleccionados").innerHTML = '<h1>Cargando información...</h1>';
+            url = `/Aprobador/ProcesarPedido?numeroOrden=${numeroOrden}&aprobacionDescuento=${selectedValueDescuentos}&aprobacionCondicionesEspeciales=${selectedValueCondicionesEspeciales}&aprobacionNotaCredito=${selectedValueNotaCredito}&aprobacionGeneral=${selectedValueGeneral}&mensaje=${mensaje}`
 
-            fetch(url)
-                .then(response => response.text())
-                .then(html => {
+            let accionPeticion = selectedValueGeneral === "Si" ? "aprobar" : "rechazar";
 
-                    //document.getElementById("table-productos-seleccionados").innerHTML = html
+            Swal.fire({
+                title: `¿Está seguro que desea ${accionPeticion} el pedido?`,
+                text: "Una vez realizada esta acción no habrá forma de revertirla",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Aceptar",
+                cancelButtonText:"Cancelar"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    procesarPedido(url)
+                }
+            });
 
-                    showAlert("Proceso exitoso", "", "success");
-
-                })
-                .catch(error => console.error('Error al cargar información:', error));
-
-            console.log("general" + selectedValueGeneral)
 
         } else {
 
             alert("Debe escojer una opción en todos lo campos requeridos")
         }
 
-    }
-
-    const showAlert = (title, message, type) => {
-        Swal.fire({
-            title: title,
-            text: message,
-            showDenyButton: false,
-            showCancelButton: false,
-            confirmButtonText: "Aceptar",
-        }).then((result) => {
-            if (result.isConfirmed) {
-                console.log("se presiono")
-            }
-        });
     }
 
 </script>

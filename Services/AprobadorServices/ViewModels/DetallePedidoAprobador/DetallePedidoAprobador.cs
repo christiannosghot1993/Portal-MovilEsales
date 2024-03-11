@@ -19,7 +19,7 @@
         public string numeroOrdenSAP { get; set; }
         public string fechaEntrega { get; set; }
         public string ordenCompra { get; set; }
-        public List<ListadoDetalleProducto> detallePedido { get; set; }
+        public List<ListadoDetalleProducto> detallePedido { get; set; } = new List<ListadoDetalleProducto>();
         public string importeBruto { get; set; }
         public string descuentoBase { get; set; }
         public string subTotal1 { get; set; }
