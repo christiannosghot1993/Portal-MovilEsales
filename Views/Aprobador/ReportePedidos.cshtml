@@ -6,12 +6,11 @@
 <div class="col-12 ">
     <div class="card card-container">
 
-        <div class="modal fade" id="modalPedidoAprobado" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="modalPedidoReporte" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
-            @* @Html.Partial("_ModalDetallePedidoReporte") *@
+           @*  @Html.Partial("_ModalDetallePedidoReporte") *@
 
         </div>
-
 
         <div class="card-body">
 
@@ -101,7 +100,6 @@
 
             </form>
 
-           
                 @Html.Partial("_TablePedidosReporte")
             
         </div>
@@ -135,7 +133,7 @@
         });
     }
 
-    function handleSubmitFiltros(e, url) {
+    const handleSubmitFiltros = (e, url)  => {
         e.preventDefault();
 
         document.getElementById("table-reporte-pedidos").innerHTML = '<h1>Cargando información...</h1>';
@@ -168,6 +166,30 @@
             .catch(error => console.error('Error al cargar información:', error));
     }
 
+    const abrirModalReporte = (url, idElemento) => {
+
+        console.log(url)
+
+        fetch(url)
+            .then(response => response.text())
+            .then(html => {
+               
+                // Vaciar el contenido del modal existente
+                document.getElementById(idElemento).innerHTML = '';
+
+                // Insertar el HTML recibido en el modal
+                document.getElementById(idElemento).innerHTML = html;
+
+                // Obtener el modal
+                var modalElement = document.getElementById(idElemento);
+
+                var modal = new bootstrap.Modal(modalElement);
+
+                // Mostrar el modal
+                modal.show();
+            })
+            .catch(error => console.error('Error al cargar información:', error));
+    }
 
     $(document).ready(inicializarTabla());
 

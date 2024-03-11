@@ -387,8 +387,10 @@
                 </div>
 
             </div>
+
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" onclick="procesarPedido('@Url.Action("ProcesarPedido", "Aprobador")')">Guardar cambios</button>
+               @*  <button type="button" class="btn btn-primary" onclick="procesarPedido('@Url.Action("ProcesarPedido", "Aprobador")')">Guardar cambios</button> *@
+                <button type="button" class="btn btn-primary" onclick="showComfirmModal()">Guardar cambios</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             </div>
         </div>

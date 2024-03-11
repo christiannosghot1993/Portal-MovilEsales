@@ -1,0 +1,66 @@
+﻿<div class="modal-dialog modal-md">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title card-title" id="exampleModalLabel">
+                Información Crediticia
+            </h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="pt-3 me-2 d-flex justify-content-end">
+            <div class=" car-sap-code-container">
+                <h3 class="card-sap-code-label">Última Actualización</h3>
+                <label>@Model.informacionCrediticia.ultimaFechaActualizacion</label>
+            </div>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-6" style="font-weight: bold;">Código:</div>
+                <div class="col-md-6">@Model.informacionCrediticia.codigo</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" style="font-weight: bold;">Crédito Limite:</div>
+                <div class="col-md-6">@Model.informacionCrediticia.creditoLimite</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" style="font-weight: bold;">Objetivo Cobro Actual:</div>
+                <div class="col-md-6">@Model.informacionCrediticia.objetivoCobroActual</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" style="font-weight: bold;">Total Facturado:</div>
+                <div class="col-md-6">@Model.informacionCrediticia.totalFacturado</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" style="font-weight: bold;">Total Vencido:</div>
+                <div class="col-md-6">@Model.informacionCrediticia.totalVencido</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" style="font-weight: bold;">Cheques Post Fechados:</div>
+                <div class="col-md-6">@Model.informacionCrediticia.chequesPostFechados</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" style="font-weight: bold;">Anticipo:</div>
+                <div class="col-md-6">@Model.informacionCrediticia.anticipo</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" style="font-weight: bold;">NC Sin Aplicar:</div>
+                <div class="col-md-6">@Model.informacionCrediticia.ncSinAplicar</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" style="font-weight: bold;">Cartera por Cobrar:</div>
+                <div class="col-md-6">@Model.informacionCrediticia.carteraPorCobrar</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" style="font-weight: bold;">Objetivo Cobro Mes:</div>
+                <div class="col-md-6">@Model.informacionCrediticia.objetivoCobroMes</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" style="font-weight: bold;">Cobranza Actual:</div>
+                <div class="col-md-6">@Model.informacionCrediticia.cobranzaActual</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" style="font-weight: bold;">Porcentaje Cumplimiento:</div>
+                <div class="col-md-6">@Model.informacionCrediticia.porcentajeCumplimiento%</div>
+            </div>
+        </div>
+    </div>
+</div>

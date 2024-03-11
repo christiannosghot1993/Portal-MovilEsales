@@ -89,6 +89,24 @@
                     </li>
                 }
 
+                @if(perfil is "Cliente"){
+                    <li>
+                        <a asp-action="Index" asp-controller="Cliente">INICIO</a>
+                    </li>
+                    <li>
+                        <a>PEDIDOS</a>
+                    </li>
+                    <li>
+                        <a>BEKOWEB</a>
+                    </li>
+                    <li>
+                        <a>BEETRACK</a>
+                    </li>
+                    <li>
+                        <a>RECLAMOS</a>
+                    </li>
+                }
+
             </ul>
 
             <a href="@Context.Session.GetString("contactoWhatsApp")" target="_blank" class="whatsapp">

@@ -108,7 +108,7 @@ namespace Portal_MovilEsales.Controllers
                         switch (perfil)
                         {
                             case "Cliente":
-                                break;
+                                return RedirectToAction("Index", "Cliente");
                             case "Asesor":
                                 return RedirectToAction("Index", "Asesor");
                             case "Aprobador":
