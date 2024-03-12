@@ -1,0 +1,484 @@
+﻿@model Portal_MovilEsales.Services.ClienteServices.ViewModels.ListadoPedidosBPH
+@{
+    ViewData["Title"] = "Cliente - Pedidos";
+}
+
+<div class="col-12 ">
+    <div class="card card-container">
+        <div class="card-body">
+            <div class="card-title">
+                <h1 style="font-size: 17px">Mis Pedidos</h1>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-10">
+                    <ul class="nav nav-tabs d-flex" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link custom-nav-link active" id="clientes-tab" data-bs-toggle="tab" data-bs-target="#borradores-tab-pane" type="button" role="tab" aria-controls="borradores-tab-pane" aria-selected="true" style="font-family: bekaert-headline-regular !important" onclick="cargarInfo('@Url.Action("FillPedidosBorrador", "Cliente")', 0)">Borradores</button>
+                        </li>
+                        <li class="nav-item " role="presentation">
+                            <button class="nav-link custom-nav-link" id="pedidos-tab" data-bs-toggle="tab" data-bs-target="#pedidos-activos-tab-pane" type="button" role="tab" aria-controls="pedidos-activos-tab-pane" aria-selected="false" style="font-family: bekaert-headline-regular !important" onclick="cargarInfo('@Url.Action("FillPedidosActivos", "Cliente")', 1)">Pedidos Activos</button>
+                        </li>
+                        <li class="nav-item flex-grow-1" role="presentation">
+                            <button class="nav-link custom-nav-link" id="historico-tab" data-bs-toggle="tab" data-bs-target="#historico-tab-pane" type="button" role="tab" aria-controls="historico-tab-pane" aria-selected="false" style="font-family: bekaert-headline-regular !important" onclick="cargarInfo('@Url.Action("FillPedidosHistoricos", "Cliente")', 2)">Histórico</button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-12 col-md-2">
+                    <div style="padding-top: 12px; display:flex;">
+                        <a class="orange-rounded-button" asp-action="NuevoPedido" asp-controller="Cliente">
+                            Nuevo Pedido
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="vuesax/linear/message-add">
+                                    <g id="message-add">
+                                        <path id="Vector" d="M16 2H8C4 2 2 4 2 8V21C2 21.55 2.45 22 3 22H16C20 22 22 20 22 16V8C22 4 20 2 16 2Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path id="Vector_2" d="M8.5 12H15.5" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path id="Vector_3" d="M12 15.5V8.5" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                    </g>
+                                </g>
+                            </svg>
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            @*  <input type="hidden" value=@Model.procesoRespuesta.mensajeProceso id="mensaje-proceso-hidden"/> *@
+
+            <div class="tab-content pt-3" id="myTabContent">
+                <div class="tab-pane fade show active" id="borradores-tab-pane" role="tabpanel" aria-labelledby="clientes-tab" tabindex="0">
+
+                    <form class="row" onsubmit="handleSubmitBorradores(event ,'@Url.Action("FillPedidosBorradorData", "Cliente")', 0)">
+                        <div class="col-12 col-md-4">
+                            <label for="startDate" class="label-datepicker">Fecha Inicio</label>
+                            <input id="startDate" name="fechaInicio" class="form-control  datepicker" type="date" />
+                            <span id="startDateSelected"></span>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <label class="label-datepicker" for="endDate">Fecha Fin</label>
+                            <input id="endDate" name="fechaFin" class="form-control datepicker" type="date" />
+                            <span id="endDateSelected"></span>
+                        </div>
+                   
+                        <div class="col-12 col-md-4">
+                            <div style="padding-top: 23px; display:flex;">
+                                <input type="text" class="buscador" name="cadena" placeholder="buscador" style="height: 40px; border: 2px solid #01ADEF;">
+                                <button type="submit" style="background:none; border: none">
+                                    <svg style="margin:5px;" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g id="&#240;&#159;&#166;&#134; icon &#34;search&#34;">
+                                            <path id="Vector" d="M9.88894 18.7779C14.7982 18.7779 18.7779 14.7982 18.7779 9.88894C18.7779 4.97971 14.7982 1 9.88894 1C4.97971 1 1 4.97971 1 9.88894C1 14.7982 4.97971 18.7779 9.88894 18.7779Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path id="Vector_2" d="M21 21.0013L16.1666 16.168" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </g>
+                                    </svg>
+                                </button>
+
+                            </div>
+                        </div>
+                    </form>
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-end align-items-end pt-2">
+                            <button class="orange-rounded-button" style="background-color: #01ADEF !important">
+                                Descargar
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g id="vuesax/linear/frame">
+                                        <g id="frame">
+                                            <path id="Vector" d="M16.44 8.89844C20.04 9.20844 21.51 11.0584 21.51 15.1084V15.2384C21.51 19.7084 19.72 21.4984 15.25 21.4984H8.73998C4.26998 21.4984 2.47998 19.7084 2.47998 15.2384V15.1084C2.47998 11.0884 3.92998 9.23844 7.46998 8.90844" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path id="Vector_2" d="M12 2V14.88" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path id="Vector_3" d="M15.3499 12.6484L11.9999 15.9984L8.6499 12.6484" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </g>
+                                    </g>
+                                </svg>
+
+
+                            </button>
+                        </div>
+                    </div>
+                    <div class="table-responsive table-container pt-3">
+                        @Html.Partial("_TablePedidosBorradorCliente")
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="pedidos-activos-tab-pane" role="tabpanel" aria-labelledby="pedidos-tab" tabindex="0">
+                    <form class="row" onsubmit="handleSubmitPedidosActivos(event ,'@Url.Action("FillPedidosActivosData", "Cliente")', 1)">
+                        <div class="col-12 col-md-3">
+                            <label for="startDate" class="label-datepicker">Fecha Inicio</label>
+                            <input id="startDate" name="fechaInicio" class="form-control  datepicker" type="date" />
+                            <span id="startDateSelected"></span>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <label class="label-datepicker" for="endDate">Fecha Fin</label>
+                            <input id="endDate" name="fechaFin" class="form-control datepicker" type="date" />
+                            <span id="endDateSelected"></span>
+                        </div>
+                      
+                        <div class="col-12 col-md-3">
+                            <div style="padding-top: 23px; display:flex;">
+                                <input type="text" name="cadena" class="buscador" placeholder="buscador" style="height: 40px; border: 2px solid #01ADEF;">
+                                <button type="submit" style="background:none; border: none">
+                                    <svg style="margin:5px;" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g id="&#240;&#159;&#166;&#134; icon &#34;search&#34;">
+                                            <path id="Vector" d="M9.88894 18.7779C14.7982 18.7779 18.7779 14.7982 18.7779 9.88894C18.7779 4.97971 14.7982 1 9.88894 1C4.97971 1 1 4.97971 1 9.88894C1 14.7982 4.97971 18.7779 9.88894 18.7779Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path id="Vector_2" d="M21 21.0013L16.1666 16.168" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </g>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="row">
+
+                        <div class="col-12 d-flex justify-content-end align-items-end pt-2">
+                            <button class="orange-rounded-button" style="background-color: #01ADEF !important">
+                                Descargar
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g id="vuesax/linear/frame">
+                                        <g id="frame">
+                                            <path id="Vector" d="M16.44 8.89844C20.04 9.20844 21.51 11.0584 21.51 15.1084V15.2384C21.51 19.7084 19.72 21.4984 15.25 21.4984H8.73998C4.26998 21.4984 2.47998 19.7084 2.47998 15.2384V15.1084C2.47998 11.0884 3.92998 9.23844 7.46998 8.90844" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path id="Vector_2" d="M12 2V14.88" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path id="Vector_3" d="M15.3499 12.6484L11.9999 15.9984L8.6499 12.6484" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </g>
+                                    </g>
+                                </svg>
+
+
+                            </button>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="modalPedidoAprobado" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                        @if (Model.detallePedidoInfo != null)
+                        {
+                            @Html.Partial("_ModalDetallePedidoAprobadoCliente")
+                        }
+                       
+                    </div>
+                    <div class="table-responsive table-container pt-3">
+                        @Html.Partial("_TablePedidosActivosCliente")
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="historico-tab-pane" role="tabpanel" aria-labelledby="historico-tab" tabindex="0">
+                    <form class="row" onsubmit="handleSubmitHistoricos(event ,'@Url.Action("FillPedidosHistoricosData", "Cliente")', 2)">
+                        <div class="col-12 col-md-3">
+                            <label for="startDate" class="label-datepicker">Fecha Inicio</label>
+                            <input id="startDate" name="fechaInicio" class="form-control  datepicker" type="date" />
+                            <span id="startDateSelected"></span>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <label class="label-datepicker" for="endDate">Fecha Fin</label>
+                            <input id="endDate" name="fechaFin" class="form-control datepicker" type="date" />
+                            <span id="endDateSelected"></span>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <div class="form-group">
+                                <label class="label-datepicker" for="EstadoSelect">Estado</label>
+                                <select class="form-control datepicker" id="EstadoSelect" name="tipoPedido">
+                                    <option value="" selected>Todos</option>
+                                    <option value="aprobado">Aprobado</option>
+                                    <option value="pendiente">Pendiente</option>
+                                    <option value="borrador">Borrador</option>
+                                    <option value="rechazado">Rechazado</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <div style="padding-top: 23px; display:flex;">
+                                <input type="text" name="cadena" class="buscador" placeholder="buscador" style="height: 40px; border: 2px solid #01ADEF;">
+
+                                <button type="submit" style="background:none; border: none">
+                                    <svg style="margin:5px;" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g id="&#240;&#159;&#166;&#134; icon &#34;search&#34;">
+                                            <path id="Vector" d="M9.88894 18.7779C14.7982 18.7779 18.7779 14.7982 18.7779 9.88894C18.7779 4.97971 14.7982 1 9.88894 1C4.97971 1 1 4.97971 1 9.88894C1 14.7982 4.97971 18.7779 9.88894 18.7779Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path id="Vector_2" d="M21 21.0013L16.1666 16.168" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </g>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-end align-items-end pt-2">
+                            <button class="orange-rounded-button" style="background-color: #01ADEF !important">
+                                Descargar
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g id="vuesax/linear/frame">
+                                        <g id="frame">
+                                            <path id="Vector" d="M16.44 8.89844C20.04 9.20844 21.51 11.0584 21.51 15.1084V15.2384C21.51 19.7084 19.72 21.4984 15.25 21.4984H8.73998C4.26998 21.4984 2.47998 19.7084 2.47998 15.2384V15.1084C2.47998 11.0884 3.92998 9.23844 7.46998 8.90844" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path id="Vector_2" d="M12 2V14.88" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path id="Vector_3" d="M15.3499 12.6484L11.9999 15.9984L8.6499 12.6484" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </g>
+                                    </g>
+                                </svg>
+
+
+                            </button>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="modalPedidoEntregado" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                        @if (Model.detallePedidoInfo != null)
+                        {
+                            @Html.Partial("_ModalDetallePedidoEntregadoCliente")
+                        }
+
+                    </div>
+                    <div class="table-responsive table-container pt-3">
+                        @Html.Partial("_TablePedidosHistoricosCliente")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="responsive">
+
+    @foreach (var item in Model.listadoImagenes.OrderBy(x => x.orden))
+    {
+        <div>
+            <img src="@item.linkImagen" alt="@item.orden">
+        </div>
+    }
+</div>
+
+<script>
+    function cargarInfo(url, tabSeleccionada) {
+        reestablecerControles();
+        var tabs = document.querySelectorAll(".table-responsive.table-container.pt-3");
+        tabs[tabSeleccionada].innerHTML = '<h1>Cargando información...</h1>';
+        //console.log(url);
+        fetch(url)
+            .then(response => response.text())
+            .then(html => {
+                //console.log(html); // Verifica la respuesta en la consola
+
+                // Insertar el HTML recibido en la tab
+                tabs[tabSeleccionada].innerHTML = html;
+                if (tabSeleccionada === 0)
+                    inicializarTablaBorrador();
+
+                if (tabSeleccionada === 1)
+                    inicializarTablaPedidosListado();
+
+                if (tabSeleccionada === 2)
+                    inicializarTablaHistoricos();
+            })
+            .catch(error => console.error('Error al cargar información:', error));
+    }
+    // Inicializar DataTables
+    function inicializarTablaPedidosListado() {
+        new DataTable('#tabla-listado-pedidos', {
+            pagingType: 'simple_numbers', // Establece el tipo de paginación a simple_numbers
+            searching: false,
+            ordering: false,
+            info: false,
+            lengthChange: false,
+            pageLength: 5, // Establecer el número de elementos por página a 5
+            dom: 'lrtip', // Define la disposición de los elementos de la tabla
+            language: {
+                paginate: {
+                    previous: '<',
+                    next: '>'
+                }
+            }
+        });
+    }
+    function inicializarTablaHistoricos() {
+        new DataTable('#tabla-listado-pedidos-historico', {
+            pagingType: 'simple_numbers', // Establece el tipo de paginación a simple_numbers
+            searching: false,
+            ordering: false,
+            info: false,
+            lengthChange: false,
+            pageLength: 5, // Establecer el número de elementos por página a 5
+            dom: 'lrtip', // Define la disposición de los elementos de la tabla
+            language: {
+                paginate: {
+                    previous: '<',
+                    next: '>'
+                }
+            }
+        });
+    }
+    function inicializarTablaBorrador() {
+
+
+        new DataTable('#tabla-listado-pedidos-borrador', {
+            pagingType: 'simple_numbers', // Establece el tipo de paginación a simple_numbers
+            searching: false,
+            ordering: false,
+            info: false,
+            lengthChange: false,
+            pageLength: 5, // Establecer el número de elementos por página a 5
+            dom: 'lrtip', // Define la disposición de los elementos de la tabla
+            language: {
+                paginate: {
+                    previous: '<',
+                    next: '>'
+                }
+            }
+        });
+
+
+    }
+    function inicializarTablas() {
+        inicializarTablaBorrador();
+        inicializarTablaPedidosListado();
+        inicializarTablaHistoricos();
+    }
+
+    $(document).ready(function () {
+        inicializarTablas();
+    });
+
+    const abrirModal = (url, idElemento) => {
+
+        console.log(url)
+
+        fetch(url)
+            .then(response => response.text())
+            .then(html => {
+                //console.log(html); // Verifica la respuesta en la consola
+
+                // Vaciar el contenido del modal existente
+                document.getElementById(idElemento).innerHTML = '';
+
+                // Insertar el HTML recibido en el modal
+                document.getElementById(idElemento).innerHTML = html;
+
+                // Obtener el modal
+                var modalElement = document.getElementById(idElemento);
+
+                var modal = new bootstrap.Modal(modalElement);
+
+                // Mostrar el modal
+                modal.show();
+            })
+            .catch(error => console.error('Error al cargar información:', error));
+    }
+
+    function handleSubmitBorradores(e, url, tabSeleccionada) {
+        e.preventDefault();
+        var tabs = document.querySelectorAll(".table-responsive.table-container.pt-3");
+        tabs[tabSeleccionada].innerHTML = '<h1>Cargando información...</h1>';
+        var fechaInicio = e.target.elements.fechaInicio.value;
+        var fechaFin = e.target.elements.fechaFin.value;
+        var cadena = e.target.elements.cadena.value;
+
+        // Construir la URL con los parámetros
+        var urlCompleta = url + '?fechaInicio=' + encodeURIComponent(fechaInicio) + '&fechaFin=' + encodeURIComponent(fechaFin) + '&cadena=' + encodeURIComponent(cadena);
+
+        // Realizar la solicitud AJAX
+        fetch(urlCompleta)
+            .then(response => response.text())
+            .then(html => {
+                //console.log(html); // Verifica la respuesta en la consola
+
+                // Insertar el HTML recibido en la tab
+                tabs[tabSeleccionada].innerHTML = html;
+                if (tabSeleccionada === 0)
+                    inicializarTablaBorrador();
+
+                if (tabSeleccionada === 1)
+                    inicializarTablaPedidosListado();
+
+                if (tabSeleccionada === 2)
+                    inicializarTablaHistoricos();
+
+            })
+            .catch(error => console.error('Error al cargar información:', error));
+    }
+
+    function handleSubmitPedidosActivos(e, url, tabSeleccionada) {
+        e.preventDefault();
+        var tabs = document.querySelectorAll(".table-responsive.table-container.pt-3");
+        tabs[tabSeleccionada].innerHTML = '<h1>Cargando información...</h1>';
+        var fechaInicio = e.target.elements.fechaInicio.value;
+        var fechaFin = e.target.elements.fechaFin.value;
+        var cadena = e.target.elements.cadena.value;
+
+        // Construir la URL con los parámetros
+        var urlCompleta = url + '?fechaInicio=' + encodeURIComponent(fechaInicio) + '&fechaFin=' + encodeURIComponent(fechaFin) + '&cadena=' + encodeURIComponent(cadena);
+
+        // Realizar la solicitud AJAX
+        fetch(urlCompleta)
+            .then(response => response.text())
+            .then(html => {
+                //console.log(html); // Verifica la respuesta en la consola
+
+                // Insertar el HTML recibido en la tab
+                tabs[tabSeleccionada].innerHTML = html;
+                if (tabSeleccionada === 0)
+                    inicializarTablaBorrador();
+
+                if (tabSeleccionada === 1)
+                    inicializarTablaPedidosListado();
+
+                if (tabSeleccionada === 2)
+                    inicializarTablaHistoricos();
+
+            })
+            .catch(error => console.error('Error al cargar información:', error));
+    }
+
+    function handleSubmitHistoricos(e, url, tabSeleccionada) {
+        e.preventDefault();
+        var tabs = document.querySelectorAll(".table-responsive.table-container.pt-3");
+        tabs[tabSeleccionada].innerHTML = '<h1>Cargando información...</h1>';
+
+        var fechaInicio = e.target.elements.fechaInicio.value;
+        var fechaFin = e.target.elements.fechaFin.value;
+        var cadena = e.target.elements.cadena.value;
+        var tipoPedido = e.target.elements.tipoPedido.value;
+        // Construir la URL con los parámetros
+        var urlCompleta = url + '?fechaInicio=' + encodeURIComponent(fechaInicio) + '&fechaFin=' + encodeURIComponent(fechaFin) + '&cadena=' + encodeURIComponent(cadena) + '&tipoPedido=' + encodeURIComponent(tipoPedido);
+
+        // Realizar la solicitud AJAX
+        fetch(urlCompleta)
+            .then(response => response.text())
+            .then(html => {
+                //console.log(html); // Verifica la respuesta en la consola
+
+                // Insertar el HTML recibido en la tab
+                tabs[tabSeleccionada].innerHTML = html;
+                if (tabSeleccionada === 0)
+                    inicializarTablaBorrador();
+
+                if (tabSeleccionada === 1)
+                    inicializarTablaPedidosListado();
+
+                if (tabSeleccionada === 2)
+                    inicializarTablaHistoricos();
+
+            })
+            .catch(error => console.error('Error al cargar información:', error));
+    }
+
+    function reestablecerControles() {
+        var inputElements = document.querySelectorAll('input[type="text"]');
+        inputElements.forEach(function (input) {
+            input.value = '';
+        });
+
+        var dateElements = document.querySelectorAll('input[type="date"]');
+        dateElements.forEach(function (input) {
+            input.value = '';
+        });
+
+        var selectElements = document.querySelectorAll('select');
+        selectElements.forEach(function (select) {
+            select.selectedIndex = 0;
+        });
+    }
+
+    // $(document).ready(() => {
+
+    //     let mensajeRespuestaProceso = document.getElementById("mensaje-proceso-hidden").value;
+
+    //     // if(!mensajeRespuestaProceso.isNullOrEmpty){
+
+    //         alert(mensajeRespuestaProceso)
+    //     // }
+
+    // });
+
+</script>

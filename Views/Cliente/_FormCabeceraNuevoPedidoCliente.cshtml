@@ -1,0 +1,90 @@
+﻿<div class="collapse show mb-4" id="collapseInformacionPedido">
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <label for="nombres" class="label-datepicker">Nombres</label>
+            <input id="nombres" class="form-control datepicker" type="text" value=@Model.cargaCabeceraPedido.nombreCliente disabled/>
+        </div>
+        <div class="col-12 col-md-6">
+            <label for="codigo-sap" class="label-datepicker">Código SAP</label>
+            <input id="codigo-sap" class="form-control datepicker" type="text" value=@Model.cargaCabeceraPedido.codigoSAP disabled/>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                <label class="label-datepicker" for="EstadoSelect">Tipo de Entrega</label>
+                <select class="form-control datepicker" id="tipoEntregaSelect">
+
+                    @foreach (var item in Model.cargaCabeceraPedido.listadoTipoEntrega)
+                    {
+                        @if (item.porDefecto is "S")
+                        {
+                            <option value=@item.codigoTipoEntrega selected>@item.descripcionTipoEntrega</option>
+                        }
+                        else
+                        {
+                            <option value=@item.codigoTipoEntrega>@item.descripcionTipoEntrega</option>
+                        }
+
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                <label class="label-datepicker" for="EstadoSelect">Tipo de Pago</label>
+                <select class="form-control datepicker" id="tipoPagoSelect">
+                    @foreach (var item in Model.cargaCabeceraPedido.listadoTipoPago)
+                    {
+                        @if (item.porDefecto is "S")
+                        {
+                            <option value=@item.codigoTipoPago selected>@item.descripcionTipoPago</option>
+                        }
+                        else
+                        {
+                            <option value=@item.codigoTipoPago>@item.descripcionTipoPago</option>
+                        }
+
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                <label class="label-datepicker" for="EstadoSelect">Dirección de Entrega</label>
+                <select class="form-control datepicker" id="direccionEntregaSelect">
+                    @foreach (var item in Model.cargaCabeceraPedido.listadoDireccionEntrega)
+                    {
+                        @if (item.porDefecto is "S")
+                        {
+                            <option value=@item.codigoSAPDireccionEntrega selected>@item.descripcionDireccionEntrega</option>
+                        }
+                        else
+                        {
+                            <option value=@item.codigoSAPDireccionEntrega>@item.descripcionDireccionEntrega</option>
+                        }
+
+
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                <label class="label-datepicker" for="EstadoSelect">Canal</label>
+                <select class="form-control datepicker" id="canalSelect">
+                    @foreach (var item in Model.cargaCabeceraPedido.listadoCanal)
+                    {
+                        @if (item.porDefecto is "S")
+                        {
+                            <option value=@item.codigoCanal selected>@item.descipcionCanal</option>
+                        }
+                        else
+                        {
+                            <option value=@item.codigoCanal>@item.descipcionCanal</option>
+                        }
+
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+</div>

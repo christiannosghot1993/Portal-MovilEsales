@@ -1,6 +1,6 @@
 ﻿@model Portal_MovilEsales.Services.ClienteServices.ViewModels.Inicio.InicioCliente
 @{
-    ViewData["Title"] = "Asesor - Información Cliente";
+    ViewData["Title"] = "Cliente- Información Cliente";
 }
 
 <div class="row">
@@ -165,7 +165,7 @@
                     </div>
                     <div class="col-sm-12 col-md-2">
                         <div style="padding-top: 12px; display:flex;">
-                            <a class="orange-rounded-button" asp-controller="Asesor" asp-action="PedidoCatalogoProductos" asp-route-codigoSAPCliente="@Model.codigoSAP" class="card-subtitle">
+                            <a class="orange-rounded-button" asp-controller="Cliente" asp-action="NuevoPedido" asp-route-codigoSAPCliente="@Model.codigoSAP" class="card-subtitle">
                                 Nuevo Pedido
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g id="vuesax/linear/message-add">
@@ -292,7 +292,7 @@
                                                 </svg>
                                             </td>
                                             <td>
-                                                <a onclick="abrirModal('@Url.Action("CargarInformacionModalPedidoAprobado", "Asesor", new { numeroPedido = item.numeroPedido })')">
+                                                <a onclick="abrirModal('@Url.Action("CargarInformacionModalPedidoAprobado", "Cliente", new { numeroPedido = item.numeroPedido })')">
                                                     <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <g id="&#240;&#159;&#166;&#134; icon &#34;search&#34;">
                                                             <path id="Vector" d="M7.6667 14.833C11.3486 14.833 14.3334 11.8483 14.3334 8.16652C14.3334 4.4847 11.3486 1.5 7.6667 1.5C3.98478 1.5 1 4.4847 1 8.16652C1 11.8483 3.98478 14.833 7.6667 14.833Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -460,6 +460,16 @@
         </div>
     </div>
 
+</div>
+
+<div class="responsive">
+
+    @foreach (var item in Model.listadoImagenes.OrderBy(x => x.orden))
+    {
+        <div>
+            <img src="@item.linkImagen" alt="@item.orden">
+        </div>
+    }
 </div>
 
 <script>

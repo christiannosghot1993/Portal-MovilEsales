@@ -1,5 +1,5 @@
 ﻿@using Newtonsoft.Json;
-@model Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido.NuevoPedido
+@model Portal_MovilEsales.Services.ClienteServices.ViewModels.NuevoPedido.NuevoPedido
 @{
     ViewData["Title"] = "Nuevo Pedido Catálogo de Productos";
 }
@@ -20,7 +20,7 @@
                 @*  <input type="hidden" value=@Model.procesoRespuesta.mensajeProceso id="mensaje-proceso-hidden"/> *@
 
                 <div class="d-flex justify-content-end pt-3 mb-3">
-                    <a class="orange-rounded-button" asp-action="Pedidos" asp-controller="Asesor" style="background-color: #69A5BD !important;">
+                    <a class="orange-rounded-button" asp-action="PedidosCliente" asp-controller="Cliente" style="background-color: #69A5BD !important;">
                         Cancelar
                         <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g id="01 align center">
@@ -30,7 +30,7 @@
                         </svg>
 
                     </a>
-                    <button class="orange-rounded-button ms-1" onclick="guardarBorrador('@Url.Action("PostGuardarBorrador", "Asesor")')" style="background-color:#01ADEF   !important;">
+                    <button class="orange-rounded-button ms-1" onclick="guardarBorrador('@Url.Action("PostGuardarBorrador", "Cliente")')" style="background-color:#01ADEF   !important;">
                         Guardar como Borrador
                         <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g id="01 align center">
@@ -59,78 +59,7 @@
                     </div>
                 </a>
 
-                @Html.Partial("_FormCabeceraNuevoPedido")
-
-                @*   <div class="collapse show mb-4" id="collapseInformacionPedido">
-                <div class="row">
-                <div class="col-12 col-md-6">
-                <label for="nombres" class="label-datepicker">Nombres</label>
-                <input id="nombres" class="form-control datepicker" type="text" />
-                </div>
-                <div class="col-12 col-md-6">
-                <label for="codigo-sap" class="label-datepicker">Código SAP</label>
-                <input id="codigo-sap" class="form-control datepicker" type="text" />
-
-
-
-
-                <svg style="margin:5px;" width="20" height="20" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="fillCabeceraNuevoPedido('@Url.Action("FillCabeceraNuevoPedido", "Asesor")')">
-                <g id="&#240;&#159;&#166;&#134; icon &#34;search&#34;">
-                <path id="Vector" d="M9.88894 18.7779C14.7982 18.7779 18.7779 14.7982 18.7779 9.88894C18.7779 4.97971 14.7982 1 9.88894 1C4.97971 1 1 4.97971 1 9.88894C1 14.7982 4.97971 18.7779 9.88894 18.7779Z" stroke="blue" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                <path id="Vector_2" d="M21 21.0013L16.1666 16.168" stroke="blue" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                </g>
-                </svg>
-                </div>
-                <div class="col-12 col-md-6">
-                <div class="form-group">
-                <label class="label-datepicker" for="EstadoSelect">Tipo de Entrega</label>
-                <select class="form-control datepicker" id="tipoEntregaSelect">
-                <option value="option1">Retiro</option>
-                <option value="option2">Retiro</option>
-                </select>
-                </div>
-                </div>
-                <div class="col-12 col-md-6">
-                <div class="form-group">
-                <label class="label-datepicker" for="EstadoSelect">Tipo de Pago</label>
-                <select class="form-control datepicker" id="tipoPagoSelect">
-                <option value="option1">30 días de Crédito</option>
-                <option value="option2">30 días de Crédito</option>
-                </select>
-                </div>
-                </div>
-                <div class="col-12 col-md-6">
-                <div class="form-group">
-                <label class="label-datepicker" for="EstadoSelect">Dirección de Entrega</label>
-                <select class="form-control datepicker" id="direccionEntregaSelect">
-                <option value="option1">Obispo Mosquera 6-112 y Bartolomé García - Ibarra</option>
-                <option value="option2">Obispo Mosquera 6-112 y Bartolomé García - Ibarra</option>
-                </select>
-                </div>
-                </div>
-                <div class="col-12 col-md-6">
-                <div class="form-group">
-                <label class="label-datepicker" for="EstadoSelect">Canal</label>
-                <select class="form-control datepicker" id="canalSelect">
-                <option value="option1">Online</option>
-                <option value="option2">Móvil</option>
-                </select>
-                </div>
-                </div>
-                </div>
-                </div> *@
-
-                @*  <form method="post">
-                <div class="form-group">
-                <label asp-for="Nombre"></label>
-                <input asp-for="Nombre" class="form-control" />
-                <span asp-validation-for="Nombre" class="text-danger"></span>
-                </div>
-
-
-
-                <button type="submit" class="btn btn-primary">Submit</button>
-                </form> *@
+                @Html.Partial("_FormCabeceraNuevoPedidoCliente")
 
 
                 <a data-bs-toggle="collapse" href="#collapseSeleccionProductos" role="button" aria-expanded="true" aria-controls="collapseSeleccionProductos">
@@ -190,7 +119,7 @@
                                 <div class="col-12 col-md-5">
                                     <div class="form-group mt-3 mb-3">
                                         <label class="label-datepicker" for="EstadoSelect">Familia de productos</label>
-                                        <select class="form-control datepicker" id="familiaProductosSelect" onchange="getProductosByFamilia('@Url.Action("GetProductosPorFamilia", "Asesor")')">
+                                        <select class="form-control datepicker" id="familiaProductosSelect" onchange="getProductosByFamilia('@Url.Action("GetProductosPorFamilia", "Cliente")')">
 
                                             @foreach (var item in Model.listaFamiliaProductos)
                                             {
@@ -202,137 +131,44 @@
                                 </div>
                             </div>
 
-                            @Html.Partial("_DetalleNuevoPedidoPorFamilia")
-
-                            @*   <div class="table-responsive table-container pt-3" id="detalleProductosPorFamilia" style="max-height: 418px;">
-                            <table class="table" id="tabla-listado-productos-por-familia">
-
-                            <thead></thead>
-
-                            <tbody>
-                            @foreach (var item in Model.listaProductosPorFamilia.result)
-                            {
-
-                            <tr>
-                            <td>
-                            <div class="frame-product-img">
-                            P
-                            </div>
-                            </td>
-                            <td>
-                            <h3>@item.codigoSAPArticulo</h3>
-                            <p>@item.nombre</p>
-                            </td>
-                            <td>
-
-                            @{
-                            var idInput = $"cantidadArticuloPorFamilia-{item.codigoSAPArticulo}";
-
-                            var funcionBoton = $"agregarProducto({idInput})";
-                            }
-
-                            <input id=@idInput type="number" step="1" value="1" min="1" />
-                            </td>
-                            <td>
+                            @Html.Partial("_DetalleNuevoPedidoPorFamiliaCliente")
 
 
-                            <a onclick="agregarProducto('few')" class="orange-rounded-button" style="display:flex; justify-content: center; align-items:center; background-color: #01ADEF;">
-                            Agregar
-                            </a>
-                            </td>
-                            </tr>
-
-
-
-                            }
-
-                            </tbody>
-                            </table>
-                            </div>
-                            *@
-                            @* <div class="table-responsive table-container pt-3">
-                            <table class="table">
-                            <tbody>
-
-                            <tr>
-                            <td>
-                            <div class="frame-product-img">
-                            P
-                            </div>
-                            </td>
-                            <td>
-                            <h3>Detalles del producto</h3>
-                            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et ...</p>
-                            </td>
-                            <td>
-                            <a class="orange-rounded-button" style="display:flex; justify-content: center; align-items:center; background-color: #01ADEF;" asp-action="PedidoCatalogoProductos" asp-controller="Asesor" style="background-color: #01ADEF !important;">
-                            Agregar
-                            </a>
-                            <div class="mt-2 button-up-down">
-                            <a>-</a>
-                            <div>
-                            <strong>20</strong> U
-                            </div>
-                            <a>+</a>
-                            </div>
-                            </td>
-
-                            </tr>
-                            </tbody>
-                            </table>
-                            </div>*@
-                            @*      <div class="d-flex justify-content-end mt-4">
-                            <a class="orange-rounded-button " asp-action="PedidoProductosSeleccionados" asp-controller="Asesor">
-                            Continuar
-                            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g id="vuesax/linear/arrow-right">
-                            <g id="arrow-right">
-                            <path id="Vector" d="M7.18262 15.4386L12.0726 10.5486C12.6501 9.97109 12.6501 9.02609 12.0726 8.44859L7.18262 3.55859" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                            </g>
-                            </g>
-                            </svg>
-
-                            </a>
-                            </div>*@
                         </div>
                         <div class="archivo" style="display: none;">
-                            <form class="form-group mt-3 mb-3" method="post" enctype="multipart/form-data" onsubmit="handleSubmitExcel(event, '@Url.Action("SubirExcelProductos", "Asesor")')" >
+                            <form class="form-group mt-3 mb-3" method="post" enctype="multipart/form-data" onsubmit="handleSubmitExcel(event, '@Url.Action("SubirExcelProductos", "Cliente")')">
                                 <div class="row">
                                     <div class="col-12 col-md-10">
                                         <label class="label-datepicker" for="archivoSelector">Seleccione el Archivo - Formato Excel</label>
-                                        <input type="file" id="archivoSelector" name="file" class="form-control datepicker" />                                  
+                                        <input type="file" id="archivoSelector" name="file" class="form-control datepicker" />
                                     </div>
                                     <div class="col-12 col-md-2 mt-md-4 mt-2">
-                                        <button type="submit" class="orange-rounded-button ms-1"  style="background-color:#01ADEF   !important;">Subir</button>
+                                        <button type="submit" class="orange-rounded-button ms-1" style="background-color:#01ADEF   !important;">Subir</button>
                                     </div>
                                 </div>
                             </form>
                         </div>
                         <div class="codigo-sap" style="display: none;">
-                            @* @using (Html.BeginForm("BuscarProductoCodigoSap", "Asesor", FormMethod.Post))
-                            {
 
-                            }*@
-                           @*  <div class="row-cols-2"> *@
-                                <form class="row" onsubmit="handleSubmitCodigoArticulo(event,'@Url.Action("BuscarProductoCodigoSap", "Asesor")')">
-                                   
+                            <form class="row" onsubmit="handleSubmitCodigoArticulo(event,'@Url.Action("BuscarProductoCodigoSap", "Cliente")')">
 
-                                    <div class="col-12 col-md-6">
-                                        <label class="label-datepicker" for="codigoSapSelector">Código del artículo</label>
-                                        <input type="text" id="codigoSapSelector" name="codigoArticulo" class="form-control datepicker" placeholder="0000000000" />
-                                    </div>
 
-                                    <div class="col-12 col-md-6">
-                                        <label class="label-datepicker" for="codigoSapSelector">Cantidad</label>
+                                <div class="col-12 col-md-6">
+                                    <label class="label-datepicker" for="codigoSapSelector">Código del artículo</label>
+                                    <input type="text" id="codigoSapSelector" name="codigoArticulo" class="form-control datepicker" placeholder="0000000000" />
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                    <label class="label-datepicker" for="codigoSapSelector">Cantidad</label>
                                     <input type="number" min="1 " step="1" id="codigoSapCantidadSelector" name="codigoArticuloCantidad" class="form-control datepicker" />
-                                    </div>
+                                </div>
 
                                 <button type="submit" style="background: none; border: none;">
                                     <a class="orange-rounded-button" style="display:flex; justify-content: center; align-items:center; background-color: #01ADEF;">
                                         Agregar
                                     </a>
                                 </button>
-                                </form>
+                            </form>
                             @* </div> *@
                         </div>
                         <div class="favoritos" style="display: none;">
@@ -351,20 +187,14 @@
                                         {
                                             <form onsubmit="onSubmitAgregraFavorito(event, '@{
 
-                                                                                    @JsonConvert.SerializeObject(item)
+                                                                                            @JsonConvert.SerializeObject(item)
 ;
-}', '@Url.Action("SeleccionarArticuloFavorito", "Asesor")')">
+}', '@Url.Action("SeleccionarArticuloFavorito", "Cliente")')">
                                             <tr>
                                                 <td>@item.codigoSAPArticulo</td>
                                                 <td>@item.nombre</td>
                                                 <td>
-                                                        @*<div class="mt-2 button-up-down">
-                                                <a>-</a>
-                                                <div>
-                                                <strong>0</strong> U
-                                                </div>
-                                                <a>+</a>
-                                                </div>*@
+
                                                     <input name="cantidadArticulo" type="number" step="1" value="0" min="0" />
                                                 </td>
                                                 <td>
@@ -385,19 +215,7 @@
                                 </table>
                             </div>
 
-                            @*       <div class="d-flex justify-content-end mt-4">
-                            <a class="orange-rounded-button ">
-                            Continuar
-                            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g id="vuesax/linear/arrow-right">
-                            <g id="arrow-right">
-                            <path id="Vector" d="M7.18262 15.4386L12.0726 10.5486C12.6501 9.97109 12.6501 9.02609 12.0726 8.44859L7.18262 3.55859" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                            </g>
-                            </g>
-                            </svg>
-
-                            </a>
-                            </div>*@
+                       
                         </div>
                     </div>
 
@@ -474,42 +292,14 @@
                                         </table>
                                     </div>
                                 </div>
-                                @*<div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-primary">Guardar cambios</button>
-                                </div>*@
+                               
                             </div>
                         </div>
                     </div>
 
                     <div id="tablaPedidosSeleccinoados">
-                        @Html.Partial("_TableProductosSeleccionadosPedido")
+                        @Html.Partial("_TableProductosSeleccionadosPedidoCliente")
                     </div>
-
-
-                    @*<div class="d-flex justify-content-between mt-4">
-                    <a class="orange-rounded-button ms-md-5" style="background-color: #69A5BD !important">
-                    <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g id="vuesax/linear/arrow-right">
-                    <g id="arrow-right">
-                    <path id="Vector" d="M11.8174 3.56141L6.92738 8.45141C6.34988 9.02891 6.34988 9.97391 6.92738 10.5514L11.8174 15.4414" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                    </g>
-                    </g>
-                    </svg>
-                    Regresar
-                    </a>
-                    <a class="orange-rounded-button me-md-5">
-                    Continuar
-                    <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g id="vuesax/linear/arrow-right">
-                    <g id="arrow-right">
-                    <path id="Vector" d="M7.18262 15.4386L12.0726 10.5486C12.6501 9.97109 12.6501 9.02609 12.0726 8.44859L7.18262 3.55859" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                    </g>
-                    </g>
-                    </svg>
-
-                    </a>
-                    </div>*@
 
                 </div>
                 <a data-bs-toggle="collapse" href="#collapseInfoPedidoSecond" role="button" aria-expanded="true" aria-controls="collapseInfoPedidoSecond">
@@ -567,7 +357,7 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-end pt-3 mb-3">
-                    <button class="orange-rounded-button ms-1" onclick="crearNuevoPedido('@Url.Action("PostNuevoPedido", "Asesor")')">
+                    <button class="orange-rounded-button ms-1" onclick="crearNuevoPedido('@Url.Action("PostNuevoPedido", "Cliente")')">
                         Enviar
                         <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g id="01 align center">
@@ -579,36 +369,9 @@
             </div>
         </div>
     </div>
-
 </div>
 <script>
 
-    // function handleSubmitCodigoArticulo(e, url) {
-    //     e.preventDefault();
-    //     let codigoArticulo = e.target.elements.codigoArticulo.value;
-    //     let cantidadArticulo = "7"
-    //     let codigoSapCliente = document.getElementById('codigo-sap').value;
-    //     console.log("fwef")
-    //     if (isNullOrEmpty(codigoSapCliente)) {
-    //         alert('Por favor ingrese el Código SAP del cliente en el apartado "Información del pedido"');
-    //         return;
-    //     }
-    //     var urlCompleta = url + '?codigoSapCliente=' + encodeURIComponent(codigoSapCliente) + '&codigoArticulo=' + encodeURIComponent(codigoArticulo) + '&cantidadArticulo=' + encodeURIComponent(cantidadArticulo);
-    //     console.log(urlCompleta)
-    //     // Realizar la solicitud AJAX
-    //     fetch(urlCompleta)
-    //         .then(response => response.text())
-    //         .then(html => {
-    //             console.log(html); // Verifica la respuesta en la consola
-
-    //             //document.getElementById('tablaPedidosSeleccinoados').innerHTML = html;
-    //             document.getElementById('table-productos-seleccionados').innerHTML = html;
-                
-
-    //         })
-    //         .catch(error => console.error('Error al cargar información:', error));
-    //     console.log(codigoArticulo, codigoSapCliente,cantidadArticulo)
-    // }
     function handleSubmitExcel(e, url) {
         e.preventDefault();
 
@@ -669,35 +432,6 @@
             .catch(error => console.error('Error al cargar información:', error));
         console.log(codigoArticulo, codigoSapCliente, cantidadArticulo)
     }
-
-    // const handleAddArticuloPorCodigo = () =>{
-
-    //     let codigoArticulo = document.getElementById('codigoSapSelector').value;
-
-    //     let cantidadArticulo = document.getElementById('codigoSapCantidadSelector').value;
-
-    //     let codigoSapCliente = document.getElementById('codigo-sap').value;
-
-    //     console.log("fwef")
-
-    //     if (isNullOrEmpty(codigoSapCliente)) {
-    //         alert('Por favor ingrese el Código SAP del cliente en el apartado "Información del pedido"');
-    //         return;
-    //     }
-    //     var urlCompleta = url + '?codigoSapCliente=' + encodeURIComponent(codigoSapCliente) + '&codigoArticulo=' + encodeURIComponent(codigoArticulo) + '&cantidadArticulo=' + encodeURIComponent(cantidadArticulo);
-        
-    //     fetch(urlCompleta)
-    //         .then(response => response.text())
-    //         .then(html => {
-    //             console.log(html); /
-
-    //             document.getElementById('tablaPedidosSeleccinoados').innerHTML = html;
-
-    //         })
-    //         .catch(error => console.error('Error al cargar información:', error));
-
-    //     console.log(codigoArticulo, codigoSapCliente)
-    // }
 
     function isNullOrEmpty(str) {
         return str == null || str.trim() === '';
@@ -861,7 +595,7 @@
 
 
         url = `${url}?codigoSAPCliente=${codigoSAPCliente}&codigoTipoEntrega=${tipoEntregaSelectedValue}&codigoTipoPago=${tipoPagoSelectedValue}&codigoSAPDireccionEntrega=${direccionEntregaSelectedValue}&canal=${canalSelectedValue}
-                                                                                                           &fechaEntrega=${fechaEntrega}&numeroOrdenCompra=${numeroOrdenCompra}&lugarEntrega=${lugarEntrega}&observaciones=${observaciones}&contactoEntrega=${contactoEntrega}`
+                                                                                                                   &fechaEntrega=${fechaEntrega}&numeroOrdenCompra=${numeroOrdenCompra}&lugarEntrega=${lugarEntrega}&observaciones=${observaciones}&contactoEntrega=${contactoEntrega}`
 
         console.log(url)
 
@@ -880,8 +614,6 @@
             })
             .catch(error => console.error('Error al cargar información:', error));
     }
-
-    $(document).ready(() => { getProductosByFamilia("/Asesor/GetProductosPorFamilia"); });
 
     function onSubmitAgregraFavorito(e, item, url) {
         e.preventDefault();
@@ -968,5 +700,6 @@
         });
     }
 
+    $(document).ready(() => { getProductosByFamilia("/Cliente/GetProductosPorFamilia"); });
 
 </script>
