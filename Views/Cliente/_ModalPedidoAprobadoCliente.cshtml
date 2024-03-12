@@ -1,0 +1,75 @@
+﻿<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title card-title" id="exampleModalLabel">
+                Pedido Aprobado
+            </h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            @if (Model.pedidoAprobado.observacion.Contains("Error"))
+            {
+                <h1>@Model.pedidoAprobado.observacion</h1>
+            }
+            else
+            {
+                <div class="row">
+                    <div class="col-md-3" style="font-weight: bold;">Código Bodega:</div>
+                    <div class="col-md-9">@Model.pedidoAprobado.codigoBodega</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3" style="font-weight: bold;">Observación:</div>
+                    <div class="col-md-9">@Model.pedidoAprobado.observacion</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3" style="font-weight: bold;">Orden Pedido:</div>
+                    <div class="col-md-9">@Model.pedidoAprobado.ordenPedido</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3" style="font-weight: bold;">Fecha:</div>
+                    <div class="col-md-9">@Model.pedidoAprobado.fechaPedido</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3" style="font-weight: bold;">Forma de Pago:</div>
+                    <div class="col-md-9">@Model.pedidoAprobado.formaPago</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3" style="font-weight: bold;">Dirección de Entrega:</div>
+                    <div class="col-md-9">@Model.pedidoAprobado.direccionEntrega</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3" style="font-weight: bold;">Peso Total:</div>
+                    <div class="col-md-9">@Model.pedidoAprobado.pesoTotal</div>
+                </div>
+                <div class="table-responsive table-container mt-4">
+                    <table class="table">
+                        <thead class="card-table_header">
+                            <tr>
+                                <th scope="col" class="border-radius-left" style="padding:13px;">Artículo:</th>
+                                <th scope="col" style="padding:13px;">Descripción:</th>
+                                <th scope="col" style="padding:13px;">Cantidad:</th>
+                                <th scope="col" style="padding:13px;">Unidad:</th>
+                                <th scope="col" class="border-radius-right" style="padding:13px;">Peso Kg.:</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in @Model.pedidoAprobado.detallePedido)
+                            {
+                                <tr>
+                                    <td>@item.codigoArticulo</td>
+                                    <td>@item.descripcion</td>
+                                    <td>@item.cantidad</td>
+                                    <td>@item.unidad</td>
+                                    <td>@item.peso</td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            }
+          
+            
+        </div>
+    </div>
+</div>

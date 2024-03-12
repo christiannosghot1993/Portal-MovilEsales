@@ -17,7 +17,8 @@ namespace Portal_MovilEsales.Services.ClienteServices.ViewModels.Inicio
         public double objetivoCobroMes { get; set; }
         public List<ListadoFacturasCliente> listadoFacturas { get; set; }
         public List<ListadoPedidosCliente> listadoPedidos { get; set; }
-        //public PedidoAprobado.PedidoAprobado pedidoAprobado { get; set; }
+        public List<ListadoImagenes> listadoImagenes { get; set; }
+        public PedidoAprobado.PedidoAprobado pedidoAprobado { get; set; }
         public InformacionCrediticia informacionCrediticia { get; set; }
     }
 }
