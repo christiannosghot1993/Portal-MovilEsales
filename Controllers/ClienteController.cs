@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
 using Portal_MovilEsales.Services.ClienteServices;
@@ -8,6 +9,7 @@ using Portal_MovilEsales.Services.ClienteServices.ViewModels.NuevoPedido;
 
 namespace Portal_MovilEsales.Controllers
 {
+    [Authorize]
     public class ClienteController : Controller
     {
         private readonly IClienteService _clienteService;

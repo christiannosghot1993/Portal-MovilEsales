@@ -1,5 +1,5 @@
 ﻿@using Newtonsoft.Json
-<div class="table-responsive table-container pt-3" id="detalleProductosPorFamilia" style="max-height: 418px;">
+<div class="table-responsive" id="detalleProductosPorFamilia" style="max-height: 418px">
     <table class="table" id="tabla-listado-productos-por-familia">
         <tbody>
             @foreach (var item in Model.listaProductosPorFamilia.result)
@@ -9,9 +9,9 @@
                 @* <form onsubmit="agregarProducto(event)"> *@
                 <tr>
                     <td>
-                        <div class="frame-product-img">
-                            P
-                        </div>
+                        
+                        <img class="frame-product-img" src=@item.linkImagen />
+                      
                     </td>
                     <td>
                         <h3>@item.codigoSAPArticulo</h3>

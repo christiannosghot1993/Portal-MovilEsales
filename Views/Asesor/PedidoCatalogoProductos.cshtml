@@ -296,14 +296,14 @@
                             </div>*@
                         </div>
                         <div class="archivo" style="display: none;">
-                            <form class="form-group mt-3 mb-3" method="post" enctype="multipart/form-data" onsubmit="handleSubmitExcel(event, '@Url.Action("SubirExcelProductos", "Asesor")')" >
+                            <form class="form-group mt-3 mb-3" method="post" enctype="multipart/form-data" onsubmit="handleSubmitExcel(event, '@Url.Action("SubirExcelProductos", "Asesor")')">
                                 <div class="row">
                                     <div class="col-12 col-md-10">
                                         <label class="label-datepicker" for="archivoSelector">Seleccione el Archivo - Formato Excel</label>
-                                        <input type="file" id="archivoSelector" name="file" class="form-control datepicker" />                                  
+                                        <input type="file" id="archivoSelector" name="file" class="form-control datepicker" />
                                     </div>
                                     <div class="col-12 col-md-2 mt-md-4 mt-2">
-                                        <button type="submit" class="orange-rounded-button ms-1"  style="background-color:#01ADEF   !important;">Subir</button>
+                                        <button type="submit" class="orange-rounded-button ms-1" style="background-color:#01ADEF   !important;">Subir</button>
                                     </div>
                                 </div>
                             </form>
@@ -313,26 +313,26 @@
                             {
 
                             }*@
-                           @*  <div class="row-cols-2"> *@
-                                <form class="row" onsubmit="handleSubmitCodigoArticulo(event,'@Url.Action("BuscarProductoCodigoSap", "Asesor")')">
-                                   
+                            @*  <div class="row-cols-2"> *@
+                            <form class="row" onsubmit="handleSubmitCodigoArticulo(event,'@Url.Action("BuscarProductoCodigoSap", "Asesor")')">
 
-                                    <div class="col-12 col-md-6">
-                                        <label class="label-datepicker" for="codigoSapSelector">Código del artículo</label>
-                                        <input type="text" id="codigoSapSelector" name="codigoArticulo" class="form-control datepicker" placeholder="0000000000" />
-                                    </div>
 
-                                    <div class="col-12 col-md-6">
-                                        <label class="label-datepicker" for="codigoSapSelector">Cantidad</label>
+                                <div class="col-12 col-md-6">
+                                    <label class="label-datepicker" for="codigoSapSelector">Código del artículo</label>
+                                    <input type="text" id="codigoSapSelector" name="codigoArticulo" class="form-control datepicker" placeholder="0000000000" />
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                    <label class="label-datepicker" for="codigoSapSelector">Cantidad</label>
                                     <input type="number" min="1 " step="1" id="codigoSapCantidadSelector" name="codigoArticuloCantidad" class="form-control datepicker" />
-                                    </div>
+                                </div>
 
                                 <button type="submit" style="background: none; border: none;">
                                     <a class="orange-rounded-button" style="display:flex; justify-content: center; align-items:center; background-color: #01ADEF;">
                                         Agregar
                                     </a>
                                 </button>
-                                </form>
+                            </form>
                             @* </div> *@
                         </div>
                         <div class="favoritos" style="display: none;">
@@ -351,7 +351,7 @@
                                         {
                                             <form onsubmit="onSubmitAgregraFavorito(event, '@{
 
-                                                                                    @JsonConvert.SerializeObject(item)
+                                                                                                @JsonConvert.SerializeObject(item)
 ;
 }', '@Url.Action("SeleccionarArticuloFavorito", "Asesor")')">
                                             <tr>
@@ -603,7 +603,7 @@
 
     //             //document.getElementById('tablaPedidosSeleccinoados').innerHTML = html;
     //             document.getElementById('table-productos-seleccionados').innerHTML = html;
-                
+
 
     //         })
     //         .catch(error => console.error('Error al cargar información:', error));
@@ -611,10 +611,10 @@
     // }
     function handleSubmitExcel(e, url) {
         e.preventDefault();
-
+        let codigoSapCliente = document.getElementById('codigo-sap').value;
         var formData = new FormData(); // Crear un objeto FormData para recopilar los datos del formulario
         formData.append('file', document.getElementById('archivoSelector').files[0]); // Agregar el archivo seleccionado al FormData
-
+        
         // Realizar la solicitud AJAX
         fetch(url, {
             method: 'POST',
@@ -685,7 +685,7 @@
     //         return;
     //     }
     //     var urlCompleta = url + '?codigoSapCliente=' + encodeURIComponent(codigoSapCliente) + '&codigoArticulo=' + encodeURIComponent(codigoArticulo) + '&cantidadArticulo=' + encodeURIComponent(cantidadArticulo);
-        
+
     //     fetch(urlCompleta)
     //         .then(response => response.text())
     //         .then(html => {
@@ -735,11 +735,13 @@
 
     const getProductosByFamilia = (url) => {
 
+        let codigoSAPCliente = document.getElementById("codigo-sap").value;
+        
         let familiaSelect = document.getElementById("familiaProductosSelect");
 
         let familiaSelectedValue = familiaSelect.options[familiaSelect.selectedIndex].value;
 
-        url = `${url}?familia=${familiaSelectedValue}`
+        url = `${url}?familia=${familiaSelectedValue}&codidoSAPCliente=${codigoSAPCliente}`
 
         console.log(url)
 
@@ -861,7 +863,7 @@
 
 
         url = `${url}?codigoSAPCliente=${codigoSAPCliente}&codigoTipoEntrega=${tipoEntregaSelectedValue}&codigoTipoPago=${tipoPagoSelectedValue}&codigoSAPDireccionEntrega=${direccionEntregaSelectedValue}&canal=${canalSelectedValue}
-                                                                                                           &fechaEntrega=${fechaEntrega}&numeroOrdenCompra=${numeroOrdenCompra}&lugarEntrega=${lugarEntrega}&observaciones=${observaciones}&contactoEntrega=${contactoEntrega}`
+                                                                                                               &fechaEntrega=${fechaEntrega}&numeroOrdenCompra=${numeroOrdenCompra}&lugarEntrega=${lugarEntrega}&observaciones=${observaciones}&contactoEntrega=${contactoEntrega}`
 
         console.log(url)
 
@@ -881,15 +883,38 @@
             .catch(error => console.error('Error al cargar información:', error));
     }
 
-    $(document).ready(() => { getProductosByFamilia("/Asesor/GetProductosPorFamilia"); });
+    const inicializarTabla = () =>{
+        new DataTable('#tabla-listado-productos-por-familia', {
+            pagingType: 'simple_numbers', // Establece el tipo de paginación a simple_numbers
+            searching: false,
+            ordering: false,
+            info: false,
+            lengthChange: false,
+            pageLength: 10, // Establecer el número de elementos por página a 5
+            dom: 'lrtip', // Define la disposición de los elementos de la tabla
+            language: {
+                paginate: {
+                    previous: '<',
+                    next: '>'
+                }
+            }
+        });
+    }
+
+    $(document).ready(() => {
+        getProductosByFamilia("/Asesor/GetProductosPorFamilia");
+        inicializarTabla();
+    });
+
 
     function onSubmitAgregraFavorito(e, item, url) {
         e.preventDefault();
+        let codigoSAPCliente = document.getElementById("codigo-sap").value;
         let cantidad = e.target.elements.cantidadArticulo.value;
         if (cantidad === '0')
             return;
         //console.log(item);
-        let urlCompleta = url + '?cantidadArticulo=' + encodeURIComponent(cantidad) + '&jsonArticulo=' + encodeURIComponent(item);
+        let urlCompleta = url + '?codigoSAPCliente=' + encodeURIComponent(codigoSAPCliente) + '?cantidadArticulo=' + encodeURIComponent(cantidad) + '&jsonArticulo=' + encodeURIComponent(item);
         fetch(urlCompleta)
             .then(response => response.text())
             .then(html => {
@@ -901,6 +926,8 @@
 
     const onSubmitAgregarPorFamilia = (idInputCantidad, codigoSAPArticulo, url, familia) => {
 
+        let codigoSAPCliente = document.getElementById("codigo-sap").value;
+
         let cantidad = document.getElementById(idInputCantidad).value;
 
         let familiaSelect = document.getElementById("familiaProductosSelect");
@@ -909,7 +936,7 @@
 
         console.log("entro a por familia con valor" + cantidad);
 
-        url = `${url}?cantidadArticulo=${cantidad}&codigoSAPArticulo=${codigoSAPArticulo}&familia=${familiaSelectedValue}`;
+        url = `${url}?cantidadArticulo=${cantidad}&codigoSAPCliente=${codigoSAPCliente}&codigoSAPArticulo=${codigoSAPArticulo}&familia=${familiaSelectedValue}`;
 
         if (cantidad === '0')
             return;
@@ -924,6 +951,8 @@
     }
 
     const onChangeValueControl = (idCbEntrega, idTxtDescFactura, idTxtDescNC, idTxtCantidad, idChbAFamilia, idChbAFinMes, codigoSAPArticulo, numeroRegistro, url) => {
+
+        let codigoSAPCliente = document.getElementById("codigo-sap").value;
 
         let entregaSelect = document.getElementById(idCbEntrega);
 
@@ -941,7 +970,7 @@
 
         console.log("entro a inchange" + document.getElementById(idChbAFinMes).checked);
 
-        url = `${url}?codigoSAPArticulo=${codigoSAPArticulo}&numeroRegistro=${numeroRegistro}&entrega=${entregaSelectedValue}&descFactura=${descFactura}&descNc=${descNc}&cantidad=${cantidad}&aFinMes=${aFinMes}&aFamilia=${aFamilia}`;
+        url = `${url}?codigoSAPCliente=${codigoSAPCliente}&codigoSAPArticulo=${codigoSAPArticulo}&numeroRegistro=${numeroRegistro}&entrega=${entregaSelectedValue}&descFactura=${descFactura}&descNc=${descNc}&cantidad=${cantidad}&aFinMes=${aFinMes}&aFamilia=${aFamilia}`;
 
         console.log(url);
 

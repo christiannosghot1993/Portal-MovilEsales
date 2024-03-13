@@ -314,7 +314,7 @@ namespace Portal_MovilEsales.Services.AsesorServices
             return listaFamiliaProductos;
         }
 
-        public ListadoProductosFavoritos getProductosPorFamilia(string token, string familiaNombre)
+        public ListadoProductosFavoritos getProductosPorFamilia(string token, string familiaNombre, string codigoSAPCliente)
         {
             var client = new HttpClient();
 
@@ -326,7 +326,7 @@ namespace Portal_MovilEsales.Services.AsesorServices
             {
                 navegadorweb = "Microsoft Edge XXX",
                 familia = familiaNombre,
-                codigosapcliente = "0000090208"
+                codigosapcliente = codigoSAPCliente
             });
 
             var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
