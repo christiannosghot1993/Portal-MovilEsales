@@ -1,4 +1,5 @@
-﻿﻿@using Microsoft.AspNetCore.Http
+﻿@using Microsoft.AspNetCore.Components.Authorization
+﻿@using Microsoft.AspNetCore.Http
 @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 @inject IHttpContextAccessor HttpContextAccessor
 <!DOCTYPE html>
@@ -72,24 +73,20 @@
                     <li>
                         <a asp-action="PoliticaComercial" asp-comtroller="Asesor">POLÍTICA COMERCIAL</a>
                     </li>
-                    <li class="opcion-salir">
-                        <a asp-action="Index" asp-controller="Login">SALIR</a>
-                    </li>
                 }
 
-                @if(perfil is "Aprobador"){
+                @if (perfil is "Aprobador")
+                {
                     <li>
                         <a asp-action="Index" asp-controller="Aprobador">INICIO</a>
                     </li>
                     <li>
                         <a asp-action="ReportePedidos" asp-controller="Aprobador">REPORTE DE PEDIDOS</a>
                     </li>
-                    <li class="opcion-salir">
-                        <a asp-action="Index" asp-controller="Login">SALIR</a>
-                    </li>
                 }
 
-                @if(perfil is "Cliente"){
+                @if (perfil is "Cliente")
+                {
                     <li>
                         <a asp-action="Index" asp-controller="Cliente">INICIO</a>
                     </li>
@@ -106,6 +103,10 @@
                         <a>RECLAMOS</a>
                     </li>
                 }
+
+                <li>
+                    <a asp-action="Logout" asp-controller="Login">SALIR</a>
+                </li>
 
             </ul>
 
@@ -162,12 +163,14 @@
                             <path id="Vector_2" d="M11.7656 15C10.3054 15 8.87799 14.5601 7.6639 13.736C6.4498 12.9119 5.50353 11.7406 4.94474 10.3701C4.38595 8.99968 4.23975 7.49168 4.52461 6.03683C4.80948 4.58197 5.51263 3.2456 6.54513 2.1967C7.57764 1.14781 8.89313 0.433503 10.3253 0.144114C11.7574 -0.145275 13.2418 0.00324965 14.5908 0.570907C15.9399 1.13856 17.0929 2.09986 17.9042 3.33323C18.7154 4.5666 19.1484 6.01664 19.1484 7.5C19.1464 9.48852 18.368 11.395 16.9838 12.8011C15.5997 14.2072 13.723 14.998 11.7656 15ZM11.7656 2.5C10.7921 2.5 9.84052 2.79325 9.03112 3.34266C8.22172 3.89206 7.59087 4.67296 7.21835 5.58659C6.84582 6.50022 6.74835 7.50555 6.93826 8.47546C7.12818 9.44536 7.59694 10.3363 8.28528 11.0355C8.97361 11.7348 9.85061 12.211 10.8054 12.4039C11.7601 12.5969 12.7497 12.4978 13.6491 12.1194C14.5484 11.741 15.3171 11.1001 15.858 10.2779C16.3988 9.45561 16.6874 8.48891 16.6874 7.5C16.6874 6.17392 16.1689 4.90215 15.2459 3.96447C14.3228 3.02679 13.0709 2.5 11.7656 2.5Z" fill="white" />
                         </g>
                     </svg>
-                    <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g id="01 align center">
-                            <path id="Vector" d="M2.99219 26.25V3.75C2.99219 3.41848 3.12183 3.10054 3.35258 2.86612C3.58334 2.6317 3.89632 2.5 4.22266 2.5H10.375V0H4.22266C3.24363 0 2.30471 0.395088 1.61244 1.09835C0.920165 1.80161 0.53125 2.75544 0.53125 3.75L0.53125 26.25C0.53125 27.2446 0.920165 28.1984 1.61244 28.9017C2.30471 29.6049 3.24363 30 4.22266 30H10.375V27.5H4.22266C3.89632 27.5 3.58334 27.3683 3.35258 27.1339C3.12183 26.8995 2.99219 26.5815 2.99219 26.25Z" fill="white" />
-                            <path id="Vector_2" d="M28.983 12.3477L23.3401 6.61523L21.6002 8.38273L26.8469 13.7127L6.68323 13.749V16.249L26.9158 16.2127L21.5977 21.6152L23.3376 23.3827L28.9806 17.6502C29.6729 16.9473 30.0621 15.9939 30.0626 14.9995C30.063 14.0051 29.6747 13.0513 28.983 12.3477Z" fill="white" />
-                        </g>
-                    </svg>
+                    <a asp-action="Logout" asp-controller="Login">
+                        <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="01 align center">
+                                <path id="Vector" d="M2.99219 26.25V3.75C2.99219 3.41848 3.12183 3.10054 3.35258 2.86612C3.58334 2.6317 3.89632 2.5 4.22266 2.5H10.375V0H4.22266C3.24363 0 2.30471 0.395088 1.61244 1.09835C0.920165 1.80161 0.53125 2.75544 0.53125 3.75L0.53125 26.25C0.53125 27.2446 0.920165 28.1984 1.61244 28.9017C2.30471 29.6049 3.24363 30 4.22266 30H10.375V27.5H4.22266C3.89632 27.5 3.58334 27.3683 3.35258 27.1339C3.12183 26.8995 2.99219 26.5815 2.99219 26.25Z" fill="white" />
+                                <path id="Vector_2" d="M28.983 12.3477L23.3401 6.61523L21.6002 8.38273L26.8469 13.7127L6.68323 13.749V16.249L26.9158 16.2127L21.5977 21.6152L23.3376 23.3827L28.9806 17.6502C29.6729 16.9473 30.0621 15.9939 30.0626 14.9995C30.063 14.0051 29.6747 13.0513 28.983 12.3477Z" fill="white" />
+                            </g>
+                        </svg>
+                    </a>
                     <div class="mapa-sitio mt-3">
                         Inicio
                     </div>
@@ -293,6 +296,30 @@
                 nextArrow: '<button type="button" class="slick-next" style="background-color: transparent; color: #0F516E; font-size: 30px;">></i></button>'
             });
         });
+
+        // const logout = (url) => {
+
+
+        //     console.log(url)
+
+        //     fetch(url)
+        //         .then(response => response)
+        //         .then(r => {
+
+        //                 //     console.log("entro")
+
+        //                 //     let host = window.location.origin
+
+        //                 //     let redirectUrl = `${host}`
+
+        //                 //     window.history.back();
+
+        //                 //     window.location.replace(redirectUrl);
+        //                 // })
+        //                 .catch(error => console.error('Error al cargar información:', error));
+
+        // }
+
     </script>
 </body>
 </html>

@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Portal_MovilEsales.Middlewares;
 using Portal_MovilEsales.Services;
 using Portal_MovilEsales.Services.AprobadorServices;
 using Portal_MovilEsales.Services.AsesorServices;
@@ -54,6 +55,8 @@ app.UseAuthorization();
 //app.MapControllerRoute(
 //    name: "default",
 //    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.UseMiddleware<RedirectIfAuthenticatedMiddleware>();
 
 app.MapControllerRoute(
     name: "default",

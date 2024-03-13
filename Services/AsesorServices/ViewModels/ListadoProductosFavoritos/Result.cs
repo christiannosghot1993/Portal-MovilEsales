@@ -10,6 +10,7 @@
         public int @base { get; set; }
         public double descFactura { get; set; }
         public double descNC { get; set; }
+        public string linkImagen { get; set; }
         public int cantidad { get; set; }
     }
 }

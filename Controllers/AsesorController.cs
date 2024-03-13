@@ -23,9 +23,13 @@ namespace Portal_MovilEsales.Controllers
         public IActionResult Index()
         {
             var token = HttpContext.Session.GetString("token");
+
             var respInicioAsesor = _asesorService.getInfoInicioAsesor(token);
-            var respDatosCliente = _asesorService.getDatosCliente(token, "0000090208");
+
+            //var respDatosCliente = _asesorService.getDatosCliente(token, "0000090208");
+
             HttpContext.Session.SetString("contactoWhatsApp", "https://wa.me/" + respInicioAsesor.contactoWhatsApp);
+
             return View(respInicioAsesor);
         }
 
@@ -54,7 +58,8 @@ namespace Portal_MovilEsales.Controllers
 
             var respListaFamiliasProductos = _asesorService.getFamiliaProductos(token);
 
-            var respListaProductosFavoritos = _asesorService.getProductosFavoritos(token, "0000090208");
+            var respListaProductosFavoritos = codigoSAPCliente is null ? new ListadoProductosFavoritos() :
+                                              _asesorService.getProductosFavoritos(token, codigoSAPCliente);
 
             nuevoPedido.listaFamiliaProductos = respListaFamiliasProductos;
 
@@ -62,7 +67,6 @@ namespace Portal_MovilEsales.Controllers
 
             return View(nuevoPedido);
         }
-
 
         public IActionResult FillCabeceraNuevoPedido(string codigoSAPCliente)
         {
@@ -77,13 +81,13 @@ namespace Portal_MovilEsales.Controllers
             return PartialView("_FormCabeceraNuevoPedido", nuevoPedido);
         }
 
-        public IActionResult GetProductosPorFamilia(string familia)
+        public IActionResult GetProductosPorFamilia(string familia,string codigoSAPCliente)
         {
             var token = HttpContext.Session.GetString("token");
 
             var nuevoPedido = new NuevoPedido();
 
-            var respProductosPorFamilia = _asesorService.getProductosPorFamilia(token, familia);
+            var respProductosPorFamilia = _asesorService.getProductosPorFamilia(token, familia,codigoSAPCliente);
 
             nuevoPedido.listaProductosPorFamilia = respProductosPorFamilia;
 
@@ -169,7 +173,7 @@ namespace Portal_MovilEsales.Controllers
 
             nuevoPedido.resumenDetalleProductos = resumenDeatalleProductos;
 
-            nuevoPedido.mensajeProceso = "fwef";
+            nuevoPedido.mensajeProceso = "test";
 
             HttpContext.Session.SetString("SelectedProducts", JsonConvert.SerializeObject(productosNuevoPedido));
 
@@ -295,7 +299,7 @@ namespace Portal_MovilEsales.Controllers
             return View();
         }
 
-        public IActionResult ActualizarTablaProductosSeleccionados(string codigoSAPArticulo, string numeroRegistro, string entrega, string descFactura, string descNc, string cantidad, string aFinMes, string aFamilia)
+        public IActionResult ActualizarTablaProductosSeleccionados(string codigoSAPCliente ,string codigoSAPArticulo, string numeroRegistro, string entrega, string descFactura, string descNc, string cantidad, string aFinMes, string aFamilia)
         {
             var token = HttpContext.Session.GetString("token");
 
@@ -303,7 +307,7 @@ namespace Portal_MovilEsales.Controllers
 
             var productoPorActualizar = listProductosSeleccionados.FirstOrDefault(p => p.codigo == codigoSAPArticulo && p.numeroRegistro == numeroRegistro);
 
-            var respCargaCabeceraPedido = _asesorService.getCargaCabeceraPedido(token, "0000090208");
+            var respCargaCabeceraPedido = _asesorService.getCargaCabeceraPedido(token, codigoSAPCliente);
 
             var indexProductoPorActualizar = listProductosSeleccionados.IndexOf(productoPorActualizar);
 
@@ -341,7 +345,7 @@ namespace Portal_MovilEsales.Controllers
 
         }
 
-        public IActionResult SeleccionarArticuloPorFamilia(string cantidadArticulo, string codigoSAPArticulo, string familia)
+        public IActionResult SeleccionarArticuloPorFamilia(string cantidadArticulo,string codigoSAPCliente ,string codigoSAPArticulo, string familia)
         {
             var token = HttpContext.Session.GetString("token");
 
@@ -349,11 +353,11 @@ namespace Portal_MovilEsales.Controllers
 
             var numeroContador = JsonConvert.DeserializeObject<int>(HttpContext.Session.GetString("RowCounter"));
 
-            var listadoProductosPorFamilia = _asesorService.getProductosPorFamilia(token, familia);
+            var listadoProductosPorFamilia = _asesorService.getProductosPorFamilia(token, familia,codigoSAPCliente);
 
             var productoPorAgregar = listadoProductosPorFamilia.result.FirstOrDefault(p => p.codigoSAPArticulo == codigoSAPArticulo);
 
-            var respCargaCabeceraPedido = _asesorService.getCargaCabeceraPedido(token, "0000090208");
+            var respCargaCabeceraPedido = _asesorService.getCargaCabeceraPedido(token, codigoSAPCliente);
 
             listProductosSeleccionados.Add(new ProductosNuevoPedido
             {
@@ -384,7 +388,7 @@ namespace Portal_MovilEsales.Controllers
             return PartialView("_TableProductosSeleccionadosPedido", data);
         }
 
-        public IActionResult SeleccionarArticuloFavorito(string cantidadArticulo, string jsonArticulo)
+        public IActionResult SeleccionarArticuloFavorito(string codigoSAPCliente,string cantidadArticulo, string jsonArticulo)
         {
             var token = HttpContext.Session.GetString("token");
 
@@ -394,7 +398,7 @@ namespace Portal_MovilEsales.Controllers
 
             var numeroContador = JsonConvert.DeserializeObject<int>(HttpContext.Session.GetString("RowCounter"));
 
-            var respCargaCabeceraPedido = _asesorService.getCargaCabeceraPedido(token, "0000090208");
+            var respCargaCabeceraPedido = _asesorService.getCargaCabeceraPedido(token, codigoSAPCliente);
 
             listProductosSeleccionados.Add(new ProductosNuevoPedido
             {
@@ -429,7 +433,7 @@ namespace Portal_MovilEsales.Controllers
             var resp = _asesorService.getProductoCodigoSap(token, codigoArticulo, codigoSapCliente);
             List<ProductosNuevoPedido> listadoProductosNuevoPedido = JsonConvert.DeserializeObject<List<ProductosNuevoPedido>>(HttpContext.Session.GetString("SelectedProducts"));
             var numeroContador = JsonConvert.DeserializeObject<int>(HttpContext.Session.GetString("RowCounter"));
-            var respCargaCabeceraPedido = _asesorService.getCargaCabeceraPedido(token, "0000090208");
+            var respCargaCabeceraPedido = _asesorService.getCargaCabeceraPedido(token, codigoSapCliente);
             listadoProductosNuevoPedido.Add(new ProductosNuevoPedido
             {
                 numeroRegistro = numeroContador.ToString(),
@@ -461,10 +465,12 @@ namespace Portal_MovilEsales.Controllers
         {
             return View();
         }
+
         public IActionResult PedidoProductosSeleccionadosV2()
         {
             return View();
         }
+
         public IActionResult EstadoCuentaAsesor(string codigoSap)
         {
             var token = HttpContext.Session.GetString("token");
