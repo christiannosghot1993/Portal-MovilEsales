@@ -24,6 +24,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXByb2JhZG9yXFJlcG9ydGVQZWRpZG9zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/KRUGER/Portal-MovilEsales/Views/Aprobador/_ModalDetallePedidoPendiente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXByb2JhZG9yXF9Nb2RhbERldGFsbGVQZWRpZG9QZW5kaWVudGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KRUGER/Portal-MovilEsales/Views/Aprobador/_ModalDetallePedidoReporte.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXByb2JhZG9yXF9Nb2RhbERldGFsbGVQZWRpZG9SZXBvcnRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KRUGER/Portal-MovilEsales/Views/Aprobador/_TablePedidosReporte.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXByb2JhZG9yXF9UYWJsZVBlZGlkb3NSZXBvcnRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/KRUGER/Portal-MovilEsales/Views/Asesor/Clientes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXENsaWVudGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -60,8 +72,96 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXFBvbGl0aWNhQ29tZXJjaWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/KRUGER/Portal-MovilEsales/Views/Asesor/_DetalleNuevoPedidoPorFamilia.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXF9EZXRhbGxlTnVldm9QZWRpZG9Qb3JGYW1pbGlhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KRUGER/Portal-MovilEsales/Views/Asesor/_FormCabeceraNuevoPedido.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXF9Gb3JtQ2FiZWNlcmFOdWV2b1BlZGlkby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KRUGER/Portal-MovilEsales/Views/Asesor/_ModalDetallePedidoAprobado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXF9Nb2RhbERldGFsbGVQZWRpZG9BcHJvYmFkby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KRUGER/Portal-MovilEsales/Views/Asesor/_ModalDetallePedidoEntregado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXF9Nb2RhbERldGFsbGVQZWRpZG9FbnRyZWdhZG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KRUGER/Portal-MovilEsales/Views/Asesor/_ModalInformacionCrediticia.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXF9Nb2RhbEluZm9ybWFjaW9uQ3JlZGl0aWNpYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/KRUGER/Portal-MovilEsales/Views/Asesor/_ModalPedidoAprobado.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXF9Nb2RhbFBlZGlkb0Fwcm9iYWRvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KRUGER/Portal-MovilEsales/Views/Asesor/_TablePedidosActivos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXF9UYWJsZVBlZGlkb3NBY3Rpdm9zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KRUGER/Portal-MovilEsales/Views/Asesor/_TablePedidosBorrador.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXF9UYWJsZVBlZGlkb3NCb3JyYWRvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KRUGER/Portal-MovilEsales/Views/Asesor/_TablePedidosHistoricos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXF9UYWJsZVBlZGlkb3NIaXN0b3JpY29zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KRUGER/Portal-MovilEsales/Views/Asesor/_TableProductosSeleccionadosPedido.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXF9UYWJsZVByb2R1Y3Rvc1NlbGVjY2lvbmFkb3NQZWRpZG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KRUGER/Portal-MovilEsales/Views/Cliente/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KRUGER/Portal-MovilEsales/Views/Cliente/NuevoPedido.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxOdWV2b1BlZGlkby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KRUGER/Portal-MovilEsales/Views/Cliente/PedidosCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxQZWRpZG9zQ2xpZW50ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KRUGER/Portal-MovilEsales/Views/Cliente/_DetalleNuevoPedidoPorFamiliaCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxfRGV0YWxsZU51ZXZvUGVkaWRvUG9yRmFtaWxpYUNsaWVudGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KRUGER/Portal-MovilEsales/Views/Cliente/_FormCabeceraNuevoPedidoCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxfRm9ybUNhYmVjZXJhTnVldm9QZWRpZG9DbGllbnRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KRUGER/Portal-MovilEsales/Views/Cliente/_ModalDetallePedidoAprobadoCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxfTW9kYWxEZXRhbGxlUGVkaWRvQXByb2JhZG9DbGllbnRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KRUGER/Portal-MovilEsales/Views/Cliente/_ModalDetallePedidoEntregadoCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxfTW9kYWxEZXRhbGxlUGVkaWRvRW50cmVnYWRvQ2xpZW50ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KRUGER/Portal-MovilEsales/Views/Cliente/_ModalInformacionCrediticiaCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxfTW9kYWxJbmZvcm1hY2lvbkNyZWRpdGljaWFDbGllbnRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KRUGER/Portal-MovilEsales/Views/Cliente/_ModalPedidoAprobadoCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxfTW9kYWxQZWRpZG9BcHJvYmFkb0NsaWVudGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KRUGER/Portal-MovilEsales/Views/Cliente/_TablePedidosActivosCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxfVGFibGVQZWRpZG9zQWN0aXZvc0NsaWVudGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KRUGER/Portal-MovilEsales/Views/Cliente/_TablePedidosBorradorCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxfVGFibGVQZWRpZG9zQm9ycmFkb3JDbGllbnRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KRUGER/Portal-MovilEsales/Views/Cliente/_TablePedidosHistoricosCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxfVGFibGVQZWRpZG9zSGlzdG9yaWNvc0NsaWVudGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/KRUGER/Portal-MovilEsales/Views/Cliente/_TableProductosSeleccionadosPedidoCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxfVGFibGVQcm9kdWN0b3NTZWxlY2Npb25hZG9zUGVkaWRvQ2xpZW50ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/KRUGER/Portal-MovilEsales/Views/Home/Index.cshtml]

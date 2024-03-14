@@ -475,3 +475,10 @@ D:\Kruger\Proyecto Mario\Portal-MovilEsales\obj\Debug\net7.0\refint\Portal-Movil
 D:\Kruger\Proyecto Mario\Portal-MovilEsales\obj\Debug\net7.0\Portal-MovilEsales.pdb
 D:\Kruger\Proyecto Mario\Portal-MovilEsales\obj\Debug\net7.0\Portal-MovilEsales.genruntimeconfig.cache
 D:\Kruger\Proyecto Mario\Portal-MovilEsales\obj\Debug\net7.0\ref\Portal-MovilEsales.dll
+C:\KRUGER\Portal-MovilEsales\bin\Debug\net7.0\ClosedXML.dll
+C:\KRUGER\Portal-MovilEsales\bin\Debug\net7.0\DocumentFormat.OpenXml.dll
+C:\KRUGER\Portal-MovilEsales\bin\Debug\net7.0\ExcelNumberFormat.dll
+C:\KRUGER\Portal-MovilEsales\bin\Debug\net7.0\Irony.dll
+C:\KRUGER\Portal-MovilEsales\bin\Debug\net7.0\SixLabors.Fonts.dll
+C:\KRUGER\Portal-MovilEsales\bin\Debug\net7.0\System.IO.Packaging.dll
+C:\KRUGER\Portal-MovilEsales\bin\Debug\net7.0\XLParser.dll
