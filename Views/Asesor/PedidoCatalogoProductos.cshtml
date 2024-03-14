@@ -3,7 +3,11 @@
 @{
     ViewData["Title"] = "Nuevo Pedido Catálogo de Productos";
 }
-
+<div id="loader" class="loader-container" style="display: none;">
+    <div class="spinner-border custom-color m-5" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
 <div class="row">
 
     <div class="col-sm-12">
@@ -351,7 +355,7 @@
                                         {
                                             <form onsubmit="onSubmitAgregraFavorito(event, '@{
 
-                                                                                                @JsonConvert.SerializeObject(item)
+                                                                                                        @JsonConvert.SerializeObject(item)
 ;
 }', '@Url.Action("SeleccionarArticuloFavorito", "Asesor")')">
                                             <tr>
@@ -581,6 +585,7 @@
     </div>
 
 </div>
+
 <script>
 
     // function handleSubmitCodigoArticulo(e, url) {
@@ -610,6 +615,7 @@
     //     console.log(codigoArticulo, codigoSapCliente,cantidadArticulo)
     // }
     function handleSubmitExcel(e, url) {
+        mostrarLoader();
         e.preventDefault();
         let codigoSapCliente = document.getElementById('codigo-sap').value;
         var formData = new FormData(); // Crear un objeto FormData para recopilar los datos del formulario
@@ -626,10 +632,13 @@
 
                 document.getElementById('tablaPedidosSeleccinoados').innerHTML = html;
                 //document.getElementById('table-productos-seleccionados').innerHTML = html;
-
+                ocultarLoader();
 
             })
-            .catch(error => console.error('Error al cargar información:', error));
+            .catch(error => {
+                console.error('Error al cargar información:', error)
+                ocultarLoader();
+            });
         console.log(codigoArticulo, codigoSapCliente, cantidadArticulo)
     }
 
@@ -653,6 +662,7 @@
             alert('Por favor ingrese una cantidad para el artículo a ingresar');
             return;
         }
+        mostrarLoader();
         var urlCompleta = url + '?codigoSapCliente=' + encodeURIComponent(codigoSapCliente) + '&codigoArticulo=' + encodeURIComponent(codigoArticulo) + '&cantidadArticulo=' + encodeURIComponent(cantidadArticulo);
         console.log(urlCompleta)
         // Realizar la solicitud AJAX
@@ -664,9 +674,12 @@
                 document.getElementById('tablaPedidosSeleccinoados').innerHTML = html;
                 //document.getElementById('table-productos-seleccionados').innerHTML = html;
 
-
+                ocultarLoader();
             })
-            .catch(error => console.error('Error al cargar información:', error));
+            .catch(error => {
+                console.error('Error al cargar información:', error)
+                ocultarLoader();
+            });
         console.log(codigoArticulo, codigoSapCliente, cantidadArticulo)
     }
 
@@ -758,7 +771,7 @@
     }
 
     const recalcular = (url) => {
-
+        mostrarLoader();
         let codigoSAPCliente = document.getElementById("codigo-sap").value;
 
         let tipoEntregaSelect = document.getElementById("tipoEntregaSelect");
@@ -787,13 +800,17 @@
             .then(html => {
 
                 document.getElementById("table-productos-seleccionados").innerHTML = html
-
+                ocultarLoader();
             })
-            .catch(error => console.error('Error al cargar información:', error));
+            .catch(error => {
+                console.error('Error al cargar información:', error);
+                ocultarLoader();
+            });
 
     }
 
     const guardarBorrador = (url) => {
+        mostrarLoader();
 
         let codigoSAPCliente = document.getElementById("codigo-sap").value;
 
@@ -823,15 +840,19 @@
             .then(html => {
 
                 document.getElementById("table-productos-seleccionados").innerHTML = html
-
+                ocultarLoader(); 
                 showAlert("Proceso exitoso", "", "success");
 
             })
-            .catch(error => console.error('Error al cargar información:', error));
+            .catch(error => {
+                console.error('Error al cargar información:', error);
+                ocultarLoader();
+            });
 
     }
 
     const crearNuevoPedido = (url) => {
+        mostrarLoader();
 
         let codigoSAPCliente = document.getElementById("codigo-sap").value;
 
@@ -876,11 +897,14 @@
                 document.getElementById("table-productos-seleccionados").innerHTML = html
 
                 let mensajeProceso = "@ViewBag.MensajeProceso";
-
+                ocultarLoader();
                 showAlert("Proceso exitoso", mensajeProceso, "Aceptar");
 
             })
-            .catch(error => console.error('Error al cargar información:', error));
+            .catch(error => {
+                console.error('Error al cargar información:', error);
+                ocultarLoader();
+            });
     }
 
     const inicializarTabla = () =>{
@@ -914,18 +938,23 @@
         if (cantidad === '0')
             return;
         //console.log(item);
+        mostrarLoader();
         let urlCompleta = url + '?codigoSAPCliente=' + encodeURIComponent(codigoSAPCliente) + '?cantidadArticulo=' + encodeURIComponent(cantidad) + '&jsonArticulo=' + encodeURIComponent(item);
         fetch(urlCompleta)
             .then(response => response.text())
             .then(html => {
 
                 document.getElementById('tablaPedidosSeleccinoados').innerHTML = html;
+                ocultarLoader();
             })
-            .catch(error => console.error('Error al cargar información:', error));
+            .catch(error => {
+                console.error('Error al cargar información:', error)
+                ocultarLoader();
+            });
     }
 
     const onSubmitAgregarPorFamilia = (idInputCantidad, codigoSAPArticulo, url, familia) => {
-
+        mostrarLoader();
         let codigoSAPCliente = document.getElementById("codigo-sap").value;
 
         let cantidad = document.getElementById(idInputCantidad).value;
@@ -946,8 +975,14 @@
             .then(html => {
 
                 document.getElementById('tablaPedidosSeleccinoados').innerHTML = html;
+                ocultarLoader();
             })
-            .catch(error => console.error('Error al cargar información:', error));
+            .catch(error => {
+                console.error('Error al cargar información:', error)
+                ocultarLoader();
+            });
+
+        
     }
 
     const onChangeValueControl = (idCbEntrega, idTxtDescFactura, idTxtDescNC, idTxtCantidad, idChbAFamilia, idChbAFinMes, codigoSAPArticulo, numeroRegistro, url) => {
@@ -997,5 +1032,21 @@
         });
     }
 
+    //loader
+    function mostrarLoader() {   
+        var loader = document.getElementById('loader');
+        // Muestra el loader
+        loader.style.display = 'flex';
+    };
 
+    function ocultarLoader(){
+        var loader = document.getElementById('loader');
+        // Agrega la clase 'no-scroll' para bloquear el desplazamiento
+        //document.body.style.overflow='hidden';
+
+        // Oculta el loader y muestra el contenido
+        loader.style.display = 'none';
+        // Restaura el desplazamiento
+        //document.body.classList.remove('no-scroll');
+    }
 </script>
