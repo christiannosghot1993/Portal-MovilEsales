@@ -925,11 +925,17 @@
         });
     }
 
-    $(document).ready(() => {
-        getProductosByFamilia("/Asesor/GetProductosPorFamilia");
+    $(document).ready(function () {
+        // Verificar el host actual
+        var currentHost = window.location.hostname;
+
+        if (currentHost === "esaleslatam.bekaert.com") {
+            getProductosByFamilia("/esalesweb/Asesor/GetProductosPorFamilia");
+        } else {
+            getProductosByFamilia("/Asesor/GetProductosPorFamilia");
+        }
         inicializarTabla();
     });
-
 
     function onSubmitAgregraFavorito(e, item, url) {
         e.preventDefault();
