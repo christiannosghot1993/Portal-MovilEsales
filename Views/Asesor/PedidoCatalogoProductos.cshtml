@@ -629,7 +629,7 @@
             .then(response => response.text())
             .then(html => {
                 //console.log(html); // Verifica la respuesta en la consola
-
+                comprobarSesionVigente(html);
                 document.getElementById('tablaPedidosSeleccinoados').innerHTML = html;
                 //document.getElementById('table-productos-seleccionados').innerHTML = html;
                 ocultarLoader();
@@ -669,8 +669,8 @@
         fetch(urlCompleta)
             .then(response => response.text())
             .then(html => {
-                console.log(html); // Verifica la respuesta en la consola
-
+                //console.log(html); // Verifica la respuesta en la consola
+                comprobarSesionVigente(html);
                 document.getElementById('tablaPedidosSeleccinoados').innerHTML = html;
                 //document.getElementById('table-productos-seleccionados').innerHTML = html;
 
@@ -739,7 +739,7 @@
         fetch(url)
             .then(response => response.text())
             .then(html => {
-
+                comprobarSesionVigente(html);
                 document.getElementById("collapseInformacionPedido").innerHTML = html
 
             })
@@ -763,7 +763,7 @@
         fetch(url)
             .then(response => response.text())
             .then(html => {
-
+                comprobarSesionVigente(html);
                 document.getElementById("detalleProductosPorFamilia").innerHTML = html
 
             })
@@ -798,7 +798,7 @@
         fetch(url)
             .then(response => response.text())
             .then(html => {
-
+                comprobarSesionVigente(html);
                 document.getElementById("table-productos-seleccionados").innerHTML = html
                 ocultarLoader();
             })
@@ -838,7 +838,7 @@
         fetch(url)
             .then(response => response.text())
             .then(html => {
-
+                comprobarSesionVigente(html);
                 document.getElementById("table-productos-seleccionados").innerHTML = html
                 ocultarLoader(); 
                 showAlert("Proceso exitoso", "", "success");
@@ -893,7 +893,7 @@
         fetch(url)
             .then(response => response.text())
             .then(html => {
-
+                comprobarSesionVigente(html);
                 document.getElementById("table-productos-seleccionados").innerHTML = html
 
                 let mensajeProceso = "@ViewBag.MensajeProceso";
@@ -949,7 +949,7 @@
         fetch(urlCompleta)
             .then(response => response.text())
             .then(html => {
-
+                comprobarSesionVigente(html);
                 document.getElementById('tablaPedidosSeleccinoados').innerHTML = html;
                 ocultarLoader();
             })
@@ -979,7 +979,7 @@
         fetch(url)
             .then(response => response.text())
             .then(html => {
-
+                comprobarSesionVigente(html);
                 document.getElementById('tablaPedidosSeleccinoados').innerHTML = html;
                 ocultarLoader();
             })
@@ -1018,7 +1018,7 @@
         fetch(url)
             .then(response => response.text())
             .then(html => {
-
+                comprobarSesionVigente(html);
                 document.getElementById('tablaPedidosSeleccinoados').innerHTML = html;
             })
             .catch(error => console.error('Error al cargar información:', error));
@@ -1054,5 +1054,21 @@
         loader.style.display = 'none';
         // Restaura el desplazamiento
         //document.body.classList.remove('no-scroll');
+    }
+
+    function comprobarSesionVigente(html){
+        if(html.includes('Login')){
+                    // Verificar el host actual
+                    var currentHost = window.location.hostname;
+
+                    // Comprobar si el host es igual a "esaleslatam.bekaert.com"
+                    if (currentHost === "esaleslatam.bekaert.com") {
+                        // Redirigir al subdirectorio "/esalesweb" en el mismo host pero con puerto 9020
+                        window.location.href = "https://esaleslatam.bekaert.com:9020/esalesweb/";
+                    } else {
+                        // Redirigir a la ruta raíz en otros entornos (como localhost)
+                        window.location.href = "/";
+                    }
+                }
     }
 </script>
