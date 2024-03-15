@@ -30,7 +30,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
             options.Cookie.HttpOnly = true;
             /*Tiempo de expiración de la cookie (Se renueva cada nueva solicitud, si no se realiza 
              * ninguna solicitud en el tiempo especificado de la solicitud, la coockie expira)*/
-            TimeSpan.FromMinutes(15); 
+            options.ExpireTimeSpan= TimeSpan.FromMinutes(30); 
             options.LoginPath = "/Login/Index"; // Ruta a la página de inicio de sesión
             options.AccessDeniedPath = "/Account/AccessDenied"; // Ruta a la página de acceso denegado
         });
