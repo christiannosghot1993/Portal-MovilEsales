@@ -128,7 +128,15 @@ namespace Portal_MovilEsales.Controllers
                     else
                     {
                         TempData["ErrorMessage"] = (string)respIniciarSesion.message;
-                        return RedirectToAction("Index");
+                        if (HttpContext.Request.Host.Host.ToLower() == "esaleslatam.bekaert.com")
+                        {
+                            return RedirectPermanent("https://esaleslatam.bekaert.com:9020/esalesweb/");
+                        }
+                        else
+                        {
+                            // Redirigir a la ruta raíz en otros entornos (como localhost)
+                            return RedirectPermanent("/");
+                        }
                     }
 
                 }
@@ -170,7 +178,7 @@ namespace Portal_MovilEsales.Controllers
 
             if (HttpContext.Request.Host.Host.ToLower() == "esaleslatam.bekaert.com")
             {
-                return RedirectPermanent("https://esaleslatam.bekaert.com:9020/esalesweb");
+                return RedirectPermanent("https://esaleslatam.bekaert.com:9020/esalesweb/");
             }
             else
             {
