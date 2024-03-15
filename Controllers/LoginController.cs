@@ -168,7 +168,15 @@ namespace Portal_MovilEsales.Controllers
         {
             HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
-            return RedirectPermanent("/");
+            if (HttpContext.Request.Host.Host.ToLower() == "esaleslatam.bekaert.com")
+            {
+                return RedirectPermanent("https://esaleslatam.bekaert.com:9020/esalesweb");
+            }
+            else
+            {
+                // Redirigir a la ruta raíz en otros entornos (como localhost)
+                return RedirectPermanent("/");
+            }
         }
 
         // GET: LoginController/Details/5
