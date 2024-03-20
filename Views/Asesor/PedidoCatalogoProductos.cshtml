@@ -1071,4 +1071,21 @@
                     }
                 }
     }
+
+    function handleEliminarArticulo(url, codigoArticulo){
+        mostrarLoader();
+        url = `${url}?codigoArticulo=${codigoArticulo}`;
+
+        fetch(url)
+            .then(response => response.text())
+            .then(html => {
+                comprobarSesionVigente(html);
+                document.getElementById('tablaPedidosSeleccinoados').innerHTML = html;
+                ocultarLoader();
+            })
+            .catch(error => {
+                console.error('Error al cargar información:', error)
+                ocultarLoader();
+            });
+    }
 </script>
