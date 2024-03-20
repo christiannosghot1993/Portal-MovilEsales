@@ -1,0 +1,296 @@
+﻿@using Newtonsoft.Json
+@using Portal_MovilEsales.Services.AsesorServices.ViewModels;
+@model Portal_MovilEsales.Services.AsesorServices.ViewModels.EstadoCuenta.EstadoCuenta
+@{
+    ViewData["Title"] = "Estado de cuenta cliente";
+}
+
+<div class="row">
+
+    <div class="col-sm-12">
+        <div class="card card-container">
+            <div class="card-body">
+                <div class="card-title">
+                    <h1 style="font-size: 17px !important">Estado de Cuenta</h1>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6 ps-md-5">
+                        <label for="startDate" class="label-datepicker">Fecha Inicio</label>
+                        <input id="startDate" class="form-control  datepicker" type="date" />
+                        <span id="startDateSelected"></span>
+                    </div>
+                    <div class="col-12 col-md-6 pe-md-5">
+                        <label class="label-datepicker" for="endDate">Fecha Fin</label>
+                        <input id="endDate" class="form-control datepicker" type="date" />
+                        <span id="endDateSelected"></span>
+                    </div>
+
+                </div>
+                <div class="row mt-3 g-1">
+                    <div class="col-12 col-md-6">
+                        <div class="entire-blue-container">
+                            @* <p>
+                            <strong>
+                            <span style="display: inline-block; width: 160px !important;">Cliente:</span>
+                            </strong>
+                            @Model.nombreCliente
+                            </p>*@
+                            <p>
+                                <strong>
+                                    <span style="display: inline-block; width: 160px !important;">Valor Vencido:</span>
+                                </strong> @Model.valorVencido
+                            </p>
+                            <p>
+                                <strong>
+                                    <span style="display: inline-block; width: 160px !important;">Valor por Vencer:</span>
+                                </strong> @Model.valorPorVencer
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="col-12 col-md-6 d-flex justify-content-end align-items-end">
+                        <button class="orange-rounded-button" style="background-color: #01ADEF !important">
+                            Descargar
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="vuesax/linear/frame">
+                                    <g id="frame">
+                                        <path id="Vector" d="M16.44 8.89844C20.04 9.20844 21.51 11.0584 21.51 15.1084V15.2384C21.51 19.7084 19.72 21.4984 15.25 21.4984H8.73998C4.26998 21.4984 2.47998 19.7084 2.47998 15.2384V15.1084C2.47998 11.0884 3.92998 9.23844 7.46998 8.90844" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path id="Vector_2" d="M12 2V14.88" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path id="Vector_3" d="M15.3499 12.6484L11.9999 15.9984L8.6499 12.6484" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    </g>
+                                </g>
+                            </svg>
+
+
+                        </button>
+                    </div>
+                </div>
+                <div class="table-responsive mt-4">
+                    <table class="table" id="tabla-estado-cuenta">
+                        <thead class="card-table_header">
+                            <tr>
+                                <th scope="col" class="border-radius-left" style="padding:13px;">Factura</th>
+                                <th scope="col" style="padding:13px;">Fecha</th>
+                                <th scope="col" style="padding:13px;">Valor</th>
+                                <th scope="col" style="padding:13px;">Término de pago</th>
+                                <th scope="col" style="padding:13px;">Documento SAP</th>
+                                <th scope="col" style="padding:13px;">Retenciones</th>
+                                <th scope="col" style="padding:13px;">Abonos</th>
+                                <th scope="col" style="padding:13px;">Notas de Crédito</th>
+                                <th scope="col" style="padding:13px;">Fecha Venc.</th>
+                                <th scope="col" style="padding:13px;">Saldo por Cobrar</th>
+                                <th scope="col" class="border-radius-right" style="padding:13px;">Días vencidos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.detalleEstadoCuenta)
+                            {
+                                <tr>
+                                    <td>@item.factura</td>
+                                    <td>@item.fecha</td>
+                                    <td>$ @item.valor</td>
+                                    <td>@item.terminoPago</td>
+                                    <td>@item.documentoSAP</td>
+                                    <td>$ @item.retenciones</td>
+                                    <td>$ @item.abonos</td>
+                                    <td>$ @item.notasCredito</td>
+                                    <td>@item.fechaVencimiento</td>
+                                    <td>$ @item.saldoPorCobrar</td>
+                                    <td>@item.diasVencidos</td>
+                                </tr>
+                            }
+                            @*  <tr>
+                            <td>001-001-000000001</td>
+                            <td>10-24-2023</td>
+                            <td>$ 20.000</td>
+                            <td>10-24-2023</td>
+                            <td>133490</td>
+                            <td>$ 800</td>
+                            <td>$ 12.000</td>
+                            <td>$ 500</td>
+                            <td>11-24-2023</td>
+                            <td>$ 8.000</td>
+                            <td>20</td>
+                            </tr>
+                            <tr>
+                            <td>001-001-000000001</td>
+                            <td>10-24-2023</td>
+                            <td>$ 20.000</td>
+                            <td>10-24-2023</td>
+                            <td>133490</td>
+                            <td>$ 800</td>
+                            <td>$ 12.000</td>
+                            <td>$ 500</td>
+                            <td>11-24-2023</td>
+                            <td>$ 8.000</td>
+                            <td>20</td>
+                            </tr>
+                            <tr>
+                            <td>001-001-000000001</td>
+                            <td>10-24-2023</td>
+                            <td>$ 20.000</td>
+                            <td>10-24-2023</td>
+                            <td>133490</td>
+                            <td>$ 800</td>
+                            <td>$ 12.000</td>
+                            <td>$ 500</td>
+                            <td>11-24-2023</td>
+                            <td>$ 8.000</td>
+                            <td>20</td>
+                            </tr>
+                            <tr>
+                            <td>001-001-000000001</td>
+                            <td>10-24-2023</td>
+                            <td>$ 20.000</td>
+                            <td>10-24-2023</td>
+                            <td>133490</td>
+                            <td>$ 800</td>
+                            <td>$ 12.000</td>
+                            <td>$ 500</td>
+                            <td>11-24-2023</td>
+                            <td>$ 8.000</td>
+                            <td>20</td>
+                            </tr>
+                            <tr>
+                            <td>001-001-000000001</td>
+                            <td>10-24-2023</td>
+                            <td>$ 20.000</td>
+                            <td>10-24-2023</td>
+                            <td>133490</td>
+                            <td>$ 800</td>
+                            <td>$ 12.000</td>
+                            <td>$ 500</td>
+                            <td>11-24-2023</td>
+                            <td>$ 8.000</td>
+                            <td>20</td>
+                            </tr>
+                            <tr>
+                            <td>001-001-000000001</td>
+                            <td>10-24-2023</td>
+                            <td>$ 20.000</td>
+                            <td>10-24-2023</td>
+                            <td>133490</td>
+                            <td>$ 800</td>
+                            <td>$ 12.000</td>
+                            <td>$ 500</td>
+                            <td>11-24-2023</td>
+                            <td>$ 8.000</td>
+                            <td>20</td>
+                            </tr>
+                            <tr>
+                            <td>001-001-000000001</td>
+                            <td>10-24-2023</td>
+                            <td>$ 20.000</td>
+                            <td>10-24-2023</td>
+                            <td>133490</td>
+                            <td>$ 800</td>
+                            <td>$ 12.000</td>
+                            <td>$ 500</td>
+                            <td>11-24-2023</td>
+                            <td>$ 8.000</td>
+                            <td>20</td>
+                            </tr>
+                            <tr>
+                            <td>001-001-000000001</td>
+                            <td>10-24-2023</td>
+                            <td>$ 20.000</td>
+                            <td>10-24-2023</td>
+                            <td>133490</td>
+                            <td>$ 800</td>
+                            <td>$ 12.000</td>
+                            <td>$ 500</td>
+                            <td>11-24-2023</td>
+                            <td>$ 8.000</td>
+                            <td>20</td>
+                            </tr>
+                            <tr>
+                            <td>001-001-000000001</td>
+                            <td>10-24-2023</td>
+                            <td>$ 20.000</td>
+                            <td>10-24-2023</td>
+                            <td>133490</td>
+                            <td>$ 800</td>
+                            <td>$ 12.000</td>
+                            <td>$ 500</td>
+                            <td>11-24-2023</td>
+                            <td>$ 8.000</td>
+                            <td>20</td>
+                            </tr>
+                            <tr>
+                            <td>001-001-000000001</td>
+                            <td>10-24-2023</td>
+                            <td>$ 20.000</td>
+                            <td>10-24-2023</td>
+                            <td>133490</td>
+                            <td>$ 800</td>
+                            <td>$ 12.000</td>
+                            <td>$ 500</td>
+                            <td>11-24-2023</td>
+                            <td>$ 8.000</td>
+                            <td>20</td>
+                            </tr>
+                            <tr>
+                            <td>001-001-000000001</td>
+                            <td>10-24-2023</td>
+                            <td>$ 20.000</td>
+                            <td>10-24-2023</td>
+                            <td>133490</td>
+                            <td>$ 800</td>
+                            <td>$ 12.000</td>
+                            <td>$ 500</td>
+                            <td>11-24-2023</td>
+                            <td>$ 8.000</td>
+                            <td>20</td>
+                            </tr>
+                            <tr>
+                            <td>001-001-000000001</td>
+                            <td>10-24-2023</td>
+                            <td>$ 20.000</td>
+                            <td>10-24-2023</td>
+                            <td>133490</td>
+                            <td>$ 800</td>
+                            <td>$ 12.000</td>
+                            <td>$ 500</td>
+                            <td>11-24-2023</td>
+                            <td>$ 8.000</td>
+                            <td>20</td>
+                            </tr>*@
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="responsive">
+                @{
+                    var listadoImagenes = JsonConvert.DeserializeObject<List<ListadoImagenes>>(Context.Session.GetString("ListImages"));
+                    foreach (var item in listadoImagenes.OrderBy(x => x.orden))
+                    {
+                        <div>
+                            <img src="@item.linkImagen" alt="@item.orden">
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // Inicializar DataTables
+    $(document).ready(function () {
+        new DataTable('#tabla-estado-cuenta', {
+            pagingType: 'simple_numbers', // Establece el tipo de paginación a simple_numbers
+            searching: false,
+            ordering: false,
+            info: false,
+            lengthChange: false,
+            pageLength: 8, // Establecer el número de elementos por página a 5
+            dom: 'lrtip', // Define la disposición de los elementos de la tabla
+            language: {
+                paginate: {
+                    previous: '<',
+                    next: '>'
+                }
+            }
+        });
+    });
+
+</script>

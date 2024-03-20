@@ -1,4 +1,5 @@
-﻿using Portal_MovilEsales.Services.ClienteServices.ViewModels;
+﻿using Portal_MovilEsales.Services.AsesorServices.ViewModels.EstadoCuenta;
+using Portal_MovilEsales.Services.ClienteServices.ViewModels;
 using Portal_MovilEsales.Services.ClienteServices.ViewModels.DetallePedido;
 using Portal_MovilEsales.Services.ClienteServices.ViewModels.FamilaProducto;
 using Portal_MovilEsales.Services.ClienteServices.ViewModels.Inicio;
@@ -34,5 +35,6 @@ namespace Portal_MovilEsales.Services.ClienteServices
         public ProcesoFlujoAprobacion postProcesoFlujoAprobacion(string token, string parametrosPeticion);
 
         public ProductoCodigoSap getProductoCodigoSap(string token, string codigoArticulo, string codigoSapCliente);
+        public EstadoCuenta getInfoEstadoCuenta(string token, string codigoSAPCliente);
     }
 }

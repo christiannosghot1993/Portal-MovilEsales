@@ -446,5 +446,14 @@ namespace Portal_MovilEsales.Controllers
 
             return PartialView("_ModalDetallePedidoEntregadoCliente", listadoPedidosBPH);
         }
+
+        public IActionResult EstadoCuentaCliente(string codigoSap)
+        {
+            var token = HttpContext.Session.GetString("token");
+
+            var respEstadoCuenta = _clienteService.getInfoEstadoCuenta(token, codigoSap);
+
+            return View(respEstadoCuenta);
+        }
     }
 }
