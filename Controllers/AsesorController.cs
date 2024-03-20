@@ -703,5 +703,18 @@ namespace Portal_MovilEsales.Controllers
             }
 
         }
+
+        public IActionResult eliminarArticulo(string codigoArticulo)
+        {
+            List<ProductosNuevoPedido> listadoProductosNuevoPedido = JsonConvert.DeserializeObject<List<ProductosNuevoPedido>>(HttpContext.Session.GetString("SelectedProducts"));
+            listadoProductosNuevoPedido= listadoProductosNuevoPedido.Where(x=>x.codigo != codigoArticulo).ToList();
+            HttpContext.Session.SetString("SelectedProducts", JsonConvert.SerializeObject(listadoProductosNuevoPedido));
+            var data = new
+            {
+                listadoProductosNuevoPedido,
+                resumenDetalleProductos = new ResumenDetalleProductos()
+            };
+            return PartialView("_TableProductosSeleccionadosPedido", data);
+        }
     }
 }
