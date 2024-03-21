@@ -80,7 +80,7 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-end pt-3">
-                   @*  <label class="card-subtitle" data-bs-toggle="modal" data-bs-target="#modalDetalleInformacionCrediticia" style="text-decoration: underline;">Más Detalles</label> *@
+                    @*  <label class="card-subtitle" data-bs-toggle="modal" data-bs-target="#modalDetalleInformacionCrediticia" style="text-decoration: underline;">Más Detalles</label> *@
                     <label class="card-subtitle" onclick="abrirModalInformacionCrediticia('@Url.Action("CargarInformacionModalInformacionCrediticia", "Asesor", new { codigoSAP = Model.codigoSAP })')" style="text-decoration: underline;">Más Detalles</label>
 
 
@@ -183,7 +183,7 @@
                 </div>
 
                 <div class="modal fade" id="modalPedidoAprobado" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    @if (Model.pedidoAprobado!=null)
+                    @if (Model.pedidoAprobado != null)
                     {
                         @Html.Partial("_ModalPedidoAprobado")
                     }
@@ -192,74 +192,74 @@
 
                     @if (Model.informacionCrediticia != null)
                     {
-                         @Html.Partial("_ModalInformacionCrediticia")
+                        @Html.Partial("_ModalInformacionCrediticia")
                     }
-                    
+
                     @*  <div class="modal-dialog modal-md">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title card-title" id="exampleModalLabel">
-                                    Información Crediticia
-                                </h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="pt-3 me-2 d-flex justify-content-end">
-                                <div class=" car-sap-code-container">
-                                    <h3 class="card-sap-code-label">Última Actualización</h3>
-                                    <label>11/14/2023</label>
-                                </div>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-md-6" style="font-weight: bold;">Código:</div>
-                                    <div class="col-md-6">0000151275</div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6" style="font-weight: bold;">Crédito Limite:</div>
-                                    <div class="col-md-6">80.000,00</div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6" style="font-weight: bold;">Objetivo Cobro Actual:</div>
-                                    <div class="col-md-6">4.937,44</div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6" style="font-weight: bold;">Total Facturado:</div>
-                                    <div class="col-md-6">9.998,11</div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6" style="font-weight: bold;">Total Vencido:</div>
-                                    <div class="col-md-6">2.935,63</div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6" style="font-weight: bold;">Cheques Post Fechados:</div>
-                                    <div class="col-md-6">-</div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6" style="font-weight: bold;">Anticipo:</div>
-                                    <div class="col-md-6">0,00</div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6" style="font-weight: bold;">NC Sin Aplicar:</div>
-                                    <div class="col-md-6">-20,57</div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6" style="font-weight: bold;">Cartera por Cobrar:</div>
-                                    <div class="col-md-6">4.937.44</div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6" style="font-weight: bold;">Objetivo Cobro Mes:</div>
-                                    <div class="col-md-6">8.870,43</div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6" style="font-weight: bold;">Cobranza Actual:</div>
-                                    <div class="col-md-6">0,00</div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6" style="font-weight: bold;">Porcentaje Cumplimiento:</div>
-                                    <div class="col-md-6">0%</div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="modal-content">
+                    <div class="modal-header">
+                    <h1 class="modal-title card-title" id="exampleModalLabel">
+                    Información Crediticia
+                    </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="pt-3 me-2 d-flex justify-content-end">
+                    <div class=" car-sap-code-container">
+                    <h3 class="card-sap-code-label">Última Actualización</h3>
+                    <label>11/14/2023</label>
+                    </div>
+                    </div>
+                    <div class="modal-body">
+                    <div class="row">
+                    <div class="col-md-6" style="font-weight: bold;">Código:</div>
+                    <div class="col-md-6">0000151275</div>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-6" style="font-weight: bold;">Crédito Limite:</div>
+                    <div class="col-md-6">80.000,00</div>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-6" style="font-weight: bold;">Objetivo Cobro Actual:</div>
+                    <div class="col-md-6">4.937,44</div>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-6" style="font-weight: bold;">Total Facturado:</div>
+                    <div class="col-md-6">9.998,11</div>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-6" style="font-weight: bold;">Total Vencido:</div>
+                    <div class="col-md-6">2.935,63</div>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-6" style="font-weight: bold;">Cheques Post Fechados:</div>
+                    <div class="col-md-6">-</div>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-6" style="font-weight: bold;">Anticipo:</div>
+                    <div class="col-md-6">0,00</div>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-6" style="font-weight: bold;">NC Sin Aplicar:</div>
+                    <div class="col-md-6">-20,57</div>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-6" style="font-weight: bold;">Cartera por Cobrar:</div>
+                    <div class="col-md-6">4.937.44</div>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-6" style="font-weight: bold;">Objetivo Cobro Mes:</div>
+                    <div class="col-md-6">8.870,43</div>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-6" style="font-weight: bold;">Cobranza Actual:</div>
+                    <div class="col-md-6">0,00</div>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-6" style="font-weight: bold;">Porcentaje Cumplimiento:</div>
+                    <div class="col-md-6">0%</div>
+                    </div>
+                    </div>
+                    </div>
                     </div> *@
                 </div>
                 <div class="tab-content pt-3" id="myTabContent">
@@ -285,11 +285,13 @@
                                             <td>@item.observacion</td>
                                             <td>@item.responsableAprobacion</td>
                                             <td>
-                                                <svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <g id="01 align center">
-                                                        <path id="Vector" d="M15.5 3.10875L12.4895 0H6.5C5.90326 0 5.33097 0.237053 4.90901 0.65901C4.48705 1.08097 4.25 1.65326 4.25 2.25V3H2.75C2.15326 3 1.58097 3.23705 1.15901 3.65901C0.737053 4.08097 0.5 4.65326 0.5 5.25V18H12.5V14.25H15.5V3.10875ZM11 16.5H2V5.25C2 5.05109 2.07902 4.86032 2.21967 4.71967C2.36032 4.57902 2.55109 4.5 2.75 4.5H4.25V14.25H11V16.5ZM5.75 12.75V2.25C5.75 2.05109 5.82902 1.86032 5.96967 1.71967C6.11032 1.57902 6.30109 1.5 6.5 1.5H11V4.5H14V12.75H5.75Z" fill="#01ADEF" />
-                                                    </g>
-                                                </svg>
+                                                <a asp-controller="Asesor" asp-action="BuscarPedido" asp-route-numeroOrden="@item.numeroPedido" asp-route-codigoSAPCliente="@Model.codigoSAP">
+                                                    <svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <g id="01 align center">
+                                                            <path id="Vector" d="M15.5 3.10875L12.4895 0H6.5C5.90326 0 5.33097 0.237053 4.90901 0.65901C4.48705 1.08097 4.25 1.65326 4.25 2.25V3H2.75C2.15326 3 1.58097 3.23705 1.15901 3.65901C0.737053 4.08097 0.5 4.65326 0.5 5.25V18H12.5V14.25H15.5V3.10875ZM11 16.5H2V5.25C2 5.05109 2.07902 4.86032 2.21967 4.71967C2.36032 4.57902 2.55109 4.5 2.75 4.5H4.25V14.25H11V16.5ZM5.75 12.75V2.25C5.75 2.05109 5.82902 1.86032 5.96967 1.71967C6.11032 1.57902 6.30109 1.5 6.5 1.5H11V4.5H14V12.75H5.75Z" fill="#01ADEF" />
+                                                        </g>
+                                                    </svg>
+                                                </a>
                                             </td>
                                             <td>
                                                 <a onclick="abrirModal('@Url.Action("CargarInformacionModalPedidoAprobado", "Asesor", new { numeroPedido = item.numeroPedido })')">
