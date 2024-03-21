@@ -68,6 +68,88 @@ namespace Portal_MovilEsales.Controllers
             return View(nuevoPedido);
         }
 
+
+        public IActionResult BuscarPedido(string numeroOrden, string codigoSAPCliente)
+        {
+            var listaProductosSeleccionados = new List<ProductosNuevoPedido>();
+
+            var resumenDetalleProductos = new ResumenDetalleProductos();
+
+            var contadorRegistros = 1;
+
+            HttpContext.Session.SetString("SelectedProducts", JsonConvert.SerializeObject(listaProductosSeleccionados));
+
+            HttpContext.Session.SetString("SummaryProducts", JsonConvert.SerializeObject(resumenDetalleProductos));
+
+            HttpContext.Session.SetString("RowCounter", contadorRegistros.ToString());
+
+            var token = HttpContext.Session.GetString("token");
+
+            var respDetallePedido = _asesorService.getDetallePedido(token, numeroOrden);
+
+
+            var nuevoPedido = new NuevoPedido();
+            nuevoPedido.cargaCabeceraPedido = _asesorService.getCargaCabeceraPedido(token, codigoSAPCliente);
+            List<ProductosNuevoPedido> productosSeleccionados = new List<ProductosNuevoPedido>();
+            foreach (var item in respDetallePedido.detallePedido)
+            {
+                ProductosNuevoPedido prod = new ProductosNuevoPedido
+                {
+                    numeroRegistro="",
+                    bloqueado=false,
+                    codigo=item.codigoSAP,
+                    descripcion=item.nombreProducto,
+                    listadoTipoEntregas = nuevoPedido.cargaCabeceraPedido.listadoTipoEntrega,
+                    unidad=item.unidad,
+                    peso=item.peso,
+                    descFac=item.descFactura,
+                    descNc=item.descNotaCredito,
+                    idl="",
+                    subtotal=item.subtotal,
+                    cantidad=item.cantidad,
+                    aFinMes=false,
+                    aFamilia=false,
+                };
+                productosSeleccionados.Add(prod);
+            }
+            nuevoPedido.listadoProductosNuevoPedido = productosSeleccionados;
+            nuevoPedido.resumenDetalleProductos = new ResumenDetalleProductos
+            {
+                importeBruto= respDetallePedido.importeBruto,
+                descuentoBase= respDetallePedido.descuentoBase,
+                subTotal1= respDetallePedido.subTotal1,
+                descuentoPago= respDetallePedido.descuentoPago,
+                descuentoRetiro= respDetallePedido.descuentoRetiro,
+                descuentoVarios= respDetallePedido.descuentoVarios,
+                descuentoPeso= respDetallePedido.descuentoPeso,
+                subTotal2= respDetallePedido.subTotal2,
+                iva= respDetallePedido.iva,
+                seguroTransporte= respDetallePedido.seguroTransporte,
+                valorTotal= respDetallePedido.valorTotal,
+                valorNcsinIva= respDetallePedido.valorNcsinIva,
+                margenPor= respDetallePedido.margenPor,
+            };
+            nuevoPedido.informacionEntrega = new InformacionEntrega
+            {
+                fechaEntrega= respDetallePedido.fechaEntrega,
+                numeroOrden= respDetallePedido.numeroOrden,
+                direccionEntrega= respDetallePedido.direccionEntrega,
+                observacion= respDetallePedido.observacion,
+                contacto= respDetallePedido.contacto,
+                soporteVenta="",
+            };
+
+            var respListaFamiliasProductos = _asesorService.getFamiliaProductos(token);
+
+            var respListaProductosFavoritos = codigoSAPCliente is null ? new ListadoProductosFavoritos() :
+                                              _asesorService.getProductosFavoritos(token, codigoSAPCliente);
+
+            nuevoPedido.listaFamiliaProductos = respListaFamiliasProductos;
+
+            nuevoPedido.listadProductosFavoritos = respListaProductosFavoritos;
+            return View("PedidoCatalogoProductos", nuevoPedido);
+        }
+
         public IActionResult FillCabeceraNuevoPedido(string codigoSAPCliente)
         {
             var token = HttpContext.Session.GetString("token");
