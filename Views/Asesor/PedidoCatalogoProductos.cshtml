@@ -1096,4 +1096,39 @@
                 ocultarLoader();
             });
     }
+
+    function handleChangeDescFactura(e, url){
+        e.preventDefault();
+        console.log(url)
+        let descuentoFactura = e.target.elements.descFactura.value;
+        let tipoDescuento='f';
+        url = `${url}?tipoDescuento=${tipoDescuento}&valor=${descuentoFactura}`;
+        fetch(url)
+            .then(response => response.text())
+            .then(html => {
+                comprobarSesionVigente(html);
+                document.getElementById('tablaPedidosSeleccinoados').innerHTML = html;
+                ocultarLoader();
+            })
+            .catch(error => {
+                console.error('Error al cargar información:', error)
+                ocultarLoader();
+            });
+    }
+
+    function handleCheckBoxDescuento(e, url){
+        let codigoArticulo= event.target.id;
+        var isChecked = event.target.checked;
+        url = `${url}?isChecked=${isChecked}&codigoArticulo=${codigoArticulo}`;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(json => {
+                console.log(json)
+              
+            })
+            .catch(error => {
+                console.error('Error al cargar información:', error)
+            });
+    }
 </script>

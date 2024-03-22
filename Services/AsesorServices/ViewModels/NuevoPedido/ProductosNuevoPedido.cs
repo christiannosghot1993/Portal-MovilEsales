@@ -2,7 +2,7 @@
 {
     public class ProductosNuevoPedido
     {
-        
+        public bool isChecked { get; set; } = false;
         public string numeroRegistro {  get; set; }
 
         public bool bloqueado { get; set; } = false;
