@@ -95,48 +95,48 @@ namespace Portal_MovilEsales.Controllers
             {
                 ProductosNuevoPedido prod = new ProductosNuevoPedido
                 {
-                    numeroRegistro="",
-                    bloqueado=false,
-                    codigo=item.codigoSAP,
-                    descripcion=item.nombreProducto,
+                    numeroRegistro = "",
+                    bloqueado = false,
+                    codigo = item.codigoSAP,
+                    descripcion = item.nombreProducto,
                     listadoTipoEntregas = nuevoPedido.cargaCabeceraPedido.listadoTipoEntrega,
-                    unidad=item.unidad,
-                    peso=item.peso,
-                    descFac=item.descFactura,
-                    descNc=item.descNotaCredito,
-                    idl="",
-                    subtotal=item.subtotal,
-                    cantidad=item.cantidad,
-                    aFinMes=false,
-                    aFamilia=false,
+                    unidad = item.unidad,
+                    peso = item.peso,
+                    descFac = item.descFactura,
+                    descNc = item.descNotaCredito,
+                    idl = "",
+                    subtotal = item.subtotal,
+                    cantidad = item.cantidad,
+                    aFinMes = false,
+                    aFamilia = false,
                 };
                 productosSeleccionados.Add(prod);
             }
             nuevoPedido.listadoProductosNuevoPedido = productosSeleccionados;
             nuevoPedido.resumenDetalleProductos = new ResumenDetalleProductos
             {
-                importeBruto= respDetallePedido.importeBruto,
-                descuentoBase= respDetallePedido.descuentoBase,
-                subTotal1= respDetallePedido.subTotal1,
-                descuentoPago= respDetallePedido.descuentoPago,
-                descuentoRetiro= respDetallePedido.descuentoRetiro,
-                descuentoVarios= respDetallePedido.descuentoVarios,
-                descuentoPeso= respDetallePedido.descuentoPeso,
-                subTotal2= respDetallePedido.subTotal2,
-                iva= respDetallePedido.iva,
-                seguroTransporte= respDetallePedido.seguroTransporte,
-                valorTotal= respDetallePedido.valorTotal,
-                valorNcsinIva= respDetallePedido.valorNcsinIva,
-                margenPor= respDetallePedido.margenPor,
+                importeBruto = respDetallePedido.importeBruto,
+                descuentoBase = respDetallePedido.descuentoBase,
+                subTotal1 = respDetallePedido.subTotal1,
+                descuentoPago = respDetallePedido.descuentoPago,
+                descuentoRetiro = respDetallePedido.descuentoRetiro,
+                descuentoVarios = respDetallePedido.descuentoVarios,
+                descuentoPeso = respDetallePedido.descuentoPeso,
+                subTotal2 = respDetallePedido.subTotal2,
+                iva = respDetallePedido.iva,
+                seguroTransporte = respDetallePedido.seguroTransporte,
+                valorTotal = respDetallePedido.valorTotal,
+                valorNcsinIva = respDetallePedido.valorNcsinIva,
+                margenPor = respDetallePedido.margenPor,
             };
             nuevoPedido.informacionEntrega = new InformacionEntrega
             {
-                fechaEntrega= respDetallePedido.fechaEntrega,
-                numeroOrden= respDetallePedido.numeroOrden,
-                direccionEntrega= respDetallePedido.direccionEntrega,
-                observacion= respDetallePedido.observacion,
-                contacto= respDetallePedido.contacto,
-                soporteVenta="",
+                fechaEntrega = respDetallePedido.fechaEntrega,
+                numeroOrden = respDetallePedido.numeroOrden,
+                direccionEntrega = respDetallePedido.direccionEntrega,
+                observacion = respDetallePedido.observacion,
+                contacto = respDetallePedido.contacto,
+                soporteVenta = "",
             };
 
             var respListaFamiliasProductos = _asesorService.getFamiliaProductos(token);
@@ -163,13 +163,13 @@ namespace Portal_MovilEsales.Controllers
             return PartialView("_FormCabeceraNuevoPedido", nuevoPedido);
         }
 
-        public IActionResult GetProductosPorFamilia(string familia,string codigoSAPCliente)
+        public IActionResult GetProductosPorFamilia(string familia, string codigoSAPCliente)
         {
             var token = HttpContext.Session.GetString("token");
 
             var nuevoPedido = new NuevoPedido();
 
-            var respProductosPorFamilia = _asesorService.getProductosPorFamilia(token, familia,codigoSAPCliente);
+            var respProductosPorFamilia = _asesorService.getProductosPorFamilia(token, familia, codigoSAPCliente);
 
             nuevoPedido.listaProductosPorFamilia = respProductosPorFamilia;
 
@@ -381,7 +381,7 @@ namespace Portal_MovilEsales.Controllers
             return View();
         }
 
-        public IActionResult ActualizarTablaProductosSeleccionados(string codigoSAPCliente ,string codigoSAPArticulo, string numeroRegistro, string entrega, string descFactura, string descNc, string cantidad, string aFinMes, string aFamilia)
+        public IActionResult ActualizarTablaProductosSeleccionados(string codigoSAPCliente, string codigoSAPArticulo, string numeroRegistro, string entrega, string descFactura, string descNc, string cantidad, string aFinMes, string aFamilia)
         {
             var token = HttpContext.Session.GetString("token");
 
@@ -427,7 +427,7 @@ namespace Portal_MovilEsales.Controllers
 
         }
 
-        public IActionResult SeleccionarArticuloPorFamilia(string cantidadArticulo,string codigoSAPCliente ,string codigoSAPArticulo, string familia)
+        public IActionResult SeleccionarArticuloPorFamilia(string cantidadArticulo, string codigoSAPCliente, string codigoSAPArticulo, string familia)
         {
             var token = HttpContext.Session.GetString("token");
 
@@ -435,7 +435,7 @@ namespace Portal_MovilEsales.Controllers
 
             var numeroContador = JsonConvert.DeserializeObject<int>(HttpContext.Session.GetString("RowCounter"));
 
-            var listadoProductosPorFamilia = _asesorService.getProductosPorFamilia(token, familia,codigoSAPCliente);
+            var listadoProductosPorFamilia = _asesorService.getProductosPorFamilia(token, familia, codigoSAPCliente);
 
             var productoPorAgregar = listadoProductosPorFamilia.result.FirstOrDefault(p => p.codigoSAPArticulo == codigoSAPArticulo);
 
@@ -470,7 +470,7 @@ namespace Portal_MovilEsales.Controllers
             return PartialView("_TableProductosSeleccionadosPedido", data);
         }
 
-        public IActionResult SeleccionarArticuloFavorito(string codigoSAPCliente,string cantidadArticulo, string jsonArticulo)
+        public IActionResult SeleccionarArticuloFavorito(string codigoSAPCliente, string cantidadArticulo, string jsonArticulo)
         {
             var token = HttpContext.Session.GetString("token");
 
@@ -702,7 +702,7 @@ namespace Portal_MovilEsales.Controllers
                     file.CopyTo(stream);
                 }
 
-                
+
                 // Procesar el archivo Excel utilizando ClosedXML
                 using (var workbook = new XLWorkbook(filePathAndName))
                 {
@@ -710,7 +710,7 @@ namespace Portal_MovilEsales.Controllers
                     var worksheet = workbook.Worksheet(1);
 
                     // Iterar sobre las filas del archivo Excel
-                    List<ProductoExcelModelRequest> listProd=new List<ProductoExcelModelRequest>();
+                    List<ProductoExcelModelRequest> listProd = new List<ProductoExcelModelRequest>();
                     foreach (var row in worksheet.RowsUsed().Skip(1))
                     {
                         // Obtener los valores de las celdas en cada fila
@@ -722,10 +722,10 @@ namespace Portal_MovilEsales.Controllers
                         {
                             listProd.Add(new ProductoExcelModelRequest
                             {
-                                CodigoSAP=codigoSAP,
-                                Cantidad=!string.IsNullOrEmpty(cantidad)?int.Parse(cantidad):0,
-                                DescFactura=!string.IsNullOrEmpty(descFactura)?double.Parse(descFactura):0,
-                                DescNC=!string.IsNullOrEmpty(descNC)?double.Parse(descNC):0
+                                CodigoSAP = codigoSAP,
+                                Cantidad = !string.IsNullOrEmpty(cantidad) ? int.Parse(cantidad) : 0,
+                                DescFactura = !string.IsNullOrEmpty(descFactura) ? double.Parse(descFactura) : 0,
+                                DescNC = !string.IsNullOrEmpty(descNC) ? double.Parse(descNC) : 0
                             });
                         }
                     }
@@ -736,26 +736,26 @@ namespace Portal_MovilEsales.Controllers
                             detallePedido = listProd
                         });
                         var respCargaCabeceraPedido = _asesorService.getCargaCabeceraPedido(token, "0000090208");
-                        
+
                         foreach (var item in resp.result)
                         {
                             var numeroContador = JsonConvert.DeserializeObject<int>(HttpContext.Session.GetString("RowCounter"));
                             listadoProductosNuevoPedido.Add(new ProductosNuevoPedido
                             {
-                                numeroRegistro= numeroContador.ToString(),
-                                bloqueado=false,
-                                codigo=item.codigoSAPArticulo,
-                                descripcion=item.nombre,
+                                numeroRegistro = numeroContador.ToString(),
+                                bloqueado = false,
+                                codigo = item.codigoSAPArticulo,
+                                descripcion = item.nombre,
                                 listadoTipoEntregas = respCargaCabeceraPedido.listadoTipoEntrega,
-                                unidad=item.unidad,
-                                peso=item.peso.ToString(),
-                                descFac=item.descFactura.ToString(),
-                                descNc=item.descNC.ToString(),
-                                idl="0",
-                                subtotal="0",
-                                cantidad=item.cantidad.ToString(),
-                                aFinMes=false,
-                                aFamilia=false
+                                unidad = item.unidad,
+                                peso = item.peso.ToString(),
+                                descFac = item.descFactura.ToString(),
+                                descNc = item.descNC.ToString(),
+                                idl = "0",
+                                subtotal = "0",
+                                cantidad = item.cantidad.ToString(),
+                                aFinMes = false,
+                                aFamilia = false
                             });
                             HttpContext.Session.SetString("RowCounter", (numeroContador + 1).ToString());
                         }
@@ -789,7 +789,32 @@ namespace Portal_MovilEsales.Controllers
         public IActionResult eliminarArticulo(string codigoArticulo)
         {
             List<ProductosNuevoPedido> listadoProductosNuevoPedido = JsonConvert.DeserializeObject<List<ProductosNuevoPedido>>(HttpContext.Session.GetString("SelectedProducts"));
-            listadoProductosNuevoPedido= listadoProductosNuevoPedido.Where(x=>x.codigo != codigoArticulo).ToList();
+            listadoProductosNuevoPedido = listadoProductosNuevoPedido.Where(x => x.codigo != codigoArticulo).ToList();
+            HttpContext.Session.SetString("SelectedProducts", JsonConvert.SerializeObject(listadoProductosNuevoPedido));
+            var data = new
+            {
+                listadoProductosNuevoPedido,
+                resumenDetalleProductos = new ResumenDetalleProductos()
+            };
+            return PartialView("_TableProductosSeleccionadosPedido", data);
+        }
+
+        public IActionResult marcarDescuento(bool isChecked, string codigoArticulo)
+        {
+            List<ProductosNuevoPedido> listadoProductosNuevoPedido = JsonConvert.DeserializeObject<List<ProductosNuevoPedido>>(HttpContext.Session.GetString("SelectedProducts"));
+            int indiceProducto = listadoProductosNuevoPedido.FindIndex(x => x.codigo == codigoArticulo);
+            listadoProductosNuevoPedido[indiceProducto].isChecked = isChecked;
+            HttpContext.Session.SetString("SelectedProducts", JsonConvert.SerializeObject(listadoProductosNuevoPedido));
+            return Json(listadoProductosNuevoPedido);
+        }
+
+        public IActionResult establecerDescuento(string tipoDescuento, string valor)
+        {
+            List<ProductosNuevoPedido> listadoProductosNuevoPedido = JsonConvert.DeserializeObject<List<ProductosNuevoPedido>>(HttpContext.Session.GetString("SelectedProducts"));
+            listadoProductosNuevoPedido
+                .Where(p => p.isChecked)
+                .ToList()
+                .ForEach(p => p.descFac = valor);
             HttpContext.Session.SetString("SelectedProducts", JsonConvert.SerializeObject(listadoProductosNuevoPedido));
             var data = new
             {
