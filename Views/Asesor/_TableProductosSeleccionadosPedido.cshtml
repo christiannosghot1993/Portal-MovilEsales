@@ -14,17 +14,18 @@
                     <div class="d-flex">
                         <strong style="margin-right:10px;">Descuento Factura</strong>
                         <div class=" car-sap-code-container">
-                            <input id="descFactura" type="number" type="text" />
+                            <input id="descFactura" type="number"  />
                         </div>
                     </div>
                 </form>
-                <div class="d-flex">
-                    <strong style="margin-right:10px;">Descuento NC</strong>
-                    <div class=" car-sap-code-container">
-                        <input type="number" type="text" />
+                <form onsubmit="handleChangeDescNC(event, '@Url.Action("establecerDescuento", "Asesor")')">
+                    <div class="d-flex">
+                        <strong style="margin-right:10px;">Descuento NC</strong>
+                        <div class=" car-sap-code-container">
+                            <input id="descNC" type="number" />
+                        </div>
                     </div>
-                </div>
-
+                </form>
             </div>
 
 

@@ -811,10 +811,22 @@ namespace Portal_MovilEsales.Controllers
         public IActionResult establecerDescuento(string tipoDescuento, string valor)
         {
             List<ProductosNuevoPedido> listadoProductosNuevoPedido = JsonConvert.DeserializeObject<List<ProductosNuevoPedido>>(HttpContext.Session.GetString("SelectedProducts"));
-            listadoProductosNuevoPedido
+            if (tipoDescuento.Equals("f"))
+            {
+                listadoProductosNuevoPedido
                 .Where(p => p.isChecked)
                 .ToList()
                 .ForEach(p => p.descFac = valor);
+            }
+            else
+            {
+                //nc
+                listadoProductosNuevoPedido
+                .Where(p => p.isChecked)
+                .ToList()
+                .ForEach(p => p.descNc = valor);
+            }
+            
             HttpContext.Session.SetString("SelectedProducts", JsonConvert.SerializeObject(listadoProductosNuevoPedido));
             var data = new
             {
