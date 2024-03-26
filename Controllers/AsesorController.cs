@@ -77,7 +77,7 @@ namespace Portal_MovilEsales.Controllers
 
             var contadorRegistros = 1;
 
-            HttpContext.Session.SetString("SelectedProducts", JsonConvert.SerializeObject(listaProductosSeleccionados));
+            
 
             HttpContext.Session.SetString("SummaryProducts", JsonConvert.SerializeObject(resumenDetalleProductos));
 
@@ -112,6 +112,7 @@ namespace Portal_MovilEsales.Controllers
                 };
                 productosSeleccionados.Add(prod);
             }
+            HttpContext.Session.SetString("SelectedProducts", JsonConvert.SerializeObject(productosSeleccionados));
             nuevoPedido.listadoProductosNuevoPedido = productosSeleccionados;
             nuevoPedido.resumenDetalleProductos = new ResumenDetalleProductos
             {
