@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using Portal_MovilEsales.Services.AsesorServices;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.DatosCliente;
+using Portal_MovilEsales.Services.AsesorServices.ViewModels.EstadoCuenta;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.ProductoExcel;
 
@@ -559,7 +560,7 @@ namespace Portal_MovilEsales.Controllers
             var token = HttpContext.Session.GetString("token");
 
             var respEstadoCuenta = _asesorService.getInfoEstadoCuenta(token, codigoSap);
-
+            HttpContext.Session.SetString("ListadoEstadoCuenta", JsonConvert.SerializeObject(respEstadoCuenta.detalleEstadoCuenta));
             return View(respEstadoCuenta);
         }
 
@@ -668,6 +669,48 @@ namespace Portal_MovilEsales.Controllers
                 listadoPedidosBPH.result = new List<InfoPedidoBPH>();
             }
             return PartialView("_TablePedidosBorrador", listadoPedidosBPH);
+        }
+
+        public IActionResult DescargarEstadoCuenta()
+        {
+            var listadoEstadoEcuenta=HttpContext.Session.GetString("ListadoEstadoCuenta");
+            // Deserializar el JSON en una lista de objetos o DataTable
+            List<ListadoEstadoCuenta> data = JsonConvert.DeserializeObject<List<ListadoEstadoCuenta>>(listadoEstadoEcuenta);
+
+            // Crear un nuevo libro de Excel
+            using (var workbook = new XLWorkbook())
+            {
+                // Agregar una hoja al libro
+                var worksheet = workbook.Worksheets.Add("EstadoCuenta");
+
+                // Agregar encabezados
+                var headers = worksheet.Row(1);
+                headers.Cell(1).Value = "FACTURA";
+                headers.Cell(2).Value = "FECHA";
+                headers.Cell(3).Value = "VALOR";
+                headers.Cell(4).Value = "TERMINO PAGO";
+                headers.Cell(5).Value = "DOCUMENTOS SAP";
+                headers.Cell(6).Value = "RETENCIONES";
+                headers.Cell(7).Value = "ABONOS";
+                headers.Cell(8).Value = "NOTAS DE CREDITO";
+                headers.Cell(9).Value = "FECHA VENCIMIENTO";
+                headers.Cell(10).Value = "SALDO POR COBRAR";
+                headers.Cell(11).Value = "DIAS VENCIDOS";
+                // Agregar más encabezados según sea necesario
+
+                // Escribir los datos debajo de los encabezados
+                worksheet.Cell(2, 1).InsertData(data);
+
+                // Guardar el libro en un MemoryStream
+                using (var stream = new System.IO.MemoryStream())
+                {
+                    workbook.SaveAs(stream);
+                    var content = stream.ToArray();
+
+                    // Devolver el archivo de Excel como una descarga al cliente
+                    return File(content, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "EstadoCuenta.xlsx");
+                }
+            }
         }
 
         public IActionResult FillPedidosHistoricos()
