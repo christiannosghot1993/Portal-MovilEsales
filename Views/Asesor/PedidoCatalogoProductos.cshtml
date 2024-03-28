@@ -355,7 +355,7 @@
                                         {
                                             <form onsubmit="onSubmitAgregraFavorito(event, '@{
 
-                                                                                                                        @JsonConvert.SerializeObject(item)
+                                                                                                                            @JsonConvert.SerializeObject(item)
 ;
 }', '@Url.Action("SeleccionarArticuloFavorito", "Asesor")')">
                                             <tr>
@@ -892,7 +892,7 @@
 
 
         url = `${url}?codigoSAPCliente=${codigoSAPCliente}&codigoTipoEntrega=${tipoEntregaSelectedValue}&codigoTipoPago=${tipoPagoSelectedValue}&codigoSAPDireccionEntrega=${direccionEntregaSelectedValue}&canal=${canalSelectedValue}
-                                                                                                                               &fechaEntrega=${fechaEntrega}&numeroOrdenCompra=${numeroOrdenCompra}&lugarEntrega=${lugarEntrega}&observaciones=${observaciones}&contactoEntrega=${contactoEntrega}`
+                                                                                                                                   &fechaEntrega=${fechaEntrega}&numeroOrdenCompra=${numeroOrdenCompra}&lugarEntrega=${lugarEntrega}&observaciones=${observaciones}&contactoEntrega=${contactoEntrega}`
 
         console.log(url)
 
@@ -1097,13 +1097,13 @@
             });
     }
 
-    function handleChangeDescFactura(e, url){
+    function handleChangeDescFactura(e, url) {
         e.preventDefault();
         console.log(url)
         let descuentoFactura = e.target.elements.descFactura.value;
         if (!descuentoFactura)
-        return;
-        let tipoDescuento='f';
+            return;
+        let tipoDescuento = 'f';
         url = `${url}?tipoDescuento=${tipoDescuento}&valor=${descuentoFactura}`;
         fetch(url)
             .then(response => response.text())
@@ -1139,8 +1139,8 @@
             });
     }
 
-    function handleCheckBoxDescuento(e, url){
-        let codigoArticulo= event.target.id;
+    function handleCheckBoxDescuento(e, url) {
+        let codigoArticulo = event.target.id;
         var isChecked = event.target.checked;
         url = `${url}?isChecked=${isChecked}&codigoArticulo=${codigoArticulo}`;
 
@@ -1148,10 +1148,18 @@
             .then(response => response.json())
             .then(json => {
                 console.log(json)
-              
+
             })
             .catch(error => {
                 console.error('Error al cargar información:', error)
             });
     }
+
+    const handleOnKeyEnterPress = (event, idInputCantidad, codigoSAPArticulo, url, familia) => {
+
+        if (event.keyCode === 13) {
+            onSubmitAgregarPorFamilia(idInputCantidad, codigoSAPArticulo, url, familia)
+        }
+    }
+
 </script>
