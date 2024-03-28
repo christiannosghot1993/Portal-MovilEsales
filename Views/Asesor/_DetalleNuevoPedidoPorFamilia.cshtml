@@ -25,9 +25,12 @@
                             var idInput = $"cantidadArticuloPorFamilia-{codigoSAPArticulo}";
 
                             var funcionBoton = $"onSubmitAgregarPorFamilia('{idInput}','{codigoSAPArticulo}','{Url.Action("SeleccionarArticuloPorFamilia", "Asesor")}')";
+
+                            var funcionKeyEnterPress = $"handleOnKeyEnterPress(event,'{idInput}','{codigoSAPArticulo}','{Url.Action("SeleccionarArticuloPorFamilia", "Asesor")}')";
+
                         }
 
-                        <input style="margin-top: 8px;" id=@idInput type="number" step="1" value="1" min="1" />
+                        <input style="margin-top: 8px;" id=@idInput type="number" step="1" value="1" min="1" onkeydown=@funcionKeyEnterPress />
                     </td>
                     <td>
 

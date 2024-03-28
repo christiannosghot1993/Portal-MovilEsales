@@ -41,7 +41,7 @@
                             @foreach (var item in Model)
                             {
                                 <tr>
-                                    <td className="text-wrapper">@item.nombreCliente</td>
+                                    <td className="text-wrapper"><a asp-action="PedidoCatalogoProductos" asp-controller="Asesor" asp-route-codigoSAPCliente=@item.codigoSAP>@item.nombreCliente</a></td>
                                     <td className="text-wrapper-2">@item.codigoSAP</td>
                                     <td className="text-wrapper-3">@item.ciudad</td>
                                     <td>
