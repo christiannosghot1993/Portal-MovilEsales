@@ -115,7 +115,7 @@ namespace Portal_MovilEsales.Controllers
                             case "Aprobador":
                                 return RedirectToAction("Index", "Aprobador");
                             case "Administrador":
-                                break;
+                                return RedirectToAction("Index", "Administrador");
                         }
 
                         //if (perfil.Equals("Asesor"))

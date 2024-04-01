@@ -100,8 +100,35 @@
                         <a>BEETRACK</a>
                     </li>
                     <li>
-                        <a>RECLAMOS</a>
+                        <a asp-action="InicioReclamo" asp-controller="Cliente">RECLAMOS</a>
                     </li>
+                } @if (perfil is "Administrador")
+                {
+                    <li>
+                        <a asp-action="Index" asp-controller="Administrador">INICIO</a>
+                    </li>
+                    <li>
+                        <a asp-action="Clientes" asp-controller="Administrador">CLIENTES</a>
+                    </li>
+                    <li>
+                        <a>ASESORES</a>
+                    </li>
+                    <li>
+                        <a>APROBADORES</a>
+                    </li>
+                    <li>
+                        <a>PROMOCIONES</a>
+                    </li>
+                    <li>
+                        <a>POLITICA COMERCIAL</a>
+                    </li>
+                    <li>
+                        <a asp-action="Reclamo" asp-controller="Administrador">RECLAMOS</a>
+                    </li>
+                    <li class="opcion-salir">
+                        <a asp-action="Index" asp-controller="Login">SALIR</a>
+                    </li>
+
                 }
 
                 <li>

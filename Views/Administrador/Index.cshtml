@@ -1,0 +1,149 @@
+﻿@model Portal_MovilEsales.Services.AdministradorServices.ViewModels.InicioAdministrador.InicioAdministrador
+
+@{
+    ViewData["Title"] = "Administrador";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card card-container">
+            <div class="card-body">
+                <div class="card-title">
+                    <h1>Información personal</h1>
+                </div>
+                <h4 class="title fs-text-b" style="padding-left: 16px;">@Model.nombreAdministrador</h4>
+                <div class="d-flex border-br-orange">
+                    <div class="me-auto">
+                        <label class="card-subtitle">Correo Electrónico: <span style="color: black;">@Model.correo</span></label>
+                    </div>
+                    <div>
+                        <label class="card-subtitle">Ciudad - Pais: <span style="color: black;">@Model.ciudad - @Model.pais</span></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 mt-3">
+        <div class="card card-container">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-12 col-md-9">
+                        <ul class="nav nav-tabs d-flex" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link custom-nav-link active" id="pedidos-tab" data-bs-toggle="tab" data-bs-target="#pedidos-tab-pane" type="button" role="tab" aria-controls="pedidos-tab-pane" aria-selected="false" style="font-family: bekaert-headline-regular !important">Pedidos Pendientes</button>
+
+                            </li>
+                            <li class="nav-item flex-grow-1" role="presentation">
+                                <button class="nav-link custom-nav-link" id="clientes-tab" data-bs-toggle="tab" data-bs-target="#clientes-tab-pane" type="button" role="tab" aria-controls="clientes-tab-pane" aria-selected="true" style="font-family: bekaert-headline-regular !important">Reclamos</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-12 col-md-3">
+                        <div style="padding-top: 12px; display:flex;">
+                            <input type="text" class="buscador fs-text" placeholder="Buscador" />
+                            <svg style="margin:5px;" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="&#240;&#159;&#166;&#134; icon &#34;search&#34;">
+                                    <path id="Vector" d="M9.88894 18.7779C14.7982 18.7779 18.7779 14.7982 18.7779 9.88894C18.7779 4.97971 14.7982 1 9.88894 1C4.97971 1 1 4.97971 1 9.88894C1 14.7982 4.97971 18.7779 9.88894 18.7779Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path id="Vector_2" d="M21 21.0013L16.1666 16.168" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </g>
+                            </svg>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content pt-3" id="myTabContent">
+                    <div class="tab-pane fade show active" id="pedidos-tab-pane" role="tabpanel" aria-labelledby="pedidos-tab" tabindex="0">
+                        <div class="table-responsive table-container" style="max-height: 305px;">
+                            <table class="table">
+                                <thead class="card-table_header">
+                                    <tr>
+                                        <th scope="col" class="border-radius-left" style="padding:13px;">Asesor</th>
+                                        <th scope="col" style="padding:13px;">Cliente</th>
+                                        <th scope="col" style="padding:13px;">N° Orden E-Sales</th>
+                                        <th scope="col" style="padding:13px;">Observaciones</th>
+                                        <th scope="col" style="padding:13px;">F. Creación</th>
+                                        <th scope="col" style="padding:13px;">Estado</th>
+                                        <th scope="col" class="border-radius-right" style="padding:13px;"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.listadoPedidos)
+                                    {
+                                        <tr>
+                                            <td>@item.nombreAsesor</td>
+                                            <td>@item.nombreCliente</td>
+                                            <td>@item.fechaCreacion</td>
+                                            <td>@item.observacion</td>
+                                            <td>@item.numeroOrden</td>
+                                            <td class="border-radius-left border-radius-right card-table_header" style="padding: 13px; background-color: #01ADEF; color: white;width: 10%;">@item.estado</td>
+                                            <td>
+                                                <a asp-controller="Administrador" asp-route-nombreAsesor="@item.nombreAsesor">
+                                                    <svg style="margin:5px;" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <g id="&#240;&#159;&#166;&#134; icon &#34;search&#34;">
+                                                            <path id="Vector" d="M9.88894 18.7779C14.7982 18.7779 18.7779 14.7982 18.7779 9.88894C18.7779 4.97971 14.7982 1 9.88894 1C4.97971 1 1 4.97971 1 9.88894C1 14.7982 4.97971 18.7779 9.88894 18.7779Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                            <path id="Vector_2" d="M21 21.0013L16.1666 16.168" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </g>
+                                                    </svg>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+
+                            </table>
+                        </div>
+                        <div class="d-flex justify-content-end pt-3">
+                            <label class="card-subtitle" style="text-decoration: underline;">Ver más +</label>
+
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="clientes-tab-pane" role="tabpanel" aria-labelledby="clientes-tab" tabindex="0">
+                        <div class="table-responsive table-container" style="max-height: 305px; font-family: bekaert-text-bold !important">
+                            <table class="table">
+                                <thead class="card-table_header">
+                                    <tr>
+                                        <th scope="col" class="border-radius-left" style="padding:13px;">Código Reclamo</th>
+                                        <th scope="col" style="padding:13px;">Nombre del Cliente</th>
+                                        <th scope="col" style="padding:13px;">Fecha</th>
+                                        <th scope="col" style="padding:13px;">Detalle del Reclamo</th>
+                                        <th scope="col" style="padding:13px;">Area</th>
+                                        <th scope="col" style="padding:13px;">Estado</th>
+                                        <th scope="col" class="border-radius-right" style="padding:13px;"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.listadoReclamos)
+                                    {
+                                        <tr>
+                                            <td>@item.codigoReclamo</td>
+                                            <td>@item.nombreCliente</td>
+                                            <td>@item.fechaReclamo</td>
+                                            <td>@item.detalle</td>
+                                            <td>@item.area</td>
+                                            <td>@item.estado</td>
+                                            <td>
+                                                <a asp-action="DetalleReclamo" asp-controller="Administrador" asp-route-codigoReclamo="@item.codigoReclamo">
+                                                    <svg style="margin:5px;" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <g id="&#240;&#159;&#166;&#134; icon &#34;search&#34;">
+                                                            <path id="Vector" d="M9.88894 18.7779C14.7982 18.7779 18.7779 14.7982 18.7779 9.88894C18.7779 4.97971 14.7982 1 9.88894 1C4.97971 1 1 4.97971 1 9.88894C1 14.7982 4.97971 18.7779 9.88894 18.7779Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                            <path id="Vector_2" d="M21 21.0013L16.1666 16.168" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </g>
+                                                    </svg>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+
+                            </table>
+                        </div>
+                        <div class="d-flex justify-content-end pt-3">
+                            <label class="card-subtitle" style="text-decoration: underline;">Ver más +</label>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

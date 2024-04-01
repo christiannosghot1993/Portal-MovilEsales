@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Portal_MovilEsales.Middlewares;
 using Portal_MovilEsales.Services;
+using Portal_MovilEsales.Services.AdministradorServices;
 using Portal_MovilEsales.Services.AprobadorServices;
 using Portal_MovilEsales.Services.AsesorServices;
 using Portal_MovilEsales.Services.ClienteServices;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +24,7 @@ builder.Services.AddScoped(typeof(IService), typeof(Service));
 builder.Services.AddScoped(typeof(IAsesorService), typeof(AsesorService));
 builder.Services.AddScoped(typeof(IAprobadorService), typeof(AprobadorService));
 builder.Services.AddScoped(typeof(IClienteService), typeof(ClienteService));
+builder.Services.AddScoped(typeof(IAdministradorService), typeof(AdministradorService));
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
         .AddCookie(options =>
         {

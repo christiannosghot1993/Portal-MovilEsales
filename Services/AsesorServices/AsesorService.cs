@@ -41,12 +41,14 @@ namespace Portal_MovilEsales.Services.AsesorServices
 
         }
 
-        public InicioAsesor getInfoInicioAsesor(string token)
+        //para buscar a los clientes por coincidencias SB Marzo 2024
+        public InicioAsesor getInfoInicioAsesor(string token, string cadena)
         {
             var client = new HttpClient();
             var request = new HttpRequestMessage(HttpMethod.Post, "https://esaleslatam.bekaert.com:9020/esalesapi/api/InicioAsesor");
             request.Headers.Add("Authorization", "Bearer " + token);
-            var content = new StringContent("{\r\n    \"navegadorweb\":\"Microsoft Edge XXX\"\r\n}", null, "application/json");
+            //var content = new StringContent("{\r\n    \"navegadorweb\":\"Microsoft Edge XXX\"\r\n}", null, "application/json");
+            var content = new StringContent("{\r\n    \"cadena\": \"" + cadena + "\",\r\n    \"navegadorweb\":\"Microsoft Edge XXX\"\r\n}", null, "application/json");
             request.Content = content;
             var response = client.Send(request);
             string resultado = response.Content.ReadAsStringAsync().Result;

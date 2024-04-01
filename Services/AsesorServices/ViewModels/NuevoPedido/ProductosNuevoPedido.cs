@@ -30,5 +30,11 @@
         public bool aFinMes { get; set; } = false;
 
         public bool aFamilia { get; set; } = false;
+
+        //nuevos campos SB marzo 2024
+        public string precio { get; set; }
+        public string descBase { get; set; }
+        public string precioFinal { get; set; }
+        public string subtotal2 { get; set; }
     }
 }

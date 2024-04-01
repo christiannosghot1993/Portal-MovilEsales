@@ -6,6 +6,13 @@ using Portal_MovilEsales.Services.ClienteServices;
 using Portal_MovilEsales.Services.ClienteServices.ViewModels;
 using Portal_MovilEsales.Services.ClienteServices.ViewModels.Inicio;
 using Portal_MovilEsales.Services.ClienteServices.ViewModels.NuevoPedido;
+using Portal_MovilEsales.Services.ClienteServices.ViewModels.Reclamo;
+
+using System;
+using System.IO;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Portal_MovilEsales.Controllers
 {
@@ -454,6 +461,73 @@ namespace Portal_MovilEsales.Controllers
             var respEstadoCuenta = _clienteService.getInfoEstadoCuenta(token, codigoSap);
 
             return View(respEstadoCuenta);
+        }
+
+        public IActionResult InicioReclamo()
+        {
+            var token = HttpContext.Session.GetString("token");
+            var listaImagenes = JsonConvert.DeserializeObject<List<ListadoImagenes>>(HttpContext.Session.GetString("ListImages"));
+            var respInicioReclamo = _clienteService.getReclamosCliente(token);
+            respInicioReclamo.listadoImagenes = listaImagenes;
+            return View(respInicioReclamo);
+        }
+
+        public IActionResult NuevoReclamo()
+        {
+            var token = HttpContext.Session.GetString("token");
+            var listaImagenes = JsonConvert.DeserializeObject<List<ListadoImagenes>>(HttpContext.Session.GetString("ListImages"));
+            var respInicioCliente = _clienteService.getInfoNuevoReclamo(token);
+            respInicioCliente.listadoImagenes = listaImagenes;
+            return View(respInicioCliente);
+        }
+
+
+        //public IActionResult GuardarReclamo(string motivo, string factura, string producto, string referencia, string asunto, string observaciones, IFormFile fotografiaMaterial, IFormFile copiaFactura)
+        public IActionResult GuardarReclamo(string motivo, string factura, string producto, string referencia, string asunto, string observaciones, string fotografiaMaterial, string copiaFactura)
+        {
+            var token = HttpContext.Session.GetString("token");
+            /*******************************/
+            /*byte[] fotografiaMaterialBytes = null;
+            byte[] copiaFacturaBytes = null;
+
+            if (fotografiaMaterial != null)
+            {
+                using (var memoryStream = new MemoryStream())
+                {
+                    fotografiaMaterial.CopyTo(memoryStream);
+                    fotografiaMaterialBytes = memoryStream.ToArray();
+                }
+            }
+
+            if (copiaFactura != null)
+            {
+                using (var memoryStream = new MemoryStream())
+                {
+                    copiaFactura.CopyTo(memoryStream);
+                    copiaFacturaBytes = memoryStream.ToArray();
+                }
+            }*/
+            /*********************************/
+            //var respInicioCliente = _clienteService.postNuevoReclamo(token, motivo, factura, producto, referencia, asunto, observaciones, fotografiaMaterialBytes, copiaFacturaBytes);
+            var respInicioCliente = _clienteService.postNuevoReclamo(token, motivo, factura, producto, referencia, asunto, observaciones, fotografiaMaterial, copiaFactura);
+            return View(respInicioCliente);
+        }
+
+        public IActionResult ConfirmacionCliente(int codigoReclamo, int calificacionServicio, string observaciones)
+        {
+            var token = HttpContext.Session.GetString("token");
+            var respConfirmacionCliente = _clienteService.postConfirmacionCliente(token, codigoReclamo, calificacionServicio, observaciones);
+            return View(respConfirmacionCliente);
+        }
+
+        public IActionResult ReclamoEnProgreso(int codigoReclamo)
+        {
+            var token = HttpContext.Session.GetString("token");
+            var listaImagenes = JsonConvert.DeserializeObject<List<ListadoImagenes>>(HttpContext.Session.GetString("ListImages"));
+            var respDetalleReclamoCliente = _clienteService.getDetalleReclamoCliente(token, codigoReclamo);
+
+            respDetalleReclamoCliente.listadoImagenes = listaImagenes;
+            return View(respDetalleReclamoCliente);
         }
     }
 }

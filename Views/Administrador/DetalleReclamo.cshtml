@@ -1,0 +1,119 @@
+﻿@model Portal_MovilEsales.Services.AdministradorServices.ViewModels.DetalleReclamo.DetalleReclamo
+@{
+    ViewData["Title"] = "Administrador - Detalle Reclamo";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card card-container">
+            <div class="card-body">
+                <div class="row">
+                    <div class="card-title">
+                        <h1 style="font-size: 18px !important">Reclamo en progreso</h1>
+                    </div>
+                </div>
+
+                <a data-bs-toggle="collapse" href="#collapseDatosOriginales" role="button" aria-expanded="true" aria-controls="collapseDatosOriginales">
+                    <div class="collapsible-tabs">
+                        <div class="label">
+                            <div class="label-color-wrapper">
+                                <div class="label-color"><div class="text">Datos Originales</div></div>
+                            </div>
+                            <div class="chevron">
+                                <svg width="23" height="14" viewBox="0 0 23 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g id="&#240;&#159;&#166;&#134; icon &#34;chevron down&#34;">
+                                        <path id="Vector" d="M1.5 2L11.5 12L21.5 2" stroke="#D7D2CB" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <div class="row" id="collapseDatosOriginales">
+                    <div class="col-sm-12 col-md-6">
+                        <label class="card-subtitle">Motivo</label>
+                        <p>@Model.motivo</p>
+                    </div>
+
+                    <div class="col-sm-12 col-md-6">
+                        <label class="card-subtitle">Factura</label>
+                        <p>@Model.factura</p>
+                    </div>
+
+                    <div class="col-sm-12 col-md-6">
+                        <label class="card-subtitle">Producto</label>
+                        <p>@Model.producto</p>
+
+                    </div>
+                </div>
+                <div class="row" id="collapseDatosOriginales">
+                    <div class="col-sm-12 col-md-6">
+                        <label class="card-subtitle">Referencia</label>
+                        <p>@Model.referencia</p>
+
+                    </div>
+
+                    <div class="col-sm-12 col-md-6">
+                        <label class="card-subtitle">Asunto</label>
+                        <p>@Model.asunto</p>
+
+                    </div>
+
+                    <div class="col-sm-12 col-md-6">
+                        <label class="card-subtitle">Observaciones</label>
+                        <p>@Model.observaciones</p>
+
+                    </div>
+                </div>
+
+                <div class="row" id="collapseDatosOriginales">
+                    <div class="col-sm-12 col-md-6">
+                        <label class="card-subtitle">
+                            Fotografía del Material
+                            <button class="orange-rounded-button ms-1" onclick="verFotografia()">
+                                Ver
+                            </button>
+                        </label>
+                    </div>
+
+                    <div class="col-sm-12 col-md-6">
+                        <label class="card-subtitle">
+                            Copia de Factura
+                            <button class="orange-rounded-button ms-1" onclick="verFactura()">
+                                Ver
+                            </button>
+                        </label>
+
+                    </div>
+                </div>
+
+
+                <div id="datosComplementariosReclamoVista3" style="display: block;">
+                    @Html.Partial("_DatosComplementariosReclamo")
+                </div>
+
+                @*
+                <div id="_datosComplementariosReclamoVista" style="display: none;">
+                @Html.Partial("DatosComplementariosReclamo")
+                </div>
+
+                <div id="datosComplementariosNuevaAccion" style="display: none;">
+                @Html.Partial("NuevaAccion", new Portal_MovilEsales.Services.AdministradorServices.ViewModels.DetalleReclamo.ReclamoGlobal())
+                </div>*@
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function verFotografia() {
+            var fotografia = "@Model.fotografiaMaterial";
+            window.open(fotografia, '_blank');
+        }
+        function verFactura() {
+            var factura = "@Model.copiaFactura";
+            window.open(factura, '_blank');
+        }
+
+    </script>
+

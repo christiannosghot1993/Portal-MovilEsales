@@ -63,6 +63,10 @@
                         <th scope="col" style="padding:13px;">Desc. NC</th>
                         <th scope="col" style="padding:13px;">IDL</th>
                         <th scope="col" style="padding:13px;">Subtotal</th>
+                        <th scope="col" style="padding:13px;">Precio</th>
+                        <th scope="col" style="padding:13px;">Desc. Base</th>
+                        <th scope="col" style="padding:13px;">Precio Final</th>
+                        <th scope="col" style="padding:13px;">Subtotal 2</th>
                         <th scope="col" style="padding:13px;">Cantidad</th>
                         <th scope="col" style="padding:13px;">Stock</th>
                         <th scope="col" style="padding:13px;">A. fin Mes</th>
@@ -163,6 +167,23 @@
                             <td>
                                 $ @item.subtotal
                             </td>
+
+                            <td>
+                                $ @item.precio
+                            </td>
+
+                            <td>
+                                $ @item.descBase
+                            </td>
+
+                            <td>
+                                $ @item.precioFinal
+                            </td>
+
+                            <td>
+                                $ @item.subtotal2
+                            </td>
+
                             <td>
                                 @*<div class="mt-2 button-up-down" style="color: #FF602C">*@
                                 <div class="form-group">
@@ -324,6 +345,18 @@
                         <div class="subtotal-value">
                             <label class="d-flex justify-content-end">
                                 @Model.resumenDetalleProductos.seguroTransporte
+                            </label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="subtotal-description">
+                            <label class="d-flex justify-content-md-end pe-md-5">Margen Porcentaje</label>
+                        </div>
+                        <label class="pe-md-2 ps-md-5">$</label>
+                        <div class="subtotal-value">
+                            <label class="d-flex justify-content-end">
+                                @Model.resumenDetalleProductos.margenPor
                             </label>
                         </div>
                     </div>

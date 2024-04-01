@@ -8,6 +8,7 @@ using Portal_MovilEsales.Services.ClienteServices.ViewModels.NuevoPedido;
 using Portal_MovilEsales.Services.ClienteServices.ViewModels.NuevoPedido.GuardarPedidoBorrador;
 using Portal_MovilEsales.Services.ClienteServices.ViewModels.NuevoPedido.ProcesoFrujoAprobacion;
 using Portal_MovilEsales.Services.ClienteServices.ViewModels.PedidoAprobado;
+using Portal_MovilEsales.Services.ClienteServices.ViewModels.Reclamo;
 using System.Text;
 
 namespace Portal_MovilEsales.Services.ClienteServices
@@ -511,5 +512,211 @@ namespace Portal_MovilEsales.Services.ClienteServices
 
             return estadoCuenta;
         }
+
+        public InicioReclamo getReclamosCliente(string token)
+        {
+            var client = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Post, "https://esaleslatam.bekaert.com:9020/esalesapi/api/ListaReclamosCliente");
+            request.Headers.Add("Authorization", "Bearer " + token);
+            var content = new StringContent("{\r\n    \"navegadorweb\":\"Microsoft Edge XXX\"\r\n}", null, "application/json");
+            request.Content = content;
+            var response = client.Send(request);
+            string resultado = response.Content.ReadAsStringAsync().Result;
+            var resDynamic = JsonConvert.DeserializeObject<dynamic>(resultado);
+            InicioReclamo inicioReclamo;
+            if ((bool)resDynamic.success)
+            {
+                string jsonInfo = JsonConvert.SerializeObject(resDynamic.result);
+                inicioReclamo = JsonConvert.DeserializeObject<InicioReclamo>(jsonInfo);
+            }
+            else
+            {
+                inicioReclamo = new InicioReclamo();
+            }
+            return inicioReclamo;
+        }
+
+        public NuevoReclamo getInfoNuevoReclamo(string token)
+        {
+            var client = new HttpClient();
+
+            var request = new HttpRequestMessage(HttpMethod.Post, "https://esaleslatam.bekaert.com:9020/esalesapi/api/DatosNuevoReclamo");
+
+            request.Headers.Add("Authorization", "Bearer " + token);
+
+            var jsonBody = JsonConvert.SerializeObject(new
+            {
+                navegadorweb = "Microsoft Edge XXX"
+            });
+
+            var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
+
+            request.Content = content;
+
+            var response = client.Send(request);
+
+            string resultado = response.Content.ReadAsStringAsync().Result;
+
+            var resDynamic = JsonConvert.DeserializeObject<dynamic>(resultado);
+
+            NuevoReclamo nuevoReclamo;
+
+            if ((bool)resDynamic.success)
+            {
+                string jsonInfo = JsonConvert.SerializeObject(resDynamic.result);
+
+                nuevoReclamo = JsonConvert.DeserializeObject<NuevoReclamo>(jsonInfo);
+            }
+            else
+            {
+                nuevoReclamo = new NuevoReclamo();
+            }
+
+            return nuevoReclamo;
+        }
+
+        private static string ConvertFileToBase64(string filePath)
+        {
+            byte[] fileBytes = File.ReadAllBytes(filePath);
+            return Convert.ToBase64String(fileBytes);
+        }
+
+        //public NuevoReclamo postNuevoReclamo(string token, string motivo, string factura, string producto, string referencia, string asunto, string observaciones, byte[] fotografiaMaterial, byte[] copiaFactura)
+        public NuevoReclamo postNuevoReclamo(string token, string motivo, string factura, string producto, string referencia, string asunto, string observaciones, string fotografiaMaterial, string copiaFactura)
+        {
+            var client = new HttpClient();
+
+            var request = new HttpRequestMessage(HttpMethod.Post, "https://esaleslatam.bekaert.com:9020/esalesapi/api/GuardaReclamo");
+
+            // string filePath = "ruta/del/archivo/a/enviar.txt";
+
+            // Convertir el archivo a base64
+            //string base64String = ConvertFileToBase64(filePath);
+
+            request.Headers.Add("Authorization", "Bearer " + token);
+
+            var jsonBody = JsonConvert.SerializeObject(new
+            {
+                navegadorweb = "Microsoft Edge XXX",
+                Motivo = motivo,
+                Factura = factura,
+                Producto = producto,
+                Referencia = referencia,
+                Asunto = asunto,
+                Observaciones = observaciones,
+                FotografiaMaterial = fotografiaMaterial,
+                CopiaFactura = copiaFactura
+                /*FotografiaMaterial = Convert.ToBase64String(fotografiaMaterial), // Convertir a Base64
+                CopiaFactura = Convert.ToBase64String(copiaFactura)*/
+            });
+
+            var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
+
+            request.Content = content;
+
+            var response = client.Send(request);
+
+            string resultado = response.Content.ReadAsStringAsync().Result;
+
+            var resDynamic = JsonConvert.DeserializeObject<dynamic>(resultado);
+
+            NuevoReclamo nuevoReclamo;
+
+            if ((bool)resDynamic.success)
+            {
+                string jsonInfo = JsonConvert.SerializeObject(resDynamic.result);
+
+                nuevoReclamo = JsonConvert.DeserializeObject<NuevoReclamo>(jsonInfo);
+            }
+            else
+            {
+                nuevoReclamo = new NuevoReclamo();
+            }
+
+            return nuevoReclamo;
+        }
+
+        public ReclamoEnProgreso postConfirmacionCliente(string token, int codigoReclamo, int calificacionServicio, string observaciones)
+        {
+            var client = new HttpClient();
+
+            var request = new HttpRequestMessage(HttpMethod.Post, "https://esaleslatam.bekaert.com:9020/esalesapi/api/ConfirmacionCliente");
+
+            request.Headers.Add("Authorization", "Bearer " + token);
+
+            var jsonBody = JsonConvert.SerializeObject(new
+            {
+                navegadorweb = "Microsoft Edge XXX",
+                CodigoReclamo = codigoReclamo,
+                CalificacionServicio = calificacionServicio,
+                Observaciones = observaciones
+            });
+
+            var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
+
+            request.Content = content;
+
+            var response = client.Send(request);
+
+            string resultado = response.Content.ReadAsStringAsync().Result;
+
+            var resDynamic = JsonConvert.DeserializeObject<dynamic>(resultado);
+
+            ReclamoEnProgreso reclamoEnProgreso;
+
+            if ((bool)resDynamic.success)
+            {
+                string jsonInfo = JsonConvert.SerializeObject(resDynamic.result);
+
+                reclamoEnProgreso = JsonConvert.DeserializeObject<ReclamoEnProgreso>(jsonInfo);
+            }
+            else
+            {
+                reclamoEnProgreso = new ReclamoEnProgreso();
+            }
+
+            return reclamoEnProgreso;
+        }
+
+        public ReclamoEnProgreso getDetalleReclamoCliente(string token, int codigoReclamo)
+        {
+            var client = new HttpClient();
+
+            var request = new HttpRequestMessage(HttpMethod.Post, "https://esaleslatam.bekaert.com:9020/esalesapi/api/DetalleReclamoCliente");
+
+            request.Headers.Add("Authorization", "Bearer " + token);
+
+            var jsonBody = JsonConvert.SerializeObject(new
+            {
+                navegadorweb = "Microsoft Edge XXX",
+                CodigoReclamo = codigoReclamo
+            });
+
+            var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
+
+            request.Content = content;
+
+            var response = client.Send(request);
+
+            string resultado = response.Content.ReadAsStringAsync().Result;
+
+            var resDynamic = JsonConvert.DeserializeObject<dynamic>(resultado);
+
+            ReclamoEnProgreso reclamoEnProgreso;
+
+            if ((bool)resDynamic.success)
+            {
+                string jsonInfo = JsonConvert.SerializeObject(resDynamic.result);
+
+                reclamoEnProgreso = JsonConvert.DeserializeObject<ReclamoEnProgreso>(jsonInfo);
+            }
+            else
+            {
+                reclamoEnProgreso = new ReclamoEnProgreso();
+            }
+
+            return reclamoEnProgreso;
+        }
+
     }
 }

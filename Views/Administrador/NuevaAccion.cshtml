@@ -1,0 +1,50 @@
+﻿<a data-bs-toggle="collapse" href="#collapseNuevaAccion" role="button" aria-expanded="true" aria-controls="collapseNuevaAccion">
+    <div class="collapsible-tabs">
+        <div class="label">
+            <div class="label-color-wrapper">
+                <div class="label-color"><div class="text">Nueva Acción</div></div>
+            </div>
+            <div class="chevron">
+                <svg width="23" height="14" viewBox="0 0 23 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="&#240;&#159;&#166;&#134; icon &#34;chevron down&#34;">
+                        <path id="Vector" d="M1.5 2L11.5 12L21.5 2" stroke="#D7D2CB" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </div>
+</a>
+
+<div class="collapse show mb-4" id="collapseNuevaAccion">
+    <div class="row">
+        <div class="col-12">
+            <label for="accion" class="label-datepicker">Acción</label>
+            <input id="accion" class="form-control input-custom" type="text" value="" />
+        </div>
+
+        <div class="col-12">
+            <div class="form-group">
+                <label class="label-datepicker" for="observaciones">Observaciones</label>
+                <textarea id="observaciones" class="form-control input-custom" rows="4" placeholder="El contenido puede tener de 50 a 250 caracteres."></textarea>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <label for="archivo" class="label-datepicker">Archivos adjuntos</label>
+            <div class="input-group">
+                <input type="text" id="archivo" class="form-control datepicker" placeholder="Examinar..." readonly>
+                <button type="button" class="btn btn-outline-secondary" onclick="document.getElementById('inputFile').click()">
+                    <svg style="margin:5px;" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="&#240;&#159;&#166;&#134; icon &#34;search&#34;">
+                            <path id="Vector" d="M9.88894 18.7779C14.7982 18.7779 18.7779 14.7982 18.7779 9.88894C18.7779 4.97971 14.7982 1 9.88894 1C4.97971 1 1 4.97971 1 9.88894C1 14.7982 4.97971 18.7779 9.88894 18.7779Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path id="Vector_2" d="M21 21.0013L16.1666 16.168" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </g>
+                    </svg>
+                </button>
+                <input type="file" id="inputFile" style="display: none;">
+            </div>
+        </div>
+
+
+    </div>
+</div>

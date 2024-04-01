@@ -16,7 +16,7 @@ namespace Portal_MovilEsales.Services.AsesorServices
 {
     public interface IAsesorService
     {
-        public InicioAsesor getInfoInicioAsesor(string token);
+        public InicioAsesor getInfoInicioAsesor(string token, string cadena);
         public DatosCliente getDatosCliente(string token, string codigoSapCliente);
         public PedidoAprobado getPedidoAprobado(string token, string codigoPedido);
         public ListadoPedidosBPH getListadoPedidosBPH(string token, string tipoPedido, DateTime fechaInicio, DateTime fechaFin, string cadena);

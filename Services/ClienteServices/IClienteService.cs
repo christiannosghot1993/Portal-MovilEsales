@@ -7,6 +7,7 @@ using Portal_MovilEsales.Services.ClienteServices.ViewModels.NuevoPedido;
 using Portal_MovilEsales.Services.ClienteServices.ViewModels.NuevoPedido.GuardarPedidoBorrador;
 using Portal_MovilEsales.Services.ClienteServices.ViewModels.NuevoPedido.ProcesoFrujoAprobacion;
 using Portal_MovilEsales.Services.ClienteServices.ViewModels.PedidoAprobado;
+using Portal_MovilEsales.Services.ClienteServices.ViewModels.Reclamo;
 
 namespace Portal_MovilEsales.Services.ClienteServices
 {
@@ -36,5 +37,15 @@ namespace Portal_MovilEsales.Services.ClienteServices
 
         public ProductoCodigoSap getProductoCodigoSap(string token, string codigoArticulo, string codigoSapCliente);
         public EstadoCuenta getInfoEstadoCuenta(string token, string codigoSAPCliente);
+
+        public InicioReclamo getReclamosCliente(string token);
+
+        public NuevoReclamo getInfoNuevoReclamo(string token);
+        //public NuevoReclamo postNuevoReclamo(string token, string motivo, string factura, string producto, string referencia, string asunto, string observaciones, byte[] fotografiaMaterial, byte[] copiaFactura);
+        public NuevoReclamo postNuevoReclamo(string token, string motivo, string factura, string producto, string referencia, string asunto, string observaciones, string fotografiaMaterial, string copiaFactura);
+
+        public ReclamoEnProgreso postConfirmacionCliente(string token, int codigoReclamo, int calificacionServicio, string observaciones);
+
+        public ReclamoEnProgreso getDetalleReclamoCliente(string token, int codigoReclamo);
     }
 }

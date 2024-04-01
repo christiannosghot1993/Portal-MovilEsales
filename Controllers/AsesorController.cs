@@ -21,11 +21,11 @@ namespace Portal_MovilEsales.Controllers
             _asesorService = asesorService;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string cadena)
         {
             var token = HttpContext.Session.GetString("token");
 
-            var respInicioAsesor = _asesorService.getInfoInicioAsesor(token);
+            var respInicioAsesor = _asesorService.getInfoInicioAsesor(token, cadena);
 
             //var respDatosCliente = _asesorService.getDatosCliente(token, "0000090208");
 
@@ -230,6 +230,13 @@ namespace Portal_MovilEsales.Controllers
                     descFac = producto.descFactura,
                     descNc = producto.descNotaCredito,
                     cantidad = producto.cantidad,
+
+                    //nuevos campos SB marzo 2024
+                    precio = producto.precio,
+                    descBase = producto.descBase,
+                    precioFinal = producto.precioFinal,
+                    subtotal2 = producto.subtotal2,
+
                     listadoTipoEntregas = respCargaCabeceraPedido.listadoTipoEntrega
                 };
 
@@ -564,10 +571,10 @@ namespace Portal_MovilEsales.Controllers
             return View(respEstadoCuenta);
         }
 
-        public IActionResult Clientes()
+        public IActionResult Clientes(string cadena)
         {
             var token = HttpContext.Session.GetString("token");
-            var respInicioAsesor = _asesorService.getInfoInicioAsesor(token);
+            var respInicioAsesor = _asesorService.getInfoInicioAsesor(token, cadena);
             List<ListadoClientes> lc = respInicioAsesor.listadoClientes;
             return View(lc);
         }
