@@ -42,6 +42,8 @@ namespace Portal_MovilEsales.Controllers
 
             var contadorRegistros = 1;
 
+            var isCheckedAllProducts = false;
+
             HttpContext.Session.SetString("SelectedProducts", JsonConvert.SerializeObject(listaProductosSeleccionados));
 
             HttpContext.Session.SetString("SummaryProducts", JsonConvert.SerializeObject(resumenDetalleProductos));
@@ -78,7 +80,7 @@ namespace Portal_MovilEsales.Controllers
 
             var contadorRegistros = 1;
 
-            
+
 
             HttpContext.Session.SetString("SummaryProducts", JsonConvert.SerializeObject(resumenDetalleProductos));
 
@@ -680,7 +682,7 @@ namespace Portal_MovilEsales.Controllers
 
         public IActionResult DescargarEstadoCuenta()
         {
-            var listadoEstadoEcuenta=HttpContext.Session.GetString("ListadoEstadoCuenta");
+            var listadoEstadoEcuenta = HttpContext.Session.GetString("ListadoEstadoCuenta");
             // Deserializar el JSON en una lista de objetos o DataTable
             List<ListadoEstadoCuenta> data = JsonConvert.DeserializeObject<List<ListadoEstadoCuenta>>(listadoEstadoEcuenta);
 
@@ -859,6 +861,24 @@ namespace Portal_MovilEsales.Controllers
             return Json(listadoProductosNuevoPedido);
         }
 
+        public IActionResult MarcarAllProductos(bool isChecked)
+        {
+            List<ProductosNuevoPedido> listadoProductosNuevoPedido = JsonConvert.DeserializeObject<List<ProductosNuevoPedido>>(HttpContext.Session.GetString("SelectedProducts"));
+
+            listadoProductosNuevoPedido.ForEach(producto => producto.isChecked = isChecked);
+
+            HttpContext.Session.SetString("SelectedProducts", JsonConvert.SerializeObject(listadoProductosNuevoPedido));
+
+            var data = new
+            {
+                listadoProductosNuevoPedido,
+
+                resumenDetalleProductos = new ResumenDetalleProductos(),
+            };
+
+            return PartialView("_TableProductosSeleccionadosPedido", data);
+        }
+
         public IActionResult establecerDescuento(string tipoDescuento, string valor)
         {
             List<ProductosNuevoPedido> listadoProductosNuevoPedido = JsonConvert.DeserializeObject<List<ProductosNuevoPedido>>(HttpContext.Session.GetString("SelectedProducts"));
@@ -877,7 +897,7 @@ namespace Portal_MovilEsales.Controllers
                 .ToList()
                 .ForEach(p => p.descNc = valor);
             }
-            
+
             HttpContext.Session.SetString("SelectedProducts", JsonConvert.SerializeObject(listadoProductosNuevoPedido));
             var data = new
             {

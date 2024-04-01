@@ -1,20 +1,17 @@
 ﻿@using Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido;
 @{
     List<ProductosNuevoPedido> listaProductos = Model.listadoProductosNuevoPedido;
+
     if (listaProductos.Any())
     {
-
-
         <div class="table-responsive table-container pt-3" id="table-productos-seleccionados">
             <div class="d-md-flex justify-content-md-between">
-
-
 
                 <form onsubmit="handleChangeDescFactura(event, '@Url.Action("establecerDescuento", "Asesor")')">
                     <div class="d-flex">
                         <strong style="margin-right:10px;">Descuento Factura</strong>
                         <div class=" car-sap-code-container">
-                            <input id="descFactura" type="number"  />
+                            <input id="descFactura" type="number" />
                         </div>
                     </div>
                 </form>
@@ -52,7 +49,9 @@
                     <tr>
                         @*<th scope="col" class="border-radius-left" style="padding:13px;">Bloq.</th>*@
                         <th scope="col" class="border-radius-left" style="padding:13px;"></th>
-                        <th scope="col" style="padding:13px"></th>
+                        <th scope="col" style="padding:13px">
+                            <input id="allProductsCheckedCheckBox" type="checkbox" onchange="handleCheckBoxAll(event, '@Url.Action("MarcarAllProductos", "Asesor")')" />
+                        </th>
                         <th scope="col" style="padding:13px">N°</th>
                         <th scope="col" style="padding:13px">Código</th>
                         <th scope="col" style="padding:13px">Descripción</th>
@@ -84,7 +83,7 @@
                 </div>
                 </div>
                 </td>*@
-                            
+
                             <td>
                                 <button style="background: none; border: none;" onclick="handleEliminarArticulo('@Url.Action("eliminarArticulo", "Asesor")', @item.codigo)">
                                     <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

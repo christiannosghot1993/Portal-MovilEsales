@@ -355,7 +355,7 @@
                                         {
                                             <form onsubmit="onSubmitAgregraFavorito(event, '@{
 
-                                                                                                                            @JsonConvert.SerializeObject(item)
+                                                                                                                                        @JsonConvert.SerializeObject(item)
 ;
 }', '@Url.Action("SeleccionarArticuloFavorito", "Asesor")')">
                                             <tr>
@@ -369,7 +369,7 @@
                                                 </div>
                                                 <a>+</a>
                                                 </div>*@
-                                                    <input name="cantidadArticulo" type="number" step="1" value="0" min="0" />
+                                                    <input class="form-control datepicker mt-8" name="cantidadArticulo" type="number" step="1" value="0" min="0" />
                                                 </td>
                                                 <td>
                                                     <button type="submit" style="background: none; border: none;">
@@ -591,7 +591,7 @@
             </div>
         </div>
     </div>
-
+    <input id="isAllProductsChecked" type="hidden" />
 </div>
 
 <script>
@@ -892,7 +892,7 @@
 
 
         url = `${url}?codigoSAPCliente=${codigoSAPCliente}&codigoTipoEntrega=${tipoEntregaSelectedValue}&codigoTipoPago=${tipoPagoSelectedValue}&codigoSAPDireccionEntrega=${direccionEntregaSelectedValue}&canal=${canalSelectedValue}
-                                                                                                                                   &fechaEntrega=${fechaEntrega}&numeroOrdenCompra=${numeroOrdenCompra}&lugarEntrega=${lugarEntrega}&observaciones=${observaciones}&contactoEntrega=${contactoEntrega}`
+                                                                                                                                               &fechaEntrega=${fechaEntrega}&numeroOrdenCompra=${numeroOrdenCompra}&lugarEntrega=${lugarEntrega}&observaciones=${observaciones}&contactoEntrega=${contactoEntrega}`
 
         console.log(url)
 
@@ -943,6 +943,7 @@
             getProductosByFamilia("/Asesor/GetProductosPorFamilia");
         }
         inicializarTabla();
+
     });
 
     function onSubmitAgregraFavorito(e, item, url) {
@@ -1041,7 +1042,7 @@
             confirmButtonText: "Aceptar",
         }).then((result) => {
             if (result.isConfirmed) {
-                console.log("se presiono")
+                window.location.href = "/";
             }
         });
     }
@@ -1153,6 +1154,34 @@
             .catch(error => {
                 console.error('Error al cargar información:', error)
             });
+    }
+
+    const handleCheckBoxAll = (e, url) => {
+        var isChecked = event.target.checked;
+
+        document.getElementById("isAllProductsChecked").value = isChecked;
+
+        console.log("valor de is checked" + isChecked)
+        console.log("valor dle hidden despues de ser asiganado" + document.getElementById("isAllProductsChecked").value)
+
+        url = `${url}?isChecked=${isChecked}`;
+
+        fetch(url)
+            .then(response => response.text())
+            .then(html => {
+                comprobarSesionVigente(html);
+
+                document.getElementById('tablaPedidosSeleccinoados').innerHTML = html;
+
+                var isAllProductsChecked = document.getElementById("isAllProductsChecked").value;
+
+                if (isAllProductsChecked === "true") {
+                    document.getElementById("allProductsCheckedCheckBox").setAttribute('checked', 'checked');
+                } else {
+                    document.getElementById("allProductsCheckedCheckBox").removeAttribute('checked');
+                }
+            })
+            .catch(error => console.error('Error al cargar información:', error));
     }
 
     const handleOnKeyEnterPress = (event, idInputCantidad, codigoSAPArticulo, url, familia) => {
