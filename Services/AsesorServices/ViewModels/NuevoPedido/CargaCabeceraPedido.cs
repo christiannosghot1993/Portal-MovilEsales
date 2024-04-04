@@ -14,5 +14,7 @@
 
         public List<ListadoCanal> listadoCanal { get; set; } = new();
 
+        public List<ListadoBodegas> listadoBodegas { get; set; } = new();
+
     }
 }

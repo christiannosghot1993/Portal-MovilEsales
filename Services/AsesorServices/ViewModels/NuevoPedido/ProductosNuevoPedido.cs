@@ -11,7 +11,10 @@
 
         public string descripcion { get; set; }
 
-        public List<ListadoTipoEntrega> listadoTipoEntregas { get; set; }
+        //public List<ListadoTipoEntrega> listadoTipoEntregas { get; set; }
+        public List<ListadoBodegas> listadoBodegas { get; set; }
+
+        public string BodegaProductoSel { get; set; }
 
         public string unidad { get; set; }
 

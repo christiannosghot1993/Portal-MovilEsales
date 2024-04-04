@@ -102,7 +102,8 @@ namespace Portal_MovilEsales.Controllers
                     bloqueado = false,
                     codigo = item.codigoSAP,
                     descripcion = item.nombreProducto,
-                    listadoTipoEntregas = nuevoPedido.cargaCabeceraPedido.listadoTipoEntrega,
+                    //listadoTipoEntregas = nuevoPedido.cargaCabeceraPedido.listadoTipoEntrega,
+                    listadoBodegas = nuevoPedido.cargaCabeceraPedido.listadoBodegas,
                     unidad = item.unidad,
                     peso = item.peso,
                     descFac = item.descFactura,
@@ -205,7 +206,9 @@ namespace Portal_MovilEsales.Controllers
                     CodigoSAPArticulo = producto.codigo,
                     Cantidad = producto.cantidad,
                     Unidad = producto.unidad,
-                    Bodega = "QU00",
+                    //Bodega = "QU00",
+                    //Bodega = producto.BodegaProductoSel,
+                    Bodega = producto.BodegaProductoSel == null ? producto.listadoBodegas.Find(bo => bo.porDefecto is "S").codigoBodega : producto.BodegaProductoSel,
                     DescFactura = Convert.ToDouble(producto.descFac),
                     DescNotaCredito = Convert.ToDouble(producto.descNc)
                 })
@@ -239,7 +242,8 @@ namespace Portal_MovilEsales.Controllers
                     precioFinal = producto.precioFinal,
                     subtotal2 = producto.subtotal2,
 
-                    listadoTipoEntregas = respCargaCabeceraPedido.listadoTipoEntrega
+                    //listadoTipoEntregas = respCargaCabeceraPedido.listadoTipoEntrega
+                    listadoBodegas = respCargaCabeceraPedido.listadoBodegas,
                 };
 
                 productosNuevoPedido.Add(productoPorAgregar);
@@ -300,7 +304,8 @@ namespace Portal_MovilEsales.Controllers
                     CodigoSAPArticulo = producto.codigo,
                     Cantidad = producto.cantidad,
                     Unidad = producto.unidad,
-                    Bodega = producto.listadoTipoEntregas.Find(te => te.porDefecto is "S").codigoTipoEntrega,
+                    //Bodega = producto.listadoTipoEntregas.Find(te => te.porDefecto is "S").codigoTipoEntrega,
+                    Bodega = producto.listadoBodegas.Find(bo => bo.porDefecto is "S").codigoBodega,
                     DescFactura = Convert.ToDouble(producto.descFac),
                     DescNotaCredito = Convert.ToDouble(producto.descNc)
                 })
@@ -358,7 +363,8 @@ namespace Portal_MovilEsales.Controllers
                     CodigoSAPArticulo = producto.codigo,
                     Cantidad = producto.cantidad,
                     Unidad = producto.unidad,
-                    Bodega = producto.listadoTipoEntregas.Find(te => te.porDefecto is "S").codigoTipoEntrega,
+                    //Bodega = producto.listadoTipoEntregas.Find(te => te.porDefecto is "S").codigoTipoEntrega,
+                    Bodega = producto.listadoBodegas.Find(bo => bo.porDefecto is "S").codigoBodega,
                     DescFactura = Convert.ToDouble(producto.descFac),
                     DescNotaCredito = Convert.ToDouble(producto.descNc),
                     AplicaFamilia = producto.aFamilia,
@@ -404,14 +410,24 @@ namespace Portal_MovilEsales.Controllers
 
             var indexProductoPorActualizar = listProductosSeleccionados.IndexOf(productoPorActualizar);
 
-            var listaTipoEntregas = respCargaCabeceraPedido.listadoTipoEntrega.Select((te) => new ListadoTipoEntrega
+            //var listaTipoEntregas = respCargaCabeceraPedido.listadoTipoEntrega.Select((te) => new ListadoTipoEntrega
+            //{
+            //    codigoTipoEntrega = te.codigoTipoEntrega,
+            //    descripcionTipoEntrega = te.descripcionTipoEntrega,
+            //    porDefecto = te.codigoTipoEntrega == entrega ? "S" : "N"
+            //});
+
+            var listaBodegas= respCargaCabeceraPedido.listadoBodegas.Select((bo) => new ListadoBodegas
             {
-                codigoTipoEntrega = te.codigoTipoEntrega,
-                descripcionTipoEntrega = te.descripcionTipoEntrega,
-                porDefecto = te.codigoTipoEntrega == entrega ? "S" : "N"
+                codigoBodega = bo.codigoBodega,
+                descripcionBodega = bo.descripcionBodega,
+                porDefecto = bo.codigoBodega == entrega ? "S" : "N"
             });
 
-            productoPorActualizar.listadoTipoEntregas = listaTipoEntregas.ToList();
+            productoPorActualizar.BodegaProductoSel = entrega;
+
+            //productoPorActualizar.listadoTipoEntregas = listaTipoEntregas.ToList();
+            productoPorActualizar.listadoBodegas = listaBodegas.ToList();
 
             productoPorActualizar.descFac = descFactura;
 
@@ -457,7 +473,8 @@ namespace Portal_MovilEsales.Controllers
                 numeroRegistro = numeroContador.ToString(),
                 codigo = productoPorAgregar.codigoSAPArticulo,
                 descripcion = productoPorAgregar.nombre,
-                listadoTipoEntregas = respCargaCabeceraPedido.listadoTipoEntrega,
+                //listadoTipoEntregas = respCargaCabeceraPedido.listadoTipoEntrega,
+                listadoBodegas = respCargaCabeceraPedido.listadoBodegas,
                 unidad = productoPorAgregar.unidad,
                 peso = productoPorAgregar.peso.ToString(),
                 descFac = productoPorAgregar.descFactura.ToString(),
@@ -498,7 +515,8 @@ namespace Portal_MovilEsales.Controllers
                 numeroRegistro = numeroContador.ToString(),
                 codigo = res.codigoSAPArticulo,
                 descripcion = res.nombre,
-                listadoTipoEntregas = respCargaCabeceraPedido.listadoTipoEntrega,
+                //listadoTipoEntregas = respCargaCabeceraPedido.listadoTipoEntrega,
+                listadoBodegas = respCargaCabeceraPedido.listadoBodegas,
                 unidad = res.unidad,
                 peso = res.peso.ToString(),
                 descFac = res.descFactura.ToString(),
@@ -532,7 +550,8 @@ namespace Portal_MovilEsales.Controllers
                 numeroRegistro = numeroContador.ToString(),
                 codigo = resp.result.codigoSAPArticulo,
                 descripcion = resp.result.nombre,
-                listadoTipoEntregas = respCargaCabeceraPedido.listadoTipoEntrega,
+                //listadoTipoEntregas = respCargaCabeceraPedido.listadoTipoEntrega,
+                listadoBodegas = respCargaCabeceraPedido.listadoBodegas,
                 unidad = resp.result.unidad,
                 peso = resp.result.peso.ToString(),
                 descFac = resp.result.descFactura.ToString(),
@@ -799,7 +818,8 @@ namespace Portal_MovilEsales.Controllers
                                 bloqueado = false,
                                 codigo = item.codigoSAPArticulo,
                                 descripcion = item.nombre,
-                                listadoTipoEntregas = respCargaCabeceraPedido.listadoTipoEntrega,
+                                //listadoTipoEntregas = respCargaCabeceraPedido.listadoTipoEntrega,
+                                listadoBodegas = respCargaCabeceraPedido.listadoBodegas,
                                 unidad = item.unidad,
                                 peso = item.peso.ToString(),
                                 descFac = item.descFactura.ToString(),
