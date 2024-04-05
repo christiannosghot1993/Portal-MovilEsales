@@ -390,7 +390,8 @@ namespace Portal_MovilEsales.Controllers
                 resumenDetalleProductos,
             };
 
-            return PartialView("_TableProductosSeleccionadosPedido", data);
+            //return PartialView("_TableProductosSeleccionadosPedido", data);
+            return Json(mensajeProceso);
         }
 
         public IActionResult PoliticaComercial()

@@ -900,13 +900,13 @@
 
         fetch(url)
             .then(response => response.text())
-            .then(html => {
-                comprobarSesionVigente(html);
-                document.getElementById("table-productos-seleccionados").innerHTML = html
+            .then(json => {
+                //comprobarSesionVigente(json);
+                //document.getElementById("table-productos-seleccionados").innerHTML = html
 
-                let mensajeProceso = "@ViewBag.MensajeProceso";
+                let mensajeProceso = json;
                 ocultarLoader();
-                showAlert("Proceso exitoso", mensajeProceso, "Aceptar");
+                showAlert(mensajeProceso.replace(/['"]+/g, ''), '', "Aceptar");
 
             })
             .catch(error => {

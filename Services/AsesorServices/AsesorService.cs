@@ -389,7 +389,7 @@ namespace Portal_MovilEsales.Services.AsesorServices
             var client = new HttpClient();
             var request = new HttpRequestMessage(HttpMethod.Post, "https://esaleslatam.bekaert.com:9020/esalesapi/api/ProductoXCodigoSAP");
             request.Headers.Add("Authorization", "Bearer " + token);
-            var content = new StringContent("{\r\n    \"navegadorweb\": \"Microsoft Edge XXX\",\r\n    \"codigoarticulo\": \""+ codigoArticulo + "\",\r\n    \"codigosapcliente\": \""+ codigoSapCliente + "\"\r\n}", null, "application/json");
+            var content = new StringContent("{\r\n    \"navegadorweb\": \"Microsoft Edge XXX\",\r\n    \"codigoarticulo\": \"" + codigoArticulo + "\",\r\n    \"codigosapcliente\": \"" + codigoSapCliente + "\"\r\n}", null, "application/json");
             request.Content = content;
             var response = client.Send(request);
 
@@ -495,16 +495,16 @@ namespace Portal_MovilEsales.Services.AsesorServices
 
             ProcesoFlujoAprobacion procesoFlujoAprobacion;
 
-            if ((bool)resDynamic.success)
-            {
-                string jsonInfo = JsonConvert.SerializeObject(resDynamic.result);
-
-                procesoFlujoAprobacion = JsonConvert.DeserializeObject<ProcesoFlujoAprobacion>(jsonInfo);
-            }
-            else
-            {
-                procesoFlujoAprobacion = new ProcesoFlujoAprobacion();
-            }
+            //if ((bool)resDynamic.success)
+            //{
+            string jsonInfo = JsonConvert.SerializeObject(resDynamic.result);
+            jsonInfo = jsonInfo.Replace("mensaje", "mensajeRespuestaCalculoFlujo");
+            procesoFlujoAprobacion = JsonConvert.DeserializeObject<ProcesoFlujoAprobacion>(jsonInfo);
+            //}
+            //else
+            //{
+            //    procesoFlujoAprobacion = new ProcesoFlujoAprobacion();
+            //}
             return procesoFlujoAprobacion;
         }
 
@@ -512,7 +512,7 @@ namespace Portal_MovilEsales.Services.AsesorServices
         {
             var client = new HttpClient();
             var request = new HttpRequestMessage(HttpMethod.Post, "https://esaleslatam.bekaert.com:9020/esalesapi/api/ValidaExcel");
-            request.Headers.Add("Authorization", "Bearer "+token);
+            request.Headers.Add("Authorization", "Bearer " + token);
             var content = new StringContent(JsonConvert.SerializeObject(listadoProductos), null, "application/json");
             request.Content = content;
             var response = client.Send(request);
