@@ -1,4 +1,6 @@
-﻿namespace Portal_MovilEsales.Services.ClienteServices.ViewModels.NuevoPedido
+﻿using Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido;
+
+namespace Portal_MovilEsales.Services.ClienteServices.ViewModels.NuevoPedido
 {
     public class ProductosNuevoPedido
     {
@@ -11,8 +13,9 @@
 
         public string descripcion { get; set; }
 
-        public List<ListadoTipoEntrega> listadoTipoEntregas { get; set; }
+        //public List<ListadoTipoEntrega> listadoTipoEntregas { get; set; }
 
+        public List<ListadoBodegas> listadoBodegas { get; set; }
         public string unidad { get; set; }
 
         public string peso { get; set; }

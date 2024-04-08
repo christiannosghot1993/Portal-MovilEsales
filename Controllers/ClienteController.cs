@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using ClosedXML.Excel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-
+using Portal_MovilEsales.Services.AsesorServices.ViewModels.ProductoExcel;
 using Portal_MovilEsales.Services.ClienteServices;
 using Portal_MovilEsales.Services.ClienteServices.ViewModels;
 using Portal_MovilEsales.Services.ClienteServices.ViewModels.Inicio;
@@ -111,7 +112,7 @@ namespace Portal_MovilEsales.Controllers
                     CodigoSAPArticulo = producto.codigo,
                     Cantidad = producto.cantidad,
                     Unidad = producto.unidad,
-                    Bodega = producto.listadoTipoEntregas.Find(te => te.porDefecto is "S").codigoTipoEntrega,
+                    //Bodega = producto.listadoTipoEntregas.Find(te => te.porDefecto is "S").codigoTipoEntrega,
                     DescFactura = Convert.ToDouble(producto.descFac),
                     DescNotaCredito = Convert.ToDouble(producto.descNc)
                 })
@@ -153,7 +154,8 @@ namespace Portal_MovilEsales.Controllers
                 numeroRegistro = numeroContador.ToString(),
                 codigo = productoPorAgregar.codigoSAPArticulo,
                 descripcion = productoPorAgregar.nombre,
-                listadoTipoEntregas = respCargaCabeceraPedido.listadoTipoEntrega,
+                //listadoTipoEntregas = respCargaCabeceraPedido.listadoTipoEntrega,
+                listadoBodegas = respCargaCabeceraPedido.listadoBodegas,
                 unidad = productoPorAgregar.unidad,
                 peso = productoPorAgregar.peso.ToString(),
                 descFac = productoPorAgregar.descFactura.ToString(),
@@ -194,7 +196,8 @@ namespace Portal_MovilEsales.Controllers
                 numeroRegistro = numeroContador.ToString(),
                 codigo = res.codigoSAPArticulo,
                 descripcion = res.nombre,
-                listadoTipoEntregas = respCargaCabeceraPedido.listadoTipoEntrega,
+                //listadoTipoEntregas = respCargaCabeceraPedido.listadoTipoEntrega,
+                listadoBodegas = respCargaCabeceraPedido.listadoBodegas,
                 unidad = res.unidad,
                 peso = res.peso.ToString(),
                 descFac = res.descFactura.ToString(),
@@ -216,6 +219,107 @@ namespace Portal_MovilEsales.Controllers
             return PartialView("_TableProductosSeleccionadosPedidoCliente", data);
         }
 
+        [HttpPost]
+        public IActionResult SubirExcelProductos(IFormFile file)
+        {
+            var token = HttpContext.Session.GetString("token");
+            List<ProductosNuevoPedido> listadoProductosNuevoPedido = JsonConvert.DeserializeObject<List<ProductosNuevoPedido>>(HttpContext.Session.GetString("SelectedProducts"));
+            if (file != null && file.Length > 0)
+            {
+                // Guardar el archivo en una ubicación temporal
+                var filePath = Path.GetTempPath();
+                var filePathAndName = filePath + file.FileName;
+                using (var stream = new FileStream(filePathAndName, FileMode.Create))
+                {
+                    file.CopyTo(stream);
+                }
+
+
+                // Procesar el archivo Excel utilizando ClosedXML
+                using (var workbook = new XLWorkbook(filePathAndName))
+                {
+                    // Obtener la primera hoja del libro de trabajo
+                    var worksheet = workbook.Worksheet(1);
+
+                    // Iterar sobre las filas del archivo Excel
+                    List<ProductoExcelModelRequest> listProd = new List<ProductoExcelModelRequest>();
+                    foreach (var row in worksheet.RowsUsed().Skip(1))
+                    {
+                        // Obtener los valores de las celdas en cada fila
+                        var codigoSAP = row.Cell(1).Value.ToString();
+                        var cantidad = row.Cell(2).Value.ToString();
+                        var descFactura = row.Cell(3).Value.ToString();
+                        var descNC = row.Cell(4).Value.ToString();
+                        if (!string.IsNullOrEmpty(codigoSAP))
+                        {
+                            listProd.Add(new ProductoExcelModelRequest
+                            {
+                                CodigoSAP = codigoSAP,
+                                Cantidad = !string.IsNullOrEmpty(cantidad) ? int.Parse(cantidad) : 0,
+                                DescFactura = !string.IsNullOrEmpty(descFactura) ? double.Parse(descFactura) : 0,
+                                DescNC = !string.IsNullOrEmpty(descNC) ? double.Parse(descNC) : 0
+                            });
+                        }
+                    }
+                    if (listProd.Any())
+                    {
+                        ProductoExcel resp = _clienteService.getProductosExcel(token, new ProductoExcelRequest
+                        {
+                            detallePedido = listProd
+                        });
+                        var respCargaCabeceraPedido = _clienteService.getCargaCabeceraPedido(token, "0000090208");
+
+                        foreach (var item in resp.result)
+                        {
+                            var numeroContador = JsonConvert.DeserializeObject<int>(HttpContext.Session.GetString("RowCounter"));
+                            listadoProductosNuevoPedido.Add(new ProductosNuevoPedido
+                            {
+                                numeroRegistro = numeroContador.ToString(),
+                                bloqueado = false,
+                                codigo = item.codigoSAPArticulo,
+                                descripcion = item.nombre,
+                                //listadoTipoEntregas = respCargaCabeceraPedido.listadoTipoEntrega,
+                                listadoBodegas = respCargaCabeceraPedido.listadoBodegas,
+                                unidad = item.unidad,
+                                peso = item.peso.ToString(),
+                                descFac = item.descFactura.ToString(),
+                                descNc = item.descNC.ToString(),
+                                idl = "0",
+                                subtotal = "0",
+                                cantidad = item.cantidad.ToString(),
+                                aFinMes = false,
+                                aFamilia = false
+                            });
+                            HttpContext.Session.SetString("RowCounter", (numeroContador + 1).ToString());
+                        }
+
+                    }
+                }
+
+                // Eliminar el archivo temporal después de usarlo
+                System.IO.File.Delete(filePathAndName);
+                var data = new
+                {
+                    listadoProductosNuevoPedido,
+                    resumenDetalleProductos = new ResumenDetalleProductos()
+                };
+                HttpContext.Session.SetString("SelectedProducts", JsonConvert.SerializeObject(listadoProductosNuevoPedido));
+                return PartialView("_TableProductosSeleccionadosPedidoCliente", data);
+            }
+            else
+            {
+
+                var data = new
+                {
+                    listadoProductosNuevoPedido,
+                    resumenDetalleProductos = new ResumenDetalleProductos()
+                };
+                return PartialView("_TableProductosSeleccionadosPedido", data);
+            }
+
+        }
+
+
         public IActionResult BuscarProductoCodigoSap(string codigoSapCliente, string codigoArticulo, string cantidadArticulo)
         {
             var token = HttpContext.Session.GetString("token");
@@ -233,7 +337,8 @@ namespace Portal_MovilEsales.Controllers
                 numeroRegistro = numeroContador.ToString(),
                 codigo = resp.result.codigoSAPArticulo,
                 descripcion = resp.result.nombre,
-                listadoTipoEntregas = respCargaCabeceraPedido.listadoTipoEntrega,
+                //listadoTipoEntregas = respCargaCabeceraPedido.listadoTipoEntrega,
+                listadoBodegas = respCargaCabeceraPedido.listadoBodegas,
                 unidad = resp.result.unidad,
                 peso = resp.result.peso.ToString(),
                 descFac = resp.result.descFactura.ToString(),
@@ -253,8 +358,8 @@ namespace Portal_MovilEsales.Controllers
             HttpContext.Session.SetString("SelectedProducts", JsonConvert.SerializeObject(listadoProductosNuevoPedido));
 
             HttpContext.Session.SetString("RowCounter", (numeroContador + 1).ToString());
-
-            return PartialView("_TableProductosSeleccionadosPedido", data);
+             
+            return PartialView("_TableProductosSeleccionadosPedidoCliente", data);
         }
 
         public IActionResult PostNuevoPedido(
@@ -292,7 +397,7 @@ namespace Portal_MovilEsales.Controllers
                     CodigoSAPArticulo = producto.codigo,
                     Cantidad = producto.cantidad,
                     Unidad = producto.unidad,
-                    Bodega = producto.listadoTipoEntregas.Find(te => te.porDefecto is "S").codigoTipoEntrega,
+                    //Bodega = producto.listadoTipoEntregas.Find(te => te.porDefecto is "S").codigoTipoEntrega,
                     DescFactura = Convert.ToDouble(producto.descFac),
                     DescNotaCredito = Convert.ToDouble(producto.descNc),
                     AplicaFamilia = producto.aFamilia,

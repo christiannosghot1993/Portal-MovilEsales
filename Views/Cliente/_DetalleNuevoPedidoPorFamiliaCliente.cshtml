@@ -1,5 +1,5 @@
 ﻿@using Newtonsoft.Json
-<div class="table-responsive table-container pt-3" id="detalleProductosPorFamilia" style="max-height: 418px;">
+<div class="table-responsive" id="detalleProductosPorFamilia" style="max-height: 418px;">
     <table class="table" id="tabla-listado-productos-por-familia">
         <tbody>
             @foreach (var item in Model.listaProductosPorFamilia.result)
@@ -8,14 +8,14 @@
 
                 @* <form onsubmit="agregarProducto(event)"> *@
                 <tr>
-                    <td>
-                        <div class="frame-product-img">
-                            P
-                        </div>
+                    <td style="padding: 3px;">
+
+                        <img class="frame-product-img" src=@item.linkImagen />
+
                     </td>
                     <td>
-                        <h3>@item.codigoSAPArticulo</h3>
-                        <p>@item.nombre</p>
+                        <p style="margin: 0px;">@item.codigoSAPArticulo</p>
+                        <p style="margin: 0px;">@item.nombre</p>
                     </td>
                     <td>
 
@@ -25,9 +25,10 @@
                             var idInput = $"cantidadArticuloPorFamilia-{codigoSAPArticulo}";
 
                             var funcionBoton = $"onSubmitAgregarPorFamilia('{idInput}','{codigoSAPArticulo}','{Url.Action("SeleccionarArticuloPorFamilia", "Cliente")}')";
+                            var funcionKeyEnterPress = $"handleOnKeyEnterPress(event,'{idInput}','{codigoSAPArticulo}','{Url.Action("SeleccionarArticuloPorFamilia", "Cliente")}')";
                         }
 
-                        <input id=@idInput type="number" step="1" value="1" min="1" />
+                        <input class="form-control datepicker mt-8" id=@idInput type="number" step="1" value="1" min="1" onkeydown=@funcionKeyEnterPress />
                     </td>
                     <td>
 

@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.EstadoCuenta;
+using Portal_MovilEsales.Services.AsesorServices.ViewModels.ProductoExcel;
 using Portal_MovilEsales.Services.ClienteServices.ViewModels;
 using Portal_MovilEsales.Services.ClienteServices.ViewModels.DetallePedido;
 using Portal_MovilEsales.Services.ClienteServices.ViewModels.FamilaProducto;
@@ -718,5 +719,28 @@ namespace Portal_MovilEsales.Services.ClienteServices
             return reclamoEnProgreso;
         }
 
+        public ProductoExcel getProductosExcel(string token, ProductoExcelRequest listadoProductos)
+        {
+            var client = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Post, "https://esaleslatam.bekaert.com:9020/esalesapi/api/ValidaExcel");
+            request.Headers.Add("Authorization", "Bearer " + token);
+            var content = new StringContent(JsonConvert.SerializeObject(listadoProductos), null, "application/json");
+            request.Content = content;
+            var response = client.Send(request);
+
+            string resultado = response.Content.ReadAsStringAsync().Result;
+            var resDynamic = JsonConvert.DeserializeObject<dynamic>(resultado);
+            ProductoExcel productosExcel;
+            if ((bool)resDynamic.success)
+            {
+                string jsonInfo = JsonConvert.SerializeObject(resDynamic);
+                productosExcel = JsonConvert.DeserializeObject<ProductoExcel>(jsonInfo);
+            }
+            else
+            {
+                productosExcel = new ProductoExcel();
+            }
+            return productosExcel;
+        }
     }
 }

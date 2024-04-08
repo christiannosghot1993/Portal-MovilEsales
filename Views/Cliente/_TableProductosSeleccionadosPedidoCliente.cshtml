@@ -98,7 +98,7 @@
                             <td>
                                 <div class="form-group">
                                     <select class="form-control datepicker" id=@idCbEntrega onchange=@funcionOnChange>
-                                        @foreach (var tipoEntrega in item.listadoTipoEntregas)
+                                        @*@foreach (var tipoEntrega in item.listadoTipoEntregas)
                                         {
                                             @if (tipoEntrega.porDefecto is "S")
                                             {
@@ -108,8 +108,18 @@
                                             {
                                                 <option value=@tipoEntrega.codigoTipoEntrega>@tipoEntrega.descripcionTipoEntrega</option>
                                             }
+                                        }*@
+                                        @foreach (var tipoBodega in item.listadoBodegas)
+                                        {
+                                            @if (tipoBodega.porDefecto is "S")
+                                            {
+                                                <option value=@tipoBodega.codigoBodega selected>@tipoBodega.descripcionBodega</option>
+                                            }
+                                            else
+                                            {
+                                                <option value=@tipoBodega.codigoBodega>@tipoBodega.descripcionBodega</option>
+                                            }
                                         }
-
                                     </select>
                                 </div>
                             </td>

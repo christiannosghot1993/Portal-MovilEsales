@@ -1,4 +1,6 @@
-﻿namespace Portal_MovilEsales.Services.ClienteServices.ViewModels.NuevoPedido
+﻿using Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido;
+
+namespace Portal_MovilEsales.Services.ClienteServices.ViewModels.NuevoPedido
 {
     public class CargaCabeceraPedido
     {
@@ -14,5 +16,6 @@
 
         public List<ListadoCanal> listadoCanal { get; set; } = new();
 
+        public List<ListadoBodegas> listadoBodegas { get; set; } = new();
     }
 }

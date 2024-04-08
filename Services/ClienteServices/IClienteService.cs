@@ -1,4 +1,5 @@
 ﻿using Portal_MovilEsales.Services.AsesorServices.ViewModels.EstadoCuenta;
+using Portal_MovilEsales.Services.AsesorServices.ViewModels.ProductoExcel;
 using Portal_MovilEsales.Services.ClienteServices.ViewModels;
 using Portal_MovilEsales.Services.ClienteServices.ViewModels.DetallePedido;
 using Portal_MovilEsales.Services.ClienteServices.ViewModels.FamilaProducto;
@@ -47,5 +48,6 @@ namespace Portal_MovilEsales.Services.ClienteServices
         public ReclamoEnProgreso postConfirmacionCliente(string token, int codigoReclamo, int calificacionServicio, string observaciones);
 
         public ReclamoEnProgreso getDetalleReclamoCliente(string token, int codigoReclamo);
+        public ProductoExcel getProductosExcel(string token, ProductoExcelRequest prod);
     }
 }

@@ -499,7 +499,8 @@ namespace Portal_MovilEsales.Controllers
             return PartialView("_TableProductosSeleccionadosPedido", data);
         }
 
-        public IActionResult SeleccionarArticuloFavorito(string codigoSAPCliente, string cantidadArticulo, string jsonArticulo)
+        public IActionResult 
+            SeleccionarArticuloFavorito(string codigoSAPCliente, string cantidadArticulo, string jsonArticulo)
         {
             var token = HttpContext.Session.GetString("token");
 
@@ -508,7 +509,7 @@ namespace Portal_MovilEsales.Controllers
             List<ProductosNuevoPedido> listProductosSeleccionados = JsonConvert.DeserializeObject<List<ProductosNuevoPedido>>(HttpContext.Session.GetString("SelectedProducts"));
 
             var numeroContador = JsonConvert.DeserializeObject<int>(HttpContext.Session.GetString("RowCounter"));
-
+             
             var respCargaCabeceraPedido = _asesorService.getCargaCabeceraPedido(token, codigoSAPCliente);
 
             listProductosSeleccionados.Add(new ProductosNuevoPedido
