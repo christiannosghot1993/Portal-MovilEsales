@@ -191,7 +191,7 @@
                                         {
                                             <form onsubmit="onSubmitAgregraFavorito(event, '@{
 
-                                                                                            @JsonConvert.SerializeObject(item)
+                                                                                                    @JsonConvert.SerializeObject(item)
 ;
 }', '@Url.Action("SeleccionarArticuloFavorito", "Cliente")')">
                                             <tr>
@@ -378,7 +378,7 @@
 
     function handleSubmitExcel(e, url) {
         e.preventDefault();
-
+        mostrarLoader();
         var formData = new FormData(); // Crear un objeto FormData para recopilar los datos del formulario
         formData.append('file', document.getElementById('archivoSelector').files[0]); // Agregar el archivo seleccionado al FormData
 
@@ -393,10 +393,13 @@
 
                 document.getElementById('tablaPedidosSeleccinoados').innerHTML = html;
                 //document.getElementById('table-productos-seleccionados').innerHTML = html;
-
+                ocultarLoader();
 
             })
-            .catch(error => console.error('Error al cargar información:', error));
+            .catch(error => {
+                console.error('Error al cargar información:', error)
+                ocultarLoader();
+            });
         console.log(codigoArticulo, codigoSapCliente, cantidadArticulo)
     }
 
@@ -498,7 +501,7 @@
     }
 
     const recalcular = (url) => {
-
+        mostrarLoader();
         let codigoSAPCliente = document.getElementById("codigo-sap").value;
 
         let tipoEntregaSelect = document.getElementById("tipoEntregaSelect");
@@ -520,17 +523,23 @@
 
         url = `${url}?codigoSAPCliente=${codigoSAPCliente}&codigoTipoEntrega=${tipoEntregaSelectedValue}&codigoTipoPago=${tipoPagoSelectedValue}&codigoSAPDireccionEntrega=${direccionEntregaSelectedValue}&canal=${canalSelectedValue}`
 
-        document.getElementById("table-productos-seleccionados").innerHTML = '<h1>Cargando información...</h1>';
+        // document.getElementById("table-productos-seleccionados").innerHTML = '<h1>Cargando información...</h1>';
 
         fetch(url)
             .then(response => response.text())
             .then(html => {
-
-                document.getElementById("table-productos-seleccionados").innerHTML = html
-
+                if (html.includes('Error')) {
+                    showAlert(html.replace(/['"]+/g, ''), "", "Aceptar");
+                } else {
+                    document.getElementById("table-productos-seleccionados").innerHTML = html
+                }
+                
+                ocultarLoader();
             })
-            .catch(error => console.error('Error al cargar información:', error));
-
+            .catch(error => {
+                console.error('Error al cargar información:', error);
+                ocultarLoader();
+            });
     }
 
     const guardarBorrador = (url) => {
@@ -572,6 +581,7 @@
     }
 
     const crearNuevoPedido = (url) => {
+        mostrarLoader();
 
         let codigoSAPCliente = document.getElementById("codigo-sap").value;
 
@@ -607,20 +617,23 @@
 
         console.log(url)
 
-        document.getElementById("table-productos-seleccionados").innerHTML = '<h1>Cargando información...</h1>';
+        // document.getElementById("table-productos-seleccionados").innerHTML = '<h1>Cargando información...</h1>';
 
         fetch(url)
             .then(response => response.text())
-            .then(html => {
+            .then(json => {
+                //comprobarSesionVigente(json);
+                //document.getElementById("table-productos-seleccionados").innerHTML = html
 
-                document.getElementById("table-productos-seleccionados").innerHTML = html
-
-                let mensajeProceso = "@ViewBag.MensajeProceso";
-
-                showAlert("Proceso exitoso", mensajeProceso, "Aceptar");
+                let mensajeProceso = json;
+                ocultarLoader();
+                showAlert(mensajeProceso.replace(/['"]+/g, ''), '', "Aceptar");
 
             })
-            .catch(error => console.error('Error al cargar información:', error));
+            .catch(error => {
+                console.error('Error al cargar información:', error);
+                ocultarLoader();
+            });
     }
 
     function onSubmitAgregraFavorito(e, item, url) {

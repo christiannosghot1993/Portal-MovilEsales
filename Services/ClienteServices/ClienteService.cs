@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.EstadoCuenta;
+using Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido.SimulacionPedido;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.ProductoExcel;
 using Portal_MovilEsales.Services.ClienteServices.ViewModels;
 using Portal_MovilEsales.Services.ClienteServices.ViewModels.DetallePedido;
@@ -424,19 +425,19 @@ namespace Portal_MovilEsales.Services.ClienteServices
             string resultado = response.Content.ReadAsStringAsync().Result;
 
             var resDynamic = JsonConvert.DeserializeObject<dynamic>(resultado);
-
+            
             ProcesoFlujoAprobacion procesoFlujoAprobacion;
-
-            if ((bool)resDynamic.success)
+            if (!(bool)resDynamic.success)
             {
-                string jsonInfo = JsonConvert.SerializeObject(resDynamic.result);
-
-                procesoFlujoAprobacion = JsonConvert.DeserializeObject<ProcesoFlujoAprobacion>(jsonInfo);
+                procesoFlujoAprobacion=new ProcesoFlujoAprobacion
+                {
+                    mensajeRespuestaCalculoFlujo=resDynamic.message
+                };
+                return procesoFlujoAprobacion;
             }
-            else
-            {
-                procesoFlujoAprobacion = new ProcesoFlujoAprobacion();
-            }
+            string jsonInfo = JsonConvert.SerializeObject(resDynamic.result);
+            jsonInfo = jsonInfo.Replace("mensaje", "mensajeRespuestaCalculoFlujo");
+            procesoFlujoAprobacion = JsonConvert.DeserializeObject<ProcesoFlujoAprobacion>(jsonInfo);
             return procesoFlujoAprobacion;
         }
 
@@ -742,5 +743,40 @@ namespace Portal_MovilEsales.Services.ClienteServices
             }
             return productosExcel;
         }
+
+        public SimulacionPedido getSimulacionPedido(string token, string parametrosPeticion)
+        {
+            var client = new HttpClient();
+
+            var request = new HttpRequestMessage(HttpMethod.Post, "https://esaleslatam.bekaert.com:9020/esalesapi/api/SimulacionPedido");
+
+            request.Headers.Add("Authorization", "Bearer " + token);
+
+            var content = new StringContent(parametrosPeticion, null, "application/json");
+
+            request.Content = content;
+
+            var response = client.Send(request);
+
+            string resultado = response.Content.ReadAsStringAsync().Result;
+
+            var resDynamic = JsonConvert.DeserializeObject<dynamic>(resultado);
+
+            SimulacionPedido simulacionPedido;
+
+            if ((bool)resDynamic.success)
+            {
+                string jsonInfo = JsonConvert.SerializeObject(resDynamic.result);
+
+                simulacionPedido = JsonConvert.DeserializeObject<SimulacionPedido>(jsonInfo);
+            }
+            else
+            {
+                simulacionPedido = new SimulacionPedido();
+                simulacionPedido.mensajeRespuesta=$"Error - {resDynamic.message}";
+            }
+            return simulacionPedido;
+        }
+
     }
 }

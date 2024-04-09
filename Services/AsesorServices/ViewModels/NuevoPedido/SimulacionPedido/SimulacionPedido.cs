@@ -2,6 +2,7 @@
 {
     public class SimulacionPedido
     {
+        public string mensajeRespuesta { get; set; } = "";
         public string nombreCliente { get; set; }
 
         public string formaPago { get; set; }

@@ -423,7 +423,8 @@ namespace Portal_MovilEsales.Controllers
                 resumenDetalleProductos,
             };
 
-            return PartialView("_TableProductosSeleccionadosPedidoCliente", data);
+            //return PartialView("_TableProductosSeleccionadosPedidoCliente", data);
+            return Json(mensajeProceso);
         }
 
         #endregion
@@ -439,6 +440,107 @@ namespace Portal_MovilEsales.Controllers
             datosCliente.informacionCrediticia = respinformacionCrediticia;
 
             return PartialView("_ModalInformacionCrediticiaCliente", datosCliente);
+        }
+
+        public IActionResult GetSimulacionPedido(
+                string? codigoSAPCliente = null,
+                string? codigoTipoEntrega = null,
+                string? codigoTipoPago = null,
+                string? codigoSAPDireccionEntrega = null,
+                string? canal = null)
+        {
+            var token = HttpContext.Session.GetString("token");
+
+            var jsonListaProductos = HttpContext.Session.GetString("SelectedProducts");
+
+            var listaProductos = JsonConvert.DeserializeObject<List<ProductosNuevoPedido>>(jsonListaProductos);
+
+            var parametrosPeticion = JsonConvert.SerializeObject(new
+            {
+                CodigoSAPCliente = codigoSAPCliente,
+                CodigoTipoEntrega = codigoTipoEntrega,
+                CodigoTipoPago = codigoTipoPago,
+                CodigoSAPDireccionEntrega = codigoSAPDireccionEntrega,
+                Canal = canal,
+                detallePedido = listaProductos.Select((producto) => new
+                {
+                    CodigoSAPArticulo = producto.codigo,
+                    Cantidad = producto.cantidad,
+                    Unidad = producto.unidad,
+                    //Bodega = "QU00",
+                    //Bodega = producto.BodegaProductoSel,
+                    Bodega = producto.BodegaProductoSel == null ? producto.listadoBodegas.Find(bo => bo.porDefecto is "S").codigoBodega : producto.BodegaProductoSel,
+                    DescFactura = Convert.ToDouble(producto.descFac),
+                    DescNotaCredito = Convert.ToDouble(producto.descNc)
+                })
+
+            });
+
+            var nuevoPedido = new NuevoPedido();
+
+            var productosNuevoPedido = new List<ProductosNuevoPedido>();
+
+            var respSimulacionPedido = _clienteService.getSimulacionPedido(token, parametrosPeticion);
+            if (!string.IsNullOrEmpty(respSimulacionPedido.mensajeRespuesta))
+            {
+                return Json(respSimulacionPedido.mensajeRespuesta);
+            }
+            var respCargaCabeceraPedido = _clienteService.getCargaCabeceraPedido(token, codigoSAPCliente);
+
+            respSimulacionPedido.detallePedido.ForEach((producto) =>
+            {
+                var productoPorAgregar = new ProductosNuevoPedido()
+                {
+                    codigo = producto.codigoSAP,
+                    descripcion = producto.nombreProducto,
+                    unidad = producto.unidad,
+                    peso = producto.peso,
+                    subtotal = producto.subtotal,
+                    descFac = producto.descFactura,
+                    descNc = producto.descNotaCredito,
+                    cantidad = producto.cantidad,
+
+                    //nuevos campos SB marzo 2024
+                    precio = producto.precio,
+                    descBase = producto.descBase,
+                    precioFinal = producto.precioFinal,
+                    subtotal2 = producto.subtotal2,
+
+                    //listadoTipoEntregas = respCargaCabeceraPedido.listadoTipoEntrega
+                    listadoBodegas = respCargaCabeceraPedido.listadoBodegas,
+                };
+
+                productosNuevoPedido.Add(productoPorAgregar);
+            });
+
+            var resumenDeatalleProductos = new ResumenDetalleProductos()
+            {
+                descuentoBase = respSimulacionPedido.descuentoBase,
+                descuentoPago = respSimulacionPedido.descuentoPago,
+                descuentoPeso = respSimulacionPedido.descuentoPeso,
+                descuentoRetiro = respSimulacionPedido.descuentoRetiro,
+                descuentoVarios = respSimulacionPedido.descuentoVarios,
+                importeBruto = respSimulacionPedido.importeBruto,
+                iva = respSimulacionPedido.iva,
+                margenPor = respSimulacionPedido.margenPor,
+                seguroTransporte = respSimulacionPedido.seguroTransporte,
+                subTotal1 = respSimulacionPedido.subTotal1,
+                subTotal2 = respSimulacionPedido.subTotal2,
+                valorNcsinIva = respSimulacionPedido.valorNcsinIva,
+                valorTotal = respSimulacionPedido.valorTotal
+            };
+
+            nuevoPedido.listadoProductosNuevoPedido = productosNuevoPedido;
+
+            nuevoPedido.resumenDetalleProductos = resumenDeatalleProductos;
+
+            nuevoPedido.mensajeProceso = "test";
+
+            HttpContext.Session.SetString("SelectedProducts", JsonConvert.SerializeObject(productosNuevoPedido));
+
+            HttpContext.Session.SetString("SummaryProducts", JsonConvert.SerializeObject(resumenDeatalleProductos));
+
+            return PartialView("_TableProductosSeleccionadosPedido", nuevoPedido);
         }
 
         public IActionResult CargarInformacionModalPedidoAprobado(string numeroPedido)

@@ -16,6 +16,7 @@ namespace Portal_MovilEsales.Services.ClienteServices.ViewModels.NuevoPedido
         //public List<ListadoTipoEntrega> listadoTipoEntregas { get; set; }
 
         public List<ListadoBodegas> listadoBodegas { get; set; }
+        public string BodegaProductoSel { get; set; }
         public string unidad { get; set; }
 
         public string peso { get; set; }
@@ -33,5 +34,10 @@ namespace Portal_MovilEsales.Services.ClienteServices.ViewModels.NuevoPedido
         public bool aFinMes { get; set; } = false;
 
         public bool aFamilia { get; set; } = false;
+        //nuevos campos SB marzo 2024
+        public string precio { get; set; }
+        public string descBase { get; set; }
+        public string precioFinal { get; set; }
+        public string subtotal2 { get; set; }
     }
 }
