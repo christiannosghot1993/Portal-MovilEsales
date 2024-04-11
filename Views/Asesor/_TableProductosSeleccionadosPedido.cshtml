@@ -156,20 +156,46 @@
                                 @item.peso
                             </td>
                             <td>
-                                <div class="form-group">
-                                    <input class="form-control datepicker" id=@idTxtDescFactura type="number" value=@item.descFac onchange=@funcionOnChange />
-                                    <div style="display:flex;">
-                                        %
+                                @if (Context.Session.GetString("codPais") != "1")
+                                {
+                                    <div class="form-group">
+                                        <input class="form-control datepicker" id=@idTxtDescFactura type="number" value=@item.descFac onchange=@funcionOnChange readonly/>
+                                        <div style="display:flex;">
+                                            %
+                                        </div>
                                     </div>
-                                </div>
+                                }
+                                else
+                                {
+                                    <div class="form-group">
+                                        <input class="form-control datepicker" id=@idTxtDescFactura type="number" value=@item.descFac onchange=@funcionOnChange />
+                                        <div style="display:flex;">
+                                            %
+                                        </div>
+                                    </div>
+                                }
+                                
                             </td>
                             <td>
-                                <div class="form-group">
-                                    <input class="form-control datepicker" id=@idTxtDescNC type="number" value=@item.descNc onchange=@funcionOnChange />
-                                    <div style="display:flex;">
-                                        %
+                                @if (Context.Session.GetString("codPais") != "1")
+                                {
+                                    <div class="form-group">
+                                        <input class="form-control datepicker" id=@idTxtDescNC type="number" value=@item.descNc onchange=@funcionOnChange readonly/>
+                                        <div style="display:flex;">
+                                            %
+                                        </div>
                                     </div>
-                                </div>
+                                }
+                                else
+                                {
+                                    <div class="form-group">
+                                        <input class="form-control datepicker" id=@idTxtDescNC type="number" value=@item.descNc onchange=@funcionOnChange />
+                                        <div style="display:flex;">
+                                            %
+                                        </div>
+                                    </div>
+                                }
+                                
                             </td>
                             <td>
                                 0

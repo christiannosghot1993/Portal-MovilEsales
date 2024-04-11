@@ -101,7 +101,9 @@ namespace Portal_MovilEsales.Controllers
                         /*perfil = "Asesor";*///comentar
 
                         HttpContext.Session.SetString("perfil", perfil);
-
+                        string codPais = (string)respIniciarSesion.codigopais;
+                        HttpContext.Session.SetString("codPais", codPais);
+                        HttpContext.Session.SetString("email", usuario);
                         HttpContext.Session.SetString("token", (string)respIniciarSesion.result);
 
                         CrearClaims((string)respIniciarSesion.result, perfil, usuario);

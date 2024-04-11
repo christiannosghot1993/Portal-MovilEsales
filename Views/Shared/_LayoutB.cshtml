@@ -178,7 +178,7 @@
                 <div class="informacion-sesion p-4">
                     @if (Context.Session.GetString("perfil") != null)
                     {
-                        <b style="color:white">@Context.Session.GetString("perfil")</b>
+                        <b style="color:white">@Context.Session.GetString("perfil"): @Context.Session.GetString("email")</b>
                     }
                     else
                     {
