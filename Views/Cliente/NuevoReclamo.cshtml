@@ -19,7 +19,7 @@
                         </svg>
                     </button>
 
-                    <button class="orange-rounded-button ms-1" onclick="guardarReclamo('@Url.Action("GuardarReclamo","Cliente")')">
+                    <button class="orange-rounded-button ms-1" onclick="validarCampos()">
                         Guardar
                         <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g id="01 align center">
@@ -34,9 +34,11 @@
             <div class="row">
                 <div class="col-12 col-md-6">
                     <div class="form-group mb-3">
-                        <label class="label-datepicker" for="motivo">Motivo </label>
-                        <select class="form-control datepicker" id="motivo" onchange="checkSelected()">
-                            <option value="" selected disabled>Seleccione una opción</option>
+                        <label class="label-datepicker" for="motivo">
+                            Motivo <span class="required" style="color: red;">*</span>
+                        </label>
+                        <select class="form-control datepicker" id="motivo" onchange="checkSelected()" required>
+                            <option selected disabled>Seleccione una opción</option>
                             @foreach (var item in Model.listadoMotivo)
                             {
                                 <option value="@item.motivo">@item.motivo</option>
@@ -47,27 +49,19 @@
 
 
                 <div class="col-12 col-md-6 mb-3">
-                    <label for="factura" class="label-datepicker">Factura</label>
-                    <input id="factura" class="form-control datepicker" type="number" placeholder="001-001-00000000001" />
+                    <label for="factura" class="label-datepicker">
+                        Factura<span class="required" style="color: red;">*</span>
+                    </label>
+                    <input id="factura" class="form-control datepicker" type="number" placeholder="001-001-00000000001" required />
                 </div>
 
-                @*<div class="col-12">
-                <div class="form-group mb-3">
-                <label class="label-datepicker" for="producto">Producto</label>
-                <select class="form-control datepicker" id="producto" onchange="checkSelected()">
-                <option value="" selected disabled>Seleccione una opción</option>
-                @foreach (var item in Model.listadoProductos)
-                {
-                <option value=@item.codigoProducto>@item.codigoDescProducto</option>
-                }
-                </select>
-                </div>
-                </div>*@
 
                 <div class="col-12">
                     <div class="form-group mb-3">
-                        <label class="label-datepicker"> Productos</label>
-                        <input class="form-control datepicker" list="productosLista" id="productoSeleccionado" />
+                        <label class="label-datepicker">
+                            Productos <span class="required" style="color: red;">*</span>
+                        </label>
+                        <input class="form-control datepicker" list="productosLista" id="productoSeleccionado" required />
                         <datalist id="productosLista">
                             @foreach (var item in Model.listadoProductos)
                             {
@@ -77,32 +71,38 @@
                     </div>
                 </div>
 
-
-
                 <div class="col-12 col-md-6">
                     <div class="form-group mb-3">
-                        <label class="label-datepicker" for="referencia">Referencia</label>
-                        <input id="referencia" class="form-control datepicker" rows="4" placeholder="Referencia" />
+                        <label class="label-datepicker" for="referencia">
+                            Referencia <span class="required" style="color: red;">*</span>
+                        </label>
+                        <input id="referencia" class="form-control datepicker" rows="4" placeholder="Referencia" required />
                     </div>
                 </div>
 
                 <div class="col-12 col-md-6">
                     <div class="form-group mb-3">
-                        <label class="label-datepicker" for="asunto">Asunto</label>
-                        <input id="asunto" class="form-control datepicker" rows="4" placeholder="Asunto" />
+                        <label class="label-datepicker" for="asunto">
+                            Asunto <span class="required" style="color: red;">*</span>
+                        </label>
+                        <input id="asunto" class="form-control datepicker" rows="4" placeholder="Asunto" required />
                     </div>
                 </div>
 
                 <div class="col-12">
                     <div class="form-group mb-3">
-                        <label class="label-datepicker" for="observaciones">Observaciones</label>
-                        <textarea id="observaciones" class="form-control datepicker" rows="4" placeholder="El contenido puede tener de 50 a 250 caracteres."></textarea>
+                        <label class="label-datepicker" for="observaciones">
+                            Observaciones <span class="required" style="color: red;">*</span>
+                        </label>
+                        <textarea id="observaciones" class="form-control datepicker" rows="4" required placeholder="El contenido puede tener de 50 a 250 caracteres."></textarea>
                     </div>
                 </div>
 
                 <div class="archivo col-12 col-md-6">
                     <div class="form-group mb-3">
-                        <label class="label-datepicker" for="archivoFotografia">Fotografía del material</label>
+                        <label class="label-datepicker" for="archivoFotografia">
+                            Fotografía del material
+                        </label>
                         <input type="file" id="archivoFotografia" name="fotografiaMaterial" class="form-control datepicker" />
                     </div>
                 </div>
@@ -133,21 +133,23 @@
         window.location.href = "/Cliente/InicioReclamo";
     }
     function checkSelected() {
-        var motivo = document.getElementById("motivo").value
-        var producto = document.getElementById("producto").value
+        var motivo = document.getElementById("motivo");
+        var producto = document.getElementById("producto");
         var selectedValue = motivo.value;
         var productoSelectedValue = producto.value;
-        if (selectedValue == "") {
-            motivo.style.color = "#9e9e9e";
-        } else {
-            motivo.style.color = "#000"; // Cambiar a color de texto normal si se selecciona algo
+        var options = motivo.getElementsByTagName("option");
+        for (var i = 0; i < options.length; i++) {
+            if (options[i].value == selectedValue) {
+                options[i].style.color = selectedValue == "" ? "#9e9e9e" : "#000";
+            }
         }
-        if (productoSelectedValue == "") {
-            producto.style.color = "#9e9e9e";
-        } else {
-            producto.style.color = "#000";
+
+        options = producto.getElementsByTagName("option");
+        for (var i = 0; i < options.length; i++) {
+            if (options[i].value == productoSelectedValue) {
+                options[i].style.color = productoSelectedValue == "" ? "#9e9e9e" : "#000";
+            }
         }
-        // Llamar a la función checkSelected cuando se cambie el valor de los elementos motivo y producto
         document.getElementById("motivo").addEventListener("change", checkSelected);
         document.getElementById("producto").addEventListener("change", checkSelected);
 
@@ -155,28 +157,36 @@
         checkSelected();
     }
 
-    /* const guardarReclamo = (url) => {
-         var motivo = document.getElementById("motivo").value;
-         console.log("motivo", motivo);
-         var factura = document.getElementById("factura").value;
 
-         var producto = document.getElementById("productoSeleccionado").value;
-         console.log("producto ", producto);
-         var referencia = document.getElementById("referencia").value;
-         var asunto = document.getElementById("asunto").value;
-         var observaciones = document.getElementById("observaciones").value;
-         var fotografiaMaterial = "Base64 de fotografia"
-         var copiaFactura = "Base65 de la factura"
 
-         url = `${url}?motivo=${motivo}&factura=${factura}&producto=${producto}&referencia=${referencia}&asunto=${asunto}&observaciones=${observaciones}&fotografiaMaterial=${fotografiaMaterial}&copiaFactura=${copiaFactura}`
-         fetch(url)
-             .then(response => response.text())
-             .then(html => {
-                  showAlert("Proceso exitoso", "", "success");
-                  //window.location.href = "/Cliente/InicioReclamo";
-             })
-             .catch(error => console.error('Error al cargar información:', error));
-     }*/
+    function validarCampos() {
+        // Obtener los valores de los campos requeridos
+        var motivo = document.getElementById("motivo").value;
+        var factura = document.getElementById("factura").value;
+        var producto = document.getElementById("productoSeleccionado").value;
+        var referencia = document.getElementById("referencia").value;
+        var asunto = document.getElementById("asunto").value;
+        var observaciones = document.getElementById("observaciones").value;
+
+        // Verificar si algún campo requerido está vacío
+        if (!motivo || !factura || !producto || !referencia || !asunto || !observaciones) {
+            // Mostrar una alerta indicando que todos los campos requeridos deben ser llenados
+            showAlert("Error", "Por favor, complete todos los campos requeridos.", "error");
+        } else {
+            // Si todos los campos requeridos están llenos, llamar a la función para guardar el reclamo
+            guardarReclamo('@Url.Action("GuardarReclamo", "Cliente")');
+        }
+    }
+
+    //Funcion para verificar si esta en base64
+    function isBase64(str) {
+        try {
+            return btoa(atob(str)) == str;
+        } catch (err) {
+            return false;
+        }
+    }
+
     const guardarReclamo = (url) => {
         var motivo = document.getElementById("motivo").value;
         var factura = document.getElementById("factura").value;
@@ -189,39 +199,46 @@
         var fotografiaMaterialFile = document.getElementById("archivoFotografia").files[0];
         var copiaFacturaFile = document.getElementById("archivoFactura").files[0];
 
-        // Convertir los archivos a Base64
-        var readerFotografia = new FileReader();
-        var readerCopiaFactura = new FileReader();
+        // Variables para almacenar los datos Base64
+        var fotografiaMaterialBase64 = '';
+        var copiaFacturaBase64 = '';
 
-        readerFotografia.onload = function () {
-            var fotografiaMaterialBase64 = readerFotografia.result.split(',')[1]; // Obtener solo la parte base64
-            // Llamar a la función para convertir y enviar la copia de la factura
+        // Convertir los archivos a Base64 si están presentes
+        if (fotografiaMaterialFile) {
+            var readerFotografia = new FileReader();
+            readerFotografia.onload = function () {
+                fotografiaMaterialBase64 = readerFotografia.result.split(',')[1]; // Obtener solo la parte base64
+                enviarDatos();
+            }
+            readerFotografia.readAsDataURL(fotografiaMaterialFile);
+        }
+
+        if (copiaFacturaFile) {
+            var readerCopiaFactura = new FileReader();
+            readerCopiaFactura.onload = function () {
+                copiaFacturaBase64 = readerCopiaFactura.result.split(',')[1]; // Obtener solo la parte base64
+                enviarDatos();
+            }
             readerCopiaFactura.readAsDataURL(copiaFacturaFile);
-        };
+        }
 
-        readerFotografia.onloadend = function () {
-            readerCopiaFactura.onloadend = function () {
-                var fotografiaMaterialBase64 = readerFotografia.result.split(',')[1]; // Obtener solo la parte base64
-                var copiaFacturaBase64 = readerCopiaFactura.result.split(',')[1]; // Obtener solo la parte base64
-                // Llamar a la función para enviar la solicitud al servidor
+        // Función para enviar los datos al servidor
+        function enviarDatos() {
+            // Verificar si ambos archivos se han convertido a Base64
+            if ((fotografiaMaterialFile && fotografiaMaterialBase64) || (copiaFacturaFile && copiaFacturaBase64)) {
+                // Si al menos uno de los archivos adjuntos está presente, enviar los datos al servidor
                 sendReclamoData(url, motivo, factura, producto, referencia, asunto, observaciones, fotografiaMaterialBase64, copiaFacturaBase64);
-            };
-        };
+            }
+        }
 
-        readerFotografia.readAsDataURL(fotografiaMaterialFile);
-    };
-
-    function isBase64(str) {
-        try {
-            return btoa(atob(str)) == str;
-        } catch (err) {
-            return false;
+        // Si no se adjuntaron archivos, enviar los datos con campos vacíos
+        if (!fotografiaMaterialFile && !copiaFacturaFile) {
+            sendReclamoData(url, motivo, factura, producto, referencia, asunto, observaciones, '', '');
         }
     }
 
-
     const sendReclamoData = (url, motivo, factura, producto, referencia, asunto, observaciones, fotografiaMaterial, copiaFactura) => {
-        // Construir la URL con los datos del formulario
+
         console.log("fotografiaMaterial", fotografiaMaterial);
         console.log("copiaFactura ", copiaFactura);
         console.log("¿fotografiaMaterial está en Base64? ", isBase64(fotografiaMaterial));
@@ -234,11 +251,10 @@
             .then(response => response.text())
             .then(html => {
                 showAlert("Proceso exitoso", "", "success");
-                window.location.href = "/Cliente/InicioReclamo";
+
             })
             .catch(error => console.error('Error al cargar información:', error));
     };
-
 
 
     const showAlert = (title, message, type) => {
@@ -250,6 +266,7 @@
             confirmButtonText: "Aceptar",
         }).then((result) => {
             if (result.isConfirmed) {
+                window.location.href = "/Cliente/InicioReclamo";
                 console.log("se presiono")
             }
         });

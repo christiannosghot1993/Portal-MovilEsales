@@ -8,23 +8,6 @@
         </tr>
     </thead>
 
-    @functions {
-        string GetEstadoColor(string estado)
-        {
-            if (estado == "Abierto" || estado == "Re-Abierto")
-            {
-                return "#FF4500"; // Rojo para estado cerrado
-            }
-            else if (estado == "En Proceso")
-            {
-                return "#01ADEF"; // Verde para estado abierto
-            }
-            else
-            {
-                return "#6B8E23"; // Blanco para otros estados
-            }
-        }
-    }
 
     <tbody>
         @foreach (var item in Model.listadoReclamos)
@@ -32,7 +15,39 @@
             <tr>
                 <td>@item.fechaReclamo</td>
                 <td>@item.detalle</td>
-                <td class="border-radius-left border-radius-right card-table_header" style="background-color: @GetEstadoColor(item.estado); color: white; ">@item.estado</td>
+                <td>
+
+                    @if (item.estado == "Abierto")
+                    {
+                        <svg style="margin:5px;" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="book-icon">
+                                <path d="M3 2C2.44772 2 2 2.44772 2 3V19C2 19.5523 2.44772 20 3 20H19C19.5523 20 20 19.5523 20 19V3C20 2.44772 19.5523 2 19 2H3Z" stroke="orange" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M3 2V8L9 6L15 8V2" stroke="orange" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </g>
+                        </svg>
+                    }
+                    else if (item.estado == "Cerrado")
+                    {
+                        <svg style="margin:5px;" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="book-icon">
+                                <path d="M3 2C2.44772 2 2 2.44772 2 3V19C2 19.5523 2.44772 20 3 20H19C19.5523 20 20 19.5523 20 19V3C20 2.44772 19.5523 2 19 2H3Z" stroke="gray" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M3 2V8L9 6L15 8V2" stroke="gray" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </g>
+                        </svg>
+                    }
+                    else if (item.estado == "En Proceso")
+                    {
+                        <svg style="margin:5px;" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="book-icon">
+                                <path d="M3 2C2.44772 2 2 2.44772 2 3V19C2 19.5523 2.44772 20 3 20H19C19.5523 20 20 19.5523 20 19V3C20 2.44772 19.5523 2 19 2H3Z" stroke="blue" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M3 2V8L9 6L15 8V2" stroke="blue" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </g>
+                        </svg>
+                    }
+                    @item.estado
+                </td>
+
+
                 <td>
                     <a asp-action="ReclamoEnProgreso" asp-controller="Cliente" asp-route-codigoReclamo="@item.codigoReclamo">
                         <svg style="margin:5px;" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
