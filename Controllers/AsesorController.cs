@@ -133,6 +133,8 @@ namespace Portal_MovilEsales.Controllers
                 valorTotal = respDetallePedido.valorTotal,
                 valorNcsinIva = respDetallePedido.valorNcsinIva,
                 margenPor = respDetallePedido.margenPor,
+                margenVal = respDetallePedido.margenVal,
+                MensajeServicio = respDetallePedido.MensajeServicio
             };
             nuevoPedido.informacionEntrega = new InformacionEntrega
             {
@@ -263,7 +265,9 @@ namespace Portal_MovilEsales.Controllers
                 subTotal1 = respSimulacionPedido.subTotal1,
                 subTotal2 = respSimulacionPedido.subTotal2,
                 valorNcsinIva = respSimulacionPedido.valorNcsinIva,
-                valorTotal = respSimulacionPedido.valorTotal
+                valorTotal = respSimulacionPedido.valorTotal,
+                margenVal = respSimulacionPedido.margenVal,
+                MensajeServicio = respSimulacionPedido.MensajeServicio
             };
 
             nuevoPedido.listadoProductosNuevoPedido = productosNuevoPedido;

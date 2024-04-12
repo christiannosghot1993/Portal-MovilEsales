@@ -15,14 +15,29 @@
                         </div>
                     </div>
                 </form>
-                <form onsubmit="handleChangeDescNC(event, '@Url.Action("establecerDescuento", "Asesor")')">
-                    <div class="d-flex">
-                        <strong style="margin-right:10px;">Descuento NC</strong>
-                        <div class=" car-sap-code-container">
-                            <input id="descNC" type="number" />
+                @if (Context.Session.GetString("codPais") != "1")
+                {
+                    <form onsubmit="handleChangeDescNC(event, '@Url.Action("establecerDescuento", "Asesor")')">
+                        <div class="d-flex">
+                            <strong style="margin-right:10px;">Descuento NC</strong>
+                            <div class=" car-sap-code-container">
+                                <input id="descNC" type="number" readonly disabled/>
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                }
+                else
+                {
+                    <form onsubmit="handleChangeDescNC(event, '@Url.Action("establecerDescuento", "Asesor")')">
+                        <div class="d-flex">
+                            <strong style="margin-right:10px;">Descuento NC</strong>
+                            <div class=" car-sap-code-container">
+                                <input id="descNC" type="number" />
+                            </div>
+                        </div>
+                    </form>
+                }
+
             </div>
 
 
@@ -159,7 +174,7 @@
                                 @if (Context.Session.GetString("codPais") != "1")
                                 {
                                     <div class="form-group">
-                                        <input class="form-control datepicker" id=@idTxtDescFactura type="number" value=@item.descFac onchange=@funcionOnChange readonly/>
+                                        <input class="form-control datepicker" id=@idTxtDescFactura type="number" value=@item.descFac onchange=@funcionOnChange />
                                         <div style="display:flex;">
                                             %
                                         </div>
@@ -399,6 +414,13 @@
 
                 </div>
             </div>
+
+            <div>
+                <div class="shadow">
+                    <label class="accordion-body">@Model.resumenDetalleProductos.MensajeServicio</label>
+                </div>
+            </div>
+
         </div>
     }
     else

@@ -56,5 +56,9 @@
         public string valorNcsinIva { get; set; }
 
         public string margenPor { get; set; }
+
+        public string margenVal { get; set; }
+
+        public string MensajeServicio { get; set; }
     }
 }

@@ -28,6 +28,10 @@
 
         public string margenPor { get; set; }
 
+        public string margenVal { get; set; }
+
+        public string MensajeServicio { get; set; }
+
         //public ProcesoRespuesta.ProcesoRespuesta procesoRespuesta { get; set; } = new();
     }
 }
