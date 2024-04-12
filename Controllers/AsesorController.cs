@@ -328,6 +328,33 @@ namespace Portal_MovilEsales.Controllers
             return PartialView("_TableProductosSeleccionadosPedido", data);
         }
 
+        [HttpPost]
+        [Route("File/Upload")]
+        public async Task<IActionResult> UploadFile(IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+            {
+                return BadRequest("No se ha seleccionado ningún archivo.");
+            }
+
+            // Crear el directorio si no existe
+            if (!Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/assets/archivos")))
+            {
+                Directory.CreateDirectory(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/assets/archivos"));
+            }
+
+            // Generar una ruta completa para guardar el archivo
+            var filePath = Path.Combine(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/assets/archivos"), file.FileName);
+
+            // Guardar el archivo en el servidor
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+
+            return Ok(new { message = filePath });
+        }
+
         public IActionResult PostNuevoPedido(
                 string? codigoSAPCliente = null,
                 string? codigoTipoEntrega = null,
@@ -338,7 +365,8 @@ namespace Portal_MovilEsales.Controllers
                 string? numeroOrdenCompra = null,
                 string? lugarEntrega = null,
                 string? observaciones = null,
-                string? contactoEntrega = null)
+                string? contactoEntrega = null,
+                string? urlArchivo=null)
         {
             var token = HttpContext.Session.GetString("token");
 
@@ -358,6 +386,7 @@ namespace Portal_MovilEsales.Controllers
                 LugarEntrega = lugarEntrega,
                 Observaciones = observaciones,
                 ContactoEntrega = contactoEntrega,
+                ArchivoSoporte = urlArchivo,
                 detallePedido = listaProductos.Select((producto) => new
                 {
                     CodigoSAPArticulo = producto.codigo,

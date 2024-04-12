@@ -355,7 +355,7 @@
                                         {
                                             <form onsubmit="onSubmitAgregraFavorito(event, '@{
 
-                                                                                                                                        @JsonConvert.SerializeObject(item)
+                                                                                                                                                @JsonConvert.SerializeObject(item)
 ;
 }', '@Url.Action("SeleccionarArticuloFavorito", "Asesor")')">
                                             <tr>
@@ -572,8 +572,8 @@
                         <div class="col-12 col-md-6">
                             <div class="form-group">
                                 <label class="label-datepicker" for="soporte-venta">Soporte de Venta</label>
-                                <input id="soporte-venta" contacto-entrega" class="form-control datepicker" type="text" placeholder="Examinar"
-                                       value="@((Model.informacionEntrega != null) ? Model.informacionEntrega.soporteVenta : "")" />
+                                <input id="soporte-venta" name="soporte-venta" contacto-entrega" class="form-control datepicker" type="file" placeholder="Examinar" />
+                                       @* value="@((Model.informacionEntrega != null) ? Model.informacionEntrega.soporteVenta : "")" /> *@
                             </div>
                         </div>
                     </div>
@@ -890,29 +890,66 @@
 
         let canalSelectedValue = canalSelect.options[canalSelect.selectedIndex].value;
 
+        let ArchivoSoporteVentas = document.getElementById('soporte-venta').files;
+
+        let rutaArchivo = '';
 
         url = `${url}?codigoSAPCliente=${codigoSAPCliente}&codigoTipoEntrega=${tipoEntregaSelectedValue}&codigoTipoPago=${tipoPagoSelectedValue}&codigoSAPDireccionEntrega=${direccionEntregaSelectedValue}&canal=${canalSelectedValue}
-                                                                                                                                               &fechaEntrega=${fechaEntrega}&numeroOrdenCompra=${numeroOrdenCompra}&lugarEntrega=${lugarEntrega}&observaciones=${observaciones}&contactoEntrega=${contactoEntrega}`
-
-        console.log(url)
+                                                                                                                                                               &fechaEntrega=${fechaEntrega}&numeroOrdenCompra=${numeroOrdenCompra}&lugarEntrega=${lugarEntrega}&observaciones=${observaciones}&contactoEntrega=${contactoEntrega}`
 
         document.getElementById("table-productos-seleccionados").innerHTML = '<h1>Cargando información...</h1>';
 
-        fetch(url)
-            .then(response => response.text())
-            .then(json => {
-                //comprobarSesionVigente(json);
-                //document.getElementById("table-productos-seleccionados").innerHTML = html
-
-                let mensajeProceso = json;
-                ocultarLoader();
-                showAlert(mensajeProceso.replace(/['"]+/g, ''), '', "Aceptar");
-
+        if (ArchivoSoporteVentas.length > 0) {
+            const formData = new FormData();
+            const file = ArchivoSoporteVentas[0];
+            formData.append('file', file);
+            fetch('/File/Upload', {
+                method: 'POST',
+                body: formData
             })
-            .catch(error => {
-                console.error('Error al cargar información:', error);
-                ocultarLoader();
-            });
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data.message);
+                    url = url + `&urlArchivo=${data.message}`;
+                    fetch(url)
+                        .then(response => response.text())
+                        .then(json => {
+                            //comprobarSesionVigente(json);
+                            //document.getElementById("table-productos-seleccionados").innerHTML = html
+
+                            let mensajeProceso = json;
+                            ocultarLoader();
+                            showAlert(mensajeProceso.replace(/['"]+/g, ''), '', "Aceptar");
+
+                        })
+                        .catch(error => {
+                            console.error('Error al cargar información:', error);
+                            ocultarLoader();
+                        });
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        } else {
+
+            fetch(url)
+                .then(response => response.text())
+                .then(json => {
+                    //comprobarSesionVigente(json);
+                    //document.getElementById("table-productos-seleccionados").innerHTML = html
+
+                    let mensajeProceso = json;
+                    ocultarLoader();
+                    showAlert(mensajeProceso.replace(/['"]+/g, ''), '', "Aceptar");
+
+                })
+                .catch(error => {
+                    console.error('Error al cargar información:', error);
+                    ocultarLoader();
+                });
+        } 
+
+        
     }
 
     const inicializarTabla = () => {
