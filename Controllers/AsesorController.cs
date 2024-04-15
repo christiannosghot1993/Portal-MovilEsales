@@ -243,6 +243,7 @@ namespace Portal_MovilEsales.Controllers
                     descBase = producto.descBase,
                     precioFinal = producto.precioFinal,
                     subtotal2 = producto.subtotal2,
+                    margenPor = producto.margenPor,
 
                     //listadoTipoEntregas = respCargaCabeceraPedido.listadoTipoEntrega
                     listadoBodegas = respCargaCabeceraPedido.listadoBodegas,

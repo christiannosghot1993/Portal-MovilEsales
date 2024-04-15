@@ -39,5 +39,6 @@
         public string descBase { get; set; }
         public string precioFinal { get; set; }
         public string subtotal2 { get; set; }
+        public string margenPor { get; set; }
     }
 }
