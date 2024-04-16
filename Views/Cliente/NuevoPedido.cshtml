@@ -390,7 +390,7 @@
             .then(response => response.text())
             .then(html => {
                 //console.log(html); // Verifica la respuesta en la consola
-
+                comprobarSesionVigente(html);
                 document.getElementById('tablaPedidosSeleccinoados').innerHTML = html;
                 //document.getElementById('table-productos-seleccionados').innerHTML = html;
                 ocultarLoader();
@@ -431,7 +431,7 @@
             .then(response => response.text())
             .then(html => {
                 console.log(html); // Verifica la respuesta en la consola
-
+                comprobarSesionVigente(html);
                 document.getElementById('tablaPedidosSeleccinoados').innerHTML = html;
                 //document.getElementById('table-productos-seleccionados').innerHTML = html;
 
@@ -471,7 +471,7 @@
         fetch(url)
             .then(response => response.text())
             .then(html => {
-
+                comprobarSesionVigente(html);
                 document.getElementById("collapseInformacionPedido").innerHTML = html
 
             })
@@ -493,7 +493,7 @@
         fetch(url)
             .then(response => response.text())
             .then(html => {
-
+                comprobarSesionVigente(html);
                 document.getElementById("detalleProductosPorFamilia").innerHTML = html
 
             })
@@ -528,6 +528,7 @@
         fetch(url)
             .then(response => response.text())
             .then(html => {
+                comprobarSesionVigente(html);
                 if (html.includes('Error')) {
                     showAlert(html.replace(/['"]+/g, ''), "", "Aceptar");
                 } else {
@@ -570,7 +571,7 @@
         fetch(url)
             .then(response => response.text())
             .then(html => {
-
+                comprobarSesionVigente(html);
                 document.getElementById("table-productos-seleccionados").innerHTML = html
 
                 showAlert("Proceso exitoso", "", "success");
@@ -636,6 +637,19 @@
             });
     }
 
+    $(document).ready(function () {
+        // Verificar el host actual
+        var currentHost = window.location.hostname;
+
+        if (currentHost === "esaleslatam.bekaert.com") {
+            getProductosByFamilia("/esalesweb/Cliente/GetProductosPorFamilia");
+        } else {
+            getProductosByFamilia("/Cliente/GetProductosPorFamilia");
+        }
+        inicializarTabla();
+
+    });
+
     function onSubmitAgregraFavorito(e, item, url) {
         e.preventDefault();
         let cantidad = e.target.elements.cantidadArticulo.value;
@@ -647,7 +661,7 @@
         fetch(urlCompleta)
             .then(response => response.text())
             .then(html => {
-
+                comprobarSesionVigente(html);
                 document.getElementById('tablaPedidosSeleccinoados').innerHTML = html;
                 ocultarLoader();
             })
@@ -690,7 +704,7 @@
         fetch(url)
             .then(response => response.text())
             .then(html => {
-
+                comprobarSesionVigente(html);
                 document.getElementById('tablaPedidosSeleccinoados').innerHTML = html;
                 ocultarLoader();
             })
@@ -704,6 +718,22 @@
 
         if (event.keyCode === 13) {
             onSubmitAgregarPorFamilia(idInputCantidad, codigoSAPArticulo, url, familia)
+        }
+    }
+
+    function comprobarSesionVigente(html) {
+        if (html.includes('Login')) {
+            // Verificar el host actual
+            var currentHost = window.location.hostname;
+
+            // Comprobar si el host es igual a "esaleslatam.bekaert.com"
+            if (currentHost === "esaleslatam.bekaert.com") {
+                // Redirigir al subdirectorio "/esalesweb" en el mismo host pero con puerto 9020
+                window.location.href = "https://esaleslatam.bekaert.com:9020/esalesweb/";
+            } else {
+                // Redirigir a la ruta raíz en otros entornos (como localhost)
+                window.location.href = "/";
+            }
         }
     }
 
@@ -732,7 +762,7 @@
         fetch(url)
             .then(response => response.text())
             .then(html => {
-
+                comprobarSesionVigente(html);
                 document.getElementById('tablaPedidosSeleccinoados').innerHTML = html;
             })
             .catch(error => console.error('Error al cargar información:', error));
