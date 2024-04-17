@@ -640,15 +640,33 @@
     $(document).ready(function () {
         // Verificar el host actual
         var currentHost = window.location.hostname;
-
-        if (currentHost === "esaleslatam.bekaert.com") {
+        console.log('currentHost', currentHost)
+        if (currentHost.includes('esaleslatam.bekaert.com')) {
             getProductosByFamilia("/esalesweb/Cliente/GetProductosPorFamilia");
         } else {
-            getProductosByFamilia("/Cliente/GetProductosPorFamilia");
+            getProductosByFamilia("a/Cliente/GetProductosPorFamilia");
         }
         inicializarTabla();
 
     });
+
+    const inicializarTabla = () => {
+        new DataTable('#tabla-listado-productos-por-familia', {
+            pagingType: 'simple_numbers', // Establece el tipo de paginación a simple_numbers
+            searching: false,
+            ordering: false,
+            info: false,
+            lengthChange: false,
+            pageLength: 10, // Establecer el número de elementos por página a 5
+            dom: 'lrtip', // Define la disposición de los elementos de la tabla
+            language: {
+                paginate: {
+                    previous: '<',
+                    next: '>'
+                }
+            }
+        });
+    }
 
     function onSubmitAgregraFavorito(e, item, url) {
         e.preventDefault();
