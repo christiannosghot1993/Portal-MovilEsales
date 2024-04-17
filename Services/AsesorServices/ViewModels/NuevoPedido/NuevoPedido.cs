@@ -23,5 +23,6 @@ namespace Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido
         public string mensajeProceso { get; set; }
         public InformacionEntrega informacionEntrega { get; set; } = new InformacionEntrega();
 
+        public List<StockArticulo> stockArticulo { get; set; } = new List<StockArticulo>();     
     }
 }

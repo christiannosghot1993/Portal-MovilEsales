@@ -438,44 +438,9 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="table-responsive table-container mt-3">
-                                        <table class="table">
-                                            <thead class="card-table_header">
-                                                <tr>
-                                                    <th scope="col" class="border-radius-left" style="padding:13px;">C. Producto:</th>
-                                                    <th scope="col" style="padding:13px;">Descripción Producto</th>
-                                                    <th scope="col" style="padding:13px;">Nombre Bodega</th>
-                                                    <th scope="col" style="padding:13px;">Bodega</th>
-                                                    <th scope="col" style="padding:13px;">Stock Disponible</th>
-                                                    <th scope="col" class="border-radius-right" style="padding:13px;">U. Material</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>188068</td>
-                                                    <td>Pua Fort 500m</td>
-                                                    <td>Quito</td>
-                                                    <td>QUOO</td>
-                                                    <td>23</td>
-                                                    <td>Rollo</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>188068</td>
-                                                    <td>Pua Fort 500m</td>
-                                                    <td>Guayaquil</td>
-                                                    <td>QUO2</td>
-                                                    <td>23</td>
-                                                    <td>Rollo</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>188068</td>
-                                                    <td>Pua Fort 500m</td>
-                                                    <td>Cuenca</td>
-                                                    <td>QUO3</td>
-                                                    <td>23</td>
-                                                    <td>Rollo</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                        <div id="tabStock">
+                                            @Html.Partial("_TableStocks")
+                                        </div>
                                     </div>
                                 </div>
                                 @*<div class="modal-footer">
@@ -1198,6 +1163,32 @@
             .catch(error => {
                 console.error('Error al cargar información:', error)
             });
+    }
+
+    const abrirModal = (url, idElemento, modalName) => {
+
+        console.log(url)
+
+        fetch(url)
+            .then(response => response.text())
+            .then(html => {
+                //console.log(html); // Verifica la respuesta en la consola
+
+                // Vaciar el contenido del modal existente
+                document.getElementById(idElemento).innerHTML = '';
+
+                // Insertar el HTML recibido en el modal
+                document.getElementById(idElemento).innerHTML = html;
+
+                // Obtener el modal
+                var modalElement = document.getElementById(modalName);
+
+                var modal = new bootstrap.Modal(modalElement);
+
+                // Mostrar el modal
+                modal.show();
+            })
+            .catch(error => console.error('Error al cargar información:', error));
     }
 
     const handleCheckBoxAll = (e, url) => {

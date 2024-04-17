@@ -1,0 +1,25 @@
+﻿<table class="table">
+    <thead class="card-table_header">
+        <tr>
+            <th scope="col" class="border-radius-left" style="padding:13px;">C. Producto:</th>
+            <th scope="col" style="padding:13px;">Descripción Producto</th>
+            <th scope="col" style="padding:13px;">Nombre Bodega</th>
+            <th scope="col" style="padding:13px;">Bodega</th>
+            <th scope="col" style="padding:13px;">Stock Disponible</th>
+            <th scope="col" class="border-radius-right" style="padding:13px;">U. Material</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.stockArticulo)
+        {
+            <tr>
+                <td>@item.codigoProducto</td>
+                <td>@item.descripcionProducto</td>
+                <td>@item.nombreBodega</td>
+                <td>@item.bodega</td>
+                <td>@item.stockDisponible</td>
+                <td>@item.unidadMaterial</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -33,5 +33,6 @@ namespace Portal_MovilEsales.Services.AsesorServices
         public GuardarPedidoBorrador postGuardarPedidoBorrador(string token, string parametrosPeticion);
         public ProcesoFlujoAprobacion postProcesoFlujoAprobacion(string token, string parametrosPeticion);
         public ProductoExcel getProductosExcel(string token, ProductoExcelRequest prod);
+        public List<StockArticulo> getStockArticulos(string token, string codigoSap);
     }
 }

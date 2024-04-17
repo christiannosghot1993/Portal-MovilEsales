@@ -531,5 +531,21 @@ namespace Portal_MovilEsales.Services.AsesorServices
             }
             return productosExcel;
         }
+
+        public List<StockArticulo> getStockArticulos(string token, string codigoSap)
+        {
+            var client = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Post, "https://esaleslatam.bekaert.com:9020/esalesapi/api/ConsultaStock");
+            request.Headers.Add("Authorization", "Bearer "+token);
+            var content = new StringContent("{\r\n   \"navegadorweb\":\"Microsoft Edge XXX\",\r\n   \"codigosaparticulo\":\""+codigoSap+"\"\r\n}", null, "application/json");
+            request.Content = content;
+            var response = client.Send(request);
+
+            string resultado = response.Content.ReadAsStringAsync().Result;
+            var resDynamic = JsonConvert.DeserializeObject<dynamic>(resultado);
+            string jsonStock = resDynamic.result+"";
+            List<StockArticulo> dataStocks = JsonConvert.DeserializeObject<List<StockArticulo>>(jsonStock);
+            return dataStocks;
+        }
     }
 }

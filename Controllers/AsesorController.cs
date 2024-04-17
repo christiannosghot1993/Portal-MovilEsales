@@ -653,6 +653,17 @@ namespace Portal_MovilEsales.Controllers
             return PartialView("_ModalPedidoAprobado", dc);
         }
 
+        public IActionResult CargarInformacionModalStocks(string codigoSap)
+        {
+            var token = HttpContext.Session.GetString("token");
+            var respInfoStocks = _asesorService.getStockArticulos(token, codigoSap);
+            NuevoPedido np = new NuevoPedido
+            {
+                stockArticulo = respInfoStocks
+            };
+            return PartialView("_TableStocks", np);
+        }
+
         public IActionResult CargarInformacionModalInformacionCrediticia(string codigoSAP)
         {
             var token = HttpContext.Session.GetString("token");
