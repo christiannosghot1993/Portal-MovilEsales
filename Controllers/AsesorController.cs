@@ -224,11 +224,12 @@ namespace Portal_MovilEsales.Controllers
             var respSimulacionPedido = _asesorService.getSimulacionPedido(token, parametrosPeticion);
 
             var respCargaCabeceraPedido = _asesorService.getCargaCabeceraPedido(token, codigoSAPCliente);
-
+            int contNumProd = 1;
             respSimulacionPedido.detallePedido.ForEach((producto) =>
             {
                 var productoPorAgregar = new ProductosNuevoPedido()
                 {
+                    numeroRegistro=contNumProd.ToString(),
                     codigo = producto.codigoSAP,
                     descripcion = producto.nombreProducto,
                     unidad = producto.unidad,
@@ -248,7 +249,7 @@ namespace Portal_MovilEsales.Controllers
                     //listadoTipoEntregas = respCargaCabeceraPedido.listadoTipoEntrega
                     listadoBodegas = respCargaCabeceraPedido.listadoBodegas,
                 };
-
+                contNumProd++;
                 productosNuevoPedido.Add(productoPorAgregar);
             });
 

@@ -954,9 +954,9 @@
         let cantidad = e.target.elements.cantidadArticulo.value;
         if (cantidad === '0')
             return;
-        //console.log(item);
+        console.log('cantidad', cantidad);
         mostrarLoader();
-        let urlCompleta = url + '?codigoSAPCliente=' + encodeURIComponent(codigoSAPCliente) + '?cantidadArticulo=' + encodeURIComponent(cantidad) + '&jsonArticulo=' + encodeURIComponent(item);
+        let urlCompleta = url + '?codigoSAPCliente=' + encodeURIComponent(codigoSAPCliente) + '&cantidadArticulo=' + encodeURIComponent(cantidad) + '&jsonArticulo=' + encodeURIComponent(item);
         fetch(urlCompleta)
             .then(response => response.text())
             .then(html => {
