@@ -232,7 +232,15 @@
 
             console.log('general'+selectedValueGeneral)
 
-            url = `/Aprobador/ProcesarPedido?numeroOrden=${numeroOrden}&aprobacionDescuento=${selectedValueDescuentos}&aprobacionCondicionesEspeciales=${selectedValueCondicionesEspeciales}&aprobacionNotaCredito=${selectedValueNotaCredito}&aprobacionGeneral=${selectedValueGeneral}&mensaje=${mensaje}`
+            var currentHost = window.location.hostname;
+            console.log('currentHost', currentHost)
+            if (currentHost.includes('esaleslatam.bekaert.com')) {
+                url = `/esalesweb/Aprobador/ProcesarPedido?numeroOrden=${numeroOrden}&aprobacionDescuento=${selectedValueDescuentos}&aprobacionCondicionesEspeciales=${selectedValueCondicionesEspeciales}&aprobacionNotaCredito=${selectedValueNotaCredito}&aprobacionGeneral=${selectedValueGeneral}&mensaje=${mensaje}`
+            } else {
+                url = `/Aprobador/ProcesarPedido?numeroOrden=${numeroOrden}&aprobacionDescuento=${selectedValueDescuentos}&aprobacionCondicionesEspeciales=${selectedValueCondicionesEspeciales}&aprobacionNotaCredito=${selectedValueNotaCredito}&aprobacionGeneral=${selectedValueGeneral}&mensaje=${mensaje}`
+            }
+
+            
 
             let accionPeticion = selectedValueGeneral === "Si" ? "aprobar" : "rechazar";
 
