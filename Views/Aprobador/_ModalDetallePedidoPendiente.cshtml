@@ -110,6 +110,18 @@
                                         </div>
                                     </div>
                                 }
+                                else
+                                {
+                                    <div class="row" hidden>
+                                        <label class="label-datepicker">C.E.</label>
+                                        <div>
+                                            <input type="radio" id="ceAprobarOpcion" name="ce" value="ceAprobar" checked />
+                                            <label class="label-datepicker" for="ceAprobarOpcion">Aprobar</label>
+                                            <input type="radio" id="ceRechazarOpcion" name="ce" value="ceRechazar" />
+                                            <label class="label-datepicker" for="ceRechazarOpcion">Rechazar</label>
+                                        </div>
+                                    </div>
+                                }
                             </div>
                         </div>
                     </div>
@@ -211,6 +223,18 @@
                                     <label class="label-datepicker">Nota de Crédito</label>
                                     <div>
                                         <input type="radio" id="notaCreditoAprobarOpcion" name="notaCredito" value="notaCreditoAprobar" />
+                                        <label class="label-datepicker" for="notaCreditoAprobarOpcion">Aprobar</label>
+                                        <input type="radio" id="notaCreditoRechazarOpcion" name="notaCredito" value="notaCreditoRechazar" />
+                                        <label class="label-datepicker" for="notaCreditoRechazarOpcion">Rechazar</label>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="row" hidden>
+                                    <label class="label-datepicker">Nota de Crédito</label>
+                                    <div>
+                                        <input type="radio" id="notaCreditoAprobarOpcion" name="notaCredito" value="notaCreditoAprobar" checked />
                                         <label class="label-datepicker" for="notaCreditoAprobarOpcion">Aprobar</label>
                                         <input type="radio" id="notaCreditoRechazarOpcion" name="notaCredito" value="notaCreditoRechazar" />
                                         <label class="label-datepicker" for="notaCreditoRechazarOpcion">Rechazar</label>
