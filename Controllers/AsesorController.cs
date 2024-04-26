@@ -7,6 +7,7 @@ using Portal_MovilEsales.Services.AsesorServices.ViewModels;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.DatosCliente;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.EstadoCuenta;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido;
+using Portal_MovilEsales.Services.AsesorServices.ViewModels.PoliticaComercial;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.ProductoExcel;
 
 namespace Portal_MovilEsales.Controllers
@@ -431,7 +432,9 @@ namespace Portal_MovilEsales.Controllers
 
         public IActionResult PoliticaComercial()
         {
-            return View();
+            HttpContext.Session.SetString("listPC", "");
+            List<CargaExcelPoliticaComercial> pcList = new List<CargaExcelPoliticaComercial>();
+            return View(pcList);
         }
 
         public IActionResult ActualizarTablaProductosSeleccionados(string codigoSAPCliente, string codigoSAPArticulo, string numeroRegistro, string entrega, string descFactura, string descNc, string cantidad, string aFinMes, string aFamilia)
@@ -805,6 +808,75 @@ namespace Portal_MovilEsales.Controllers
                 listadoPedidosBPH.result = new List<InfoPedidoBPH>();
             }
             return PartialView("_TablePedidosHistoricos", listadoPedidosBPH);
+        }
+
+        [HttpPost]
+        public IActionResult SubirExcelPoliticaComercial(IFormFile file)
+        {
+            if (file != null && file.Length > 0)
+            {
+                // Guardar el archivo en una ubicación temporal
+                var filePath = Path.GetTempPath();
+                var filePathAndName = filePath + file.FileName;
+                using (var stream = new FileStream(filePathAndName, FileMode.Create))
+                {
+                    file.CopyTo(stream);
+                }
+
+                List<CargaExcelPoliticaComercial> listPC = new List<CargaExcelPoliticaComercial>();
+                // Procesar el archivo Excel utilizando ClosedXML
+                using (var workbook = new XLWorkbook(filePathAndName))
+                {
+                    // Obtener la primera hoja del libro de trabajo
+                    var worksheet = workbook.Worksheet(1);
+
+                    // Iterar sobre las filas del archivo Excel
+                    foreach (var row in worksheet.RowsUsed().Skip(1))
+                    {
+                        // Obtener los valores de las celdas en cada fila
+                        var fechaInicio = row.Cell(1).Value.ToString();
+                        var fechaFin = row.Cell(2).Value.ToString();
+                        var cliente = row.Cell(3).Value.ToString();
+                        var familia = row.Cell(4).Value.ToString();
+                        var producto = row.Cell(5).Value.ToString();
+                        var descuentoFactura = row.Cell(6).Value.ToString();
+                        var descuentoNC = row.Cell(7).Value.ToString();
+                        if (!string.IsNullOrEmpty(fechaInicio))
+                        {
+                            listPC.Add(new CargaExcelPoliticaComercial
+                            {
+                                FechaInicio=fechaInicio,
+                                FechaFin=fechaFin,
+                                Cliente=cliente,
+                                Familia=familia,
+                                Articulo=producto,
+                                DescFactura=descuentoFactura,
+                                DescNotaCredito=descuentoNC
+                            });
+                        }
+                    }
+                }
+                HttpContext.Session.SetString("listPC", JsonConvert.SerializeObject(listPC));
+                return View("PoliticaComercial", listPC);
+            }
+            else
+            {
+                List<CargaExcelPoliticaComercial> listPC = new List<CargaExcelPoliticaComercial>();
+                return View("PoliticaComercial", listPC);
+            }
+
+        }
+
+        public IActionResult GuardarPoliticaComercial()
+        {
+            var token = HttpContext.Session.GetString("token");
+            List<CargaExcelPoliticaComercial> listPC = JsonConvert.DeserializeObject<List<CargaExcelPoliticaComercial>>(HttpContext.Session.GetString("listPC"));
+            DetallePolitica dp= new DetallePolitica { 
+                detallePolitica= listPC
+            };
+            string res = _asesorService.savePoliticaComercial(token, dp);
+            HttpContext.Session.SetString("listPC", "");
+            return Json(res);
         }
 
         [HttpPost]

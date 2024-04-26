@@ -1,6 +1,4 @@
-﻿
-
-using Portal_MovilEsales.Services.AsesorServices.ViewModels;
+﻿using Portal_MovilEsales.Services.AsesorServices.ViewModels;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.DatosCliente;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.DetallePedido;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.EstadoCuenta;
@@ -10,6 +8,7 @@ using Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido.GuardarP
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido.ProcesoFrujoAprobacion;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido.SimulacionPedido;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.PedidoAprobado;
+using Portal_MovilEsales.Services.AsesorServices.ViewModels.PoliticaComercial;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.ProductoExcel;
 
 namespace Portal_MovilEsales.Services.AsesorServices
@@ -34,5 +33,6 @@ namespace Portal_MovilEsales.Services.AsesorServices
         public ProcesoFlujoAprobacion postProcesoFlujoAprobacion(string token, string parametrosPeticion);
         public ProductoExcel getProductosExcel(string token, ProductoExcelRequest prod);
         public List<StockArticulo> getStockArticulos(string token, string codigoSap);
+        public string savePoliticaComercial(string token, DetallePolitica detallePolitica);
     }
 }

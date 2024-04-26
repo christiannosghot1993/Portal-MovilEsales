@@ -1,7 +1,12 @@
-﻿@{
+﻿@model List<Portal_MovilEsales.Services.AsesorServices.ViewModels.PoliticaComercial.CargaExcelPoliticaComercial>
+@{
     ViewData["Title"] = "Asesor - Pedidos";
 }
-
+<div id="loader" class="loader-container" style="display: none;">
+    <div class="spinner-border custom-color m-5" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
 <div class="col-12 ">
     <div class="card card-container">
         <div class="card-body">
@@ -38,10 +43,19 @@
 
                     <div class="collapse show mb-5" id="collapseCargaArchivo">
                         <div class="archivo ms-4">
-                            <div class="form-group mb-3">
-                                <label class="label-datepicker" for="archivoSelector">Seleccione el Archivo - Formato Excel</label>
-                                <input type="file" id="archivoSelector" class="form-control datepicker" />
-                            </div>
+                            <form class="form-group mb-3" enctype="multipart/form-data" asp-action="SubirExcelPoliticaComercial" asp-controller="Asesor">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-10">
+                                        <label class="label-datepicker" for="archivoSelector">Seleccione el Archivo - Formato Excel</label>
+                                        <input type="file" id="archivoSelector" name="file" class="form-control datepicker" />
+                                    </div>
+                                    <div class="col-sm-12 col-md-2 mt-sm-2 mt-md-4 d-flex justify-content-sm-start justify-content-md-center">
+                                        <button type="submit" class="orange-rounded-button">
+                                            Guardar
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
 
@@ -63,74 +77,47 @@
                     </a>
 
                     <div class="collapse show mb-5" id="collapseVistaPreviaCarga">
-                        <div class="table-responsive table-container pt-3">
+                        <div class="table-responsive table-container pt-3" style="height: 300px;">
                             <table class="table ms-3">
                                 <thead class="card-table_header">
                                     <tr>
                                         <th scope="col" class="border-radius-left" style="padding:13px;">Fecha Inicio</th>
                                         <th scope="col" style="padding:13px;">Fecha Fin</th>
-                                        <th scope="col" style="padding:13px;">Limite Inferior</th>
-                                        <th scope="col" style="padding:13px;">Limite Superior</th>
+                                        <th scope="col" style="padding:13px;">Cliente</th>
                                         <th scope="col" style="padding:13px;">Familia</th>
-                                        <th scope="col" class="border-radius-right" style="padding:13px;">Categoria</th>
+                                        <th scope="col" style="padding:13px;">Producto</th>
+                                        <th scope="col" style="padding:13px;">Descuento Factura</th>
+                                        <th scope="col" class="border-radius-right" style="padding:13px;">Descuento Nota Credito</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>2023-01-01</td>
-                                        <td>2024-01-01</td>
-                                        <td>0.5</td>
-                                        <td>10</td>
-                                        <td>Alambres</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2023-01-01</td>
-                                        <td>2024-01-01</td>
-                                        <td>0.5</td>
-                                        <td>10</td>
-                                        <td>Alambres de púas</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2023-01-01</td>
-                                        <td>2024-01-01</td>
-                                        <td>0.5</td>
-                                        <td>10</td>
-                                        <td>Alambres</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2023-01-01</td>
-                                        <td>2024-01-01</td>
-                                        <td>0.5</td>
-                                        <td>10</td>
-                                        <td>Armadores</td>
-                                        <td>A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2023-01-01</td>
-                                        <td>2024-01-01</td>
-                                        <td>0.5</td>
-                                        <td>10</td>
-                                        <td>Armex planchas</td>
-                                        <td>A</td>
-                                    </tr>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.FechaInicio</td>
+                                            <td>@item.FechaFin</td>
+                                            <td>@item.Cliente</td>
+                                            <td>@item.Familia</td>
+                                            <td>@item.Articulo</td>
+                                            <td>@item.DescFactura</td>
+                                            <td>@item.DescNotaCredito</td>
+                                        </tr>
+                                    }
                                 </tbody>
                             </table>
                         </div>
-                        <div class="d-flex justify-content-between mt-4">
-                            <a class="orange-rounded-button" style="background-color: #69A5BD !important">
-                                <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g id="vuesax/linear/arrow-right">
-                                        <g id="arrow-right">
-                                            <path id="Vector" d="M11.8174 3.56141L6.92738 8.45141C6.34988 9.02891 6.34988 9.97391 6.92738 10.5514L11.8174 15.4414" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                        </g>
-                                    </g>
-                                </svg>
-                                Regresar
-                            </a>
-                            <a class="orange-rounded-button">
+                        <div class="d-flex justify-content-end mt-4">
+                            @*   <a class="orange-rounded-button" style="background-color: #69A5BD !important">
+                            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="vuesax/linear/arrow-right">
+                            <g id="arrow-right">
+                            <path id="Vector" d="M11.8174 3.56141L6.92738 8.45141C6.34988 9.02891 6.34988 9.97391 6.92738 10.5514L11.8174 15.4414" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                            </g>
+                            </g>
+                            </svg>
+                            Regresar
+                            </a> *@
+                            <button class="orange-rounded-button" onclick="guardarExcelPC('@Url.Action("GuardarPoliticaComercial", "Asesor")')">
                                 Continuar
                                 <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g id="vuesax/linear/arrow-right">
@@ -140,7 +127,7 @@
                                     </g>
                                 </svg>
 
-                            </a>
+                            </button>
                         </div>
                     </div>
 
@@ -283,8 +270,6 @@
                             </table>
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </div>
@@ -310,4 +295,62 @@
             }
         });
     });
+
+    const guardarExcelPC = (url) => {
+        mostrarLoader();
+
+        fetch(url)
+            .then(response => response.text())
+            .then(json => {
+                //comprobarSesionVigente(json);
+                //document.getElementById("table-productos-seleccionados").innerHTML = html
+                console.log(json)
+                let mensajeProceso = json;
+                ocultarLoader();
+                showAlert(mensajeProceso.replace(/['"]+/g, ''), '', "Aceptar");
+
+            })
+            .catch(error => {
+                console.error('Error al cargar información:', error);
+                ocultarLoader();
+            });
+    }
+
+    const showAlert = (title, message, type) => {
+        Swal.fire({
+            title: title,
+            text: message,
+            showDenyButton: false,
+            showCancelButton: false,
+            confirmButtonText: "Aceptar",
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                var currentHost = window.location.hostname;
+                console.log('currentHost', currentHost)
+                if (currentHost === "esaleslatam.bekaert.com") {
+                    window.location.href = "/esalesweb/Asesor/PoliticaComercial";
+                } else {
+                    window.location.href = "/Asesor/PoliticaComercial";
+                }
+            }
+        });
+    }
+
+    function mostrarLoader() {
+        var loader = document.getElementById('loader');
+        // Muestra el loader
+        loader.style.display = 'flex';
+    };
+
+    function ocultarLoader() {
+        var loader = document.getElementById('loader');
+        // Agrega la clase 'no-scroll' para bloquear el desplazamiento
+        //document.body.style.overflow='hidden';
+
+        // Oculta el loader y muestra el contenido
+        loader.style.display = 'none';
+        // Restaura el desplazamiento
+        //document.body.classList.remove('no-scroll');
+    }
 </script>

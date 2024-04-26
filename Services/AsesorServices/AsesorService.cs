@@ -9,7 +9,9 @@ using Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido.GuardarP
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido.ProcesoFrujoAprobacion;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido.SimulacionPedido;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.PedidoAprobado;
+using Portal_MovilEsales.Services.AsesorServices.ViewModels.PoliticaComercial;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.ProductoExcel;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 
 namespace Portal_MovilEsales.Services.AsesorServices
@@ -546,6 +548,24 @@ namespace Portal_MovilEsales.Services.AsesorServices
             string jsonStock = resDynamic.result+"";
             List<StockArticulo> dataStocks = JsonConvert.DeserializeObject<List<StockArticulo>>(jsonStock);
             return dataStocks;
+        }
+
+        public string savePoliticaComercial(string token, DetallePolitica detallePolitica)
+        {
+            var client = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Post, "https://esaleslatam.bekaert.com:9020/esalesapi/api/ValidaPolitica");
+            request.Headers.Add("Authorization", "Bearer "+token);
+            var content = new StringContent(JsonConvert.SerializeObject(detallePolitica), null, "application/json");
+            request.Content = content;
+            var responseStatus = client.Send(request);
+            string resultado = responseStatus.Content.ReadAsStringAsync().Result;
+            if (string.IsNullOrEmpty(resultado))
+            {
+                resultado = "Se produjo un error al guardar la poítica comercial";
+            }
+            var dRes = JsonConvert.DeserializeObject<dynamic>(resultado);
+            resultado = dRes.message;
+            return resultado;
         }
     }
 }
