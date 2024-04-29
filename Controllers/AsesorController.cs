@@ -12,9 +12,11 @@ using Portal_MovilEsales.Services.AsesorServices.ViewModels.ProductoExcel;
 
 namespace Portal_MovilEsales.Controllers
 {
+
     [Authorize]
     public class AsesorController : Controller
     {
+        ModelPoliticaComercial mpc = new ModelPoliticaComercial();
         private readonly IAsesorService _asesorService;
 
         public AsesorController(IAsesorService asesorService)
@@ -433,8 +435,10 @@ namespace Portal_MovilEsales.Controllers
         public IActionResult PoliticaComercial()
         {
             HttpContext.Session.SetString("listPC", "");
-            List<CargaExcelPoliticaComercial> pcList = new List<CargaExcelPoliticaComercial>();
-            return View(pcList);
+            var token = HttpContext.Session.GetString("token");
+            var listPoliticaComercial = _asesorService.getPoliticaComercial(token);
+            mpc.lecturaPoliticaComercial = listPoliticaComercial;
+            return View(mpc);
         }
 
         public IActionResult ActualizarTablaProductosSeleccionados(string codigoSAPCliente, string codigoSAPArticulo, string numeroRegistro, string entrega, string descFactura, string descNc, string cantidad, string aFinMes, string aFamilia)
@@ -857,7 +861,8 @@ namespace Portal_MovilEsales.Controllers
                     }
                 }
                 HttpContext.Session.SetString("listPC", JsonConvert.SerializeObject(listPC));
-                return View("PoliticaComercial", listPC);
+                mpc.cargaExcelPoliticaComercial=listPC;
+                return View("PoliticaComercial", mpc);
             }
             else
             {

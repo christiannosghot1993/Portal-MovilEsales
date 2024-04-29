@@ -34,5 +34,6 @@ namespace Portal_MovilEsales.Services.AsesorServices
         public ProductoExcel getProductosExcel(string token, ProductoExcelRequest prod);
         public List<StockArticulo> getStockArticulos(string token, string codigoSap);
         public string savePoliticaComercial(string token, DetallePolitica detallePolitica);
+        public List<LecturaPoliticaComercial> getPoliticaComercial(string token);
     }
 }

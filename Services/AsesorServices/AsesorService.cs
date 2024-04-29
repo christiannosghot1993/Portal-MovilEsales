@@ -567,5 +567,28 @@ namespace Portal_MovilEsales.Services.AsesorServices
             resultado = dRes.message;
             return resultado;
         }
+
+        public List<LecturaPoliticaComercial> getPoliticaComercial(string token)
+        {
+            var client = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Post, "https://esaleslatam.bekaert.com:9020/esalesapi/api/PoliticaVigente");
+            request.Headers.Add("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlc2FsZXNhcGkiLCJqdGkiOiJjZWIxMGM0OS1iYmM0LTQ3ZmEtYjA1MS1mMTQ0OWY0MWVjOWYiLCJpYXQiOiI0LzI5LzIwMjQgNzoyNDo1MyBBTSIsInVzdWFyaW8iOiJkaWVnby5ndXRpZXJyZXpAYmVrYWVydC5jb20iLCJjb2RpZ29wYWlzIjoiMSIsImNvZGlnb3BlcmZpbCI6IjIiLCJleHAiOjE3MTQzOTcwOTMsImlzcyI6Imh0dHBzOi8vZXNhbGVzbGF0YW0uYmVrYWVydC5jb206OTAyMC8iLCJhdWQiOiJodHRwczovL2VzYWxlc2xhdGFtLmJla2FlcnQuY29tOjkwMjAvIn0.FaRgSI1sVHlET3jKz7mlM5tisTRfcd6E4PUlZLnewUo");
+            var content = new StringContent("{\r\n    \"navegadorweb\": \"Microsoft Edge XXX\"\r\n}\r\n", null, "application/json");
+            request.Content = content;
+            var responseStatus = client.Send(request);
+            string resultado = responseStatus.Content.ReadAsStringAsync().Result;
+            var resDynamic = JsonConvert.DeserializeObject<dynamic>(resultado);
+            if ((bool)resDynamic.success)
+            {
+                var jsonPC = JsonConvert.SerializeObject(resDynamic.result);
+                List<LecturaPoliticaComercial> lpc = JsonConvert.DeserializeObject<List<LecturaPoliticaComercial>>(jsonPC);
+                return lpc;
+            }
+            else
+            {
+                return new List<LecturaPoliticaComercial>();
+            }
+            
+        }
     }
 }

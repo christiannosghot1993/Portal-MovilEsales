@@ -1,4 +1,4 @@
-﻿@model List<Portal_MovilEsales.Services.AsesorServices.ViewModels.PoliticaComercial.CargaExcelPoliticaComercial>
+﻿@model Portal_MovilEsales.Services.AsesorServices.ViewModels.PoliticaComercial.ModelPoliticaComercial
 @{
     ViewData["Title"] = "Asesor - Pedidos";
 }
@@ -91,7 +91,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach (var item in Model)
+                                    @foreach (var item in Model.cargaExcelPoliticaComercial)
                                     {
                                         <tr>
                                             <td>@item.FechaInicio</td>
@@ -159,113 +159,22 @@
                                         <th scope="col" style="padding:13px;">Fecha Fin</th>
                                         <th scope="col" style="padding:13px;">Limite Inferior</th>
                                         <th scope="col" style="padding:13px;">Limite Superior</th>
-                                        <th scope="col" style="padding:13px;">Nivel Aprobación</th>
-                                        <th scope="col" style="padding:13px;">Canal Distribución</th>
                                         <th scope="col" style="padding:13px;">Familia</th>
-                                        <th scope="col" style="padding:13px;">Categoria</th>
-                                        <th scope="col" class="border-radius-right" style="padding:13px;">Estado</th>
+                                        <th scope="col" class="border-radius-right" style="padding:13px;">Categoria</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>2023-01-01</td>
-                                        <td>2024-01-01</td>
-                                        <td>0.5</td>
-                                        <td>10</td>
-                                        <td>1</td>
-                                        <td>01</td>
-                                        <td>Alambres</td>
-                                        <td>A</td>
-                                        <td>Activo</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2023-01-01</td>
-                                        <td>2024-01-01</td>
-                                        <td>0.5</td>
-                                        <td>10</td>
-                                        <td>1</td>
-                                        <td>01</td>
-                                        <td>Alambre de Puas</td>
-                                        <td>A</td>
-                                        <td>Activo</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2023-01-01</td>
-                                        <td>2024-01-01</td>
-                                        <td>0.5</td>
-                                        <td>10</td>
-                                        <td>2</td>
-                                        <td>01</td>
-                                        <td>Armadores</td>
-                                        <td>A</td>
-                                        <td>Activo</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2023-01-01</td>
-                                        <td>2024-01-01</td>
-                                        <td>0.5</td>
-                                        <td>10</td>
-                                        <td>2</td>
-                                        <td>01</td>
-                                        <td>Armadores</td>
-                                        <td>A</td>
-                                        <td>Activo</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2023-01-01</td>
-                                        <td>2024-01-01</td>
-                                        <td>0.5</td>
-                                        <td>10</td>
-                                        <td>2</td>
-                                        <td>01</td>
-                                        <td>Armadores</td>
-                                        <td>A</td>
-                                        <td>Activo</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2023-01-01</td>
-                                        <td>2024-01-01</td>
-                                        <td>0.5</td>
-                                        <td>10</td>
-                                        <td>3</td>
-                                        <td>01</td>
-                                        <td>Armex Planchas</td>
-                                        <td>A</td>
-                                        <td>Activo</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2023-01-01</td>
-                                        <td>2024-01-01</td>
-                                        <td>0.5</td>
-                                        <td>10</td>
-                                        <td>3</td>
-                                        <td>01</td>
-                                        <td>Armex Planchas</td>
-                                        <td>A</td>
-                                        <td>Activo</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2023-01-01</td>
-                                        <td>2024-01-01</td>
-                                        <td>0.5</td>
-                                        <td>10</td>
-                                        <td>1</td>
-                                        <td>01</td>
-                                        <td>Alambres</td>
-                                        <td>A</td>
-                                        <td>Activo</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2023-01-01</td>
-                                        <td>2024-01-01</td>
-                                        <td>0.5</td>
-                                        <td>10</td>
-                                        <td>1</td>
-                                        <td>01</td>
-                                        <td>Alambres</td>
-                                        <td>A</td>
-                                        <td>Activo</td>
-                                    </tr>
+                                    @foreach (var item in Model.lecturaPoliticaComercial)
+                                    {
+                                        <tr>
+                                            <td>@item.fechaInicio</td>
+                                            <td>@item.fechaFin</td>
+                                            <td>@item.limiteInferior</td>
+                                            <td>@item.limiteSuperior</td>
+                                            <td>@item.familia</td>
+                                            <td>@item.categoria</td>
+                                        </tr>
+                                    } 
                                 </tbody>
                             </table>
                         </div>
