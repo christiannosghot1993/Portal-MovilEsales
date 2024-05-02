@@ -513,18 +513,14 @@
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                                <label class="label-datepicker" for="lugar-entrega">Lugar de Entrega</label>
-                                <textarea id="lugar-entrega" class="form-control datepicker" rows="4" placeholder="El contenido puede tener de 50 a 250 caracteres.">
-                                    @((Model.informacionEntrega != null) ? Model.informacionEntrega.direccionEntrega : "")
-                                </textarea>
+                                <label class="label-datepicker" for="lugar-entrega">Lugar de Entrega / Observaciones OC</label>
+                                <textarea id="lugar-entrega" class="form-control datepicker" rows="4" placeholder="El contenido puede tener de 50 a 1000 caracteres.">@((Model.informacionEntrega != null) ? Model.informacionEntrega.direccionEntrega : "")</textarea>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                                <label class="label-datepicker" for="observaciones">Observaciones</label>
-                                <textarea id="observaciones" class="form-control datepicker" rows="4" placeholder="El contenido puede tener de 50 a 250 caracteres.">
-                                    @((Model.informacionEntrega != null) ? Model.informacionEntrega.observacion : "")
-                                </textarea>
+                                <label class="label-datepicker" for="observaciones">Observaciones flujo aprobación</label>
+                                <textarea id="observaciones" class="form-control datepicker" rows="4" placeholder="El contenido puede tener de 50 a 250 caracteres.">@((Model.informacionEntrega != null) ? Model.informacionEntrega.observacion : "")</textarea>
                             </div>
                         </div>
                         <div class="col-12 col-md-6">
@@ -787,6 +783,16 @@
 
         let codigoSAPCliente = document.getElementById("codigo-sap").value;
 
+        let fechaEntrega = document.getElementById("startDate").value;
+
+        let numeroOrdenCompra = document.getElementById("numero-orden-compra").value;
+
+        let contactoEntrega = document.getElementById("contacto-entrega").value;
+
+        let lugarEntrega = document.getElementById("lugar-entrega").value;
+
+        let observaciones = document.getElementById("observaciones").value;
+
         let tipoEntregaSelect = document.getElementById("tipoEntregaSelect");
 
         let tipoEntregaSelectedValue = tipoEntregaSelect.options[tipoEntregaSelect.selectedIndex].value;
@@ -804,7 +810,7 @@
         let canalSelectedValue = canalSelect.options[canalSelect.selectedIndex].value;
 
 
-        url = `${url}?codigoSAPCliente=${codigoSAPCliente}&codigoTipoEntrega=${tipoEntregaSelectedValue}&codigoTipoPago=${tipoPagoSelectedValue}&codigoSAPDireccionEntrega=${direccionEntregaSelectedValue}&canal=${canalSelectedValue}`
+        url = `${url}?codigoSAPCliente=${codigoSAPCliente}&codigoTipoEntrega=${tipoEntregaSelectedValue}&codigoTipoPago=${tipoPagoSelectedValue}&codigoSAPDireccionEntrega=${direccionEntregaSelectedValue}&canal=${canalSelectedValue}&fechaEntrega=${fechaEntrega}&numeroOrdenCompra=${numeroOrdenCompra}&lugarEntrega=${lugarEntrega}&observaciones=${observaciones}&contactoEntrega=${contactoEntrega}`
 
         document.getElementById("table-productos-seleccionados").innerHTML = '<h1>Cargando información...</h1>';
 
@@ -868,33 +874,67 @@
             const formData = new FormData();
             const file = ArchivoSoporteVentas[0];
             formData.append('file', file);
-            fetch('/File/Upload', {
-                method: 'POST',
-                body: formData
-            })
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data.message);
-                    url = url + `&urlArchivo=${data.message}`;
-                    fetch(url)
-                        .then(response => response.text())
-                        .then(json => {
-                            //comprobarSesionVigente(json);
-                            //document.getElementById("table-productos-seleccionados").innerHTML = html
-
-                            let mensajeProceso = json;
-                            ocultarLoader();
-                            showAlert(mensajeProceso.replace(/['"]+/g, ''), '', "Aceptar");
-
-                        })
-                        .catch(error => {
-                            console.error('Error al cargar información:', error);
-                            ocultarLoader();
-                        });
+            var currentHost = window.location.hostname;
+            console.log('currentHost', currentHost)
+            formData.append('file', file);
+            if (currentHost === "esaleslatam.bekaert.com") {
+                fetch('/esalesweb/File/Upload', {
+                    method: 'POST',
+                    body: formData
                 })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data.message);
+                        url = url + `&urlArchivo=${data.message}`;
+                        fetch(url)
+                            .then(response => response.text())
+                            .then(json => {
+                                //comprobarSesionVigente(json);
+                                //document.getElementById("table-productos-seleccionados").innerHTML = html
+
+                                let mensajeProceso = json;
+                                ocultarLoader();
+                                showAlert(mensajeProceso.replace(/['"]+/g, ''), '', "Aceptar");
+
+                            })
+                            .catch(error => {
+                                console.error('Error al cargar información:', error);
+                                ocultarLoader();
+                            });
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            }
+            else {
+                fetch('/File/Upload', {
+                    method: 'POST',
+                    body: formData
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data.message);
+                        url = url + `&urlArchivo=${data.message}`;
+                        fetch(url)
+                            .then(response => response.text())
+                            .then(json => {
+                                //comprobarSesionVigente(json);
+                                //document.getElementById("table-productos-seleccionados").innerHTML = html
+
+                                let mensajeProceso = json;
+                                ocultarLoader();
+                                showAlert(mensajeProceso.replace(/['"]+/g, ''), '', "Aceptar");
+
+                            })
+                            .catch(error => {
+                                console.error('Error al cargar información:', error);
+                                ocultarLoader();
+                            });
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            }
         } else {
 
             fetch(url)

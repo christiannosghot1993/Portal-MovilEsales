@@ -1,4 +1,4 @@
-﻿<div class="modal-dialog modal-xl">
+﻿<div class="modal-dialog modal-fullscreen">
     <div class="modal-content">
         <div class="modal-header">
             <h1 class="modal-title card-title" id="exampleModalLabel">
@@ -172,9 +172,8 @@
                     <div class="subtotales-container">
                         <div>
                             <div class="subtotal-description">
-                                <label class="d-flex justify-content-md-end pe-md-5">Importe Bruto</label>
+                                <label class="d-flex justify-content-md-end pe-md-5">Importe Bruto ($)</label>
                             </div>
-                            <label class="pe-md-2 ps-md-5">$</label>
                             <div class="subtotal-value">
                                 <label class="d-flex justify-content-end">
                                     @Model.detallePedidoInfo.importeBruto
@@ -183,9 +182,8 @@
                         </div>
                         <div>
                             <div class="subtotal-description">
-                                <label class="d-flex justify-content-md-end pe-md-5">Descuento Base</label>
+                                <label class="d-flex justify-content-md-end pe-md-5">Descuento Base ($)</label>
                             </div>
-                            <label class="pe-md-2 ps-md-5">$</label>
                             <div class="subtotal-value">
                                 <label class="d-flex justify-content-end">
                                     @Model.detallePedidoInfo.descuentoBase
@@ -194,9 +192,8 @@
                         </div>
                         <div>
                             <div class="subtotal-description">
-                                <label class="d-flex justify-content-md-end pe-md-5">Subtotal 1</label>
+                                <label class="d-flex justify-content-md-end pe-md-5">Subtotal 1 ($)</label>
                             </div>
-                            <label class="pe-md-2 ps-md-5">$</label>
                             <div class="subtotal-value">
                                 <label class="d-flex justify-content-end">
                                     @Model.detallePedidoInfo.subTotal1
@@ -205,9 +202,8 @@
                         </div>
                         <div>
                             <div class="subtotal-description">
-                                <label class="d-flex justify-content-md-end pe-md-5">Descuento Pago</label>
+                                <label class="d-flex justify-content-md-end pe-md-5">Descuento Pago ($)</label>
                             </div>
-                            <label class="pe-md-2 ps-md-5">$</label>
                             <div class="subtotal-value">
                                 <label class="d-flex justify-content-end">
                                     @Model.detallePedidoInfo.descuentoPago
@@ -216,9 +212,8 @@
                         </div>
                         <div>
                             <div class="subtotal-description">
-                                <label class="d-flex justify-content-md-end pe-md-5">Descuento Retiro</label>
+                                <label class="d-flex justify-content-md-end pe-md-5">Descuento Retiro ($)</label>
                             </div>
-                            <label class="pe-md-2 ps-md-5">$</label>
                             <div class="subtotal-value">
                                 <label class="d-flex justify-content-end">
                                     @Model.detallePedidoInfo.descuentoRetiro
@@ -227,9 +222,8 @@
                         </div>
                         <div>
                             <div class="subtotal-description">
-                                <label class="d-flex justify-content-md-end pe-md-5">Descuento Varios</label>
+                                <label class="d-flex justify-content-md-end pe-md-5">Descuento Varios ($)</label>
                             </div>
-                            <label class="pe-md-2 ps-md-5">$</label>
                             <div class="subtotal-value">
                                 <label class="d-flex justify-content-end">
                                     @Model.detallePedidoInfo.descuentoVarios
@@ -238,9 +232,8 @@
                         </div>
                         <div>
                             <div class="subtotal-description">
-                                <label class="d-flex justify-content-md-end pe-md-5">Descuento Peso</label>
+                                <label class="d-flex justify-content-md-end pe-md-5">Descuento Peso ($)</label>
                             </div>
-                            <label class="pe-md-2 ps-md-5">$</label>
                             <div class="subtotal-value">
                                 <label class="d-flex justify-content-end">
                                     @Model.detallePedidoInfo.descuentoPeso
@@ -250,9 +243,8 @@
 
                         <div>
                             <div class="subtotal-description">
-                                <label class="d-flex justify-content-md-end pe-md-5">Subtotal 2</label>
+                                <label class="d-flex justify-content-md-end pe-md-5">Subtotal 2 ($)</label>
                             </div>
-                            <label class="pe-md-2 ps-md-5">$</label>
                             <div class="subtotal-value">
                                 <label class="d-flex justify-content-end">
                                     @Model.detallePedidoInfo.subTotal2
@@ -261,9 +253,8 @@
                         </div>
                         <div>
                             <div class="subtotal-description">
-                                <label class="d-flex justify-content-md-end pe-md-5">IVA</label>
+                                <label class="d-flex justify-content-md-end pe-md-5">IVA ($)</label>
                             </div>
-                            <label class="pe-md-2 ps-md-5">$</label>
                             <div class="subtotal-value">
                                 <label class="d-flex justify-content-end">
                                     @Model.detallePedidoInfo.iva
@@ -272,9 +263,8 @@
                         </div>
                         <div>
                             <div class="subtotal-description">
-                                <label class="d-flex justify-content-md-end pe-md-5">Seguro de Transporte</label>
+                                <label class="d-flex justify-content-md-end pe-md-5">Seguro Transporte ($)</label>
                             </div>
-                            <label class="pe-md-2 ps-md-5">$</label>
                             <div class="subtotal-value">
                                 <label class="d-flex justify-content-end">
                                     @Model.detallePedidoInfo.seguroTransporte
@@ -283,9 +273,8 @@
                         </div>
                         <div>
                             <div class="subtotal-description mb-5">
-                                <label class="d-flex justify-content-md-end pe-md-5" style="font-size: 19px;">Valor Total</label>
+                                <label class="d-flex justify-content-md-end pe-md-5" style="font-size: 19px;">Valor Total ($)</label>
                             </div>
-                            <label class="pe-md-2 ps-md-5">$</label>
                             <div class="subtotal-value">
                                 <label class="d-flex justify-content-end">
                                     @Model.detallePedidoInfo.valorTotal
@@ -295,9 +284,8 @@
 
                         <div>
                             <div class="subtotal-description mb-3">
-                                <label class="d-flex justify-content-md-end pe-md-5">Valor N/C (Sin IVA)</label>
+                                <label class="d-flex justify-content-md-end pe-md-5">Valor N/C (Sin IVA) ($)</label>
                             </div>
-                            <label class="pe-md-2 ps-md-5">$</label>
                             <div class="subtotal-value">
                                 <label class="d-flex justify-content-end">
                                     @Model.detallePedidoInfo.valorNcsinIva
@@ -306,9 +294,8 @@
                         </div>
                         <div>
                             <div class="subtotal-description">
-                                <label class="d-flex justify-content-md-end pe-md-5">IDL%</label>
+                                <label class="d-flex justify-content-md-end pe-md-5">IDL (%)</label>
                             </div>
-                            <label class="pe-md-2 ps-md-5"></label>
                             <div class="subtotal-value">
                                 <label class="d-flex justify-content-end">
                                     @Model.detallePedidoInfo.margenPor

@@ -9942,23 +9942,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\LVW97Y655\\.nuget\\packages\\": {},
+    "C:\\Users\\sammyr.becerra\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\KRUGER\\Portal-MovilEsales\\Portal-MovilEsales.csproj",
+      "projectUniqueName": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\Portal-MovilEsales.csproj",
       "projectName": "Portal-MovilEsales",
-      "projectPath": "C:\\KRUGER\\Portal-MovilEsales\\Portal-MovilEsales.csproj",
-      "packagesPath": "C:\\Users\\LVW97Y655\\.nuget\\packages\\",
-      "outputPath": "C:\\KRUGER\\Portal-MovilEsales\\obj\\",
+      "projectPath": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\Portal-MovilEsales.csproj",
+      "packagesPath": "C:\\Users\\sammyr.becerra\\.nuget\\packages\\",
+      "outputPath": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\LVW97Y655\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sammyr.becerra\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -9968,7 +9968,6 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
-        "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -10019,7 +10018,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

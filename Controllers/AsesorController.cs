@@ -96,6 +96,7 @@ namespace Portal_MovilEsales.Controllers
 
             var nuevoPedido = new NuevoPedido();
             nuevoPedido.cargaCabeceraPedido = _asesorService.getCargaCabeceraPedido(token, codigoSAPCliente);
+
             List<ProductosNuevoPedido> productosSeleccionados = new List<ProductosNuevoPedido>();
             foreach (var item in respDetallePedido.detallePedido)
             {
@@ -293,7 +294,13 @@ namespace Portal_MovilEsales.Controllers
                 string? codigoTipoEntrega = null,
                 string? codigoTipoPago = null,
                 string? codigoSAPDireccionEntrega = null,
-                string? canal = null)
+                string? canal = null,
+                string? fechaEntrega = null,
+                string? numeroOrdenCompra = null,
+                string? lugarEntrega = null,
+                string? observaciones = null,
+                string? contactoEntrega = null,
+                string? urlArchivo = null)
         {
             var token = HttpContext.Session.GetString("token");
 
@@ -308,6 +315,12 @@ namespace Portal_MovilEsales.Controllers
                 CodigoTipoPago = codigoTipoPago,
                 CodigoSAPDireccionEntrega = codigoSAPDireccionEntrega,
                 Canal = canal,
+                FechaEntrega = fechaEntrega,
+                NumeroOrdenCompra = numeroOrdenCompra,
+                LugarEntrega = lugarEntrega,
+                Observaciones = observaciones,
+                ContactoEntrega = contactoEntrega,
+                ArchivoSoporte = urlArchivo,
                 detallePedido = listaProductos.Select((producto) => new
                 {
                     CodigoSAPArticulo = producto.codigo,
@@ -586,24 +599,30 @@ namespace Portal_MovilEsales.Controllers
         {
             var token = HttpContext.Session.GetString("token");
             var resp = _asesorService.getProductoCodigoSap(token, codigoArticulo, codigoSapCliente);
+
             List<ProductosNuevoPedido> listadoProductosNuevoPedido = JsonConvert.DeserializeObject<List<ProductosNuevoPedido>>(HttpContext.Session.GetString("SelectedProducts"));
             var numeroContador = JsonConvert.DeserializeObject<int>(HttpContext.Session.GetString("RowCounter"));
             var respCargaCabeceraPedido = _asesorService.getCargaCabeceraPedido(token, codigoSapCliente);
-            listadoProductosNuevoPedido.Add(new ProductosNuevoPedido
+
+            if (resp.success == true) 
             {
-                numeroRegistro = numeroContador.ToString(),
-                codigo = resp.result.codigoSAPArticulo,
-                descripcion = resp.result.nombre,
-                //listadoTipoEntregas = respCargaCabeceraPedido.listadoTipoEntrega,
-                listadoBodegas = respCargaCabeceraPedido.listadoBodegas,
-                unidad = resp.result.unidad,
-                peso = resp.result.peso.ToString(),
-                descFac = resp.result.descFactura.ToString(),
-                descNc = resp.result.descNC.ToString(),
-                idl = "",
-                subtotal = "",
-                cantidad = cantidadArticulo
-            });
+                listadoProductosNuevoPedido.Add(new ProductosNuevoPedido
+                {
+                    numeroRegistro = numeroContador.ToString(),
+                    codigo = resp.result.codigoSAPArticulo,
+                    descripcion = resp.result.nombre,
+                    //listadoTipoEntregas = respCargaCabeceraPedido.listadoTipoEntrega,
+                    listadoBodegas = respCargaCabeceraPedido.listadoBodegas,
+                    unidad = resp.result.unidad,
+                    peso = resp.result.peso.ToString(),
+                    descFac = resp.result.descFactura.ToString(),
+                    descNc = resp.result.descNC.ToString(),
+                    idl = "",
+                    subtotal = "",
+                    cantidad = cantidadArticulo
+                });
+            }
+
             var data = new
             {
                 listadoProductosNuevoPedido,
