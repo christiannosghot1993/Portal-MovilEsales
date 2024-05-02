@@ -307,7 +307,7 @@
                                         <input type="file" id="archivoSelector" name="file" class="form-control datepicker" />
                                     </div>
                                     <div class="col-12 col-md-2 mt-md-4 mt-2">
-                                        <button type="submit" class="orange-rounded-button ms-1" style="background-color:#01ADEF   !important;">Subir</button>
+                                        <button type="submit" class="orange-rounded-button ms-1" style="background-color:#01ADEF   !important;">Subir Chris</button>
                                     </div>
                                 </div>
                             </form>
@@ -589,7 +589,7 @@
         let codigoSapCliente = document.getElementById('codigo-sap').value;
         var formData = new FormData(); // Crear un objeto FormData para recopilar los datos del formulario
         formData.append('file', document.getElementById('archivoSelector').files[0]); // Agregar el archivo seleccionado al FormData
-
+        formData.append('codigoSapCliente', codigoSapCliente);
         // Realizar la solicitud AJAX
         fetch(url, {
             method: 'POST',

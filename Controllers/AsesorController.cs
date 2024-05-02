@@ -904,7 +904,7 @@ namespace Portal_MovilEsales.Controllers
         }
 
         [HttpPost]
-        public IActionResult SubirExcelProductos(IFormFile file)
+        public IActionResult SubirExcelProductos(IFormFile file, string codigoSapCliente)
         {
             var token = HttpContext.Session.GetString("token");
             List<ProductosNuevoPedido> listadoProductosNuevoPedido = JsonConvert.DeserializeObject<List<ProductosNuevoPedido>>(HttpContext.Session.GetString("SelectedProducts"));
@@ -951,7 +951,7 @@ namespace Portal_MovilEsales.Controllers
                         {
                             detallePedido = listProd
                         });
-                        var respCargaCabeceraPedido = _asesorService.getCargaCabeceraPedido(token, "0000090208");
+                        var respCargaCabeceraPedido = _asesorService.getCargaCabeceraPedido(token, codigoSapCliente);
 
                         foreach (var item in resp.result)
                         {
