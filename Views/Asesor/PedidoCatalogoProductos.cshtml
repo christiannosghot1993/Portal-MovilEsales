@@ -501,8 +501,30 @@
                 <div class="collapse show mb-4" id="collapseInfoPedidoSecond">
                     <div class="row">
                         <div class="col-12 col-md-6">
+                            @{
+                                // Obtener la fecha actual
+                                DateTime fechaActual = DateTime.Today;
+
+                                // Contador de días laborables
+                                int diasLaborables = 0;
+
+                                // Calcular la fecha de inicio para buscar 5 días laborables
+                                DateTime fechaInicio = fechaActual;
+
+                                while (diasLaborables < 5)
+                                {
+                                    // Avanzar un día
+                                    fechaInicio = fechaInicio.AddDays(1);
+
+                                    // Si no es sábado ni domingo, incrementa el contador de días laborables
+                                    if (fechaInicio.DayOfWeek != DayOfWeek.Saturday && fechaInicio.DayOfWeek != DayOfWeek.Sunday)
+                                    {
+                                        diasLaborables++;
+                                    }
+                                }
+                            }
                             <label for="startDate" class="label-datepicker">Fecha de Entrega</label>
-                            <input id="startDate" class="form-control  datepicker" type="date"
+                            <input id="startDate" class="form-control  datepicker" type="date" min="@fechaInicio.ToString("yyyy-MM-dd")"
                                    value="@((!string.IsNullOrEmpty(Model.informacionEntrega.fechaEntrega)) ? DateTime.Parse(Model.informacionEntrega.fechaEntrega).ToString("yyyy-MM-dd") : null)" />
                             <span id="startDateSelected"></span>
                         </div>

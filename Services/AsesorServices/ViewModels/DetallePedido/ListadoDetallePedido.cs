@@ -27,5 +27,7 @@
         public string precioFinal { get; set; }
 
         public string subtotal2 { get; set; }
+
+        public string BodegaProdSel { get; set; }
     }
 }

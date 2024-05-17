@@ -1,4 +1,5 @@
 ﻿using ClosedXML.Excel;
+using Irony.Parsing;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -7,6 +8,7 @@ using Portal_MovilEsales.Services.AsesorServices.ViewModels;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.DatosCliente;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.EstadoCuenta;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.NuevoPedido;
+using Portal_MovilEsales.Services.AsesorServices.ViewModels.PedidoHistorico;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.PoliticaComercial;
 using Portal_MovilEsales.Services.AsesorServices.ViewModels.ProductoExcel;
 
@@ -117,6 +119,8 @@ namespace Portal_MovilEsales.Controllers
                     cantidad = item.cantidad,
                     aFinMes = false,
                     aFamilia = false,
+                    BodegaProductoSel = item.BodegaProdSel,
+                    //BodegaProductoSel = item.BodegaProdSel,
                 };
                 productosSeleccionados.Add(prod);
             }
@@ -143,7 +147,7 @@ namespace Portal_MovilEsales.Controllers
             nuevoPedido.informacionEntrega = new InformacionEntrega
             {
                 fechaEntrega = respDetallePedido.fechaEntrega,
-                numeroOrden = respDetallePedido.numeroOrden,
+                numeroOrden = respDetallePedido.ordenCompra,
                 direccionEntrega = respDetallePedido.direccionEntrega,
                 observacion = respDetallePedido.observacion,
                 contacto = respDetallePedido.contacto,
@@ -252,6 +256,7 @@ namespace Portal_MovilEsales.Controllers
 
                     //listadoTipoEntregas = respCargaCabeceraPedido.listadoTipoEntrega
                     listadoBodegas = respCargaCabeceraPedido.listadoBodegas,
+                    BodegaProductoSel = producto.BodegaProdSel,
                 };
                 contNumProd++;
                 productosNuevoPedido.Add(productoPorAgregar);
@@ -273,6 +278,7 @@ namespace Portal_MovilEsales.Controllers
                 valorNcsinIva = respSimulacionPedido.valorNcsinIva,
                 valorTotal = respSimulacionPedido.valorTotal,
                 margenVal = respSimulacionPedido.margenVal,
+                totalPeso = respSimulacionPedido.totalPeso,
                 MensajeServicio = respSimulacionPedido.MensajeServicio
             };
 
@@ -327,7 +333,8 @@ namespace Portal_MovilEsales.Controllers
                     Cantidad = producto.cantidad,
                     Unidad = producto.unidad,
                     //Bodega = producto.listadoTipoEntregas.Find(te => te.porDefecto is "S").codigoTipoEntrega,
-                    Bodega = producto.listadoBodegas.Find(bo => bo.porDefecto is "S").codigoBodega,
+                    //Bodega = producto.listadoBodegas.Find(bo => bo.porDefecto is "S").codigoBodega,
+                    Bodega = producto.BodegaProductoSel == null ? producto.listadoBodegas.Find(bo => bo.porDefecto is "S").codigoBodega : producto.BodegaProductoSel,
                     DescFactura = Convert.ToDouble(producto.descFac),
                     DescNotaCredito = Convert.ToDouble(producto.descNc)
                 })
@@ -415,7 +422,8 @@ namespace Portal_MovilEsales.Controllers
                     Cantidad = producto.cantidad,
                     Unidad = producto.unidad,
                     //Bodega = producto.listadoTipoEntregas.Find(te => te.porDefecto is "S").codigoTipoEntrega,
-                    Bodega = producto.listadoBodegas.Find(bo => bo.porDefecto is "S").codigoBodega,
+                    //Bodega = producto.listadoBodegas.Find(bo => bo.porDefecto is "S").codigoBodega,
+                    Bodega = producto.BodegaProductoSel == null ? producto.listadoBodegas.Find(bo => bo.porDefecto is "S").codigoBodega : producto.BodegaProductoSel,
                     DescFactura = Convert.ToDouble(producto.descFac),
                     DescNotaCredito = Convert.ToDouble(producto.descNc),
                     AplicaFamilia = producto.aFamilia,
@@ -461,6 +469,11 @@ namespace Portal_MovilEsales.Controllers
             var listProductosSeleccionados = JsonConvert.DeserializeObject<List<ProductosNuevoPedido>>(HttpContext.Session.GetString("SelectedProducts"));
 
             var productoPorActualizar = listProductosSeleccionados.FirstOrDefault(p => p.codigo == codigoSAPArticulo && p.numeroRegistro == numeroRegistro);
+
+            if (productoPorActualizar == null)
+            {
+                productoPorActualizar = listProductosSeleccionados.FirstOrDefault(p => p.codigo == codigoSAPArticulo);
+            }
 
             var respCargaCabeceraPedido = _asesorService.getCargaCabeceraPedido(token, codigoSAPCliente);
 
@@ -815,10 +828,55 @@ namespace Portal_MovilEsales.Controllers
             }
         }
 
+        public IActionResult DescargarPedidoHitorico()
+        {
+            var listadoPedido = HttpContext.Session.GetString("ListadoPedidoHistorico");
+            // Deserializar el JSON en una lista de objetos o DataTable
+            List<ListadoPedido> data = JsonConvert.DeserializeObject<List<ListadoPedido>>(listadoPedido);
+
+            // Crear un nuevo libro de Excel
+            using (var workbook = new XLWorkbook())
+            {
+                // Agregar una hoja al libro
+                var worksheet = workbook.Worksheets.Add("Pedidos");
+
+                // Agregar encabezados
+                var headers = worksheet.Row(1);
+                headers.Cell(1).Value = "NOMBRE CLIENTE";
+                headers.Cell(2).Value = "FECHA";
+                headers.Cell(3).Value = "OBS";
+                headers.Cell(4).Value = "ORDEN ESALES";
+                headers.Cell(5).Value = "ORDEN SAP";
+                headers.Cell(6).Value = "COMPRA KG";
+                headers.Cell(7).Value = "COMPRA VALOR";
+                headers.Cell(8).Value = "VALOR NC SIN IVA";
+                headers.Cell(9).Value = "APROBADOR ACTUAL";
+                headers.Cell(10).Value = "ESTADO";
+                // Agregar más encabezados según sea necesario
+
+                // Escribir los datos debajo de los encabezados
+                worksheet.Cell(2, 1).InsertData(data);
+
+                // Ajustar el tamaño de las columnas al contenido
+                worksheet.Columns().AdjustToContents();
+
+                // Guardar el libro en un MemoryStream
+                using (var stream = new System.IO.MemoryStream())
+                {
+                    workbook.SaveAs(stream);
+                    var content = stream.ToArray();
+
+                    // Devolver el archivo de Excel como una descarga al cliente
+                    return File(content, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "ListadoPedidos.xlsx");
+                }
+            }
+        }
+
         public IActionResult FillPedidosHistoricos()
         {
             var token = HttpContext.Session.GetString("token");
             var listadoPedidosBPH = _asesorService.getListadoPedidosBPH(token, "", DateTime.Parse("2020-01-31"), DateTime.Parse("2024-02-28"), "");
+            HttpContext.Session.SetString("ListadoPedidoHistorico", JsonConvert.SerializeObject(listadoPedidosBPH.result));
             return PartialView("_TablePedidosHistoricos", listadoPedidosBPH);
         }
 
@@ -830,6 +888,7 @@ namespace Portal_MovilEsales.Controllers
             {
                 listadoPedidosBPH.result = new List<InfoPedidoBPH>();
             }
+            HttpContext.Session.SetString("ListadoPedidoHistorico", JsonConvert.SerializeObject(listadoPedidosBPH.result));
             return PartialView("_TablePedidosHistoricos", listadoPedidosBPH);
         }
 

@@ -29,5 +29,8 @@
         public string subtotal2 { get; set; }
 
         public string margenPor { get; set; }
+
+        //para agregar el campo de la bodega seleccionada mayo 2024
+        public string BodegaProdSel { get; set; }
     }
 }

@@ -30,6 +30,8 @@
 
         public string margenVal { get; set; }
 
+        public string totalPeso { get; set; }
+
         public string MensajeServicio { get; set; }
 
         //public ProcesoRespuesta.ProcesoRespuesta procesoRespuesta { get; set; } = new();

@@ -3,7 +3,7 @@
     public class ListadoFacturas
     {
         public string numeroFactura { get; set; }
-        public double monto { get; set; }
+        public string monto { get; set; }
         public DateTime fechaVencimiento { get; set; }
         public int diasMora { get; set; }
     }

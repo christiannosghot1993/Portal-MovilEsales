@@ -138,20 +138,9 @@
                             <td>
                                 <div class="form-group">
                                     <select class="form-control datepicker" id=@idCbEntrega onchange=@funcionOnChange>
-                                        @*@foreach (var tipoEntrega in item.listadoTipoEntregas)
-                                        {
-                                            @if (tipoEntrega.porDefecto is "S")
-                                            {
-                                                <option value=@tipoEntrega.codigoTipoEntrega selected>@tipoEntrega.descripcionTipoEntrega</option>
-                                            }
-                                            else
-                                            {
-                                                <option value=@tipoEntrega.codigoTipoEntrega>@tipoEntrega.descripcionTipoEntrega</option>
-                                            }
-                                        }*@
                                         @foreach (var tipoBodega in item.listadoBodegas)
                                         {
-                                            @if (tipoBodega.porDefecto is "S")
+                                            @if (tipoBodega.codigoBodega == @item.BodegaProductoSel)
                                             {
                                                 <option value=@tipoBodega.codigoBodega selected>@tipoBodega.descripcionBodega</option>
                                             }
@@ -160,8 +149,11 @@
                                                 <option value=@tipoBodega.codigoBodega>@tipoBodega.descripcionBodega</option>
                                             }
                                         }
-
                                     </select>
+                                    @if (Context.Session.GetString("codPais") != "1")
+                                    {
+                                        <label class="d-flex justify-content-center">@item.BodegaProductoSel</label>
+                                    }
                                 </div>
                             </td>
                             <td>
@@ -299,6 +291,16 @@
 
             <div class="d-flex justify-content-center justify-content-md-end">
                 <div class="subtotales-container">
+                    <div>
+                        <div class="subtotal-description">
+                            <label class="d-flex justify-content-md-end pe-md-5">Peso Total (Kg)</label>
+                        </div>
+                        <div class="subtotal-value">
+                            <label class="d-flex justify-content-end">
+                                @Model.resumenDetalleProductos.totalPeso
+                            </label>
+                        </div>
+                    </div>
                     <div>
                         <div class="subtotal-description">
                             <label class="d-flex justify-content-md-end pe-md-5">Importe Bruto ($)</label>
