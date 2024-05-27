@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "IxXqMgNRfDyT/ftwobufYTeHAjGiR0Lp1eQI043pPiA=",
+  "Hash": "tumRnRdaSHNcTLRZ4Sy7Nta0iHr/U0xpLwJKzr/qI7I=",
   "Source": "Portal-MovilEsales",
   "BasePath": "_content/Portal-MovilEsales",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "Portal-MovilEsales\\wwwroot",
       "Source": "Portal-MovilEsales",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\obj\\Debug\\net7.0\\scopedcss\\bundle\\Portal-MovilEsales.styles.css",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\obj\\Debug\\net7.0\\scopedcss\\bundle\\Portal-MovilEsales.styles.css",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "Portal-MovilEsales.styles.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\obj\\Debug\\net7.0\\scopedcss\\bundle\\Portal-MovilEsales.styles.css"
+      "OriginalItemSpec": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\obj\\Debug\\net7.0\\scopedcss\\bundle\\Portal-MovilEsales.styles.css"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\Portal-MovilEsales.bundle.scp.css",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\Portal-MovilEsales.bundle.scp.css",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "Portal-MovilEsales.bundle.scp.css",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\Portal-MovilEsales.bundle.scp.css"
+      "OriginalItemSpec": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\Portal-MovilEsales.bundle.scp.css"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\assets\\archivos\\001-001-000184646.xml",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\assets\\archivos\\001-001-000184646.xml",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "assets/archivos/001-001-000184646.xml",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\archivos\\001-001-000184646.xml"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\assets\\archivos\\03042024_080253_RE.txt",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\assets\\archivos\\03042024_080253_RE.txt",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "assets/archivos/03042024_080253_RE.txt",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\archivos\\03042024_080253_RE.txt"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\assets\\archivos\\Flujo de aprobaciones descuento calculado.pptx",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\assets\\archivos\\Flujo de aprobaciones descuento calculado.pptx",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "assets/archivos/Flujo de aprobaciones descuento calculado.pptx",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\archivos\\Flujo de aprobaciones descuento calculado.pptx"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\assets\\archivos\\Formato Carga Aticulos E-Sales - Col.xlsx",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\assets\\archivos\\Formato Carga Aticulos E-Sales - Col.xlsx",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "assets/archivos/Formato Carga Aticulos E-Sales - Col.xlsx",
       "AssetKind": "All",
@@ -131,10 +131,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\archivos\\Formato Carga Aticulos E-Sales - Col.xlsx"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\assets\\archivos\\Formato Carga Aticulos E-Sales.xlsx",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\assets\\archivos\\Formato Carga Aticulos E-Sales.xlsx",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "assets/archivos/Formato Carga Aticulos E-Sales.xlsx",
       "AssetKind": "All",
@@ -150,10 +150,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\archivos\\Formato Carga Aticulos E-Sales.xlsx"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\._BekaertHeadline-Bold.woff2",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\._BekaertHeadline-Bold.woff2",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "assets/fonts/._BekaertHeadline-Bold.woff2",
       "AssetKind": "All",
@@ -169,10 +169,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\fonts\\._BekaertHeadline-Bold.woff2"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\._BekaertHeadline-Regular.woff2",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\._BekaertHeadline-Regular.woff2",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "assets/fonts/._BekaertHeadline-Regular.woff2",
       "AssetKind": "All",
@@ -188,10 +188,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\fonts\\._BekaertHeadline-Regular.woff2"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\._BekaertText-BoldItalic.woff2",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\._BekaertText-BoldItalic.woff2",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "assets/fonts/._BekaertText-BoldItalic.woff2",
       "AssetKind": "All",
@@ -207,10 +207,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\fonts\\._BekaertText-BoldItalic.woff2"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\._BekaertText-Medium.woff2",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\._BekaertText-Medium.woff2",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "assets/fonts/._BekaertText-Medium.woff2",
       "AssetKind": "All",
@@ -226,10 +226,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\fonts\\._BekaertText-Medium.woff2"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\._BekaertText-Regular.woff2",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\._BekaertText-Regular.woff2",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "assets/fonts/._BekaertText-Regular.woff2",
       "AssetKind": "All",
@@ -245,10 +245,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\fonts\\._BekaertText-Regular.woff2"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertHeadline-Bold.woff",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertHeadline-Bold.woff",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "assets/fonts/BekaertHeadline-Bold.woff",
       "AssetKind": "All",
@@ -264,10 +264,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\fonts\\BekaertHeadline-Bold.woff"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertHeadline-Regular.woff",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertHeadline-Regular.woff",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "assets/fonts/BekaertHeadline-Regular.woff",
       "AssetKind": "All",
@@ -283,10 +283,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\fonts\\BekaertHeadline-Regular.woff"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertText-Bold.woff",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertText-Bold.woff",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "assets/fonts/BekaertText-Bold.woff",
       "AssetKind": "All",
@@ -302,10 +302,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\fonts\\BekaertText-Bold.woff"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertText-BoldItalic.woff",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertText-BoldItalic.woff",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "assets/fonts/BekaertText-BoldItalic.woff",
       "AssetKind": "All",
@@ -321,10 +321,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\fonts\\BekaertText-BoldItalic.woff"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertText-Italic.woff",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertText-Italic.woff",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "assets/fonts/BekaertText-Italic.woff",
       "AssetKind": "All",
@@ -340,10 +340,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\fonts\\BekaertText-Italic.woff"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertText-Medium.woff",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertText-Medium.woff",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "assets/fonts/BekaertText-Medium.woff",
       "AssetKind": "All",
@@ -359,10 +359,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\fonts\\BekaertText-Medium.woff"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertText-MediumItalic.woff",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertText-MediumItalic.woff",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "assets/fonts/BekaertText-MediumItalic.woff",
       "AssetKind": "All",
@@ -378,10 +378,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\fonts\\BekaertText-MediumItalic.woff"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertText-Regular.woff",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\assets\\fonts\\BekaertText-Regular.woff",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "assets/fonts/BekaertText-Regular.woff",
       "AssetKind": "All",
@@ -397,10 +397,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\fonts\\BekaertText-Regular.woff"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\assets\\images\\image 1.png",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\assets\\images\\image 1.png",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "assets/images/image 1.png",
       "AssetKind": "All",
@@ -416,10 +416,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\image 1.png"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\assets\\images\\image 2.png",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\assets\\images\\image 2.png",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "assets/images/image 2.png",
       "AssetKind": "All",
@@ -435,10 +435,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\image 2.png"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\assets\\images\\image 3.png",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\assets\\images\\image 3.png",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "assets/images/image 3.png",
       "AssetKind": "All",
@@ -454,10 +454,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\image 3.png"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\assets\\images\\image 4.png",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\assets\\images\\image 4.png",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "assets/images/image 4.png",
       "AssetKind": "All",
@@ -473,10 +473,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\image 4.png"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\assets\\images\\image 5.png",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\assets\\images\\image 5.png",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "assets/images/image 5.png",
       "AssetKind": "All",
@@ -492,10 +492,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\image 5.png"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\assets\\images\\login-bg.png",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\assets\\images\\login-bg.png",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "assets/images/login-bg.png",
       "AssetKind": "All",
@@ -511,10 +511,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\login-bg.png"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\assets\\images\\Rectangle.png",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\assets\\images\\Rectangle.png",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "assets/images/Rectangle.png",
       "AssetKind": "All",
@@ -530,10 +530,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\Rectangle.png"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\assets\\templates\\email-template-aprobador.html",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\assets\\templates\\email-template-aprobador.html",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "assets/templates/email-template-aprobador.html",
       "AssetKind": "All",
@@ -549,10 +549,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\templates\\email-template-aprobador.html"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\assets\\templates\\email-template-asesor.html",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\assets\\templates\\email-template-asesor.html",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "assets/templates/email-template-asesor.html",
       "AssetKind": "All",
@@ -568,10 +568,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\templates\\email-template-asesor.html"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\assets\\templates\\email-template-cliente.html",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\assets\\templates\\email-template-cliente.html",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "assets/templates/email-template-cliente.html",
       "AssetKind": "All",
@@ -587,10 +587,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\templates\\email-template-cliente.html"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\css\\CambioContrasenaEmail.css",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\css\\CambioContrasenaEmail.css",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "css/CambioContrasenaEmail.css",
       "AssetKind": "All",
@@ -606,10 +606,10 @@
       "OriginalItemSpec": "wwwroot\\css\\CambioContrasenaEmail.css"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\css\\Collapsible.css",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\css\\Collapsible.css",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "css/Collapsible.css",
       "AssetKind": "All",
@@ -625,10 +625,10 @@
       "OriginalItemSpec": "wwwroot\\css\\Collapsible.css"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\css\\layout.css",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\css\\layout.css",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "css/layout.css",
       "AssetKind": "All",
@@ -644,10 +644,10 @@
       "OriginalItemSpec": "wwwroot\\css\\layout.css"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\css\\layoutB.css",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\css\\layoutB.css",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "css/layoutB.css",
       "AssetKind": "All",
@@ -663,10 +663,10 @@
       "OriginalItemSpec": "wwwroot\\css\\layoutB.css"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\css\\login.css",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\css\\login.css",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "css/login.css",
       "AssetKind": "All",
@@ -682,10 +682,10 @@
       "OriginalItemSpec": "wwwroot\\css\\login.css"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\css\\site.css",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\css\\site.css",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -701,10 +701,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\favicon.ico",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\favicon.ico",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -720,10 +720,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\js\\site.js",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\js\\site.js",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "js/site.js",
       "AssetKind": "All",
@@ -739,10 +739,10 @@
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css",
       "AssetKind": "All",
@@ -758,10 +758,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css.map",
       "AssetKind": "All",
@@ -777,10 +777,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css",
       "AssetKind": "All",
@@ -796,10 +796,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -815,10 +815,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css",
       "AssetKind": "All",
@@ -834,10 +834,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css.map",
       "AssetKind": "All",
@@ -853,10 +853,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css",
       "AssetKind": "All",
@@ -872,10 +872,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
       "AssetKind": "All",
@@ -891,10 +891,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css",
       "AssetKind": "All",
@@ -910,10 +910,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css.map",
       "AssetKind": "All",
@@ -929,10 +929,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css",
       "AssetKind": "All",
@@ -948,10 +948,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
       "AssetKind": "All",
@@ -967,10 +967,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
       "AssetKind": "All",
@@ -986,10 +986,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
       "AssetKind": "All",
@@ -1005,10 +1005,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
       "AssetKind": "All",
@@ -1024,10 +1024,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
       "AssetKind": "All",
@@ -1043,10 +1043,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css",
       "AssetKind": "All",
@@ -1062,10 +1062,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css.map",
       "AssetKind": "All",
@@ -1081,10 +1081,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css",
       "AssetKind": "All",
@@ -1100,10 +1100,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
       "AssetKind": "All",
@@ -1119,10 +1119,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
       "AssetKind": "All",
@@ -1138,10 +1138,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
       "AssetKind": "All",
@@ -1157,10 +1157,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
       "AssetKind": "All",
@@ -1176,10 +1176,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
       "AssetKind": "All",
@@ -1195,10 +1195,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css",
       "AssetKind": "All",
@@ -1214,10 +1214,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css.map",
       "AssetKind": "All",
@@ -1233,10 +1233,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css",
       "AssetKind": "All",
@@ -1252,10 +1252,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
       "AssetKind": "All",
@@ -1271,10 +1271,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
       "AssetKind": "All",
@@ -1290,10 +1290,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
       "AssetKind": "All",
@@ -1309,10 +1309,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
       "AssetKind": "All",
@@ -1328,10 +1328,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
       "AssetKind": "All",
@@ -1347,10 +1347,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js",
       "AssetKind": "All",
@@ -1366,10 +1366,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js.map",
       "AssetKind": "All",
@@ -1385,10 +1385,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js",
       "AssetKind": "All",
@@ -1404,10 +1404,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
       "AssetKind": "All",
@@ -1423,10 +1423,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js",
       "AssetKind": "All",
@@ -1442,10 +1442,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js.map",
       "AssetKind": "All",
@@ -1461,10 +1461,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js",
       "AssetKind": "All",
@@ -1480,10 +1480,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
       "AssetKind": "All",
@@ -1499,10 +1499,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js",
       "AssetKind": "All",
@@ -1518,10 +1518,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js.map",
       "AssetKind": "All",
@@ -1537,10 +1537,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js",
       "AssetKind": "All",
@@ -1556,10 +1556,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js.map",
       "AssetKind": "All",
@@ -1575,10 +1575,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\bootstrap\\LICENSE",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/bootstrap/LICENSE",
       "AssetKind": "All",
@@ -1594,10 +1594,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/jquery/dist/jquery.js",
       "AssetKind": "All",
@@ -1613,10 +1613,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/jquery/dist/jquery.min.js",
       "AssetKind": "All",
@@ -1632,10 +1632,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/jquery/dist/jquery.min.map",
       "AssetKind": "All",
@@ -1651,10 +1651,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/jquery/LICENSE.txt",
       "AssetKind": "All",
@@ -1670,10 +1670,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.js",
       "AssetKind": "All",
@@ -1689,10 +1689,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.min.js",
       "AssetKind": "All",
@@ -1708,10 +1708,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.js",
       "AssetKind": "All",
@@ -1727,10 +1727,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.min.js",
       "AssetKind": "All",
@@ -1746,10 +1746,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/jquery-validation/LICENSE.md",
       "AssetKind": "All",
@@ -1765,10 +1765,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
       "AssetKind": "All",
@@ -1784,10 +1784,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
       "AssetKind": "All",
@@ -1803,10 +1803,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Identity": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Identity": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "SourceId": "Portal-MovilEsales",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\wwwroot\\",
+      "ContentRoot": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\wwwroot\\",
       "BasePath": "_content/Portal-MovilEsales",
       "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE.txt",
       "AssetKind": "All",

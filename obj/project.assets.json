@@ -9942,32 +9942,34 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\sammyr.becerra\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\santy\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\Portal-MovilEsales.csproj",
+      "projectUniqueName": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\Portal-MovilEsales.csproj",
       "projectName": "Portal-MovilEsales",
-      "projectPath": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\Portal-MovilEsales.csproj",
-      "packagesPath": "C:\\Users\\sammyr.becerra\\.nuget\\packages\\",
-      "outputPath": "C:\\DevOps\\E-SalesNewVersion\\WEB\\Portal-MovilEsales\\obj\\",
+      "projectPath": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\Portal-MovilEsales.csproj",
+      "packagesPath": "C:\\Users\\santy\\.nuget\\packages\\",
+      "outputPath": "D:\\santy\\KRUGER\\CLIENTES\\New folder\\Portal-MovilEsales\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\sammyr.becerra\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\santy\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -9980,6 +9982,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -10018,7 +10025,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
       }
     }
   }

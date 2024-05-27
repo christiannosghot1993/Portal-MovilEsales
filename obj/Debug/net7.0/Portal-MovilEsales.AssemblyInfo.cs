@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Portal-MovilEsales")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1575823a68fd611f26a98075e7111ae91fb60bb7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a2e41e657208cc561831cad84768d2b74c4870f6")]
 [assembly: System.Reflection.AssemblyProductAttribute("Portal-MovilEsales")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Portal-MovilEsales")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

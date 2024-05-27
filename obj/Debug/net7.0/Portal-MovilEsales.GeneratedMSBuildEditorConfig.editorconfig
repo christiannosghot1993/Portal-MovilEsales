@@ -9,263 +9,263 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Portal_MovilEsales
 build_property.RootNamespace = Portal_MovilEsales
-build_property.ProjectDir = C:\DevOps\E-SalesNewVersion\WEB\Portal-MovilEsales\
+build_property.ProjectDir = D:\santy\KRUGER\CLIENTES\New folder\Portal-MovilEsales\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\DevOps\E-SalesNewVersion\WEB\Portal-MovilEsales
+build_property.MSBuildProjectDirectory = D:\santy\KRUGER\CLIENTES\New folder\Portal-MovilEsales
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Administrador/DatosComplementariosReclamo.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Administrador/DatosComplementariosReclamo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxEYXRvc0NvbXBsZW1lbnRhcmlvc1JlY2xhbW8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Administrador/DetalleReclamo.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Administrador/DetalleReclamo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxEZXRhbGxlUmVjbGFtby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Administrador/Index.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Administrador/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Administrador/NuevaAccion.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Administrador/NuevaAccion.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxOdWV2YUFjY2lvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Administrador/Reclamo.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Administrador/Reclamo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxSZWNsYW1vLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Administrador/ReclamoIndividual.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Administrador/ReclamoIndividual.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxSZWNsYW1vSW5kaXZpZHVhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Administrador/_DatosComplementariosReclamo.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Administrador/_DatosComplementariosReclamo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxfRGF0b3NDb21wbGVtZW50YXJpb3NSZWNsYW1vLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Aprobador/Index.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Aprobador/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXByb2JhZG9yXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Aprobador/ReportePedidos.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Aprobador/ReportePedidos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXByb2JhZG9yXFJlcG9ydGVQZWRpZG9zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Aprobador/_ModalDetallePedidoPendiente.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Aprobador/_ModalDetallePedidoPendiente.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXByb2JhZG9yXF9Nb2RhbERldGFsbGVQZWRpZG9QZW5kaWVudGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Aprobador/_ModalDetallePedidoReporte.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Aprobador/_ModalDetallePedidoReporte.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXByb2JhZG9yXF9Nb2RhbERldGFsbGVQZWRpZG9SZXBvcnRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Aprobador/_TablePedidosReporte.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Aprobador/_TablePedidosReporte.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXByb2JhZG9yXF9UYWJsZVBlZGlkb3NSZXBvcnRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Asesor/Clientes.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Asesor/Clientes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXENsaWVudGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Asesor/EstadoCuentaAsesor.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Asesor/EstadoCuentaAsesor.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXEVzdGFkb0N1ZW50YUFzZXNvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Asesor/Index.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Asesor/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Asesor/InformacionCliente.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Asesor/InformacionCliente.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXEluZm9ybWFjaW9uQ2xpZW50ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Asesor/PedidoCatalogoProductos.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Asesor/PedidoCatalogoProductos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXFBlZGlkb0NhdGFsb2dvUHJvZHVjdG9zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Asesor/PedidoProductosSeleccionados.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Asesor/PedidoProductosSeleccionados.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXFBlZGlkb1Byb2R1Y3Rvc1NlbGVjY2lvbmFkb3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Asesor/PedidoProductosSeleccionadosV2.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Asesor/PedidoProductosSeleccionadosV2.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXFBlZGlkb1Byb2R1Y3Rvc1NlbGVjY2lvbmFkb3NWMi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Asesor/Pedidos.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Asesor/Pedidos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXFBlZGlkb3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Asesor/PoliticaComercial.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Asesor/PoliticaComercial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXFBvbGl0aWNhQ29tZXJjaWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Asesor/_DetalleNuevoPedidoPorFamilia.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Asesor/_DetalleNuevoPedidoPorFamilia.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXF9EZXRhbGxlTnVldm9QZWRpZG9Qb3JGYW1pbGlhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Asesor/_FormCabeceraNuevoPedido.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Asesor/_FormCabeceraNuevoPedido.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXF9Gb3JtQ2FiZWNlcmFOdWV2b1BlZGlkby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Asesor/_ModalDetallePedidoAprobado.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Asesor/_ModalDetallePedidoAprobado.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXF9Nb2RhbERldGFsbGVQZWRpZG9BcHJvYmFkby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Asesor/_ModalDetallePedidoEntregado.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Asesor/_ModalDetallePedidoEntregado.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXF9Nb2RhbERldGFsbGVQZWRpZG9FbnRyZWdhZG8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Asesor/_ModalInformacionCrediticia.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Asesor/_ModalInformacionCrediticia.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXF9Nb2RhbEluZm9ybWFjaW9uQ3JlZGl0aWNpYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Asesor/_ModalPedidoAprobado.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Asesor/_ModalPedidoAprobado.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXF9Nb2RhbFBlZGlkb0Fwcm9iYWRvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Asesor/_TablePedidosActivos.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Asesor/_TablePedidosActivos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXF9UYWJsZVBlZGlkb3NBY3Rpdm9zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Asesor/_TablePedidosBorrador.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Asesor/_TablePedidosBorrador.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXF9UYWJsZVBlZGlkb3NCb3JyYWRvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Asesor/_TablePedidosHistoricos.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Asesor/_TablePedidosHistoricos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXF9UYWJsZVBlZGlkb3NIaXN0b3JpY29zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Asesor/_TableProductosSeleccionadosPedido.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Asesor/_TableProductosSeleccionadosPedido.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXF9UYWJsZVByb2R1Y3Rvc1NlbGVjY2lvbmFkb3NQZWRpZG8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Asesor/_TableStocks.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Asesor/_TableStocks.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNlc29yXF9UYWJsZVN0b2Nrcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Cliente/EstadoCuentaCliente.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Cliente/EstadoCuentaCliente.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxFc3RhZG9DdWVudGFDbGllbnRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Cliente/Index.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Cliente/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Cliente/InicioReclamo.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Cliente/InicioReclamo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxJbmljaW9SZWNsYW1vLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Cliente/NuevoPedido.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Cliente/NuevoPedido.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxOdWV2b1BlZGlkby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Cliente/NuevoReclamo.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Cliente/NuevoReclamo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxOdWV2b1JlY2xhbW8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Cliente/PedidosCliente.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Cliente/PedidosCliente.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxQZWRpZG9zQ2xpZW50ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Cliente/ReclamoEnProgreso.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Cliente/ReclamoEnProgreso.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxSZWNsYW1vRW5Qcm9ncmVzby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Cliente/_DetalleNuevoPedidoPorFamiliaCliente.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Cliente/_DetalleNuevoPedidoPorFamiliaCliente.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxfRGV0YWxsZU51ZXZvUGVkaWRvUG9yRmFtaWxpYUNsaWVudGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Cliente/_FormCabeceraNuevoPedidoCliente.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Cliente/_FormCabeceraNuevoPedidoCliente.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxfRm9ybUNhYmVjZXJhTnVldm9QZWRpZG9DbGllbnRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Cliente/_ModalDetallePedidoAprobadoCliente.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Cliente/_ModalDetallePedidoAprobadoCliente.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxfTW9kYWxEZXRhbGxlUGVkaWRvQXByb2JhZG9DbGllbnRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Cliente/_ModalDetallePedidoEntregadoCliente.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Cliente/_ModalDetallePedidoEntregadoCliente.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxfTW9kYWxEZXRhbGxlUGVkaWRvRW50cmVnYWRvQ2xpZW50ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Cliente/_ModalInformacionCrediticiaCliente.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Cliente/_ModalInformacionCrediticiaCliente.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxfTW9kYWxJbmZvcm1hY2lvbkNyZWRpdGljaWFDbGllbnRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Cliente/_ModalPedidoAprobadoCliente.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Cliente/_ModalPedidoAprobadoCliente.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxfTW9kYWxQZWRpZG9BcHJvYmFkb0NsaWVudGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Cliente/_TablaReclamoPrincipal.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Cliente/_TablaReclamoPrincipal.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxfVGFibGFSZWNsYW1vUHJpbmNpcGFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Cliente/_TablePedidosActivosCliente.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Cliente/_TablePedidosActivosCliente.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxfVGFibGVQZWRpZG9zQWN0aXZvc0NsaWVudGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Cliente/_TablePedidosBorradorCliente.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Cliente/_TablePedidosBorradorCliente.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxfVGFibGVQZWRpZG9zQm9ycmFkb3JDbGllbnRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Cliente/_TablePedidosHistoricosCliente.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Cliente/_TablePedidosHistoricosCliente.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxfVGFibGVQZWRpZG9zSGlzdG9yaWNvc0NsaWVudGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Cliente/_TableProductosSeleccionadosPedidoCliente.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Cliente/_TableProductosSeleccionadosPedidoCliente.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxfVGFibGVQcm9kdWN0b3NTZWxlY2Npb25hZG9zUGVkaWRvQ2xpZW50ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Home/CambioPasswordMenu.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Home/CambioPasswordMenu.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDYW1iaW9QYXNzd29yZE1lbnUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Home/Index.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Home/Privacy.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Login/CambioContrasenaEmail.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Login/CambioContrasenaEmail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cQ2FtYmlvQ29udHJhc2VuYUVtYWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Login/CambioContrasenaPass.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Login/CambioContrasenaPass.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cQ2FtYmlvQ29udHJhc2VuYVBhc3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Login/Index.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Login/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Shared/Error.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Shared/_LayoutB.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Shared/_LayoutB.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRCLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Shared/_LayoutC.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Shared/_LayoutC.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRDLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/_ViewImports.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/_ViewStart.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DevOps/E-SalesNewVersion/WEB/Portal-MovilEsales/Views/Shared/_Layout.cshtml]
+[D:/santy/KRUGER/CLIENTES/New folder/Portal-MovilEsales/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-bsy1lpr36d
