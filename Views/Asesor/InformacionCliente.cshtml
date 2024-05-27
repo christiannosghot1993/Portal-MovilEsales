@@ -15,7 +15,7 @@
                     </div>
                     <div class="col-6 d-flex justify-content-end">
                         <div class=" car-sap-code-container">
-                            <h3 class="card-sap-code-label">CODIGO SAPB.</h3>
+                            <h3 class="card-sap-code-label">CODIGO SAP</h3>
                             <label>@Model.codigoSAP</label>
                         </div>
                     </div>
@@ -117,26 +117,35 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var item in Model.listadoFacturas)
+                            @if (Model.listadoFacturas != null)
+                            {
+                                @foreach (var item in Model.listadoFacturas)
+                                {
+                                    <tr>
+                                        <td class="text-wrapper">@item.numeroFactura</td>
+                                        <td class="text-wrapper-2">@item.monto</td>
+                                        <td class="text-wrapper-2">@item.fechaVencimiento.ToString("dd/MM/yyyy")</td>
+                                        <td class="element">&nbsp;&nbsp; @item.diasMora</td>
+                                        <td class="ver-orden">
+                                            <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g id="fi-rs-notebook" clip-path="url(#clip0_947_6358)">
+                                                    <path id="Vector" d="M14.25 2V0.5H12.75V2H11.25V0.5H9.75V2H8.25V0.5H6.75V2H5.25V0.5H3.75V2H2.25V16.25C2.25 16.8467 2.48705 17.419 2.90901 17.841C3.33097 18.2629 3.90326 18.5 4.5 18.5H13.5C14.0967 18.5 14.669 18.2629 15.091 17.841C15.5129 17.419 15.75 16.8467 15.75 16.25V2H14.25ZM14.25 16.25C14.25 16.4489 14.171 16.6397 14.0303 16.7803C13.8897 16.921 13.6989 17 13.5 17H4.5C4.30109 17 4.11032 16.921 3.96967 16.7803C3.82902 16.6397 3.75 16.4489 3.75 16.25V3.5H14.25V16.25ZM12.75 7.25H5.25V5.75H12.75V7.25ZM12.75 10.25H5.25V8.75H12.75V10.25ZM9.75 13.25H5.25V11.75H9.75V13.25Z" fill="#01ADEF" />
+                                                </g>
+                                                <defs>
+                                                    <clipPath id="clip0_947_6358">
+                                                        <rect width="18" height="18" fill="white" transform="translate(0 0.5)" />
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                            else
                             {
                                 <tr>
-                                    <td class="text-wrapper">@item.numeroFactura</td>
-                                    <td class="text-wrapper-2">@item.monto</td>
-                                    <td class="text-wrapper-2">@item.fechaVencimiento.ToString("dd/MM/yyyy")</td>
-                                    <td class="element">&nbsp;&nbsp; @item.diasMora</td>
-                                    <td class="ver-orden">
-                                        <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <g id="fi-rs-notebook" clip-path="url(#clip0_947_6358)">
-                                                <path id="Vector" d="M14.25 2V0.5H12.75V2H11.25V0.5H9.75V2H8.25V0.5H6.75V2H5.25V0.5H3.75V2H2.25V16.25C2.25 16.8467 2.48705 17.419 2.90901 17.841C3.33097 18.2629 3.90326 18.5 4.5 18.5H13.5C14.0967 18.5 14.669 18.2629 15.091 17.841C15.5129 17.419 15.75 16.8467 15.75 16.25V2H14.25ZM14.25 16.25C14.25 16.4489 14.171 16.6397 14.0303 16.7803C13.8897 16.921 13.6989 17 13.5 17H4.5C4.30109 17 4.11032 16.921 3.96967 16.7803C3.82902 16.6397 3.75 16.4489 3.75 16.25V3.5H14.25V16.25ZM12.75 7.25H5.25V5.75H12.75V7.25ZM12.75 10.25H5.25V8.75H12.75V10.25ZM9.75 13.25H5.25V11.75H9.75V13.25Z" fill="#01ADEF" />
-                                            </g>
-                                            <defs>
-                                                <clipPath id="clip0_947_6358">
-                                                    <rect width="18" height="18" fill="white" transform="translate(0 0.5)" />
-                                                </clipPath>
-                                            </defs>
-                                        </svg>
-
-                                    </td>
+                                    <td colspan="5">No hay facturas disponibles.</td>
                                 </tr>
                             }
                         </tbody>
@@ -277,34 +286,44 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach (var item in Model.listadoPedidos)
+                                    @if (Model.listadoPedidos != null)
+                                    {
+                                        @foreach (var item in Model.listadoPedidos)
+                                        {
+                                            <tr>
+                                                <td>@item.numeroPedido</td>
+                                                <td>@item.estado</td>
+                                                <td>@item.observacion</td>
+                                                <td>@item.responsableAprobacion</td>
+                                                <td>
+                                                    <a asp-controller="Asesor" asp-action="BuscarPedido" asp-route-numeroOrden="@item.numeroPedido" asp-route-codigoSAPCliente="@Model.codigoSAP">
+                                                        <svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <g id="01 align center">
+                                                                <path id="Vector" d="M15.5 3.10875L12.4895 0H6.5C5.90326 0 5.33097 0.237053 4.90901 0.65901C4.48705 1.08097 4.25 1.65326 4.25 2.25V3H2.75C2.15326 3 1.58097 3.23705 1.15901 3.65901C0.737053 4.08097 0.5 4.65326 0.5 5.25V18H12.5V14.25H15.5V3.10875ZM11 16.5H2V5.25C2 5.05109 2.07902 4.86032 2.21967 4.71967C2.36032 4.57902 2.55109 4.5 2.75 4.5H4.25V14.25H11V16.5ZM5.75 12.75V2.25C5.75 2.05109 5.82902 1.86032 5.96967 1.71967C6.11032 1.57902 6.30109 1.5 6.5 1.5H11V4.5H14V12.75H5.75Z" fill="#01ADEF" />
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a onclick="abrirModal('@Url.Action("CargarInformacionModalPedidoAprobado", "Asesor", new { numeroPedido = item.numeroPedido })')">
+                                                        <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <g id="&#240;&#159;&#166;&#134; icon &#34;search&#34;">
+                                                                <path id="Vector" d="M7.6667 14.833C11.3486 14.833 14.3334 11.8483 14.3334 8.16652C14.3334 4.4847 11.3486 1.5 7.6667 1.5C3.98478 1.5 1 4.4847 1 8.16652C1 11.8483 3.98478 14.833 7.6667 14.833Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                                <path id="Vector_2" d="M16 16.4999L12.375 12.875" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                    else
                                     {
                                         <tr>
-                                            <td>@item.numeroPedido</td>
-                                            <td>@item.estado</td>
-                                            <td>@item.observacion</td>
-                                            <td>@item.responsableAprobacion</td>
-                                            <td>
-                                                <a asp-controller="Asesor" asp-action="BuscarPedido" asp-route-numeroOrden="@item.numeroPedido" asp-route-codigoSAPCliente="@Model.codigoSAP">
-                                                    <svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <g id="01 align center">
-                                                            <path id="Vector" d="M15.5 3.10875L12.4895 0H6.5C5.90326 0 5.33097 0.237053 4.90901 0.65901C4.48705 1.08097 4.25 1.65326 4.25 2.25V3H2.75C2.15326 3 1.58097 3.23705 1.15901 3.65901C0.737053 4.08097 0.5 4.65326 0.5 5.25V18H12.5V14.25H15.5V3.10875ZM11 16.5H2V5.25C2 5.05109 2.07902 4.86032 2.21967 4.71967C2.36032 4.57902 2.55109 4.5 2.75 4.5H4.25V14.25H11V16.5ZM5.75 12.75V2.25C5.75 2.05109 5.82902 1.86032 5.96967 1.71967C6.11032 1.57902 6.30109 1.5 6.5 1.5H11V4.5H14V12.75H5.75Z" fill="#01ADEF" />
-                                                        </g>
-                                                    </svg>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a onclick="abrirModal('@Url.Action("CargarInformacionModalPedidoAprobado", "Asesor", new { numeroPedido = item.numeroPedido })')">
-                                                    <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <g id="&#240;&#159;&#166;&#134; icon &#34;search&#34;">
-                                                            <path id="Vector" d="M7.6667 14.833C11.3486 14.833 14.3334 11.8483 14.3334 8.16652C14.3334 4.4847 11.3486 1.5 7.6667 1.5C3.98478 1.5 1 4.4847 1 8.16652C1 11.8483 3.98478 14.833 7.6667 14.833Z" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                                            <path id="Vector_2" d="M16 16.4999L12.375 12.875" stroke="#01ADEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                                        </g>
-                                                    </svg>
-                                                </a>
-                                            </td>
+                                            <td colspan="5">No hay pedidos disponibles.</td>
                                         </tr>
                                     }
+
                                 </tbody>
                             </table>
                         </div>
